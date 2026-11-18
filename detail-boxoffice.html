@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>10월 5주차 위클리 박스오피스 | 웹진 한국영화</title>
+    <meta name="description" content="2026년 10월 5주차 극장가 흥행 TOP10 및 최근 4주간 한국영화 점유율 분석.">
+
+    <link rel="preload" href="./assets/fonts/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/GmarketSansMedium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/images/boxoffice1005_00.webp" type="image/webp" media="(min-width: 781px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./assets/images/boxoffice1005_00m.webp" type="image/webp" media="(max-width: 780px)" fetchpriority="high">
+
+    <link href="./assets/css/normalize.css" rel="stylesheet">
+    <link href="./assets/css/nice-select.css" rel="stylesheet">
+    <link href="./assets/css/slick.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <link href="./assets/css/styles-old.css" rel="stylesheet">
+    <link href="./assets/css/sub_24css.css" rel="stylesheet">
+
+    <style>
+        .common-table-2 table { border-collapse: separate; border-spacing: 0; width: 100%; }
+        .common-table-2 table th, .common-table-2 table td { white-space: normal; padding: 0.8vw 0.5vw; }
+        .common-table-2 .table-wrap { overflow: auto; max-inline-size: 100%; container-type: inline-size; }
+        .common-table-2 thead { position: sticky; inset-block-start: 0; z-index: 2; }
+        .common-table-2 thead tr:first-child th:first-child { position: sticky; inset-inline-start: 0; z-index: 3; background: inherit; }
+        .common-table-2 tbody th { position: sticky; inset-inline-start: 0; z-index: 1; background: #fff; font-weight: 700; }
+        .common-link-list { margin: 40px auto 0; text-align: center; display: flex; flex-direction: column; max-width: 600px; width: 100%; }
+        .view-checked .common-title-3 { font-size: 25px; }
+        .view-checked .common-list-3 .title { font-size: 20px; }
+        .view-checked .common-list-3 .text { font-size: 18px; line-height: 28px; }
+        .view-checked .common-table-2 table th, .view-checked .common-table-2 table td { font-size: 20px; }
+        @media screen and (min-width: 781px) and (max-width: 1919px) {
+            .common-table-2 table th, .common-table-2 table td { font-size: 14px; }
+            .view-checked .common-title-3 { font-size: 23px; }
+            .view-checked .common-list-3 .title { font-size: 18px; }
+            .view-checked .common-list-3 .text { font-size: 16px; line-height: 28px; }
+            .view-checked .common-table-2 table th, .view-checked .common-table-2 table td { font-size: 18px; }
+        }
+        @media screen and (max-width: 780px) {
+            .common-table-2 table th, .common-table-2 table td { white-space: nowrap; padding: 10px 14px; font-size: 14px; }
+            .common-table-2 .table-wrap { overflow-x: auto; max-block-size: 320px; }
+            .common-link-list { margin: 40px auto 0; width: 100%; }
+            .view-checked .common-title-3 { font-size: 20px; }
+            .view-checked .common-list-3 .title { font-size: 16px; }
+            .view-checked .common-list-3 .text { font-size: 14px; line-height: 20px; }
+            .view-checked .common-table-2 table th, .view-checked .common-table-2 table td { font-size: 16px; }
+        }
+    </style>
+
+    <script defer src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script defer src="./assets/js/jquery.nice-select.min.js"></script>
+    <script defer src="./assets/js/slick.min.js"></script>
+    <script defer src="./assets/js/lenis.min.js"></script>
+    <script defer src="./assets/js/CustomEase.min.js"></script>
+    <script defer src="./assets/js/gsap.3.12.2.min.js"></script>
+    <script defer src="./assets/js/ScrollTrigger.3.12.7.min.js"></script>
+    <script defer src="./assets/js/ScrollToPlugin.3.12.7.min.js"></script>
+    <script defer src="./assets/js/cosmosfarm-share-buttons.js"></script>
+    <script defer src="./assets/js/ui.common.js"></script>
+    <script defer src="./assets/js/ui.common.old.js"></script>
+</head>
+<body>
+    <header class="header" data-lenis-prevent>
+        <div class="content-container">
+            <a href="./index.html" class="header-logo m-only">
+                <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+            </a>
+            <div class="header-util">
+                <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                    <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25">
+                </a>
+                <div class="search-box">
+                    <input type="text" class="stxt" aria-label="검색어 입력">
+                    <button type="button" class="sch" aria-label="검색">
+                        <img src="./assets/images/icon-search.webp" alt="" width="21" height="21">
+                    </button>
+                </div>
+                <button class="btn-folder" type="button">
+                    지난호 보기
+                    <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18">
+                </button>
+                <button type="button" class="btn-full-menu">
+                    2026년 10월
+                    <img src="./assets/images/icon-menu.webp" alt="전체 메뉴 열기" width="23" height="16">
+                </button>
+            </div>
+            <div class="inner">
+                <a href="./index.html" class="header-logo">
+                    <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+                </a>
+                <nav class="header-nav" aria-label="주요 섹션 메뉴">
+                    <div class="header-depth1">
+                        <a href="./list.html?section=SPECIAL" class="header-depth1-link">SPECIAL</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PEOPLE" class="header-depth1-link">PEOPLE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=READING" class="header-depth1-link">READING</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=GLOBAL" class="header-depth1-link">GLOBAL</a>
+                        <div class="header-depth2">
+                            <a href="./list.html?section=GLOBAL" class="header-depth2-link">GLOBAL</a>
+                            <a href="./list.html?section=GLOBAL(ENG)" class="header-depth2-link">GLOBAL(ENG)</a>
+                        </div>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=KOFIC%20STORY" class="header-depth1-link">KOFIC STORY</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=BOX%20OFFICE" class="header-depth1-link">BOX OFFICE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PRODUCTION" class="header-depth1-link">PRODUCTION</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="sub-visual pc-only" style="background-image: url('./assets/images/boxoffice1005_00.webp')"></div>
+    <div class="sub-visual m-only" style="background-image: url('./assets/images/boxoffice1005_00m.webp')"></div>
+    <div class="sub-view-content">
+        <span class="bg" tabindex="-1"></span>
+        <div class="sub-view-content-inner">
+            <div class="max-container">
+                <div class="content-container">
+                    <div class="sub-visual-text-wrap">
+                        <div class="checkbox-wrap">
+                            <label for="viewCheck">
+                                <input type="checkbox" id="viewCheck"> <span>큰 글씨 보기</span>
+                            </label>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="badge">BOX OFFICE</span>
+                        </div>
+                        <p class="title">주간 박스오피스 </p>
+                    <p class="sub-title">10월 5주차 위클리 박스오피스 </p>
+
+                        <div class="detail">
+                            <p class="date">2026-11-03</p>
+                            <p class="write">
+                                <span>글 _ 김선아(한경매거진앤북 기자)</span>
+                            </p>
+                            <button type="button" class="btn-page-share">
+                                공유하기
+                                <img src="./assets/images/icon-share-2.webp" alt="" width="28" height="29">
+                            </button>
+
+                            <div id="detailSharePopup" class="share-popup">
+<button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container-1">
+                <div class="sub-summation">
+                    <p class="title">
+                        
+                    </p>
+                    <ul>
+                        <li>
+                            <span style="margin-right: 0.4em;"><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 〈극장판 치이카와〉 장기 흥행 속 1위, 신작 가세한 10월 5주차 극장가</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 한국영화 〈여전히 찬란하게〉 2주 연속 1위, 꾸준한 발걸음 이어간 독립·예술영화</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 관객 수 114만 명으로 정체세 지속, 외국영화 점유율 70.2%로 3주 연속 우세</p>
+                        </li>
+                    </ul>
+                </div>
+
+               
+
+                <p class="n-common-text-1 mt-60">
+10월 5주차 극장가는 일본 애니메이션 〈극장판 치이카와: 인어 섬의 비밀〉이 장기 흥행 속에서 정상을 지킨 가운데, 미국 생존 어드벤처 신작과 한국 코미디 신작이 새롭게 상위권에 진입하며 다채로운 흥행 구도를 형성한 한 주였다. <br> <br>
+1위는 꾸준한 흥행 저력을 과시하며 정상 자리를 지킨 일본 애니메이션 영화 〈극장판 치이카와: 인어 섬의 비밀〉이다. 보수 100배의 달콤한 유혹에 빠져 미지의 섬으로 떠난 치이카와 일행이 그곳에 숨겨진 비밀을 파헤치는 수상한 토벌 미션을 그렸다. 이번 주 34만 명의 관객, 34억 원의 매출을 기록했으며, 누적 관객 수는 258만 명이다. <br> <br>
+2위는 10월 28일 개봉한 〈하트 오브 비스트〉다. 비행기 추락 사고로 알래스카 오지에 고립된 전직 육군 특수부대원 ‘제임스’(브래드 피트)와 그의 은퇴한 군견 ‘오딘’이 매 순간 닥쳐오는 죽음의 위협 속에서 오직 서로에게만 의지한 채 처절한 사투를 벌이는 극한 생존 드라마이다. 개봉 첫 주 21만 명의 관객과 21억 원의 매출을 기록했다. <br> <br>
+3위는 한국 정치 스릴러 영화 〈암살자(들)〉이다. 1974년 8월 15일, 대한민국을 충격에 빠뜨린 영부인 저격 사건의 의혹과 배후를 영화적 상상으로 추적하는 이야기다. 이번 주 7만 명의 관객을 모으며 7억 원의 매출을 올렸으며, 누적 관객 수는 345만 명이다. <br> <br>
+4위는 10월 28일 개봉한 한국 코미디 영화 〈수능, 출제의 비밀〉이다. 행정 착오로 2급 국가기밀인 수능 출제위원단에 엉겁결에 합류하게 된 시골학교 신출내기 국어교사 ‘맹보람’(이선빈)이 오탈자도 시비도 없는 ‘문제없는 문제’를 만들어내기 위해 좌충우돌하는 내용을 담았다. 개봉 첫 주 7만 명의 관객과 6억 원의 매출을 기록했다. <br> <br>
+5위는 〈타짜: 벨제붑의 노래〉다. 온라인 카지노 사업으로 세상을 다 가진 줄 알았던 남자 장태영(변요한)과 그의 모든 것을 빼앗은 같은 이름의 절친 박태영(노재원)이 글로벌 도박판에서 다시 만나 복수의 한 판을 벌이게 되는 내용이다. 이번 주 6만 명의 관객, 6억 원의 매출을 기록했으며, 누적 관객 수는 206만 명이다.
+
+       </p>
+				
+		<p class="common-title-3">
+			10월 5주차 흥행 TOP10
+		</p>
+		<div class="common-list-3">
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_01.webp" alt="boxoffice1005_01" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				극장판 치이카와: 인어 섬의 비밀
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-09-30<br>
+					<b>매출액</b> 34억 원<br>
+					<b>관객수</b> 34만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_02.webp" alt="boxoffice1005_02" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				하트 오브 비스트
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-28<br>
+					<b>매출액</b> 21억 원<br>
+					<b>관객수</b> 21만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_03.webp" alt="boxoffice1005_03" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				암살자(들)
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-09-23<br>
+					<b>매출액</b> 7억 원<br>
+					<b>관객수</b> 7만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_04.webp" alt="boxoffice1005_04" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+			    수능, 출제의 비밀
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-28<br>
+					<b>매출액</b> 6억 원<br>
+					<b>관객수</b> 7만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_05.webp" alt="boxoffice1005_05" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				타짜: 벨제붑의 노래
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-09-23<br>
+					<b>매출액</b> 6억 원<br>
+					<b>관객수</b> 6만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_06.webp" alt="boxoffice1005_06" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				실낙원
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-21<br>
+					<b>매출액</b> 4억 원<br>
+					<b>관객수</b> 5만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_07.webp" alt="boxoffice1005_07" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				클레이페이스
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-21<br>
+					<b>매출액</b> 4억 원<br>
+					<b>관객수</b> 4만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_08.webp" alt="boxoffice1005_08" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				오디세이
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-08-05<br>
+					<b>매출액</b> 3억 원<br>
+					<b>관객수</b> 2만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_09.webp" alt="boxoffice1005_09" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+				여전히 찬란하게
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-21<br>
+					<b>매출액</b> 2억 원<br>
+					<b>관객수</b> 2만 명
+				</p>
+			</div>
+			<div class="item">
+				<div class="image">
+					<img src="./assets/images/boxoffice1005_10.webp" alt="boxoffice1005_10" width="183" height="262" loading="lazy">
+				</div>
+				<p class="title">
+			     룩백
+				</p>
+				<p class="text">
+					<b>개봉일</b> 2026-10-08<br>
+					<b>매출액</b> 2억 원<br>
+					<b>관객수</b> 2만 명
+				</p>
+			</div>
+			
+		</div>
+		
+			 <p class="n-common-text-1 mt-60">
+10월 5주차 독립·예술영화 극장가는 한국, 일본, 호주, 이탈리아 등 다양한 국적의 작품들이 순위권을 형성한 가운데, 기존 상영작들의 꾸준한 관객 몰이와 이탈리아 다큐멘터리 신작의 차트 진입이 어우러진 한 주였다. <br><br>
+1위는 2주 연속 정상 자리를 지킨 한국영화 〈여전히 찬란하게〉다. 송일곤 감독의 신작이자 김혜자 주연으로, 인생에서 가장 빛났던 시절을 함께 보낸 두 소녀의 약속과 60년 만에 다시 마주하게 된 특별한 재회의 여정을 그렸다. 이번 주 2만 명의 관객, 1억 7천만 원의 매출을 기록했으며, 누적 관객 수는 6만 2천 명이다. <br><br>
+2위는 일본영화 〈룩백〉으로, 잊지 못할 사계절을 함께 그리며 서로의 세상이 되어준 두 소녀의 애틋한 이야기를 그렸다. &lt;어느 가족&gt; 고레에다 히로카즈 감독이 후지모토 타츠키의 만화를 원작으로 한 동명 애니메이션을 실사화 했고, 이번 주 1만 8천 명의 관객, 1억 9천만 원의 매출을 올렸다. 누적 관객 수는 14만 9천 명이다. <br><br>
+3위는 류혜영, 남윤수 주연의 한국 스릴러 영화 〈킬링타임〉이다. 한순간의 사고로 모든 것을 잃은 인터넷 방송 크루 ‘킬링타임’이 재기를 위해 찾은 폐병원에서 의문의 존재에게 습격당하고, 무자비한 공격으로부터 살아남기 위해 펼치는 내용을 담았다. 누적 관객 수는 2만 7천 명이다. <br><br>
+4위는 호주 오컬트 호러 영화 〈레위기〉다. 가장 사랑하는 사람의 얼굴을 한 괴물로부터 도망쳐야만 하는 두 소년의 이야기로, 금기시된 욕망이 끔찍한 저주가 되는 공포가 독창적이라는 국내외 평단의 호평을 받았다. 누적 관객 수는 1만 8천 명이다. <br><br>
+5위는 10월 28일 개봉한 이탈리아영화 〈브루넬로: 우아한 선구자〉다. &lt;시네마 천국&gt; 쥬세페 토르나토레 감독의 신작으로, 럭셔리 브랜드 '브루넬로 쿠치넬리'의 창업자 브루넬로 쿠치넬리의 실화를 바탕으로 한 작품이다. 자연을 사랑하던 소년이 부당한 노동 현실을 마주한 후 인간 존엄과 휴머니즘 경영 철학을 바탕으로 패션 제국을 일구어가는 위대한 여정을 다뤘다. 
+
+                </p>	
+				
+    <p class="common-title-3">
+			10월 5주차 독립·예술영화 흥행 TOP10
+			</p>
+			<div class="common-list-3">
+			<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_11.webp" alt="boxoffice1005_11" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					여전히 찬란하게
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-21<br>
+						<b>매출액</b> 171백만 원<br>
+						<b>관객수</b> 20천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_12.webp" alt="boxoffice1005_12" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					룩백
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-08<br>
+						<b>매출액</b> 187백만 원<br>
+						<b>관객수</b> 18천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_13.webp" alt="boxoffice1005_13" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					킬링타임
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-21<br>
+						<b>매출액</b> 72백만 원<br>
+						<b>관객수</b> 8천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_14.webp" alt="boxoffice1005_14" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					레위기
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-21<br>
+						<b>매출액</b> 68백만 원<br>
+						<b>관객수</b> 7천 명
+					</p>
+				</div>
+						<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_15.webp" alt="boxoffice1005_15" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+				     브루넬로: 우아한 선구자
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-28<br>
+						<b>매출액</b> 37백만 원<br>
+						<b>관객수</b> 4천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_16.webp" alt="boxoffice1005_16" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					흐르는 여정
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-28<br>
+						<b>매출액</b> 20백만 원<br>
+						<b>관객수</b> 2천 명
+					</p>
+				</div>
+		        <div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_17.webp" alt="boxoffice1005_17" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					눈 둘 데가 없네
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-21<br>
+						<b>매출액</b> 17백만 원<br>
+						<b>관객수</b> 2천 명
+					</p>
+				</div>
+		
+						<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_18.webp" alt="boxoffice1005_18" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					가족여행
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-09-30<br>
+						<b>매출액</b> 10백만 원<br>
+						<b>관객수</b> 1천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_19.webp" alt="boxoffice1005_19" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+				    침묵의 빛
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-10-14<br>
+						<b>매출액</b> 13백만 원<br>
+						<b>관객수</b> 1천 명
+					</p>
+				</div>
+				<div class="item">
+					<div class="image">
+						<img src="./assets/images/boxoffice1005_20.webp" alt="boxoffice1005_20" width="183" height="262" loading="lazy">
+					</div>
+					<p class="title">
+					이방인
+					</p>
+					<p class="text">
+						<b>개봉일</b> 2026-09-30<br>
+						<b>매출액</b> 11백만 원<br>
+						<b>관객수</b> 1천 명
+					</p>
+				</div>
+		
+			
+				
+			</div>
+		 <p class="n-common-text-1 mt-60">
+2026년 10월 5주차 극장가는 관객 수와 매출액이 전주와 비슷한 수준을 유지하며 비수기 정체 흐름을 이어갔다. 극장 전체 관객 수는 114만 명, 매출액은 115억 원으로, 전주(10월 4주차) 114만 명, 116억 원 대비 관객 수는 유지하면서 매출액은 1억 원 줄어들었다. <br><br>
+개봉 편수는 총 40편으로 전주(21편) 대비 19편이나 대폭 늘어난 가운데, 외국영화가 신작 진입과 기존 상영작의 흥행에 힘입어 3주 연속 시장 우위를 점했다. 외국영화는 총 25편이 상영되어 80만 명의 관객을 동원하고 82억 원의 매출을 올렸다. 이번 주 한국영화 관객 수와 비교하면 약 2.4배 많은 수치다. 전주(70만 명, 72억 원) 대비 관객 수와 매출액이 각각 10만 명, 10억 원 증가하면서, 외국영화 점유율(관객 수 기준)은 전주(60.9%) 대비 9.3%p 상승한 70.2%를 기록했다. <br><br>
+반면 한국영화는 개봉 편수 확대에도 불구하고 신작 흥행 부진으로 점유율이 20%대로 떨어졌다. 한국영화는 15편이 상영되어 34만 명의 관객을 모으며 33억 원의 매출을 올리는 데 그쳤다. 전주(45만 명, 44억 원) 대비 관객 수와 매출액이 각각 11만 명, 11억 원 줄어들면서, 한국영화 점유율은 전주(39.1%) 대비 9.3%p 하락한 29.8%를 나타냈다. <br><br>
+최근 4주간의 전체적인 추이를 살펴보면 극장가는 10월 2주차 193만 명, 10월 3주차 142만 명으로 급감한 이후, 10월 4주차 114만 명, 10월 5주차 114만 명을 기록하며 비수기 하단에서 정체되는 양상을 보였다. <br><br>
+점유율 측면에서는 외국영화의 독주 체제가 더욱 강화되었다. 10월 2주차까지 50%대를 지키던 한국영화 점유율은 10월 3주차 37.9%, 10월 4주차 39.1%에 이어 이번 주 29.8%까지 크게 후퇴했고, 외국영화 점유율이 70.2%까지 치솟으며 3주 연속 극장가를 주도했다.
+
+			</p>
+	
+		<p class="common-title-3" id="boxoffice-table-caption">
+			최근 4주간 극장 매출 및 한국영화 점유율 <span style="color: #000; font-size: 14px; font-weight: 500;">(2026년 11월 2일 조회 기준)</span>
+		</p>
+		<div class="common-table-2">
+			<div class="table-wrap" tabindex="0" role="region" aria-labelledby="boxoffice-table-caption">
+				<table>
+				 
+				<thead>
+				<tr>
+					<th rowspan="2">
+						기간
+					</th>
+					<th colspan="3">
+						전체
+					</th>
+					<th colspan="4">
+						한국
+					</th>
+					<th colspan="4">
+						외국
+					</th>
+				</tr>
+				<tr>
+					<th>
+						개봉편수
+					</th>
+					<th>
+						매출액(억 원)
+					</th>
+					<th>
+						관객수(만 명)
+					</th>
+					<th>
+						개봉편수
+					</th>
+					<th>
+						매출액
+					</th>
+					<th>
+						관객수
+					</th>
+					<th>
+						점유율
+					</th>
+					<th>
+						개봉편수
+					</th>
+					<th>
+						매출액
+					</th>
+					<th>
+						관객수
+					</th>
+					<th>
+						점유율
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+<th scope="row">10월 5주차</th>
+					<td>40</td><td>115</td><td>114</td><td>15</td><td>33</td><td>34</td><td>29.8%</td><td>25</td><td>82</td><td>80</td><td>70.2%</td>
+				</tr>
+				<tr>
+<th scope="row">10월 4주차</th>
+					<td>21</td><td>116</td><td>114</td><td>12</td><td>44</td><td>45</td><td>39.1%</td><td>9</td><td>72</td><td>70</td><td>60.9%</td>
+				</tr>
+				<tr>
+<th scope="row">10월 3주차</th>
+					<td>13</td><td>146</td><td>142</td><td>4</td><td>53</td><td>54</td><td>37.9%</td><td>9</td><td>93</td><td>88</td><td>62.1%</td>
+				</tr>
+				<tr>
+<th scope="row">10월 2주차</th>
+					<td>17</td><td>201</td><td>193</td><td>7</td><td>99</td><td>198</td><td>51.1%</td><td>10</td><td>102</td><td>94</td><td>48.9%</td>
+				</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="common-link-list">
+			<a href="./list.html?section=BOX%20OFFICE" class="common-link-1">월간·상반기·연말 결산 보고서 <span>&gt;&gt;</span></a>
+			<a href="./detail-boxoffice.html" class="common-link-1">10월4주차 위클리 박스오피스 <span>&gt;&gt;</span></a>
+			<a href="./detail-boxoffice.html" class="common-link-1">10월3주차 위클리 박스오피스 <span>&gt;&gt;</span></a>
+			<a href="./detail-boxoffice.html" class="common-link-1">10월2주차 위클리 박스오피스 <span>&gt;&gt;</span></a>
+		</div>
+
+
+               <button type="button" class="btn-page-back" >뒤로 가기</button>
+
+
+                <div class="common-tag-list">
+                   <span>박스오피스</span>
+		<span>위클리박스오피스</span>
+		<span>주간흥행</span>
+		<span>10월5주차</span>
+		<span>영화순위</span>
+
+                </div>
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="./assets/images/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="./assets/images/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="./assets/images/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+                    </div>
+
+       
+	   
+	  
+	   
+	   
+	   
+	   
+
+            <div class="line-1"></div>
+            <div class="content-container">
+                <div class="common-page-list">
+                    <a href="./list.html?section=BOX%20OFFICE" class="link-list">목록으로</a>
+
+                    <p class="n-common-title-1">관련기사</p>
+
+                    <div class="list">
+					    <div class="item">
+                             <a href="./detail.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_001.webp" srcset="./assets/images/boxoffice1005_001-300w.webp 300w, ./assets/images/boxoffice1005_001.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="boxoffice1005_001" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">SPECIAL ①</p>
+                                <p class="text-2">스케일 줄이고 체험감 높였다</p>
+                                <p class="text-3">초밀착 고밀도 장르영화 생존 공식</p>
+                            </a>
+                        </div>
+						<div class="item">
+                             <a href="./detail.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_002.webp" srcset="./assets/images/boxoffice1005_002-300w.webp 300w, ./assets/images/boxoffice1005_002.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="boxoffice1005_002" width="457" height="635" loading="lazy"></div>
+                                 <p class="text-1">PEOPLE ②</p>
+                                <p class="text-2">그날의 진실을 찾아 나서다</p>
+                                <p class="text-3">&lt;암살자(들)&gt; 허진호 감독</p>
+                            </a>
+                        </div>
+						<div class="item">
+                           <a href="./detail-yesno.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_003.webp" srcset="./assets/images/boxoffice1005_003-300w.webp 300w, ./assets/images/boxoffice1005_003.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="boxoffice1005_003" width="457" height="635" loading="lazy"></div>
+                                 <p class="text-1">READING ② - YES or NO</p>
+                                <p class="text-2">돈이 더 이상 쾌락을 주지 않는</p>
+                                <p class="text-3">&lt;타짜: 벨제붑의 노래&gt;</p>
+                            </a>
+                        </div>
+						
+                        <div class="item">
+                               <a href="./detail.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_004.webp" srcset="./assets/images/boxoffice1005_004-300w.webp 300w, ./assets/images/boxoffice1005_004.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="boxoffice1005_004" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">SPECIAL ②</p>
+                                <p class="text-2">놀라운 반전, 확실한 회복으로 나아가기를</p>
+                                <p class="text-3">2026년 상반기 한국 영화산업 결산 및 하반기 라인업</p>
+                            </a>
+                        </div>
+
+                        
+
+                       
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="image-view-layer">
+            <div class="image">
+                <div class="btn-group">
+                    <button type="button" class="btn-close" aria-label="확대 이미지 닫기">
+                        <img src="./assets/images/icon-close-white.webp" alt="" width="256" height="256" fetchpriority="low" loading="lazy">
+                    </button>
+                </div>
+                <img class="target-image" src="" alt="">
+            </div>
+        </div>
+        <div class="full-menu" style="display: none;">
+            <div class="full-menu-content">
+                <div class="content-container">
+                    <div class="full-menu-header">
+                        <a href="./index.html" class="logo">
+                            <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100" fetchpriority="low" loading="lazy">
+                        </a>
+                        <button type="button" class="btn-full-menu-close" aria-label="전체 메뉴 닫기">
+                            <img src="./assets/images/icon-full-menu-close.webp" alt="" width="80" height="80" fetchpriority="low" loading="lazy">
+                        </button>
+                    </div>
+                    <nav class="full-menu-nav" aria-label="2026년 10월호 전체 메뉴">
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=SPECIAL" class="full-menu-depth1-link is-active">SPECIAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=SPECIAL" class="full-menu-special-link"><strong><span>SPECIAL</span></strong></a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <p>새로운 영화·영상 제작 거점으로의 출발<br>부산기장촬영소를 가다</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>진실 기록 넘어 사회 변화로<br>한국형 ‘임팩트 다큐’ 생태계, 필요하다</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PEOPLE" class="full-menu-depth1-link">PEOPLE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PEOPLE" class="full-menu-special-link"><strong><span>PEOPLE</span></strong></a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <p>인간다움과 인간다운 죽음에 대하여<br>&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>엉뚱하지만 파괴적인<br>&lt;부활남: 더 레드&gt; 정성호 무술감독</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=READING" class="full-menu-depth1-link">READING</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=READING" class="full-menu-special-link"><strong><span>READING</span></strong></a>
+                                <a href="./detail-yesno.html" class="full-menu-depth2-link">
+                                    <p>미옥과 호석의 내일을 위한 시간<br>&lt;가능한 사랑&gt;</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-yesno.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>낙원 없이 살아가는 법<br>&lt;실낙원&gt; YES or NO</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=GLOBAL" class="full-menu-depth1-link">GLOBAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=GLOBAL" class="full-menu-special-link"><strong><span>GLOBAL</span></strong></a>
+                                <a href="./list.html?section=GLOBAL(ENG)" class="full-menu-special-link"><strong><span>GLOBAL(ENG)</span></strong></a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>도시 전체와 호흡하는 축제로<br>커뮤니티비프와 동네방네비프</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <p>A Festival in Step with an Entire City<br>Community BIFF and BIFF Everywhere</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=KOFIC%20STORY" class="full-menu-depth1-link">KOFIC STORY</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=KOFIC%20STORY" class="full-menu-special-link"><strong><span>KOFIC STORY</span></strong></a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>창작자, 어떤 판 위에서 놀게 할 것인가<br>2026 KOFIC AI 쇼케이스</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=BOX%20OFFICE" class="full-menu-depth1-link">BOX OFFICE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=BOX%20OFFICE" class="full-menu-special-link"><strong><span>BOX OFFICE</span></strong></a>
+                                <a href="./detail-boxoffice.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>주간 박스오피스<br>10월 5주차 위클리 박스오피스</p><br>
+                                    <p>2026-10-30</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PRODUCTION" class="full-menu-depth1-link no-child">PRODUCTION</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PRODUCTION" class="full-menu-special-link"><strong><span>PRODUCTION</span></strong></a>
+                                <a href="./detail-boxoffice.html" class="full-menu-depth2-link">
+                                    <p>한국영화 제작 현황<br>9월 개봉작 살펴보기 (2026. 9. 제작상황판)</p><br>
+                                    <p>2026-10-13</p>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="m-only">
+                        <div class="full-menu-util">
+                            <a href="./list.html" class="btn-instagram">
+                                인스타그램
+                                <img src="./assets/images/icon-instagram.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <a href="#reader" data-open-modal="reader" class="btn-talk">
+                                독자의견
+                                <img src="./assets/images/icon-talk.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <button class="btn-folder" type="button">
+                                지난호 보기
+                                <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18" fetchpriority="low" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" fetchpriority="low" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-menu">
+            <div class="quick-menu">
+                <p class="title js-m-quick-open">Quick Menu</p>
+                <div class="menu">
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-3-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>인스타<br class="m-only">그램</p>
+                    </a>
+                    <a href="#reader" data-open-modal="reader">
+                        <img src="./assets/images/img-quick-2-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>독자<br class="m-only">의견</p>
+                    </a>
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-30-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>뉴스레터 <br>신청</p>
+                    </a>
+                </div>
+            </div>
+            <button class="btn-page-top" type="button">
+                <img src="./assets/images/img-quick-top.webp" alt="" width="14" height="13" loading="lazy"> TOP
+            </button>
+        </div>
+
+        <div id="reader" class="modal-wrap" style="display: none;">
+            <div class="modal" style="padding: 2rem; width: 100%;">
+                <div class="modal-hd">
+                    <div class="title-wrap" style="text-align: left;">
+                        <h2>독자의견 보내기</h2>
+                        <p class="sub-title" style="margin-top: 10px;">여러분의 소중한 의견을 기다리고 있습니다.</p>
+                    </div>
+                    <button type="button" class="modal-close" data-close-modal="reader" aria-label="팝업 닫기"></button>
+                </div>
+                <div class="modal-bd">
+                    <div class="modal-cont">
+                        <div class="notice-content">
+                            <p class="common-text-1" style="margin-bottom: 20px;">
+                                <img src="./assets/images/popup0904.webp" alt="웹진 한국영화 독자의견 안내" width="800" height="700" fetchpriority="low" loading="lazy">
+                            </p>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="input-col">
+                                <label for="opinion1">의견내용</label>
+                                <div class="input-box">
+                                    <textarea name="opinion1" id="opinion1" class="scroll_box" placeholder="보내주실 의견을 편하게 입력해 주세요."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-ft">
+                    <a href="#none" class="btn-submit senSave" vo="M1">의견보내기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="max-container">
+            <div class="content-container">
+                <div class="footer-info">
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/footer-logo.webp" alt="한국영화" width="250" height="53" loading="lazy">
+                    </a>
+                    <div class="footer-util">
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/footer-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" loading="lazy">
+                        </a>
+                        <div class="search-box">
+                            <input type="text" class="stxt" aria-label="하단 검색어 입력">
+                            <button type="button" class="sch" aria-label="검색">
+                                <img src="./assets/images/icon-search.webp" alt="" width="21" height="21" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-instagram pc-only">
+                            인스타그램
+                            <img src="./assets/images/icon-instagram-w.webp" alt="" width="19" height="19" loading="lazy">
+                        </a>
+                        <a href="#reader" data-open-modal="reader" class="btn-talk pc-only">
+                            독자의견
+                            <img src="./assets/images/icon-talk-w.webp" alt="" width="21" height="21" loading="lazy">
+                        </a>
+                        <button class="btn-folder" type="button">
+                            지난호 보기
+                            <img src="./assets/images/icon-folder-w.webp" alt="" width="23" height="18" loading="lazy">
+                        </button>
+                        <button type="button" class="btn-full-menu">
+                            2026년 10월
+                            <img src="./assets/images/icon-menu-w.webp" alt="전체 메뉴 열기" width="23" height="16" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <div class="copyright">
+                        48058 부산광역시 해운대구 수영강변대로 130 (우동)<br>
+                        문의: kmovie@hankyung.com<br>
+                        Copyrights ⓒ 2026 BY KOFIC. All rights reserved.
+                    </div>
+                    <div class="detail">
+                        <div>
+                            발행인: 한상준<br>
+                            편집장: 김혜선<br>
+                            발간처: 영화진흥위원회 정책본부 정책개발팀
+                        </div>
+                        <div>
+                            기획편집: 박주영 이윤경<br>
+                            발행사: (주)한경매거진앤북<br>
+                            eISSN 3140-460X
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-10 pc-only" style="font-size: 16px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+                <p class="mt-10 m-only" style="font-size: 12px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
