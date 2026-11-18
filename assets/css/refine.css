@@ -1,0 +1,1525 @@
+/* ==========================================================================
+   웹진 <한국영화> 2027 시연 — 정제(refine) 레이어
+   원본 사이트의 구조·색·서체는 유지하고, 마감 품질과 화면 폭별 대응만 보정한다.
+   기존 CSS(styles / styles-old / sub_24css) 뒤에 로드해야 한다.
+   ========================================================================== */
+
+:root {
+    --rf-navy: #17173e;
+    --rf-orange: #f08300;
+    --rf-ink: #1a1a1f;
+    --rf-muted: #6b6b6b;
+    --rf-line: #e4e4e8;
+    --rf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 1. 한글 조판 기본기 ------------------------------------------------------ */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* 어절 단위 줄바꿈: 제목·요약이 글자 중간에서 끊기지 않게 */
+.main-visual .view-text .text,
+.m-main-visual-list .text,
+.main-section-1 .item .text-2,
+.main-section-1 .item .text-3,
+.main-section-2 strong,
+.main-section-2 .text,
+.n-common-title-1,
+.common-sub-title {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+:where(a, button, input, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--rf-orange);
+    outline-offset: 3px;
+}
+
+/* 2. 헤더: 스크롤 시 콘텐츠와 분리되는 얇은 경계 --------------------------- */
+.header {
+    box-shadow: 0 1px 0 var(--rf-line);
+}
+
+/* 3. 메인 비주얼(PC): 사진 위 글자 가독성 ---------------------------------- */
+/* 기존 진한 text-shadow 대신 좌하단 그라데이션으로 대비를 확보한다 */
+.main-visual {
+    overflow: hidden;
+}
+
+.main-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 85% 90% at 55% 45%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.38) 100%),
+        linear-gradient(0deg, rgba(10, 10, 30, 0.62) 0%, rgba(10, 10, 30, 0.18) 38%, rgba(10, 10, 30, 0) 60%),
+        linear-gradient(90deg, rgba(10, 10, 30, 0.38) 0%, rgba(10, 10, 30, 0) 50%);
+}
+
+.main-visual > .text-wrap {
+    z-index: 1;
+}
+
+.main-visual .view-text .text {
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.main-visual .view-text .text-1 {
+    letter-spacing: -0.02em;
+}
+
+.main-visual .view-text .text-2 {
+    letter-spacing: -0.01em;
+    opacity: 0.92;
+}
+
+/* 4. 섹션 제목: 얇은 상단 괘선으로 잡지식 구획 ------------------------------ */
+.content-container > .n-common-title-1,
+.latest-title-row {
+    border-top: 1px solid var(--rf-ink);
+    padding-top: 0.9em;
+}
+
+.n-common-title-1 {
+    letter-spacing: -0.01em;
+}
+
+.common-more {
+    transition: color 0.2s ease;
+}
+
+.common-more:hover {
+    color: var(--rf-orange);
+}
+
+/* 5. 기사 카드: 절제된 hover와 제목 정돈 ----------------------------------- */
+.main-section-1 .item .image {
+    overflow: hidden;
+    background: #f1f1f3;
+}
+
+.main-section-1 .item .image img {
+    display: block;
+    width: 100%;
+    transition: transform 0.8s var(--rf-ease);
+}
+
+.main-section-1 .item .text-2 {
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+}
+
+/* 요약 문구는 2줄까지만 노출해 카드 높이를 맞춘다 */
+.main-section-1 .item .text-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+@media (hover: hover) {
+    .main-section-1 .item a:hover .image img {
+        transform: scale(1.035);
+    }
+
+    .main-section-1 .item a:hover .text-2 {
+        color: var(--rf-navy);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+    }
+
+    .main-section-2 .left .detail .image a img,
+    .main-section-2 .right .detail img {
+        transition: transform 0.8s var(--rf-ease);
+    }
+}
+
+/* 6. 화면 폭별 보정 -------------------------------------------------------- */
+
+/* 태블릿·좁은 노트북(781~1199px): body zoom이 없고 글자가 vw로 축소되므로
+   최소 크기를 보장해 작은 글씨가 깨지지 않게 한다 */
+@media screen and (min-width: 781px) and (max-width: 1199px) {
+    .main-section-1 {
+        column-gap: 20px;
+    }
+
+    .main-section-1 .item .text-2 {
+        font-size: max(1.5vw, 15px);
+        line-height: 1.45;
+    }
+
+    .main-section-1 .item .text-3 {
+        font-size: max(1.15vw, 13px);
+        line-height: 1.5;
+    }
+
+    .common-more {
+        font-size: max(1.25vw, 13px);
+    }
+
+    .main-visual .view-text .text-1 {
+        font-size: max(2.6vw, 24px);
+        line-height: 1.3;
+    }
+
+    .main-visual .view-text .text-2 {
+        font-size: max(2.1vw, 19px);
+        line-height: 1.35;
+    }
+}
+
+/* 세로형 태블릿(781~1023px): 4열은 카드가 너무 좁아 2열로 재배치 */
+@media screen and (min-width: 781px) and (max-width: 1023px) {
+    .main-section-1 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 40px;
+    }
+
+    /* 제목이 좌우 두 개(PEOPLE | READING)인 블록은 열 우선으로 채워
+       각 섹션 기사가 자기 제목 아래에 오도록 한다 */
+    .latest-category-block .main-section-1 {
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+    }
+
+    .main-section-1 .item .text-2 {
+        font-size: 18px;
+    }
+
+    .main-section-1 .item .text-3 {
+        font-size: 14px;
+    }
+
+    .main-visual {
+        min-height: 62vw;
+    }
+}
+
+/* 초광폭(2200px 이상): 본문 폭을 묶어 시선 이동을 줄인다 */
+@media screen and (min-width: 2200px) {
+    .main-visual {
+        min-height: min(51.25vw, 1100px);
+    }
+}
+
+/* 모바일(780px 이하) */
+@media screen and (max-width: 780px) {
+    .content-container > .n-common-title-1,
+    .latest-title-row {
+        padding-top: 14px;
+    }
+
+    /* 메인 비주얼 번호 표시를 사진 위 우상단 흰 박스 → 반투명 칩으로 */
+    .m-main-visual-pagination {
+        top: 12px;
+        right: 12px;
+    }
+
+    .m-main-visual-pagination ul {
+        padding: 4px;
+        gap: 2px;
+        border-radius: 14px;
+        background-color: rgba(23, 23, 62, 0.55);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+    }
+
+    .m-main-visual-pagination li button {
+        width: 22px;
+        height: 22px;
+        padding: 0;
+        text-align: center;
+        line-height: 22px;
+        border-radius: 50%;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .m-main-visual-pagination li.slick-active button {
+        background: #fff;
+        color: var(--rf-navy);
+    }
+
+    /* 제목을 사진 위로: 글자가 놓이는 사진 아래쪽만 어둡게 그라데이션 */
+    .m-main-visual-list .text-wrap {
+        position: relative;
+        display: block;
+    }
+
+    .m-main-visual-list .text-wrap > .text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        padding: 96px 20px 24px;
+        background: linear-gradient(
+            180deg,
+            rgba(8, 8, 18, 0) 0%,
+            rgba(8, 8, 18, 0.55) 40%,
+            rgba(8, 8, 18, 0.88) 100%
+        );
+        color: #fff;
+    }
+
+    .m-main-visual-list .text-wrap > .text .text-1 {
+        color: #fff;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .m-main-visual-list .text-wrap > .text .text-2 {
+        color: rgba(255, 255, 255, 0.82);
+    }
+
+    .m-main-visual-list .image img {
+        display: block;
+        width: 100%;
+    }
+
+    /* 카드 캐러셀 화살표: 사진을 가리는 검정 사각형 → 작은 원형 버튼 */
+    .main-section-1 .slick-prev,
+    .main-section-1 .slick-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(23, 23, 62, 0.72);
+        background-size: 9px auto;
+    }
+
+    .main-section-1 .slick-prev {
+        left: 0;
+    }
+
+    .main-section-1 .slick-next {
+        right: 0 !important;
+    }
+
+    .main-section-1 .item .text-2 {
+        letter-spacing: -0.01em;
+    }
+}
+
+/* 8. 메인 비주얼 슬라이드 번호(PC): 회색 박스 → 진행 바가 있는 번호 표시 ------ */
+@media screen and (min-width: 781px) {
+    .main-visual-pagination ul {
+        padding: 0;
+        gap: 18px;
+        background: transparent;
+    }
+
+    .main-visual-pagination li {
+        position: relative;
+    }
+
+    .main-visual-pagination li button {
+        width: auto;
+        height: auto;
+        padding: 0 0 12px;
+        text-align: left;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.55);
+        font-family: 'gs', sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        transition: color 0.3s ease;
+    }
+
+    .main-visual-pagination li button::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 44px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .main-visual-pagination li.slick-active button {
+        background: transparent;
+        color: #fff;
+    }
+
+    /* 자동 넘김 간격(ui.common.js autoplaySpeed 5000ms)과 맞춘 진행 표시 */
+    .main-visual-pagination li.slick-active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 44px;
+        height: 2px;
+        background: var(--rf-orange);
+        transform-origin: left center;
+        animation: rf-hero-progress 5s linear both;
+    }
+
+    .main-visual-pagination li button:hover {
+        color: #fff;
+    }
+
+    .main-visual .view-text .text-1 {
+        font-weight: 800;
+    }
+
+    .main-visual .view-text .text-2 {
+        font-weight: 400;
+        margin-top: 6px;
+    }
+}
+
+@media screen and (min-width: 781px) and (max-width: 1919px) {
+    .main-visual-pagination ul {
+        gap: max(1.4vw, 18px);
+    }
+
+    .main-visual-pagination li button {
+        font-size: max(1.15vw, 17px);
+        padding-bottom: max(0.7vw, 10px);
+    }
+
+    .main-visual-pagination li button::before,
+    .main-visual-pagination li.slick-active::after {
+        width: max(2.9vw, 40px);
+    }
+}
+
+@keyframes rf-hero-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* 9. 섹션 More 링크: 텍스트 + 원형 아이콘 --------------------------------- */
+.common-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: 'gs', sans-serif;
+    letter-spacing: 0.04em;
+}
+
+.common-more span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6em;
+    height: 1.6em;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.9em;
+    line-height: 1;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.common-more:hover span {
+    background: var(--rf-orange);
+    border-color: var(--rf-orange);
+    color: #fff;
+}
+
+/* 10. 박스오피스: 회색 사각 순위 → 큰 숫자 순위 ------------------------------ */
+.main-section-2 .left .detail .list a + a {
+    border-top: 1px solid rgba(23, 23, 62, 0.12);
+    padding-top: 1.4em;
+}
+
+.main-section-2 .left .detail .title {
+    align-items: baseline;
+}
+
+.main-section-2 .left .detail span {
+    width: auto;
+    min-width: 1.4em;
+    height: auto;
+    margin-right: 0.45em;
+    background: transparent;
+    color: #a9a9b3;
+    font-size: 1.9em;
+    line-height: 1;
+    text-align: left;
+    font-style: italic;
+    transition: color 0.2s ease;
+}
+
+.main-section-2 .left .detail .is-active span,
+.main-section-2 .left .detail a:hover span {
+    background: transparent;
+    color: var(--rf-orange);
+}
+
+.main-section-2 .left .detail .is-active strong {
+    color: var(--rf-navy);
+}
+
+/* 그림자는 포스터 이미지에만: .image 박스는 이미지보다 커서 빈 영역까지 그림자가 진다 */
+.main-section-2 .left .detail .image img {
+    display: block;
+    box-shadow: 0 18px 40px rgba(23, 23, 62, 0.22);
+}
+
+@media (hover: hover) {
+    .main-section-2 .right .detail a {
+        display: block;
+        overflow: hidden;
+    }
+
+    .main-section-2 .right .detail a:hover img {
+        transform: scale(1.04);
+    }
+}
+
+/* 11. 목록 페이지: 편집형 머리말 + 밑줄 탭 + 정돈된 기사 행 ------------------ */
+/* 머리말을 기사 목록과 같은 폭에 맞춰 왼쪽 시작선을 일치시킨다 */
+.common-inner.list-page-head,
+.common-inner-2.list-page-body {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 70px;
+    box-sizing: content-box;
+}
+
+.list-page-head .list-head {
+    border-top: 5px solid #5c3a93;
+    padding-top: 48px;
+}
+
+.list-page-head .list-head-issue {
+    font-family: 'gs', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    color: #8a8a92;
+}
+
+.list-page-head .list-head-issue span {
+    color: var(--rf-orange);
+    margin-left: 0.4em;
+}
+
+.list-page-head .prev-title {
+    border-top: 0;
+    padding: 0;
+    margin-top: 14px;
+    font-size: 52px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--rf-ink);
+}
+
+.oct-filter-tabs {
+    display: flex;
+    gap: 34px;
+    margin: 36px 0 0;
+    border-bottom: 1px solid #d9d9df;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.oct-filter-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.oct-filter-tab {
+    position: relative;
+    flex: none;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 0 0 16px;
+    background: none;
+    border: 0;
+    font-family: 'gs', sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    color: #8a8a92;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.oct-filter-tab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 3px;
+    background: var(--rf-navy);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--rf-ease);
+}
+
+.oct-filter-tab:hover {
+    color: var(--rf-ink);
+}
+
+.oct-filter-tab.is-active {
+    color: var(--rf-navy);
+}
+
+.oct-filter-tab.is-active::after {
+    transform: scaleX(1);
+}
+
+.oct-filter-count {
+    font-size: 0.65em;
+    line-height: 1;
+    color: var(--rf-orange);
+}
+
+.list-page-body .prev-list .list-2 {
+    margin-top: 8px;
+}
+
+.list-page-body .prev-list .list-2 .item {
+    padding: 28px 0;
+    border-bottom: 1px solid #e4e4e8;
+}
+
+.list-page-body .prev-list .list-2 .item + .item {
+    margin-top: 0;
+}
+
+.list-page-body .prev-list .list-2 .item .image {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.list-page-body .prev-list .list-2 .item .image img {
+    transition: transform 0.8s var(--rf-ease);
+}
+
+.list-page-body .prev-list .list-2 .item .texts {
+    border: 0;
+    border-radius: 0;
+    padding: 4px 0 4px 36px;
+    justify-content: center;
+}
+
+.list-page-body .prev-list .list-2 .item .title strong {
+    font-family: 'gs', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+.list-page-body .prev-list .list-2 .item .title span {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.list-page-body .prev-list .list-2 .item .text {
+    margin: 14px 0 10px;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+}
+
+.list-page-body .prev-list .list-2 .item .text2 {
+    color: var(--rf-muted);
+    word-break: keep-all;
+}
+
+@media (hover: hover) {
+    .list-page-body .prev-list .list-2 .item:hover .image img {
+        transform: scale(1.04);
+    }
+
+    .list-page-body .prev-list .list-2 .item:hover .text {
+        color: var(--rf-navy);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+    }
+}
+
+@media screen and (min-width: 781px) and (max-width: 1919px) {
+    .common-inner.list-page-head,
+    .common-inner-2.list-page-body {
+        max-width: 68vw;
+        padding: 0 3.6458vw;
+    }
+
+    .list-page-head .prev-title {
+        font-size: max(2.7vw, 34px);
+    }
+
+    .oct-filter-tab {
+        font-size: max(1.05vw, 16px);
+    }
+
+    .oct-filter-tabs {
+        gap: max(1.8vw, 20px);
+    }
+}
+
+/* 좁은 PC·태블릿에서는 목록 폭이 너무 좁아지므로 넓혀 준다 */
+@media screen and (min-width: 781px) and (max-width: 1279px) {
+    .common-inner.list-page-head,
+    .common-inner-2.list-page-body {
+        max-width: 88vw;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .common-inner.list-page-head,
+    .common-inner-2.list-page-body {
+        padding: 0 20px;
+    }
+
+    .list-page-head .list-head {
+        border-top-width: 4px;
+        padding-top: 28px;
+    }
+
+    .list-page-head .list-head-issue {
+        font-size: 12px;
+    }
+
+    .list-page-head .prev-title {
+        font-size: 28px;
+        margin-top: 8px;
+    }
+
+    .oct-filter-tabs {
+        gap: 22px;
+        margin: 22px -20px 0;
+        padding: 0 20px;
+    }
+
+    .oct-filter-tab {
+        font-size: 14px;
+        padding-bottom: 12px;
+    }
+
+    .list-page-body .prev-list .list-2 .item {
+        padding: 18px 0;
+    }
+
+    .list-page-body .prev-list .list-2 .item .texts {
+        padding: 0 0 0 14px;
+    }
+
+    .list-page-body .prev-list .list-2 .item .title strong {
+        font-size: 13px;
+    }
+
+    .list-page-body .prev-list .list-2 .item .title span {
+        font-size: 11px;
+    }
+
+    .list-page-body .prev-list .list-2 .item .text {
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 6px 0 4px;
+    }
+
+    .list-page-body .prev-list .list-2 .item .text2 {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+}
+
+/* 11-1. 목록 탭 전환: 초점이 나가듯 흐려짐 → 크레딧처럼 한 줄씩 등장 (list.html 스크립트) */
+.list-page-body .list-2,
+.list-page-head .prev-title {
+    transition: opacity 0.22s ease, filter 0.22s ease, transform 0.22s ease;
+}
+
+.list-page-body .list-2.is-cut,
+.list-page-head .prev-title.is-cut {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.99);
+}
+
+.list-page-head .prev-title.is-cut-in {
+    animation: rf-title-in 0.8s var(--rf-ease) both;
+}
+
+.list-page-body .list-2.is-cut-in .item {
+    animation: rf-title-in 0.8s var(--rf-ease) both;
+    animation-delay: calc(var(--rf-i, 0) * 70ms + 0.08s);
+}
+
+/* 12. 영화적 캐러셀 연출 (절제된 수준) ------------------------------------- */
+/* 메인 비주얼: 아주 느린 카메라 푸시인(Ken Burns). 이미지는 높이 기준으로 맞춰져 있어
+   background-size를 높이 비율로 키워도 여백이 생기지 않는다 */
+@media screen and (min-width: 781px) and (prefers-reduced-motion: no-preference) {
+    .main-visual {
+        background-size: auto 100%;
+    }
+
+    /* 슬라이드(샷)마다 푸시인을 처음부터 다시 시작한다. 클래스는 ui.common.js에서 재부여 */
+    .main-visual.is-shot {
+        animation: rf-push-in 6s ease-out both;
+    }
+
+    /* 타이틀 카드: 배지 → 제목 → 부제 순으로 떠오른다 */
+    .main-visual .view-text.is-title-in .common-badge,
+    .main-visual .view-text.is-title-in .text-1,
+    .main-visual .view-text.is-title-in .text-2 {
+        animation: rf-title-in 0.9s var(--rf-ease) both;
+    }
+
+    .main-visual .view-text.is-title-in .text-1 {
+        animation-delay: 0.12s;
+    }
+
+    .main-visual .view-text.is-title-in .text-2 {
+        animation-delay: 0.24s;
+    }
+}
+
+@keyframes rf-push-in {
+    from { background-size: auto 100%; }
+    to { background-size: auto 105%; }
+}
+
+@keyframes rf-title-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+/* 사진 비율보다 화면이 더 넓을 때는 기존 cover로 되돌린다 */
+@media screen and (min-aspect-ratio: 26/10) {
+    .main-visual {
+        background-size: cover;
+        animation: none;
+    }
+}
+
+/* 모바일 메인 비주얼: 현재 슬라이드 이미지만 천천히 확대 */
+@media screen and (max-width: 780px) and (prefers-reduced-motion: no-preference) {
+    .m-main-visual-list-wrap .image {
+        overflow: hidden;
+    }
+
+    /* fade 슬라이더라 이전 장면 위로 새 장면이 레터박스처럼 열리며 천천히 다가온다 */
+    .m-main-visual-list .slick-current .image img {
+        animation:
+            rf-letterbox-open 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+            rf-img-push 6s ease-out both;
+    }
+
+    /* 타이틀 카드: 배지 → 제목 → 부제 */
+    .m-main-visual-list .slick-current .badge,
+    .m-main-visual-list .slick-current .text-1,
+    .m-main-visual-list .slick-current .text-2 {
+        animation: rf-title-in 0.8s var(--rf-ease) both;
+    }
+
+    .m-main-visual-list .slick-current .badge {
+        animation-delay: 0.2s;
+    }
+
+    .m-main-visual-list .slick-current .text-1 {
+        animation-delay: 0.3s;
+    }
+
+    .m-main-visual-list .slick-current .text-2 {
+        animation-delay: 0.4s;
+    }
+}
+
+@keyframes rf-letterbox-open {
+    from { clip-path: inset(50% 0 50% 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes rf-img-push {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* 한국영화 제작 현황: 포스터 캐러셀 위아래에 얇은 필름 퍼포레이션 */
+.main-section-2 .right .detail {
+    position: relative;
+    padding: 26px 0;
+}
+
+.main-section-2 .right .detail::before,
+.main-section-2 .right .detail::after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    right: 0;
+    height: 8px;
+    pointer-events: none;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0 12px, transparent 12px 26px);
+    border-radius: 1px;
+}
+
+.main-section-2 .right .detail::before {
+    top: 6px;
+}
+
+.main-section-2 .right .detail::after {
+    bottom: 6px;
+}
+
+.main-section-2 .right .detail img {
+    display: block;
+    transition: transform 0.8s var(--rf-ease), filter 0.4s ease;
+}
+
+@media (hover: hover) {
+    .main-section-2 .right .detail:hover img {
+        filter: brightness(0.75);
+    }
+
+    .main-section-2 .right .detail a:hover img {
+        filter: none;
+    }
+}
+
+@media screen and (min-width: 781px) and (max-width: 1919px) {
+    .main-section-2 .right .detail {
+        padding: 1.35vw 0;
+    }
+
+    .main-section-2 .right .detail::before,
+    .main-section-2 .right .detail::after {
+        left: 1.35vw;
+        height: max(0.42vw, 6px);
+        background-size: auto;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .main-section-2 .right .detail {
+        padding: 18px 0;
+    }
+
+    .main-section-2 .right .detail::before,
+    .main-section-2 .right .detail::after {
+        left: 0;
+        height: 6px;
+        background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0 8px, transparent 8px 18px);
+    }
+
+    .main-section-2 .right .detail::before {
+        top: 4px;
+    }
+
+    .main-section-2 .right .detail::after {
+        bottom: 4px;
+    }
+}
+
+/* 14. 메인 비주얼 장면 전환: 레터박스 셔터 ------------------------------------
+   ui.common.js가 slick beforeChange에서 .is-cut-close(닫힘), afterChange에서
+   .is-cut-open(열림)을 붙인다. slick speed(500ms) 안에 닫힘이 끝나야 이미지 교체가 가려진다. */
+.rf-cut {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.rf-cut span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 50%;
+    background: #050508;
+    transform: scaleY(0);
+}
+
+.rf-cut span:first-child {
+    top: 0;
+    transform-origin: top center;
+}
+
+.rf-cut span:last-child {
+    bottom: 0;
+    transform-origin: bottom center;
+}
+
+.main-visual.is-cut-close .rf-cut span {
+    animation: rf-shutter-close 0.38s cubic-bezier(0.55, 0, 0.75, 0.3) forwards;
+}
+
+.main-visual.is-cut-open .rf-cut span {
+    animation: rf-shutter-open 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes rf-shutter-close {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1.02); }
+}
+
+@keyframes rf-shutter-open {
+    from { transform: scaleY(1.02); }
+    to { transform: scaleY(0); }
+}
+
+/* 15. 페이지 이동: 아이리스 전환 (Cross-document View Transitions)
+   클릭한 지점으로 화면이 원형으로 오므라들어 검게 닫혔다가, 같은 지점에서 원형으로
+   펼쳐지며 새 페이지가 나타난다. 좌표는 page-iris.js가 --rf-iris-x/y로 넘겨준다.
+   미지원 브라우저는 일반 이동. */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition {
+        background: #050508;
+    }
+
+    /* 닫힘 0.65s → 검은 화면 0.15s → 열림 0.85s */
+    ::view-transition-old(root) {
+        animation: rf-iris-close 0.65s cubic-bezier(0.65, 0, 0.35, 1) both;
+    }
+
+    ::view-transition-new(root) {
+        animation: rf-iris-open 0.85s cubic-bezier(0.5, 0, 0.25, 1) 0.8s both;
+    }
+}
+
+@keyframes rf-iris-close {
+    from { clip-path: circle(var(--rf-iris-r, 72vmax) at var(--rf-iris-x, 50%) var(--rf-iris-y, 50%)); }
+    to { clip-path: circle(0 at var(--rf-iris-x, 50%) var(--rf-iris-y, 50%)); }
+}
+
+@keyframes rf-iris-open {
+    from { clip-path: circle(0 at var(--rf-iris-x, 50%) var(--rf-iris-y, 50%)); }
+    to { clip-path: circle(var(--rf-iris-r, 72vmax) at var(--rf-iris-x, 50%) var(--rf-iris-y, 50%)); }
+}
+
+/* 13. 한국영화 SNS(모바일): 5장이 한 줄에 눌려 45px로 축소되던 문제 →
+   옆 카드가 살짝 보이는 가로 스와이프 행 */
+@media screen and (max-width: 780px) {
+    .main-section-3 {
+        gap: 12px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 0 16px 4px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 16px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main-section-3::-webkit-scrollbar {
+        display: none;
+    }
+
+    .main-section-3 .image {
+        flex: 0 0 62%;
+        padding: 0;
+        scroll-snap-align: start;
+    }
+
+    .main-section-3 .image img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* 16. 상세 페이지 -----------------------------------------------------------
+   구성: 기사 머리(타이틀 카드) / 요약 / 소제목 / 본문 / 이미지·캡션
+   스크롤 연출: 상단 진행 바, 본문에 들어서면 대표 이미지가 객석 조명처럼 어두워짐,
+   이미지는 레터박스처럼 위아래에서 열리고, 소제목은 초점이 맞듯 또렷해진다. */
+
+/* 기사 머리: 배지 → 제목 → 부제 순서로 등장 (메인 히어로와 같은 타이틀 카드) */
+@media (prefers-reduced-motion: no-preference) {
+    .sub-visual-text-wrap .badge-wrap,
+    .sub-visual-text-wrap .title,
+    .sub-visual-text-wrap .sub-title,
+    .sub-visual-text-wrap .detail {
+        animation: rf-title-in 0.9s var(--rf-ease) both;
+    }
+
+    .sub-visual-text-wrap .title {
+        animation-delay: 0.12s;
+    }
+
+    .sub-visual-text-wrap .sub-title {
+        animation-delay: 0.24s;
+    }
+
+    .sub-visual-text-wrap .detail {
+        animation-delay: 0.36s;
+    }
+}
+
+.sub-visual-text-wrap .title,
+.sub-visual-text-wrap .sub-title {
+    word-break: keep-all;
+    text-wrap: balance;
+}
+
+.sub-visual-text-wrap .sub-title {
+    color: #3a3a44;
+}
+
+/* 날짜·필자·공유를 얇은 괘선 위 한 줄 크레딧처럼 */
+.sub-visual-text-wrap .detail {
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(23, 23, 62, 0.12);
+}
+
+/* 요약: 체크 아이콘(글자와 높이가 어긋남) → 글자 기준선에 맞춘 주황 번호 목록 */
+.sub-summation ul {
+    counter-reset: rf-point;
+    padding: 30px 44px 18px;
+    background: #faf8f4 !important;
+    border-radius: 4px;
+}
+
+.sub-summation ul::before {
+    content: "KEY POINTS";
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'gs', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    color: var(--rf-orange);
+}
+
+.sub-summation ul li {
+    counter-increment: rf-point;
+    align-items: baseline;
+    gap: 20px;
+    max-width: none;
+    padding: 16px 0;
+}
+
+.sub-summation ul li + li {
+    margin-top: 0;
+    border-top: 1px solid rgba(23, 23, 62, 0.08);
+}
+
+.sub-summation ul li::before {
+    content: counter(rf-point, decimal-leading-zero);
+    flex: none;
+    /* 01·02·03 폭이 달라 문장 시작점이 어긋나지 않도록 칸 폭 고정 */
+    width: 1.7em;
+    font-family: 'gs', sans-serif;
+    font-size: 0.95em;
+    font-variant-numeric: tabular-nums;
+    color: var(--rf-orange);
+    /* gs 숫자는 한글보다 글자 중심이 기준선에 가까워(측정 약 2.3px) 같은 기준선에서도
+       낮아 보인다. 시각 중심을 맞추기 위해 그만큼 올린다 */
+    position: relative;
+    top: -0.15em;
+}
+
+.sub-summation ul li span {
+    display: none;
+}
+
+.sub-summation ul li p {
+    margin: 0;
+}
+
+.sub-summation p {
+    word-break: keep-all;
+}
+
+/* 소제목: 위에 짧은 주황 바를 두어 장(章)이 바뀌는 느낌 */
+.sub-view-content .n-common-title-2 {
+    word-break: keep-all;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+}
+
+.sub-view-content .n-common-title-2::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 3px;
+    margin-bottom: 18px;
+    background: var(--rf-orange);
+}
+
+.sub-view-content .n-common-text-1 {
+    word-break: keep-all;
+}
+
+/* 본문 이미지와 캡션 */
+.sub-view-content .common-image-slide-1 img,
+.sub-view-content .common-image-block-2 img {
+    border-radius: 2px;
+}
+
+.sub-view-content .common-desc {
+    color: #7a7a84;
+    word-break: keep-all;
+}
+
+/* 상단 읽기 진행 바: 헤더 하단에 필름이 감기듯 주황 선이 차오른다 */
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+        body:has(.sub-view-content) .header::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 3px;
+            background: var(--rf-orange);
+            transform-origin: left center;
+            animation: rf-read-progress linear both;
+            animation-timeline: scroll(root);
+        }
+
+        /* 스크린으로 물러나기: 스크롤하면 꽉 찬 대표 이미지가 어두운 극장 안의
+           와이드 스크린 크기로 줄어들고, 객석 조명이 꺼지듯 어두워진다 */
+        body:has(.sub-view-content) {
+            background-color: #0c0c14;
+        }
+
+        .sub-visual {
+            animation: rf-screen-recede linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 80vh;
+        }
+    }
+}
+
+@keyframes rf-read-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@keyframes rf-screen-recede {
+    from {
+        clip-path: inset(0 0 0 0 round 0);
+        filter: brightness(1);
+    }
+    to {
+        clip-path: inset(9% 7% 20% 7% round 6px);
+        filter: brightness(0.55);
+    }
+}
+
+/* 스크롤 등장: ui.common.js가 클래스를 붙인다. JS가 없으면 .rf-reveal이 없어 그대로 보인다. */
+
+/* 이미지 프레임: 로딩 중엔 은은한 시머, 준비되면 레터박스처럼 위아래로 열린다 */
+.rf-reveal--frame:not(.is-in) {
+    background: linear-gradient(100deg, #ececf0 20%, #f7f7f9 40%, #ececf0 60%) 0 0 / 300% 100%;
+    animation: rf-shimmer 1.4s linear infinite;
+}
+
+.rf-reveal--frame img {
+    clip-path: inset(50% 0 50% 0);
+    transform: scale(1.06);
+    filter: blur(6px);
+    transition:
+        clip-path 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.5s ease;
+}
+
+.rf-reveal--frame.is-in img {
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+    filter: none;
+}
+
+.rf-reveal--frame .common-desc {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.3s;
+}
+
+.rf-reveal--frame.is-in .common-desc {
+    opacity: 1;
+}
+
+@keyframes rf-shimmer {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+
+/* 화면 하단 피사계 심도: 아래쪽에 걸린 글·이미지는 살짝 흐리고, 올라오면 선명해진다.
+   본문이 <br>로 이어진 긴 문단이라 요소 단위가 아닌 화면 하단 고정 막으로 처리한다. */
+@media (prefers-reduced-motion: no-preference) {
+    body:has(.sub-view-content)::after {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        height: 18vh;
+        pointer-events: none;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 100%);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        -webkit-mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.6) 45%, transparent 100%);
+        mask-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.6) 45%, transparent 100%);
+    }
+
+    /* 플로팅 메뉴는 막 위에 있어야 또렷하다 */
+    body:has(.sub-view-content) .floating-menu {
+        z-index: 3;
+    }
+}
+
+/* 대표 이미지 구간과 글 끝(푸터)에서는 막을 걷는다 */
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+        body:has(.sub-view-content)::after {
+            animation: rf-dof-range linear both;
+            animation-timeline: scroll(root);
+        }
+    }
+}
+
+@keyframes rf-dof-range {
+    0% { opacity: 0; }
+    4% { opacity: 1; }
+    92% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* 스크롤 연동 미지원 브라우저용: 등장 시 한 번 페이드 */
+.rf-reveal--text {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(5px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.9s var(--rf-ease),
+        filter 0.9s var(--rf-ease);
+}
+
+.rf-reveal--text.is-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+@media screen and (max-width: 780px) {
+    .sub-visual-text-wrap .detail {
+        margin-top: 20px;
+        padding-top: 14px;
+    }
+
+    .sub-view-content .n-common-title-2::before {
+        width: 24px;
+        margin-bottom: 12px;
+    }
+
+    .sub-summation ul {
+        padding: 20px 20px 10px;
+    }
+
+    .sub-summation ul::before {
+        font-size: 11px;
+    }
+
+    .sub-summation ul li {
+        gap: 12px;
+        padding: 12px 0;
+    }
+}
+
+/* 17. 상세 이미지 슬라이더 화살표: 검정 사각형 → 작은 원형 버튼 */
+.sub-view-content .common-image-slide-1 .slick-prev,
+.sub-view-content .common-image-slide-1 .slick-next {
+    border-radius: 50%;
+    background-color: rgba(23, 23, 62, 0.72);
+    transition: background-color 0.2s ease;
+}
+
+.sub-view-content .common-image-slide-1 .slick-prev:hover,
+.sub-view-content .common-image-slide-1 .slick-next:hover {
+    background-color: var(--rf-orange);
+}
+
+@media screen and (max-width: 780px) {
+    .sub-view-content .common-image-slide-1 .slick-prev,
+    .sub-view-content .common-image-slide-1 .slick-next {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        background-size: 9px auto;
+    }
+
+    .sub-view-content .common-image-slide-1 .slick-prev {
+        left: 8px;
+    }
+
+    .sub-view-content .common-image-slide-1 .slick-next {
+        right: 8px !important;
+        left: auto;
+    }
+}
+
+/* 18. 상세 기사 머리: 오프닝 크레딧형 타이틀 카드 ------------------------------
+   반투명 흰 카드 뒤로 흐린 사진이 비쳐 대비가 약했다 → 극장 어둠과 이어지는
+   불투명 어두운 카드 위에 흰 제목, 양옆 괘선의 주황 섹션명, 크레딧형 날짜·필자 줄 */
+/* 상자 카드 대신, 사진 아래쪽이 화면 전체 폭으로 어둡게 번지고 그 위에 제목이 얹힌다 */
+.sub-visual-text-wrap {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    color: #fff;
+    border-bottom: 0;
+    padding-top: 120px;
+}
+
+/* 띠의 투명→어둠 구간은 제목 영역 위쪽(사진 끝자락)에 둔다. 영역 안에서 투명하게 시작하면
+   사진과 겹치지 않는 모바일·짧은 사진에서 뒤의 흰 바탕이 비친다 */
+.sub-visual-text-wrap::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    bottom: 0;
+    left: 50%;
+    z-index: -1;
+    /* PC는 body zoom(0.8)이 걸려 100vw가 화면보다 좁게 그려지므로 넉넉히 잡는다.
+       넘치는 부분은 body의 overflow-x: hidden이 자른다 */
+    width: 300vw;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(12, 12, 20, 0) 0,
+        rgba(12, 12, 20, 0.8) 60px,
+        #0c0c14 90px
+    );
+}
+
+.sub-visual-text-wrap .title {
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* 큰 글씨 보기: 카드 오른쪽 위 작은 토글로 */
+.sub-visual-text-wrap .checkbox-wrap {
+    text-align: right;
+}
+
+.sub-visual-text-wrap label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sub-visual-text-wrap label span:before {
+    filter: invert(1) brightness(1.4);
+    opacity: 0.75;
+}
+
+/* 섹션명: 알약 배지 대신 양옆에 가는 선을 둔 크레딧 표기 */
+.sub-visual-text-wrap .badge-wrap {
+    margin-top: 48px;
+}
+
+/* 페이지 안 <style>의 고정 폭(width:150px 등)보다 우선하도록 선택자를 한 단계 올린다 */
+.sub-view-content .sub-visual-text-wrap .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: var(--rf-orange);
+    font-family: 'gs', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+}
+
+.sub-visual-text-wrap .badge::before,
+.sub-visual-text-wrap .badge::after {
+    content: "";
+    width: 44px;
+    height: 1px;
+    background: rgba(240, 131, 0, 0.6);
+}
+
+.sub-visual-text-wrap .title {
+    margin-top: 30px;
+    color: #fff;
+}
+
+.sub-visual-text-wrap .sub-title {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* 날짜 · 필자 · 공유: 엔딩 크레딧처럼 가는 괘선 아래 한 줄 */
+.sub-visual-text-wrap .detail {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sub-visual-text-wrap .detail button {
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 0.2s ease;
+}
+
+.sub-visual-text-wrap .detail button:hover {
+    color: var(--rf-orange);
+}
+
+.sub-visual-text-wrap .detail button img {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 780px) {
+    /* 오른쪽 고정 Quick Menu에 가려지지 않도록 모바일에선 왼쪽 */
+    .sub-visual-text-wrap .checkbox-wrap {
+        text-align: left;
+    }
+
+    .sub-visual-text-wrap {
+        padding-top: 64px;
+    }
+
+    .sub-visual-text-wrap .badge-wrap {
+        margin-top: 22px;
+    }
+
+    .sub-view-content .sub-visual-text-wrap .badge {
+        gap: 10px;
+        letter-spacing: 0.08em;
+    }
+
+    .sub-visual-text-wrap .badge::before,
+    .sub-visual-text-wrap .badge::after {
+        width: 22px;
+    }
+
+    .sub-visual-text-wrap .title {
+        margin-top: 16px;
+    }
+
+    /* 오른쪽 고정 Quick Menu에 공유하기·날짜가 가려지지 않게 */
+    .sub-visual-text-wrap .detail {
+        margin-top: 24px;
+        padding-top: 14px;
+        padding-right: 64px;
+    }
+}
+
+/* 7. 모션 최소화 설정 존중 ------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

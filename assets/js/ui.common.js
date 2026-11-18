@@ -161,7 +161,16 @@ $(function () {
     // PC Main Hero Slider
     const $pcMainVisual = $(".main-visual-list");
     if ($pcMainVisual.length && !$pcMainVisual.hasClass("slick-initialized")) {
+        // 장면 전환: 레터박스 셔터(refine.css .rf-cut)
+        const $heroStage = $(".main-visual");
+        $heroStage.append('<div class="rf-cut" aria-hidden="true"><span></span><span></span></div>');
+
         $pcMainVisual
+            .on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+                if (currentSlide !== nextSlide) {
+                    $heroStage.removeClass("is-cut-open").addClass("is-cut-close");
+                }
+            })
             .on("init afterChange", function () {
                 const $current = $(this).find(".slick-current");
                 $(".main-visual .view-text .common-badge").html($current.find(".badge").html());
@@ -172,6 +181,18 @@ $(function () {
                     "url(" + $current.find(".text-wrap").data("src") + ")"
                 );
                 $(".main-visual").attr("vo", $current.find("a").attr("href"));
+
+                // 샷 전환 연출(refine.css): 클래스를 뗐다 붙여 CSS 애니메이션을 처음부터 재생
+                const $shot = $(".main-visual");
+                const $title = $(".main-visual .view-text");
+                $shot.removeClass("is-shot");
+                $title.removeClass("is-title-in");
+                void $shot[0].offsetWidth;
+                $shot.addClass("is-shot");
+                $title.addClass("is-title-in");
+                if ($shot.hasClass("is-cut-close")) {
+                    $shot.removeClass("is-cut-close").addClass("is-cut-open");
+                }
             })
             .slick({
                 slidesToShow: 4,
@@ -508,4 +529,68 @@ window.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener("resize", ScrollTrigger.update);
     }
+});
+
+// 상세 페이지 스크롤 연출(refine.css .rf-reveal)
+// - 이미지: 로딩 중엔 시머 프레임, 화면에 들어오고 이미지가 준비되면 레터박스처럼 열림
+// - 텍스트: 스크롤 연동 블러를 지원하는 브라우저는 CSS만으로 처리, 아니면 등장 시 한 번 페이드
+window.addEventListener("DOMContentLoaded", () => {
+    if (
+        !document.querySelector(".sub-view-content") ||
+        !("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        return;
+    }
+
+    const frames = document.querySelectorAll(
+        ".sub-view-content .common-image-slide-1, .sub-view-content .common-image-block-2 .image"
+    );
+    frames.forEach((el) => el.classList.add("rf-reveal", "rf-reveal--frame"));
+
+    const scrollBlurSupported = window.CSS && CSS.supports("animation-timeline: view()");
+    if (!scrollBlurSupported) {
+        document
+            .querySelectorAll(
+                ".sub-view-content .n-common-title-2, .sub-view-content .sub-summation, .sub-view-content .n-common-text-1.question"
+            )
+            .forEach((el) => el.classList.add("rf-reveal", "rf-reveal--text"));
+    }
+
+    // 보이는 이미지 한 장(슬라이더는 현재 슬라이드)만 기다린다. 슬라이더의 숨은·복제 슬라이드는
+    // loading="lazy"라 화면에 나오기 전엔 받지 않으므로 기다리면 영원히 열리지 않는다.
+    // 느린 네트워크에서도 0.6초 뒤에는 연다.
+    const whenImageReady = (el) => {
+        const img = el.querySelector(".slick-current img") || el.querySelector("img");
+        const loaded =
+            !img || (img.complete && img.naturalWidth)
+                ? Promise.resolve()
+                : new Promise((resolve) => {
+                      img.addEventListener("load", resolve, { once: true });
+                      img.addEventListener("error", resolve, { once: true });
+                  });
+        return Promise.race([loaded, new Promise((resolve) => setTimeout(resolve, 600))]);
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                observer.unobserve(el);
+                if (el.classList.contains("rf-reveal--frame")) {
+                    el.classList.add("is-loading");
+                    whenImageReady(el).then(() => {
+                        el.classList.remove("is-loading");
+                        el.classList.add("is-in");
+                    });
+                } else {
+                    el.classList.add("is-in");
+                }
+            });
+        },
+        // 화면 하단에 닿기 조금 전부터 준비해, 보이기 시작할 때 바로 열리게 한다
+        { rootMargin: "0px 0px 10% 0px" }
+    );
+    document.querySelectorAll(".rf-reveal").forEach((el) => observer.observe(el));
 });

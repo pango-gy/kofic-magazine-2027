@@ -16,53 +16,16 @@
     <link href="./assets/css/styles.css" rel="stylesheet">
     <link href="./assets/css/styles-old.css" rel="stylesheet">
     <link href="./assets/css/sub_24css.css" rel="stylesheet">
+    <link href="./assets/css/refine.css" rel="stylesheet">
+    <script src="./assets/js/page-iris.js"></script>
 
     <style>
-        .oct-filter-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 24px 0 40px;
-        }
-        .oct-filter-tab {
-            font-family: 'gs', sans-serif;
-            font-size: 16px;
-            padding: 10px 22px;
-            border-radius: 999px;
-            border: 1px solid #d4d4d8;
-            background: #fff;
-            color: #444;
-            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-        }
-        .oct-filter-tab:hover {
-            border-color: #f08300;
-            color: #f08300;
-        }
-        .oct-filter-tab.is-active {
-            background: #17173e;
-            border-color: #17173e;
-            color: #fff;
-        }
         .oct-empty-msg {
             display: none;
             text-align: center;
             padding: 80px 20px;
             font-size: 20px;
             color: #666;
-        }
-        @media screen and (max-width: 780px) {
-            .oct-filter-tabs {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                padding-bottom: 8px;
-                margin: 16px 0 24px;
-                -webkit-overflow-scrolling: touch;
-            }
-            .oct-filter-tab {
-                flex: none;
-                font-size: 13px;
-                padding: 8px 15px;
-            }
         }
     </style>
 
@@ -81,9 +44,24 @@
             const items = document.querySelectorAll(".prev-list .list-2 .item");
             const emptyMsg = document.getElementById("octEmptyMsg");
 
+            function matchSection(itemSec, sec) {
+                return sec === "ALL" || itemSec === sec || (sec === "GLOBAL" && itemSec.indexOf("GLOBAL") === 0);
+            }
+
+            tabs.forEach((btn) => {
+                const count = [...items].filter((el) => matchSection(el.dataset.section, btn.dataset.filter)).length;
+                const badge = document.createElement("span");
+                badge.className = "oct-filter-count";
+                badge.textContent = count;
+                btn.appendChild(badge);
+                btn.setAttribute("role", "tab");
+            });
+
             function applyFilter(sec, kw) {
                 tabs.forEach((btn) => {
-                    btn.classList.toggle("is-active", btn.dataset.filter === sec);
+                    const active = btn.dataset.filter === sec;
+                    btn.classList.toggle("is-active", active);
+                    btn.setAttribute("aria-selected", active ? "true" : "false");
                 });
                 if (kw) {
                     titleEl.textContent = "검색 결과: " + params.get("q");
@@ -94,10 +72,7 @@
                 let visibleCount = 0;
                 items.forEach((el) => {
                     const itemSec = el.dataset.section;
-                    const matchSec =
-                        sec === "ALL" ||
-                        itemSec === sec ||
-                        (sec === "GLOBAL" && itemSec.indexOf("GLOBAL") === 0);
+                    const matchSec = matchSection(itemSec, sec);
                     const matchKw = !kw || el.dataset.search.toLowerCase().includes(kw);
                     const show = matchSec && matchKw;
                     el.style.display = show ? "" : "none";
@@ -117,9 +92,48 @@
                         url.searchParams.set("section", nextSec);
                     }
                     window.history.replaceState({}, "", url);
-                    applyFilter(nextSec, "");
+                    switchWithCut(nextSec);
                 });
             });
+
+            // 탭 전환 연출(refine.css): 목록이 초점이 나가듯 흐려진 뒤,
+            // 새 목록이 영화 크레딧처럼 한 줄씩 떠오른다
+            const listEl = document.querySelector(".prev-list .list-2");
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            let cutTimer = null;
+            let cutInTimer = null;
+
+            function switchWithCut(sec) {
+                if (reduceMotion) {
+                    applyFilter(sec, "");
+                    return;
+                }
+                clearTimeout(cutTimer);
+                clearTimeout(cutInTimer);
+                listEl.classList.remove("is-cut-in");
+                titleEl.classList.remove("is-cut-in");
+                listEl.classList.add("is-cut");
+                titleEl.classList.add("is-cut");
+
+                cutTimer = setTimeout(() => {
+                    applyFilter(sec, "");
+                    let order = 0;
+                    items.forEach((el) => {
+                        if (el.style.display !== "none") {
+                            el.style.setProperty("--rf-i", Math.min(order++, 8));
+                        }
+                    });
+                    listEl.classList.remove("is-cut");
+                    titleEl.classList.remove("is-cut");
+                    void listEl.offsetWidth;
+                    listEl.classList.add("is-cut-in");
+                    titleEl.classList.add("is-cut-in");
+                    cutInTimer = setTimeout(() => {
+                        listEl.classList.remove("is-cut-in");
+                        titleEl.classList.remove("is-cut-in");
+                    }, 1400);
+                }, 240);
+            }
 
             applyFilter(initialSec, query);
         });
@@ -186,10 +200,13 @@
     </header>
 
     <div class="content">
-        <div class="common-inner">
-            <p class="prev-title" id="listPageTitle">October 2026</p>
+        <div class="common-inner list-page-head">
+            <div class="list-head">
+                <p class="list-head-issue">웹진 한국영화 <span>2026년 10월호</span></p>
+                <h1 class="prev-title" id="listPageTitle">October 2026</h1>
+            </div>
             <div class="oct-filter-tabs" role="tablist" aria-label="섹션별 필터">
-                <button type="button" class="oct-filter-tab is-active" data-filter="ALL">2026년 10월호 전체 (15)</button>
+                <button type="button" class="oct-filter-tab is-active" data-filter="ALL">전체</button>
                 <button type="button" class="oct-filter-tab" data-filter="SPECIAL">SPECIAL</button>
                 <button type="button" class="oct-filter-tab" data-filter="PEOPLE">PEOPLE</button>
                 <button type="button" class="oct-filter-tab" data-filter="READING">READING</button>
@@ -200,7 +217,7 @@
             </div>
         </div>
 
-        <div class="common-inner-2">
+        <div class="common-inner-2 list-page-body">
             <div class="prev-list">
                 <div class="list-2">
                 <a href="./detail.html" class="item" data-section="SPECIAL" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 ‘임팩트 다큐’ 생태계, 필요하다">
