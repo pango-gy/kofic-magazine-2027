@@ -203,10 +203,10 @@ img {
     text-indent: -9999px;
     /* background-color: #000;*/
     z-index: 1;
-    /*background-image: url("../images/icon-arrow-slide.png");
+    /*background-image: url("../images/common/icon-arrow-slide.png");
     background-image: image-set(
-        url("../images/icon-arrow-slide.webp") type("image/webp") 1x,
-        url("../images/icon-arrow-slide.png") type("image/png") 1x
+        url("../images/common/icon-arrow-slide.webp") type("image/webp") 1x,
+        url("../images/common/icon-arrow-slide.png") type("image/png") 1x
     );*/
     background-repeat: no-repeat;
     background-position: center;
@@ -1147,20 +1147,20 @@ img {
     margin-top: -4px;
     width: 29px;
     height: 29px;
-    background-image: url("../images/icon-check-off.png");
+    background-image: url("../images/common/icon-check-off.png");
     background-image: image-set(
-        url("../images/icon-check-off.webp") type("image/webp") 1x,
-        url("../images/icon-check-off.png") type("image/png") 1x
+        url("../images/common/icon-check-off.webp") type("image/webp") 1x,
+        url("../images/common/icon-check-off.png") type("image/png") 1x
     );
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .sub-visual-text-wrap label input:checked ~ span:before {
-    background-image: url("../images/icon-check-on.png");
+    background-image: url("../images/common/icon-check-on.png");
     background-image: image-set(
-        url("../images/icon-check-on.webp") type("image/webp") 1x,
-        url("../images/icon-check-on.png") type("image/png") 1x
+        url("../images/common/icon-check-on.webp") type("image/webp") 1x,
+        url("../images/common/icon-check-on.png") type("image/png") 1x
     );
 }
 
@@ -1836,10 +1836,10 @@ img {
 .common-image-slide-1 .slick-next {
     background-color: #000;
     z-index: 1;
-    background-image: url("../images/icon-arrow-slide.png");
+    background-image: url("../images/common/icon-arrow-slide.png");
     background-image: image-set(
-        url("../images/icon-arrow-slide.webp") type("image/webp") 1x,
-        url("../images/icon-arrow-slide.png") type("image/png") 1x
+        url("../images/common/icon-arrow-slide.webp") type("image/webp") 1x,
+        url("../images/common/icon-arrow-slide.png") type("image/png") 1x
     );
 }
 .common-page-list .link-list, .btn-page-back {
@@ -1857,10 +1857,10 @@ img {
         width: 100%;
         background-color: #979797;
         height: 48px;
-        background-image: url("../images/icon-arrow-down.png");
+        background-image: url("../images/common/icon-arrow-down.png");
     background-image: image-set(
-        url("../images/icon-arrow-down.webp") type("image/webp") 1x,
-        url("../images/icon-arrow-down.png") type("image/png") 1x
+        url("../images/common/icon-arrow-down.webp") type("image/webp") 1x,
+        url("../images/common/icon-arrow-down.png") type("image/png") 1x
     );
         background-size: 31px;
     }
@@ -3247,10 +3247,10 @@ img {
         width: 15px;
         height: 10px;
         content: "";
-        background-image: url("../images/icon-arrow-down-2.png");
+        background-image: url("../images/common/icon-arrow-down-2.png");
     background-image: image-set(
-        url("../images/icon-arrow-down-2.webp") type("image/webp") 1x,
-        url("../images/icon-arrow-down-2.png") type("image/png") 1x
+        url("../images/common/icon-arrow-down-2.webp") type("image/webp") 1x,
+        url("../images/common/icon-arrow-down-2.png") type("image/png") 1x
     );
         background-repeat: no-repeat;
         background-position: center;
@@ -3341,10 +3341,10 @@ img {
         top: 40% !important;
         background-color: #000;
         z-index: 1;
-        background-image: url("../images/icon-arrow-slide.png");
+        background-image: url("../images/common/icon-arrow-slide.png");
     background-image: image-set(
-        url("../images/icon-arrow-slide.webp") type("image/webp") 1x,
-        url("../images/icon-arrow-slide.png") type("image/png") 1x
+        url("../images/common/icon-arrow-slide.webp") type("image/webp") 1x,
+        url("../images/common/icon-arrow-slide.png") type("image/png") 1x
     );
     }
 
