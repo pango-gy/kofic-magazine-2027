@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>엉뚱하지만 파괴적인 | 웹진 한국영화</title>
+    <meta name="description" content="죽으면 72시간 후 부활한다. 죽었다가 살아날수록 점점 세진다.">
+
+    <link rel="preload" href="./assets/fonts/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/GmarketSansMedium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/images/people1002_00.webp" type="image/webp" media="(min-width: 781px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./assets/images/people1002_00m.webp" type="image/webp" media="(max-width: 780px)" fetchpriority="high">
+
+    <link href="./assets/css/normalize.css" rel="stylesheet">
+    <link href="./assets/css/nice-select.css" rel="stylesheet">
+    <link href="./assets/css/slick.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <link href="./assets/css/styles-old.css" rel="stylesheet">
+    <link href="./assets/css/sub_24css.css" rel="stylesheet">
+    <link href="./assets/css/refine.css" rel="stylesheet">
+    <script src="./assets/js/page-iris.js"></script>
+
+    <style>
+    .sub-visual-text-wrap .detail {
+     align-items: flex-end;
+     }
+    .sub-visual-text-wrap .badge {
+     align-items: center;
+     display: flex;
+     width: 120px;
+     justify-content: center;
+     margin: auto;
+     }
+     .name-badge.color-4 {
+     color: #673AB7;
+    font-weight: bold;
+      }
+      .no-save {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+     }
+     .no-save-target {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    @media screen and (max-width: 780px) {
+    .sub-visual-text-wrap .badge {
+     width: 85px;
+    }
+    }
+    </style>
+
+    <script defer src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script defer src="./assets/js/jquery.nice-select.min.js"></script>
+    <script defer src="./assets/js/slick.min.js"></script>
+    <script defer src="./assets/js/lenis.min.js"></script>
+    <script defer src="./assets/js/CustomEase.min.js"></script>
+    <script defer src="./assets/js/gsap.3.12.2.min.js"></script>
+    <script defer src="./assets/js/ScrollTrigger.3.12.7.min.js"></script>
+    <script defer src="./assets/js/ScrollToPlugin.3.12.7.min.js"></script>
+    <script defer src="./assets/js/cosmosfarm-share-buttons.js"></script>
+    <script defer src="./assets/js/ui.common.js"></script>
+    <script defer src="./assets/js/ui.common.old.js"></script>
+</head>
+<body>
+    <header class="header" data-lenis-prevent>
+        <div class="content-container">
+            <a href="./index.html" class="header-logo m-only">
+                <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+            </a>
+            <div class="header-util">
+                <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                    <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25">
+                </a>
+                <div class="search-box">
+                    <input type="text" class="stxt" aria-label="검색어 입력">
+                    <button type="button" class="sch" aria-label="검색">
+                        <img src="./assets/images/icon-search.webp" alt="" width="21" height="21">
+                    </button>
+                </div>
+                <button class="btn-folder" type="button">
+                    지난호 보기
+                    <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18">
+                </button>
+                <button type="button" class="btn-full-menu">
+                    2026년 10월
+                    <img src="./assets/images/icon-menu.webp" alt="전체 메뉴 열기" width="23" height="16">
+                </button>
+            </div>
+            <div class="inner">
+                <a href="./index.html" class="header-logo">
+                    <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+                </a>
+                <nav class="header-nav" aria-label="주요 섹션 메뉴">
+                    <div class="header-depth1">
+                        <a href="./list.html?section=SPECIAL" class="header-depth1-link">SPECIAL</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PEOPLE" class="header-depth1-link">PEOPLE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=READING" class="header-depth1-link">READING</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=GLOBAL" class="header-depth1-link">GLOBAL</a>
+                        <div class="header-depth2">
+                            <a href="./list.html?section=GLOBAL" class="header-depth2-link">GLOBAL</a>
+                            <a href="./list.html?section=GLOBAL(ENG)" class="header-depth2-link">GLOBAL(ENG)</a>
+                        </div>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=KOFIC%20STORY" class="header-depth1-link">KOFIC STORY</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=BOX%20OFFICE" class="header-depth1-link">BOX OFFICE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PRODUCTION" class="header-depth1-link">PRODUCTION</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+    <div class="no-save sub-visual pc-only" style="background-image: url('./assets/images/people1002_00.webp')"></div>
+    <div class="no-save sub-visual m-only " style="background-image: url('./assets/images/people1002_00m.webp')"></div>
+    <div class="sub-view-content">
+        <span class="bg" tabindex="-1"></span>
+        <div class="sub-view-content-inner">
+            <div class="max-container">
+                <div class="content-container">
+                    <div class="sub-visual-text-wrap">
+                        <div class="checkbox-wrap">
+                            <label for="viewCheck">
+                                <input type="checkbox" id="viewCheck"> <span>편하게보기</span>
+                            </label>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="badge">PEOPLE ②</span>
+                        </div>
+                        <p class="title">엉뚱하지만 파괴적인</p>
+                        <p class="sub-title">&lt;부활남: 더 레드&gt; 정성호 무술감독</p>
+
+                        <div class="detail">
+                            <p class="date">2026-10-19</p>
+                            <p class="write">
+                                <span>글 _ 김혜선(웹진 한국영화 편집장) <br>사진 _ 강건(한경매거진앤북 기자), <br class="m-only">롯데엔터테인먼트 </span>
+                            </p>
+                            <button type="button" class="btn-page-share">
+                                공유하기
+                                <img src="./assets/images/icon-share-2.webp" alt="" width="28" height="29">
+                            </button>
+
+                            <div id="detailSharePopup" class="share-popup">
+<button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container-1">
+                <div class="sub-summation">
+                    <p class="title">
+                        
+                    </p>
+                    <ul>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 정성호 무술감독, 초인적인 액션 레벨을 정교하게 설계하다</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 디지털 기술을 영리하게 결합해 완성한 &lt;부활남: 더 레드&gt;의 타격감</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p> 세분화된 스턴트 시스템, 리얼 액션을 꿈꾸는 한국영화 액션 장인</p>
+                        </li>
+                    </ul>
+                </div>
+
+               
+
+                <p class="n-common-text-1 mt-60">
+                 죽으면 72시간 후 부활한다. 죽었다가 살아날수록 점점 세진다. 지난 9월 30일 개봉한 영화 &lt;부활남: 더 레드&gt;(이하 &lt;부활남&gt;)의 주인공 석환이 그렇다. 구교환 배우가 석환의 요란한 구강 액션과 더불어 초인적인 액션을 소화하며 신나게 달린다. 덕분에 석환이 죽을 때마다 궁금해진다. 깨어나면 얼마나 더 강해질까. 이룬 것 하나 없이 찌질한 30대 ‘취준생’인 줄 알았는데, 실은 극강의 실험체였던 석환의 활약. 예측하기 어려워서 더 즐겁다.<br><br>
+
+&lt;뷰티 인사이드&gt;(2015), &lt;독전 2&gt;(2023)의 백종열 감독이 3년 넘게 연재된 와이랩의 웹툰 &lt;부활남&gt;의 방대한 이야기와 세계관을 ‘부활’이라는 핵심만 남기고 새롭게 재구성했다. 이 과정에서 리드미컬한 액션은 더욱 중요한 요소가 됐다. 원작이 조폭 집단 중심으로 액션을 그려냈다면 영화에선 리얼한 맨몸 액션뿐만 아니라 거대 기업 노아의 등장으로 인해 벌어지는 총기 액션과 집단 액션까지 묘사한다. 석환은 노아가 파견한 정체불명의 이들과 맨몸으로 부딪치다가 실험체 시절 코드명 ‘레드’로서 자신의 힘을 각성한다. 강해질수록 더 붉어지는 머리카락을 휘날리는 그의 액션은 &lt;오징어 게임&gt; 시즌 1(2021, 넷플릭스)과 &lt;무도실무관&gt;(2024, 넷플릭스), &lt;사냥개들&gt; 시즌 2(넷플릭스)의 액션을 맡았던 정성호 무술감독이 책임진다.
+
+                </p>
+				
+				
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/people1002_01.webp" srcset="./assets/images/people1002_01-600w.webp 600w, ./assets/images/people1002_01.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_01.webp" alt="people1002_01" width="1000" height="667" class="js-image-full-layer no-save" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                    <p class="common-desc">웹툰 &lt;부활남&gt;의 리드미컬한 액션을 &lt;부활남: 더 레드&gt;에 구현한 정성호 무술감독</p>
+                </div>
+				
+				
+				  <p class="n-common-title-2">
+                  액션 레벨의 설계와 맷집 훈련
+                </p>
+				<p class="n-common-text-1">
+                  여느 때처럼 취업 면접에서 떨어지고 돌아온 밤, 집안에 잠입해 있던 낯선 이들이 석환을 공격하면서 &lt;부활남&gt;의 액션이 시작된다. 핵심은 역시 ‘죽을수록 강해진다’는 설정이다. 석환의 액션이 단계별로 성장해야 한다는 것을 의미한다. 정성호 무술감독이 가장 고민한 부분도 액션 레벨의 설계였다. “어떻게 보여주는 게 설득력이 있을지 많이 고민했다. 한국 관객들은 현실감 있는 액션을 매우 좋아하니까. 처음에는 액션 레벨을 여러 단계로 세분화하는 방법을 생각했는데, 백종열 감독이 중반 이후 석환이 여러 번 연달아 죽는 과정을 통해 상상 이상의 힘을 발휘하도록 설정했다. 그래서 초반에는 리얼한 톤으로 가고, 한 번 죽고 난 이후에는 리얼 액션과 약간의 파워를 합체하고, 중반 이후 초인적인 능력이 터져 나오는 형태로 만들었다.”<br><br>
+
+흥미로운 것은 액션에 가미된 여유와 유머, 즉 ‘엉뚱함’이다. 구교환 배우가 제작발표회에서 표현했듯이 “크게 휘두르지 않아도 툭 치면 날아가는, 각보다 리얼함을 택한” 석환의 액션은 그 캐릭터성을 바탕으로 했다. “프리 프로덕션 단계부터 석환이 엉뚱하고 어디로 튈지 모르는 캐릭터이니, 액션 역시 그런 느낌으로 가자고 백종열 감독과 논의했다. 석환이 따로 무술이나 특별한 운동을 배우지 않은 상태이기 때문에 상황에 맞는 본능적인 몸놀림을 원했다.” 정성호 무술감독의 설명처럼 ‘내추럴 본 히어로’ 석환의 슈퍼파워는 만화적 과장과 현실성 사이에서 적절한 균형을 이루다가 점차 비현실적으로 발전한다. <br><br>
+
+죽었다가 살아나는 초반 액션에 포인트를 주기 위해 석환에게 야구 배트를 독특하게 휘두르게 한 것도 깨알 재미를 선사한다. “야구 배트를 평면적으로 휘두르지 않고 영화적인 액션으로 풀어보고자 고민했다”는 정성호 무술감독은 유튜브 등 SNS에 올라와 있는 야구 배트 빨리 돌리기 영상들을 참고해서 액션을 디자인했다. 막상 촬영에 들어가니 야구 배트가 생각보다 빨리 돌려지지 않아 액션의 템포가 느려진 아쉬움은 CG의 도움으로 해결했다. 배트를 휘두르며 노아의 용병들과 싸우는 석환의 액션 대부분은 구교환 배우가 실제 수행했다.<br><br>
+ 
+&lt;모가디슈&gt;(2021)에서 북한 참사관 역할로 액션을 맛본 구교환 배우는 &lt;부활남&gt;에서 액션 분량이 압도적인 능력자가 되기 위해 기초 공사부터 시작했다. “우리가 요구한 것은 멋 부리지 않는 것이었다. 화려한 기술보다는 본능적인 파괴력을 보여줘야 하는 액션이어서 프리 프로덕션 이전부터 4개월 이상 액션 트레이닝에 집중했다.” 그러니까, 정성호 무술감독이 요구한 슈퍼히어로 연기의 조건은 체력이다. 이리저리 구르고 주먹을 맞으면서, 온몸을 단련하는 과정들을 계속 반복하는 식이다. “액션 신 촬영 자체가 고난도의 혹독한 작업이다. 몸이 단련되지 않으면 액션 신을 촬영할수록 엄청난 피로가 축적돼서 부상도 더 빨리, 많이 겪는다. 계속 맞을 수 있는 ‘맷집 훈련’이 필요하다.”<br><br>
+ 
+더불어 “구교환 배우는 자신이 넘어지거나 부딪치는 건 너무 즐거워하고 잘한다. 재능이 있다. 그런데 누군가를 때려야 할 때는 미안함과 부담감 때문에 과감하게 액션을 하지 못하는 면이 있었다. 그것을 넘어서게 하는 것도 중요한 트레이닝 과정 가운데 하나였다”고 귀띔했다. 반면 석환을 쫓는 블랙 역의 신승호 배우는 축구 선수 출신으로, 기본적으로 운동신경이 좋은 편이었다. 과거의 부상 때문에 초반에는 조심스러워하다가 현장에서 구교환 배우와 주고받는 액션 호흡이 무르익으면서 즐겁게 액션을 하게 된 경우다.
+                </p>
+				
+				<div class="common-image-block-2">
+                 <div class="inner">
+                    <div class="image"><img src="./assets/images/people1002_02.webp" srcset="./assets/images/people1002_02-600w.webp 600w, ./assets/images/people1002_02.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_02.webp" alt="people1002_02" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                    <div class="image" style="text-align: right;"><img src="./assets/images/people1002_03.webp" srcset="./assets/images/people1002_03-600w.webp 600w, ./assets/images/people1002_03.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_03.webp" alt="people1002_03" width="1000" height="666" class="js-image-full-layer" loading="lazy">
+                 </div>
+                 <p class="common-desc">
+                     정성호 무술감독은 &lt;부활남: 더 레드&gt;에서 구교환 배우의 슈퍼히어로급 액션을 위해 체력을 강조한 액션 트레이닝을 4개월 이상 진행했다
+                   </p>
+                 </div>
+               </div>
+
+				
+				
+
+				
+				<p class="n-common-title-2">
+                확실한 타격감과 공간별 액션의 설계 
+                </p>
+				<p class="n-common-text-1">
+               살짝 주먹을 휘둘러 상대를 순식간에 날려버리기. 높은 곳은 사뿐 뛰어오르고, 벽 따위는 스치듯 뚫고 지나가기. 움직였다고 느끼는 순간 멀리 이동하기. 주차장의 모든 차들을 뭉개고 기둥에 처박혀도 금세 일어나서 달려오기. 슈퍼히어로 석환과 그를 쫓는 슈퍼 빌런들의 모습은 복잡하지 않지만 적재적소에 쓰인 와이어 액션과 실제 배우의 액션, 3D 스캔 디지털 캐릭터를 합성한 결과물이다. 프리 단계부터 액션 시퀀스마다 프리 비주얼 영상을 만들어 콘셉트를 잡고 수정을 거듭한 것은 당연한 수순. 무엇보다 웹툰으로 그려진 ‘정지된 임팩트’를 연속된 동작으로 풀어낼 때 중요했던 것은 “타격감을 확실히 구현하는 것”이었다.<br><br>
+
+“보통 격투 신을 찍는다고 치면 1초에 23프레임으로 찍어서 그대로 편집에 반영하는 경우가 많은데, 백종열 감독은 1초에 24프레임으로 찍은 후 편집에서 원하는 프레임을 빼면서 리듬을 만드는 방식을 선호했다. 카메라의 움직임이나 배우들의 액션 트레이닝도 그런 감독의 성향을 감안해 함께 호흡하려고 노력했다.” 덕분에 관객들은 호되게 죽었다가 기막히게 되살아난 석환이 호텔과 병원, 그리고 성당 등 일상적인 공간에서 노아의 조직원들과 또 다른 능력자 블랙의 수하 제이슨(저스틴 하비)을 시원하게 응징하는 모습을 볼 수 있다.<br><br>
+
+석환의 친구이자 직장 생활 능력자 영하(강기영)가 죽었다가 살아난 석환을 태우고 노아의 조직원들에게 쫓기는 골목길 자동차 추격 신 또한 아슬아슬한 재미를 선사한다. 영하가 선보이는 의외의 운전 실력과 추격 액션에서 보기 힘든 유머가 가미되어 있다. 공간별 액션 설계를 잘하는 정성호 무술감독의 장기와 자동차 추격 신의 익숙한 이미지를 뒤엎는 백종열 감독의 아이디어가 결합한 장면이다. 석환과 영하의 차를 쫓아 동네 골목 계단을 올라가는 경찰차의 주행은 계단을 부분 세트로 만들어 안전하게 실사 촬영했다. 이후 고가도로에 진입해서 주행하던 석환과 영하의 차가 부딪치고 회전하는 장면은 후반 작업 과정에서 디지털 이미지를 입힌 것이다.<br><br>
+
+가장 공들인 액션 설계는 거대 기업 노아의 항공모함에서 벌어지는 클라이맥스 액션 시퀀스다. 대도시를 방불케 하는 항공모함 내에서 노아의 조직원들이 레드 석환과 맞붙는 동안, 한편에서는 노아의 비밀 프로젝트를 연구했던 연구원 장미주 박사(김성령) 일행이 배 안에 있는 또 다른 실험체 블루(김유정)를 구하기 위해 움직인다. 레이싱 드론을 사용해 카메라가 날아다니며 혼란스러운 분위기로 연출됐는데, 무술팀이 사전에 만들어 놓은 프리 비주얼을 토대로 촬영했다. 막바지에는 두 슈퍼 능력자 레드와 블랙의 맞대결이 펼쳐진다. 인물과 공간이 다양하고 대규모 폭발도 일어나기에 정교한 준비가 필요한 시퀀스였다. 촬영에 투입된 액션배우들과 화면 안에 보이지 않는 와이어팀, 안전팀까지 대략 200여 명이 합심해서 완성한 장면이다. 
+                </p>
+				
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+					   <div class="image"><img src="./assets/images/people1002_04.webp" srcset="./assets/images/people1002_04-600w.webp 600w, ./assets/images/people1002_04.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_04.webp" alt="people1002_04" width="1000" height="370" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                       <div class="image"><img src="./assets/images/people1002_05.webp" srcset="./assets/images/people1002_05-600w.webp 600w, ./assets/images/people1002_05.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_05.webp" alt="people1002_05" width="1000" height="370" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+					   <div class="image"><img src="./assets/images/people1002_06.webp" srcset="./assets/images/people1002_06-600w.webp 600w, ./assets/images/people1002_06.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_06.webp" alt="people1002_06" width="1000" height="370" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+					   <div class="image"><img src="./assets/images/people1002_07.webp" srcset="./assets/images/people1002_07-600w.webp 600w, ./assets/images/people1002_07.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_07.webp" alt="people1002_07" width="1000" height="370" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+					   <div class="image"><img src="./assets/images/people1002_08.webp" srcset="./assets/images/people1002_08-600w.webp 600w, ./assets/images/people1002_08.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_08.webp" alt="people1002_08" width="1000" height="370" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>		   
+                    </div>
+					<p class="common-desc" style="text-align: center;">백종열 감독의 아이디어와 정성호 무술감독의 디자인으로 골목길 자동차 추격 신 등 새로운 액션 장면이 완성됐다</p>
+                </div>
+				
+				
+				
+				<p class="n-common-title-2">
+                디지털 캐릭터를 위한 세밀한 밑작업 
+                </p>
+				<p class="n-common-text-1">
+             클라이맥스의 클라이맥스는 역시 레드와 블랙의 마지막 대결이다. 정성호 무술감독은 “’주먹으로 친다’는 지문을 보면 사람마다 머릿속에서 떠올리는 그림이 다르다. 감독, 무술팀, CG팀이 원하는 그림이 모두 다를 수 있다. 그것을 상상하는 건 언제나 어렵고 걱정되는 부분이다. CG팀이 만든 프리 비주얼 애니메이션을 보고 무술팀이 실사 촬영할 부분을 계산해서 프리 비주얼을 편집하는 과정을 5차 정도 거쳤다. 레드와 블랙의 라스트 액션 촬영일 한 달 전까지 그 작업을 반복하면서 원하는 그림을 찾아갔다”고 설명한다.<br><br>
+ 
+레드와 블랙의 근접전은 구교환과 신승호 배우가 실제로 촬영했고, 높은 곳에서 낮은 곳으로의 착지나 반대로 뛰어오르는 순간 등은 와이어 액션으로, 먼 거리로 이동하거나 순식간에 날아가서 기둥이나 벽에 강하게 부딪힐 때는 디지털 캐릭터를 사용했다. “예전에는 광학식이든 자이로 방식이든 배우의 몸에 센서를 부착해 얻은 동작 데이터를 컴퓨터에 기록해 모션 캡처를 했지만, 이제는 센서 없이 동작을 촬영하는 것만으로도 모션 캡처가 가능한 AI 프로그램들이 있다. 그런 기술까지 이용해 할 수 있는 테스트는 거의 다 해봤다.”<br><br>
+ 
+정성호 무술감독의 말처럼 200억 원대 액션 대작인 &lt;부활남&gt;에서 인간의 한계를 뛰어넘는 블랙과 레드의 후반부 슈퍼 ‘주먹질’은 기술의 힘을 빌린 부분이 많다. 밀도 높은 액션 분량과 함께 발생할 수 있는 안전 문제 때문에 액션배우들의 동작을 3D 스캔해서 만든 디지털 캐릭터의 비중이 컸다. 정성호 무술감독은 “아날로그 액션도 의미 있지만, 위험 요소를 줄여 배우들이 안전하게 연기하고 부상을 줄이거나 막을 수 있다는 면에서 시대를 거스를 수 없는 방식”이라고 덧붙인다.<br><br>
+  
+레드와 블랙의 격투에 흐르는 음악감독 프라이머리의 오리지널 스코어도 액션을 효과적으로 만드는 데에 기여한다. “강하고 폭풍 같은 느낌의 음악이 엔진 룸의 엔진 소리와 결합돼 레드로 남는 대신 가족과 일상으로 돌아가고 싶은 석환의 폭발하는 감정과 잘 어울렸다. 음악이 액션의 타격감을 키우는 상승작용이 있었던 것 같다.” 판타지라고 할 만한 수위의 액션들을 상상해야 했던 &lt;부활남&gt;의 도전적인 순간들을 떠올리며, 완성된 영화를 확인한 정성호 무술감독의 소감이다. 
+                </p>
+				
+				
+				<div class="common-image-block-2">
+                 <div class="inner">
+                    <div class="image"><img src="./assets/images/people1002_09.webp" srcset="./assets/images/people1002_09-600w.webp 600w, ./assets/images/people1002_09.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_09.webp" alt="people1002_09" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                    <div class="image" style="text-align: right;"><img src="./assets/images/people1002_10.webp" srcset="./assets/images/people1002_10-600w.webp 600w, ./assets/images/people1002_10.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_10.webp" alt="people1002_10" width="1000" height="667" class="js-image-full-layer" loading="lazy">
+                 </div>
+                   <p class="common-desc">
+                    디지털 캐릭터, 모션 캡처가 가능한 AI 프로그램 등의 기술을 통해 레드와 블랙의 대결이 밀도 높은 액션으로 완성됐다
+                   </p>
+                 </div>
+               </div>
+				
+				
+				
+				
+				
+				<p class="n-common-title-2">
+                 땀과 모험심 넘치는 액션의 세분화 꿈꾼다 
+                </p>
+				<p class="n-common-text-1">
+              정성호 무술감독은 다양한 한국영화 액션을 만들어 온 액션 스튜디오 베스트스턴트(1993년 창단) 소속이다. 2005년부터 여러 영화의 무술팀원이자 액션배우로 활약했고, &lt;명량&gt;(2014), &lt;협녀, 칼의 기억&gt;(2015) 같은 시대극의 무술 지도를 거쳤다. 영화 &lt;해어화&gt;(2015)를 통해 무술감독으로 입봉한 후, 한국영화 액션 전문가로서 지난 15년간의 경험을 통해 여러 영화와 시리즈에서 다양한 러브콜을 받고 있는 시점이다.<br><br>
+ 
+2020년에는 &lt;유체이탈자&gt;로 뉴욕아시안영화제 다니엘 A. 크래프트 우수 액션시네마상, 2021년에는 &lt;오징어 게임&gt;으로 액터 어워즈 TV 부문 스턴트 앙상블상을 수상했다. 많은 한국영화 팀들이 힘들었던 코로나19 시기에 눈에 띄는 활약이었다. 올해 특히 &lt;사냥개들&gt; 시즌 2로 호평받았던 정성호 무술감독의 시그니처 ‘맨몸 액션, 맨손 액션’이 &lt;부활남&gt;에서도 효과를 발휘한다. 짜릿한 타격감과 근접전에서의 속도감으로 카타르시스를 주는 ‘정성호 액션’의 특기가 잘 살아 있어, 웹툰 서사의 변형을 아쉬워하는 관객들 사이에서도 액션에 대한 반응만큼은 긍정적이다.<br><br>
+
+정성호 무술감독을 포함한 많은 전문가들이 여전히 액션 마니아들을 열광시키는 콘텐츠들을 만들기 위해 고군분투한다. 하지만 액션영화 현장에도 이미 깊숙이 파고든 여러 AI 프로그램들이 액션의 리얼함을 대체하고 있는 것 또한 분명한 사실이다. 지난 2월 중국 기업 바이트댄스의 생성형 AI 프로그램 시댄스(Seedance) 2.0이 촬영 소스 없이 할리우드 배우인 톰 크루즈와 브래드 피트의 격투 영상을 만들어 충격을 줬고, 5개월 만에 시댄스 2.5가 출시된 것도 이미 오래전 상황이다. 클링(Kling), 베오(Veo) 등 생성형 AI 프로그램들의 최신 버전이 영화 창작자들을 사로잡고 있다.<br><br>
+
+정성호 무술감독은 “제작비 절감 문제 때문에 AI가 액션배우 자체를 대체할 수 있는 상황이 생기고 있고, 액션에 대한 투자도 예전보다 줄어들고 있다. 그래서 판타지 액션보다는 규모가 작아도 현실적인 액션을 선호하는 이야기가 오히려 늘고 있는 것 같다. 관객들 역시 다양한 장르가 시도되더라도 현실에 기반한 액션을 더 보고 싶어 하는 것 같다”고 말한다. “할리우드는 확실히 CG의 정점에서 아날로그로 돌아서는 추세 같다. 동남아시아는 저예산 영화가 많다 보니 아직까지 현실성 있는 리얼 액션을 고수한다. 한국영화 안에서는 &lt;호프&gt;나 &lt;부활남&gt;이 여러모로 모험적인 작품이었다고 생각한다. 이 영화들 이후로 또 다른 기회들이 생겨나면 좋겠다는 마음이다.”<br><br>
+
+다양한 움직임의 연구자로서 정성호 무술감독이 향후 하고 싶은 액션 장르는 “땀 냄새 펄펄 나는 민초들의 활약상을 그리는 사극 액션, 혹은 인도네시아 액션영화 &lt;레이드: 첫 번째 습격&gt;(2012) 같은 극한의 리얼 액션”이다. &lt;존 윅&gt; 시리즈가 보여주는 화려한 총기 액션은 의외로 총에 예민한 한국 관객들이 체감하기에 아직까지 괴리감이 있고 낯설기 때문이다. 
+                </p>
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/people1002_11.webp" srcset="./assets/images/people1002_11-600w.webp 600w, ./assets/images/people1002_11.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_11.webp" alt="people1002_11" width="1000" height="667" class="js-image-full-layer no-save" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                    <p class="common-desc">정성호 무술감독은 &lt;부활남: 더 레드&gt;처럼 액션에 있어 모험적인 작품이 계속 생겼으면 하는 바람이다</p>
+                </div>
+				
+				
+
+				<p class="n-common-text-1">
+              넷플릭스, 디즈니+ 같은 글로벌 온라인동영상서비스(OTT) 산업이 한국에 들어온 이후 사전 인성 교육, 성폭력 관련 교육 등이 현장에 정착하면서 무술팀의 스턴트 방식도 1인 다역으로 소모되지 않게끔 체계화된 면이 있다. 정성호 무술감독은 한발 더 나아가 한국영화 안에서 액션의 파트가 더 세분화되기를 바라고 있다. “할리우드의 경우 총기 액션, 카 체이싱, 고공 낙하 등 여러 스턴트 등이 각각 전문가 집단으로 세분화돼 있다. 한국은 여전히 무술감독이 격투 액션과 카 체이싱, 그 밖의 스턴트들을 전부 관여해서 이끌어 가야 한다. 앞으로 자연스럽게 액션의 세분화가 이루어질 것 같긴 하다.”<br><br>
+ 
+글로벌 액션 트렌드는 변화하고, VFX와 디지털 더블 기술이 발전하면서 무술팀의 역할도 바뀌고 있다. 그러나 몸을 통해 더 짜릿한 액션을 완성하고 싶은 정성호 무술감독의 고민은 여전하다. 다시 구교환 배우와 만나는 엄유나 감독의 신작 &lt;카르텔&gt;의 액션을 담당하고, 웹툰 원작 드라마 &lt;새동네&gt;에서 은퇴 요원으로 등장하는 한석규와 염혜란 배우를 열심히 트레이닝하면서. 아마도 그에게 은퇴는 요원한 일인 것 같다. 
+                </p>
+				
+				
+				
+				
+				
+				
+				<div class="common-image-block">
+                    <div class="video">
+                       <iframe width="1337" height="752" loading="lazy" src="https://www.youtube.com/embed/8qMX0X6znR0" title="[부활남: 더 레드] Coming Soon 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                    </div>
+                    <p class="common-desc">&lt;부활남: 더 레드&gt; 액션을 맛볼 수 있는 Coming Soon 영상</p>
+                </div>
+				
+				
+				
+				
+
+                <div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/people1002_12.webp" srcset="./assets/images/people1002_12-600w.webp 600w, ./assets/images/people1002_12.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/people1002_12.webp" alt="people1002_12" width="1000" height="667" class="js-image-full-layer no-save" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                </div>
+
+              				
+ <button type="button" class="btn-page-back" >뒤로 가기</button>
+
+
+                <div class="common-tag-list">
+                    <span>부활남더레드</span>
+                    <span>정성호</span>
+                    <span>웹툰</span>
+                    <span>액션</span>
+                    <span>무술</span>
+                    <span>스턴트</span>
+                    <span>백종열</span>
+                    <span>구교환</span>
+					<span>신승호</span>
+					<span>강기영</span>	
+                </div>
+
+             
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="./assets/images/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="./assets/images/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="./assets/images/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+                    </div>
+
+                
+
+            <div class="line-1"></div>
+            <div class="content-container">
+                <div class="common-page-list">
+                    <a href="./list.html?section=PEOPLE" class="link-list">목록으로</a>
+
+                    <p class="n-common-title-1">관련기사</p>
+
+                    <div class="list">
+                        <div class="item">
+                            <a href="./detail-people-1.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202651061251200580.webp" srcset="./assets/images/bbs/0_202651061251200580-300w.webp 300w, ./assets/images/bbs/0_202651061251200580.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="인간다움과 인간다운 죽음에 대하여" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">PEOPLE ①</p>
+                                <p class="text-2">인간다움과 인간다운 죽음에 대하여</p>
+                                <p class="text-3">&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-yesno.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202633181033040398.webp" srcset="./assets/images/bbs/0_202633181033040398-300w.webp 300w, ./assets/images/bbs/0_202633181033040398.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="낙원 없이 살아가는 법" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">READING ② - YES or NO</p>
+                                <p class="text-2">낙원 없이 살아가는 법</p>
+                                <p class="text-3">&lt;실낙원&gt;</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-reading-1.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202654061254570291.webp" srcset="./assets/images/bbs/0_202654061254570291-300w.webp 300w, ./assets/images/bbs/0_202654061254570291.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="미옥과 호석의 내일을 위한 시간" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">READING ①</p>
+                                <p class="text-2">미옥과 호석의 내일을 위한 시간</p>
+                                <p class="text-3">&lt;가능한 사랑&gt;</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-boxoffice.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_rel.webp" srcset="./assets/images/boxoffice1005_rel-300w.webp 300w, ./assets/images/boxoffice1005_rel.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="10월 5주차" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">BOX OFFICE</p>
+                                <p class="text-2">10월 5주차</p>
+                                <p class="text-3">10월 5주차 위클리 박스오피스</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="image-view-layer">
+            <div class="image">
+                <div class="btn-group">
+                    <button type="button" class="btn-close" aria-label="확대 이미지 닫기">
+                        <img src="./assets/images/icon-close-white.webp" alt="" width="256" height="256" fetchpriority="low" loading="lazy">
+                    </button>
+                </div>
+                <img class="target-image" src="" alt="">
+            </div>
+        </div>
+        <div class="full-menu" style="display: none;">
+            <div class="full-menu-content">
+                <div class="content-container">
+                    <div class="full-menu-header">
+                        <a href="./index.html" class="logo">
+                            <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100" fetchpriority="low" loading="lazy">
+                        </a>
+                        <button type="button" class="btn-full-menu-close" aria-label="전체 메뉴 닫기">
+                            <img src="./assets/images/icon-full-menu-close.webp" alt="" width="80" height="80" fetchpriority="low" loading="lazy">
+                        </button>
+                    </div>
+                    <nav class="full-menu-nav" aria-label="2026년 10월호 전체 메뉴">
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=SPECIAL" class="full-menu-depth1-link is-active">SPECIAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=SPECIAL" class="full-menu-special-link"><strong><span>SPECIAL</span></strong></a>
+                                <a href="./detail-special-1.html" class="full-menu-depth2-link">
+                                    <p>새로운 영화·영상 제작 거점으로의 출발<br>부산기장촬영소를 가다</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>진실 기록 넘어 사회 변화로<br>한국형 ‘임팩트 다큐’ 생태계, 필요하다</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PEOPLE" class="full-menu-depth1-link">PEOPLE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PEOPLE" class="full-menu-special-link"><strong><span>PEOPLE</span></strong></a>
+                                <a href="./detail-people-1.html" class="full-menu-depth2-link">
+                                    <p>인간다움과 인간다운 죽음에 대하여<br>&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-people-2.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>엉뚱하지만 파괴적인<br>&lt;부활남: 더 레드&gt; 정성호 무술감독</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=READING" class="full-menu-depth1-link">READING</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=READING" class="full-menu-special-link"><strong><span>READING</span></strong></a>
+                                <a href="./detail-reading-1.html" class="full-menu-depth2-link">
+                                    <p>미옥과 호석의 내일을 위한 시간<br>&lt;가능한 사랑&gt;</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-yesno.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>낙원 없이 살아가는 법<br>&lt;실낙원&gt; YES or NO</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=GLOBAL" class="full-menu-depth1-link">GLOBAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=GLOBAL" class="full-menu-special-link"><strong><span>GLOBAL</span></strong></a>
+                                <a href="./list.html?section=GLOBAL(ENG)" class="full-menu-special-link"><strong><span>GLOBAL(ENG)</span></strong></a>
+                                <a href="./detail-global.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>도시 전체와 호흡하는 축제로<br>커뮤니티비프와 동네방네비프</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                                <a href="./detail-global-eng.html" class="full-menu-depth2-link">
+                                    <p>A Festival in Step with an Entire City<br>Community BIFF and BIFF Everywhere</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=KOFIC%20STORY" class="full-menu-depth1-link">KOFIC STORY</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=KOFIC%20STORY" class="full-menu-special-link"><strong><span>KOFIC STORY</span></strong></a>
+                                <a href="./detail-kofic-story.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>창작자, 어떤 판 위에서 놀게 할 것인가<br>2026 KOFIC AI 쇼케이스</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=BOX%20OFFICE" class="full-menu-depth1-link">BOX OFFICE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=BOX%20OFFICE" class="full-menu-special-link"><strong><span>BOX OFFICE</span></strong></a>
+                                <a href="./detail-boxoffice.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>주간 박스오피스<br>10월 5주차 위클리 박스오피스</p><br>
+                                    <p>2026-10-30</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PRODUCTION" class="full-menu-depth1-link no-child">PRODUCTION</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PRODUCTION" class="full-menu-special-link"><strong><span>PRODUCTION</span></strong></a>
+                                <a href="./detail-production.html" class="full-menu-depth2-link">
+                                    <p>한국영화 제작 현황<br>9월 개봉작 살펴보기 (2026. 9. 제작상황판)</p><br>
+                                    <p>2026-10-13</p>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="m-only">
+                        <div class="full-menu-util">
+                            <a href="./list.html" class="btn-instagram">
+                                인스타그램
+                                <img src="./assets/images/icon-instagram.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <a href="#reader" data-open-modal="reader" class="btn-talk">
+                                독자의견
+                                <img src="./assets/images/icon-talk.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <button class="btn-folder" type="button">
+                                지난호 보기
+                                <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18" fetchpriority="low" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" fetchpriority="low" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-menu">
+            <div class="quick-menu">
+                <p class="title js-m-quick-open">Quick Menu</p>
+                <div class="menu">
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-3-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>인스타<br class="m-only">그램</p>
+                    </a>
+                    <a href="#reader" data-open-modal="reader">
+                        <img src="./assets/images/img-quick-2-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>독자<br class="m-only">의견</p>
+                    </a>
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-30-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>뉴스레터 <br>신청</p>
+                    </a>
+                </div>
+            </div>
+            <button class="btn-page-top" type="button">
+                <img src="./assets/images/img-quick-top.webp" alt="" width="14" height="13" loading="lazy"> TOP
+            </button>
+        </div>
+
+        <div id="reader" class="modal-wrap" style="display: none;">
+            <div class="modal" style="padding: 2rem; width: 100%;">
+                <div class="modal-hd">
+                    <div class="title-wrap" style="text-align: left;">
+                        <h2>독자의견 보내기</h2>
+                        <p class="sub-title" style="margin-top: 10px;">여러분의 소중한 의견을 기다리고 있습니다.</p>
+                    </div>
+                    <button type="button" class="modal-close" data-close-modal="reader" aria-label="팝업 닫기"></button>
+                </div>
+                <div class="modal-bd">
+                    <div class="modal-cont">
+                        <div class="notice-content">
+                            <p class="common-text-1" style="margin-bottom: 20px;">
+                                <img src="./assets/images/popup0904.webp" alt="웹진 한국영화 독자의견 안내" width="800" height="700" fetchpriority="low" loading="lazy">
+                            </p>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="input-col">
+                                <label for="opinion1">의견내용</label>
+                                <div class="input-box">
+                                    <textarea name="opinion1" id="opinion1" class="scroll_box" placeholder="보내주실 의견을 편하게 입력해 주세요."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-ft">
+                    <a href="#none" class="btn-submit senSave" vo="M1">의견보내기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="max-container">
+            <div class="content-container">
+                <div class="footer-info">
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/footer-logo.webp" alt="한국영화" width="250" height="53" loading="lazy">
+                    </a>
+                    <div class="footer-util">
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/footer-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" loading="lazy">
+                        </a>
+                        <div class="search-box">
+                            <input type="text" class="stxt" aria-label="하단 검색어 입력">
+                            <button type="button" class="sch" aria-label="검색">
+                                <img src="./assets/images/icon-search.webp" alt="" width="21" height="21" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-instagram pc-only">
+                            인스타그램
+                            <img src="./assets/images/icon-instagram-w.webp" alt="" width="19" height="19" loading="lazy">
+                        </a>
+                        <a href="#reader" data-open-modal="reader" class="btn-talk pc-only">
+                            독자의견
+                            <img src="./assets/images/icon-talk-w.webp" alt="" width="21" height="21" loading="lazy">
+                        </a>
+                        <button class="btn-folder" type="button">
+                            지난호 보기
+                            <img src="./assets/images/icon-folder-w.webp" alt="" width="23" height="18" loading="lazy">
+                        </button>
+                        <button type="button" class="btn-full-menu">
+                            2026년 10월
+                            <img src="./assets/images/icon-menu-w.webp" alt="전체 메뉴 열기" width="23" height="16" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <div class="copyright">
+                        48058 부산광역시 해운대구 수영강변대로 130 (우동)<br>
+                        문의: kmovie@hankyung.com<br>
+                        Copyrights ⓒ 2026 BY KOFIC. All rights reserved.
+                    </div>
+                    <div class="detail">
+                        <div>
+                            발행인: 한상준<br>
+                            편집장: 김혜선<br>
+                            발간처: 영화진흥위원회 정책본부 정책개발팀
+                        </div>
+                        <div>
+                            기획편집: 박주영 이윤경<br>
+                            발행사: (주)한경매거진앤북<br>
+                            eISSN 3140-460X
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-10 pc-only" style="font-size: 16px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+                <p class="mt-10 m-only" style="font-size: 12px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

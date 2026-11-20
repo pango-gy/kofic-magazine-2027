@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>A Festival in Step with an Entire City | 웹진 한국영화</title>
+    <meta name="description" content="The Busan International Film Festival is seeking to expand across Asia and the world while maintaining its strong ties to Busan.">
+
+    <link rel="preload" href="./assets/fonts/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/GmarketSansMedium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/images/global1001_00.webp" type="image/webp" media="(min-width: 781px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./assets/images/global1001_00m.webp" type="image/webp" media="(max-width: 780px)" fetchpriority="high">
+
+    <link href="./assets/css/normalize.css" rel="stylesheet">
+    <link href="./assets/css/nice-select.css" rel="stylesheet">
+    <link href="./assets/css/slick.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <link href="./assets/css/styles-old.css" rel="stylesheet">
+    <link href="./assets/css/sub_24css.css" rel="stylesheet">
+    <link href="./assets/css/refine.css" rel="stylesheet">
+    <script src="./assets/js/page-iris.js"></script>
+
+    <style>
+.sub-visual-text-wrap .title,
+.sub-visual-text-wrap .sub-title {
+    font-family: 'noto', 'Noto Sans KR', Arial, sans-serif !important;
+}
+/* 기사 본문 내용에만 Noto Sans 적용 */
+.sub-view-content .content-container-1,
+.sub-view-content .content-container-1 p,
+.sub-view-content .content-container-1 span,
+.sub-view-content .content-container-1 li,
+.sub-view-content .content-container-1 strong,
+.sub-view-content .content-container-1 em,
+.sub-view-content .content-container-1 a {
+    font-family: 'noto', 'Noto Sans KR', Arial, sans-serif !important;
+}
+/* 기사 본문에서 사용하는 폰트 변수만 변경 */
+.sub-view-content .content-container-1 {
+    --article-body-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
+    --article-summary-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
+}
+    .sub-visual-text-wrap .detail {
+     align-items: flex-end;
+     }
+    .sub-visual-text-wrap .badge {
+     align-items: center;
+     display: flex;
+     width: 200px;
+     justify-content: center;
+     margin: auto;
+     }
+    @media screen and (max-width: 780px) {
+    .sub-visual-text-wrap .badge {
+     width: 110px;
+    }
+    .sub-visual {
+     height: 70vh;
+    }
+    }
+    /* 3D 카드형 컨테이너 (웹진 본문 폭에 맞춘 1020px) */
+  .card-container {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+   /* max-width: 1020px;*/
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); 
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    color: #333;
+  }
+  /* 상단 컬러 박스 헤더 영역 (다크 슬레이트 그레이 적용) */
+  .card-header-bar {
+    background: #475569; 
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 30px;
+    text-align: center;
+  }
+  .table-title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+  /* 내부 콘텐츠 영역 패딩 */
+  .card-body {
+    padding: 30px;
+  }
+  /* -------------------------------------
+     [모바일 최적화] 가로 스크롤 래퍼 
+  -------------------------------------- */
+  .chart-wrapper-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px; 
+  }
+  /* -------------------------------------
+     CSS Grid 기반 반응형 레이아웃
+  -------------------------------------- */
+  .ranking-grid {
+    display: grid;
+    /* PC: 3개의 열, 11개의 행(헤더 1 + 랭킹 10)을 생성하여 셀 높이 완벽 동기화 */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, auto);
+    grid-auto-flow: column; 
+    gap: 0 15px; 
+  }
+  /* 플랫폼 헤더 공통 */
+  .grid-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+  /* 각 헤더 하단 포인트 컬러 라인 */
+  .header-fa { border-bottom: 4px solid #3b82f6; }
+  .header-lb { border-bottom: 4px solid #22c55e; }
+  .header-imdb { border-bottom: 4px solid #eab308; }
+  /* 실제 이미지 로고 스타일 (80px 확대 유지) */
+  .grid-header img {
+    height: 80px; 
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  /* IMDb 로고 모서리 둥글게 */
+  .header-imdb img { 
+    border-radius: 8px; 
+  }
+  /* -------------------------------------
+     랭킹 아이템 스타일
+  -------------------------------------- */
+  .grid-item {
+    display: flex;
+    align-items: center; 
+    padding: 14px 12px;
+    color: #1e293b;
+  }
+  /* 각 테마별 지그재그(얼터네이팅) 배경색 적용 */
+  .fa-odd { background-color: #f1f5f9; }
+  .fa-even { background-color: #e2e8f0; }
+  .lb-odd { background-color: #ecfdf5; }
+  .lb-even { background-color: #d1fae5; }
+  .imdb-odd { background-color: #fffbeb; }
+  .imdb-even { background-color: #fef08a; }
+  /* 텍스트 폰트 설정 */
+  .rank-num { 
+    font-weight: 800; 
+    font-size: 18px;
+    min-width: 18px; 
+    text-align: right;
+  }
+  .movie-info { 
+    flex: 1; 
+    font-weight: 700; 
+    font-size: 18px;
+    margin-left: 6px;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .movie-score { 
+    font-weight: 500; 
+    color: #475569; 
+    white-space: nowrap; 
+    font-size: 16px;
+    margin-left: 2px;
+  }
+  /* 하단 주석 영역 (왼쪽 정렬) */
+  .table-footer {
+    margin-top: 25px;
+    font-size: 13.5px;
+    color: #475569;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-align: left;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+  .table-footer p { margin: 4px 0; }
+  /* -------------------------------------
+     [모바일 최적화] 스와이프 없는 수직 뷰(Stacking) 변환
+  -------------------------------------- */
+  @media (max-width: 768px) {
+    .rank-num { 
+    font-size: 16px;
+    }
+     .movie-info ,
+     .movie-info 
+     { 
+    font-size: 14px;
+    }
+    body { padding: 0px; }
+    .card-body { padding: 25px 20px; } 
+    .card-header-bar { padding: 16px 20px; }
+    .table-title { font-size: 18px; line-height: 1.3; }
+    .ranking-grid {
+      grid-template-columns: 1fr; /* 1단으로 변경 */
+      grid-template-rows: auto;
+      grid-auto-flow: row; /* 위에서 아래 순서로 나열 */
+      gap: 0;
+    }
+    /* 모바일에서 각 플랫폼이 나눠질 때의 여백 확보 */
+    .grid-header { margin-top: 40px; padding-bottom: 15px; }
+    .header-fa { margin-top: 0; } /* 첫 번째는 상단 여백 제외 */
+    /* 모바일에서는 로고 크기를 살짝 조절 */
+    .grid-header img { height: 65px; }
+  }
+    </style>
+
+    <script defer src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script defer src="./assets/js/jquery.nice-select.min.js"></script>
+    <script defer src="./assets/js/slick.min.js"></script>
+    <script defer src="./assets/js/lenis.min.js"></script>
+    <script defer src="./assets/js/CustomEase.min.js"></script>
+    <script defer src="./assets/js/gsap.3.12.2.min.js"></script>
+    <script defer src="./assets/js/ScrollTrigger.3.12.7.min.js"></script>
+    <script defer src="./assets/js/ScrollToPlugin.3.12.7.min.js"></script>
+    <script defer src="./assets/js/cosmosfarm-share-buttons.js"></script>
+    <script defer src="./assets/js/ui.common.js"></script>
+    <script defer src="./assets/js/ui.common.old.js"></script>
+</head>
+<body>
+    <header class="header" data-lenis-prevent>
+        <div class="content-container">
+            <a href="./index.html" class="header-logo m-only">
+                <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+            </a>
+            <div class="header-util">
+                <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                    <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25">
+                </a>
+                <div class="search-box">
+                    <input type="text" class="stxt" aria-label="검색어 입력">
+                    <button type="button" class="sch" aria-label="검색">
+                        <img src="./assets/images/icon-search.webp" alt="" width="21" height="21">
+                    </button>
+                </div>
+                <button class="btn-folder" type="button">
+                    지난호 보기
+                    <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18">
+                </button>
+                <button type="button" class="btn-full-menu">
+                    2026년 10월
+                    <img src="./assets/images/icon-menu.webp" alt="전체 메뉴 열기" width="23" height="16">
+                </button>
+            </div>
+            <div class="inner">
+                <a href="./index.html" class="header-logo">
+                    <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+                </a>
+                <nav class="header-nav" aria-label="주요 섹션 메뉴">
+                    <div class="header-depth1">
+                        <a href="./list.html?section=SPECIAL" class="header-depth1-link">SPECIAL</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PEOPLE" class="header-depth1-link">PEOPLE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=READING" class="header-depth1-link">READING</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=GLOBAL" class="header-depth1-link">GLOBAL</a>
+                        <div class="header-depth2">
+                            <a href="./list.html?section=GLOBAL" class="header-depth2-link">GLOBAL</a>
+                            <a href="./list.html?section=GLOBAL(ENG)" class="header-depth2-link">GLOBAL(ENG)</a>
+                        </div>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=KOFIC%20STORY" class="header-depth1-link">KOFIC STORY</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=BOX%20OFFICE" class="header-depth1-link">BOX OFFICE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PRODUCTION" class="header-depth1-link">PRODUCTION</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+    <div class="sub-visual pc-only" style="background-image: url('./assets/images/global1001_00.webp')"></div>
+    <div class="sub-visual m-only" style="background-image: url('./assets/images/global1001_00m.webp')"></div>
+	<div class="sub-visual"><p class="common-desc" style=" position: absolute; right: 2vw; color: #FFF; bottom: 0.4vw; text-align: right; line-height: 1.3;">
+	BIFF Everywhere with local residents on a car-free street near Pusan National University</p></div>
+    <div class="sub-view-content">
+        <span class="bg" tabindex="-1"></span>
+        <div class="sub-view-content-inner">
+            <div class="max-container">
+                <div class="content-container">
+                    <div class="sub-visual-text-wrap">
+                        <div class="checkbox-wrap">
+                            <label for="viewCheck">
+                                <input type="checkbox" id="viewCheck" /> <span>View Larger Text</span>
+                            </label>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="badge">GLOBAL(ENG)</span>
+                        </div>
+                        <p class="title">A Festival in Step <br class="m-only">with <br class="m-only">an Entire City</p>
+                        <p class="sub-title">Community BIFF <br class="m-only">and BIFF Everywhere</p>
+
+                        <div class="detail">
+                            <p class="date">October 19, 2026</p>
+                            <p class="write">
+                                <span>By Lee Woo-bin (Cine21 Reporter) <br>
+								Photos Courtesy of the Busan <br class="m-only">International Film Festival</span>
+                            </p>
+                            <button type="button" class="btn-page-share">
+                               Share
+                                <img src="./assets/images/icon-share-2.webp" alt="" width="28" height="29">
+                            </button>
+
+                            <div id="detailSharePopup" class="share-popup">
+<button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container-1">
+                <div class="sub-summation">
+                    <p class="title">
+                        
+                    </p>
+                    <ul style="background-color: #cccccc47;">
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>Audiences Become Programmers… Community BIFF Participation Rises 1.7-Fold</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>From Markets to Airports… BIFF Everywhere Turns Busan into a Cinema</p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>Community BIFF and BIFF Everywhere: Everyday Film Festivals Growing with Local Communities</p>
+                        </li>
+                    </ul>
+                </div>
+
+               
+
+                 <p class="n-common-text-1 mt-60">
+                 The Busan International Film Festival is seeking to expand across Asia and the world while maintaining its strong ties to Busan. At the heart of this effort are Community BIFF and BIFF Everywhere. Now in its ninth year, Community BIFF is an audience-driven, community-focused festival. While the Busan International Film Festival's programs held around the Busan Cinema Center in Centum City follow a traditional festival screening format, Community BIFF presents distinctive programs centered in Nampo-dong, Busan, the festival’s original home. BIFF Everywhere, meanwhile, is extending the festival’s cultural reach by expanding its screenings beyond Busan to surrounding areas and even Seoul. <br><br>
+
+A total of 29,511 people attended Community BIFF’s screenings and accompanying events from October 8 to 11 this year, more than 1.7 times last year’s figure. The 69 films screened in theaters drew a combined audience of 5,186. More than one million international tourists visited Busan in the first quarter of this year, and Community BIFF and BIFF Everywhere are making the festival more accessible and welcoming to both international visitors and local residents. In doing so, they have firmly established themselves as initiatives that help the festival grow alongside the region and its communities. By examining this year’s achievements of Community BIFF and BIFF Everywhere, we take a fresh look at the Busan International Film Festival as a festival deeply rooted in its local community.
+
+                </p>
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/global1001_01.webp" srcset="./assets/images/global1001_01-600w.webp 600w, ./assets/images/global1001_01.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_01.webp" alt="global1001_01" width="1000" height="667" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">This year’s Night Before BIFF, held on the outdoor stage at BIFF Square</p>
+                </div>
+				
+				<p class="n-common-title-2">
+                 Audience-Curated Community BIFF: Request Cinema
+                </p>
+				<p class="n-common-text-1">
+                One of Community BIFF’s signature programs is “Request Cinema: A Theater by Request.” Conceived in 2018 and launched in earnest in 2019, the program invites people from across the country to submit their own programming proposals before the festival and then organize screenings and accompanying events during the festival. This year, a record 92 proposals were submitted to Request Cinema, of which 18 were selected through audience voting and an in-depth internal review and brought to life at the festival. <br><br>
+
+Here is one example of how it works. A screening marking the 20th anniversary of <span style="font-style:italic;">200 Pounds Beauty</span> (2006) was presented as part of a program titled “Beauty Is Still in Pain,” with lead actress Kim Ah-joong and guest director Byun Young-joo taking the stage to discuss the film. Another program featured a screening of <span style="font-style:italic;">Scrapper</span> (2023), followed by a conversation in which the audience programmer and the head of the film’s distribution company shared behind-the-scenes stories about the film. <br><br>
+
+Jung Mi, the Busan International Film Festival programmer responsible for Community BIFF and BIFF Everywhere, said, “With each passing year, the term ‘citizen programmer’ feels less fitting. They now demonstrate abilities comparable to those of programmers at any film festival. This year, each team even produced and distributed its own promotional video, further expanding the scope of its activities.” As Jung noted, the festival also serves as “a place to discover and nurture film professionals and audiences.” Each year, new programmers emerge through the process of revisiting, screening, and discussing films that audiences genuinely want to see—not just world premieres and highly anticipated new releases.
+
+                </p>
+				
+				
+				<div class="common-image-block-2">
+                 <div class="inner">
+                 <div class="image"><img src="./assets/images/global1001_02.webp" srcset="./assets/images/global1001_02-600w.webp 600w, ./assets/images/global1001_02.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_02.webp" alt="global1001_02" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                 <div class="image" style="text-align: right;"><img src="./assets/images/global1001_03.webp" srcset="./assets/images/global1001_03-600w.webp 600w, ./assets/images/global1001_03.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_03.webp" alt="global1001_03" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                   <p class="common-desc">
+                   Scenes from the Request Cinema programs “Beauty Is Still in Pain” (top) and “Three Impressions of Actor Kang Ae-sim”
+                   </p>
+                </div>
+               </div>
+				
+				<p class="n-common-title-2">
+                Conversations with Masters: Master Talk
+                </p>
+				<p class="n-common-text-1">                
+				Talk events in which audiences engage in discussions with a film’s director and production team following a screening are generally known as “Guest Visits” or “GVs.” Community BIFF’s “Master Talk,” however, is markedly different. Designed for real-time, two-way communication, Master Talk allows audience members to share live commentary online through a dedicated app while the film is being screened. Their comments appear simultaneously on the right side of the screen, and the visiting director and production team respond to them in real time. The use of simultaneous interpretation equipment also allows audience members to focus entirely on the film. According to Community BIFF Operating Committee Chair Jo Won-hee, it is “a program developed while exploring ways to extend the conventional GV format online.” <br> <br>
+
+Programmer Jung Mi, who conceived Master Talk, explained that the goal was “to strengthen the festival’s interactive character and encourage greater audience participation.” She added, “It is not always easy to invite renowned directors to a film festival. But when we tell them that audiences genuinely want to see them and speak with them, most creators agree to participate without hesitation. The program serves audiences above all else.” This year’s Master Talks featured Yim Soon-rye’s <span style="font-style:italic;">Waikiki Brothers</span> (2001) and Ryoo Seung-wan’s <span style="font-style:italic;">The City of Violence</span> (2006). Jung recalled, “Both directors threw themselves into the real-time interaction so wholeheartedly that they were sweating profusely, while actor Park Hae-il and other participants also readily joined the events.” She added, “Creators who attend once often say that Master Talk is one event they would definitely participate in again.”
+
+                </p>
+				
+				
+				<div class="common-image-block-2">
+                 <div class="inner">
+                 <div class="image"><img src="./assets/images/global1001_04.webp" srcset="./assets/images/global1001_04-600w.webp 600w, ./assets/images/global1001_04.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_04.webp" alt="global1001_04" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                 <div class="image" style="text-align: right;"><img src="./assets/images/global1001_05.webp" srcset="./assets/images/global1001_05-600w.webp 600w, ./assets/images/global1001_05.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_05.webp" alt="global1001_05" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                   <p class="common-desc">
+                   The <span style="font-style:italic;">Waikiki Brothers</span> Master Talk featuring director Yim Soon-rye and actor Park Hae-il (top), <br class="pc-only">and the <span style="font-style:italic;">The City of Violence</span> Master Talk featuring director Ryoo Seung-wan and action director Jung Doo-hong
+                   </p>
+                </div>
+               </div>
+
+				
+				<p class="n-common-title-2">
+                Sustaining and Expanding Cinephile Culture
+                </p>
+				<p class="n-common-text-1">
+                Another Community BIFF program, the Community BIFF Collection, brings together creators who are expanding the foundations of contemporary culture across the boundaries of film, music, publishing, new media, and other fields. One of this year’s most notable programs was “1976 vs. 2026: Conversation with 20-Year-Old Cinephiles.” The program screened early works by director Kim Hong-joon, one of Korea’s leading cinephiles and a professor at Korea National University of Arts who formerly served as director of the Korean Film Archive, with Kim himself taking the stage. He was joined by Lee Yoon-young, CEO of film distributor Cinematograph, who represented the perspectives and tastes of today’s cinephiles. <br> <br>
+
+Programmer Jung Mi explained the intention behind the program: “We wanted to hear from cinephiles communicating through film across a 50-year divide. As Director Kim Hong-joon noted, living as a film enthusiast inevitably brings moments of loneliness and solitude. At such times, Community BIFF is needed as a place where people can find and meet like-minded companions and build solidarity.” She also emphasized Community BIFF’s value in conveying the message that “anyone struggling with their love of cinema can come to Busan, the city of film, and find a community.” <br> <br>
+
+It was all the more special that the principal cast and creators of the JTBC drama <span style="font-style:italic;">We Are All Trying Here</span>, which tells the stories of independent filmmakers, appeared at Community BIFF this year. The outdoor stage greeting and talk featured writer Park Hae-young, director Cha Young-hoon, and cast members including Koo Kyo-hwan, Oh Jung-se, and Kang Mal-geum. The event continued with “Gobak Film Night,” a party named after the film production company featured in the series, adding further energy to the festival. <br> <br>
+
+The fragmentation of contemporary film culture is undeniable. Even when film festivals are held, it is difficult to find the same sense of closeness between creators and audiences that existed in the past. Today, as not only film festivals but also theater-centered offline culture declines, the very foundations of film culture are shrinking. This makes it all the more important for film festivals to establish themselves as places where cinephiles and others involved in film culture can connect, come together, and cultivate a culture of their own. Community BIFF is providing precisely such a space.
+
+                </p>
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/global1001_06.webp" srcset="./assets/images/global1001_06-600w.webp 600w, ./assets/images/global1001_06.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_06.webp" alt="global1001_06" width="1000" height="667" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">The cast of <span style="font-style:italic;">We Are All Trying Here</span> meeting with audiences</p>
+                </div>
+                  
+				  
+		      <p class="n-common-title-2">
+               BIFF Everywhere Turns the Entire City of Busa into a Screen
+                </p>
+			  <p class="n-common-text-1">
+               After the Busan International Film Festival’s main venue moved to the Busan Cinema Center area in Centum City, some observers noted that the festival had fewer opportunities to engage with local communities. BIFF Everywhere is addressing this issue by broadening the festival’s reach across Busan. This year, BIFF Everywhere held screenings throughout Busan, as well as in Yangsan and Seoul, from October 3 to 15. Special screening venues were established not only in conventional cinemas but also in places where residents live and spend their time, offering distinctive screenings and events. This year’s 18 venues included the international terminal duty-free area at Gimhae International Airport in Gangseo-gu; Let’s Run Park Busan-Gyeongnam in Gangseo-gu; Sadeok Market and the West Busan Media Center in Gangseo-gu; the central intersection of the car-free street near Pusan National University in Geumjeong-gu; Gijang Janggwancheong in Gijang-gun; the circular plaza in front of Tongmyong University’s Main Building in Nam-gu; Ocean Hall at the BNK Busan Bank Headquarters in Nam-gu; 168 The Deck in Dong-gu; MEGABOX Seomyeon Daehan in Busanjin-gu; Jeongi-inneun Gupo Market in Buk-gu; Busan Jeongbeopsa Temple of the Cheontae Order of Korean Buddhism in Seo-gu; Domohan in Suyeong-gu; Millak Waterfront Park in Suyeong-gu; Hyundai Motorstudio Busan and F1963 in Suyeong-gu; the second-floor Ocean Garden at P.ARK in Yeongdo-gu; Mokhwadang 1944 in Yangsan; and the National Assembly Members’ Office Building in Yeouido, Seoul. Locations across Busan, from the heart of the city to a temple on a mountainside, were transformed into cinemas. <br> <br>
+
+With events taking place at such a wide variety of locations, the guests appearing on stage were equally diverse. At Domohan, the former official residence of the Busan mayor in Suyeong-gu, Professor Jung Joon-hee, director Byun Young-joo, actor Kim Eui-sung, and Operating Committee Chair Jo Won-hee participated in a discussion titled “Busan and a Film Festival Closer to the Lives and Emotions of Its Citizens.” At Ocean Hall in the BNK Busan Bank Headquarters, directors Kim Hong-joon and Lee Myung-se and actor Jung Kyung-soon gathered to reflect on the late actor Ahn Sung-ki’s 69-year acting career. <br> <br>
+
+BIFF Everywhere also continues to collaborate with local institutions and organizations. This year alone, it organized programs with local merchants’ associations, youth centers, youth startups, universities, commercial district revitalization initiatives, urban regeneration projects, and local governments, strengthening its role as a community-based festival. Funding from the film festival accounts for only one-quarter of BIFF Everywhere’s total budget. The remainder is secured through cooperation and sponsorship from the local community, creating numerous opportunities for collaboration through project budgets that do not place an excessive financial burden on local organizations. Community BIFF also maintains exchanges and partnerships with the Busan Council on Social Welfare, Busan Science Culture Hub Center, Busan Tourism Organization, Busan Cultural Foundation, Im Kwon Taek College of Film and Media Arts at Dongseo University, and BNK Busan Bank Art Cinema.
+
+                </p>
+				
+				<div class="common-image-block-2">
+                 <div class="inner">
+                 <div class="image"><img src="./assets/images/global1001_07.webp" srcset="./assets/images/global1001_07-600w.webp 600w, ./assets/images/global1001_07.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_07.webp" alt="global1001_07" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                 <div class="image" style="text-align: right;"><img src="./assets/images/global1001_08.webp" srcset="./assets/images/global1001_08-600w.webp 600w, ./assets/images/global1001_08.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_08.webp" alt="global1001_08" width="1000" height="666" class="js-image-full-layer" loading="lazy"></div>
+                </div>
+				<br>
+				<div class="inner">
+				 <div class="image"><img src="./assets/images/global1001_09.webp" srcset="./assets/images/global1001_09-600w.webp 600w, ./assets/images/global1001_09.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_09.webp" alt="global1001_09" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                 <div class="image" style="text-align: right;"><img src="./assets/images/global1001_10.webp" srcset="./assets/images/global1001_10-600w.webp 600w, ./assets/images/global1001_10.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_10.webp" alt="global1001_10" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                </div>
+				<br>
+				<div class="inner">
+				  <div class="image"><img src="./assets/images/global1001_11.webp" srcset="./assets/images/global1001_11-600w.webp 600w, ./assets/images/global1001_11.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_11.webp" alt="global1001_11" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                   <p class="common-desc">
+                   From top: Gupo Market, Millak Waterfront Park, the international terminal duty-free area <br class="pc-only">at Gimhae International Airport, 168 The Deck, and the second-floor Ocean Garden at P.ARK, all venues for BIFF Everywhere
+                   </p>
+                </div>
+               </div>
+
+				 <p class="n-common-title-2">
+                A Cradle for Local Filmmakers, a True City of Film
+                </p>
+				<p class="n-common-text-1">
+                Meanwhile, BIFF Everywhere also serves as a forum for communication among local filmmakers and a cradle for nurturing new filmmaking talent in the region. Through “Anyone Can Make a Film,” a film production project now in its sixth year, established local filmmakers serve as mentors while aspiring filmmakers from the region participate as mentees, making their own films before and during the festival and ultimately screening the completed works. Cultural and arts organizations from across the region also take part. year alone, the participating organizations included Gommasil Pictures, supported by the Yangsan Regional Revitalization Support Center; Ilsabullan, supported by Save the Children Korea; Theater Arts Experimental Group Cho; the Busan Welfare Center for People with Cerebral Palsy; and the Sangri Comprehensive Social Welfare Center. The project culminated in both a workshop and a celebration in which Busan residents from diverse backgrounds, including those with limited access to cultural opportunities, came together to tell their stories through short films.
+                </p>
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/global1001_12.webp" srcset="./assets/images/global1001_12-600w.webp 600w, ./assets/images/global1001_12.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/global1001_12.webp" alt="global1001_12" width="1000" height="667" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">This year’s Busan International Film Festival “BIFF Everywhere” leaflet</p>
+                </div>
+				
+				
+				<p class="n-common-text-1">
+                Programmer Jung Mi summed up the local partnerships fostered by Community BIFF and BIFF Everywhere with the phrase “an everyday film festival.” She explained, “The more the festival is confined to a specific location, the harder it becomes for Busan residents to experience its energy. For Busan to become a true city of film, people need not only opportunities to watch good films in theaters but also more places where they can immerse themselves in cinema and the festival experience, both during and outside the festival period.” Community BIFF and BIFF Everywhere are seeking to make cinema as natural a part of everyday life and culture as breathing. Before we know it, Community BIFF will be celebrating its tenth anniversary next year.
+                </p>
+				
+				
+				
+			
+				
+ <button type="button" class="btn-page-back" >Back</button>
+
+                <div class="common-tag-list">
+                    <span>BusanInternationalFilmFestival</span>
+                    <span>BIFFEverywhere</span>
+                    <span>CommunityBIFF</span>
+                    <span>RequestCinema</span>
+                    <span>MasterTalk</span>
+                    <span>CommunityBIFFCollection</span>
+                    <span>AnyoneCanMakeAFilm</span>
+                </div>
+
+               
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="./assets/images/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="./assets/images/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="./assets/images/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+                    </div>
+
+                
+
+            <div class="line-1"></div>
+            <div class="content-container">
+                <div class="common-page-list" >
+                    <a href="./list.html?section=GLOBAL(ENG)" class="link-list">List</a>
+
+                    <p class="n-common-title-1">Related Posts</p>
+
+                   <div class="list">
+                        <div class="item">
+                            <a href="./detail-global.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202634181034430637.webp" srcset="./assets/images/bbs/0_202634181034430637-300w.webp 300w, ./assets/images/bbs/0_202634181034430637.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="도시 전체와 호흡하는 축제로" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">GLOBAL</p>
+                                <p class="text-2">도시 전체와 호흡하는 축제로</p>
+                                <p class="text-3">커뮤니티비프와 동네방네비프</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202624181024530122.webp" srcset="./assets/images/bbs/0_202624181024530122-300w.webp 300w, ./assets/images/bbs/0_202624181024530122.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="진실 기록 넘어 사회 변화로" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">SPECIAL ②</p>
+                                <p class="text-2">진실 기록 넘어 사회 변화로</p>
+                                <p class="text-3">한국형 ‘임팩트 다큐’ 생태계, 필요하다</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-kofic-story.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202639181039060737.webp" srcset="./assets/images/bbs/0_202639181039060737-300w.webp 300w, ./assets/images/bbs/0_202639181039060737.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="창작자, 어떤 판 위에서 놀게 할 것인가" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">KOFIC STORY</p>
+                                <p class="text-2">창작자, 어떤 판 위에서 놀게 할 것인가</p>
+                                <p class="text-3">2026 KOFIC AI 쇼케이스</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-special-1.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202643181043140079.webp" srcset="./assets/images/bbs/0_202643181043140079-300w.webp 300w, ./assets/images/bbs/0_202643181043140079.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="새로운 영화·영상 제작 거점으로의 출발" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">SPECIAL ①</p>
+                                <p class="text-2">새로운 영화·영상 제작 거점으로의 출발</p>
+                                <p class="text-3">부산기장촬영소를 가다</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="image-view-layer">
+            <div class="image">
+                <div class="btn-group">
+                    <button type="button" class="btn-close" aria-label="확대 이미지 닫기">
+                        <img src="./assets/images/icon-close-white.webp" alt="" width="256" height="256" fetchpriority="low" loading="lazy">
+                    </button>
+                </div>
+                <img class="target-image" src="" alt="">
+            </div>
+        </div>
+        <div class="full-menu" style="display: none;">
+            <div class="full-menu-content">
+                <div class="content-container">
+                    <div class="full-menu-header">
+                        <a href="./index.html" class="logo">
+                            <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100" fetchpriority="low" loading="lazy">
+                        </a>
+                        <button type="button" class="btn-full-menu-close" aria-label="전체 메뉴 닫기">
+                            <img src="./assets/images/icon-full-menu-close.webp" alt="" width="80" height="80" fetchpriority="low" loading="lazy">
+                        </button>
+                    </div>
+                    <nav class="full-menu-nav" aria-label="2026년 10월호 전체 메뉴">
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=SPECIAL" class="full-menu-depth1-link is-active">SPECIAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=SPECIAL" class="full-menu-special-link"><strong><span>SPECIAL</span></strong></a>
+                                <a href="./detail-special-1.html" class="full-menu-depth2-link">
+                                    <p>새로운 영화·영상 제작 거점으로의 출발<br>부산기장촬영소를 가다</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>진실 기록 넘어 사회 변화로<br>한국형 ‘임팩트 다큐’ 생태계, 필요하다</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PEOPLE" class="full-menu-depth1-link">PEOPLE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PEOPLE" class="full-menu-special-link"><strong><span>PEOPLE</span></strong></a>
+                                <a href="./detail-people-1.html" class="full-menu-depth2-link">
+                                    <p>인간다움과 인간다운 죽음에 대하여<br>&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-people-2.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>엉뚱하지만 파괴적인<br>&lt;부활남: 더 레드&gt; 정성호 무술감독</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=READING" class="full-menu-depth1-link">READING</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=READING" class="full-menu-special-link"><strong><span>READING</span></strong></a>
+                                <a href="./detail-reading-1.html" class="full-menu-depth2-link">
+                                    <p>미옥과 호석의 내일을 위한 시간<br>&lt;가능한 사랑&gt;</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-yesno.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>낙원 없이 살아가는 법<br>&lt;실낙원&gt; YES or NO</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=GLOBAL" class="full-menu-depth1-link">GLOBAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=GLOBAL" class="full-menu-special-link"><strong><span>GLOBAL</span></strong></a>
+                                <a href="./list.html?section=GLOBAL(ENG)" class="full-menu-special-link"><strong><span>GLOBAL(ENG)</span></strong></a>
+                                <a href="./detail-global.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>도시 전체와 호흡하는 축제로<br>커뮤니티비프와 동네방네비프</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                                <a href="./detail-global-eng.html" class="full-menu-depth2-link">
+                                    <p>A Festival in Step with an Entire City<br>Community BIFF and BIFF Everywhere</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=KOFIC%20STORY" class="full-menu-depth1-link">KOFIC STORY</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=KOFIC%20STORY" class="full-menu-special-link"><strong><span>KOFIC STORY</span></strong></a>
+                                <a href="./detail-kofic-story.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>창작자, 어떤 판 위에서 놀게 할 것인가<br>2026 KOFIC AI 쇼케이스</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=BOX%20OFFICE" class="full-menu-depth1-link">BOX OFFICE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=BOX%20OFFICE" class="full-menu-special-link"><strong><span>BOX OFFICE</span></strong></a>
+                                <a href="./detail-boxoffice.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>주간 박스오피스<br>10월 5주차 위클리 박스오피스</p><br>
+                                    <p>2026-10-30</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PRODUCTION" class="full-menu-depth1-link no-child">PRODUCTION</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PRODUCTION" class="full-menu-special-link"><strong><span>PRODUCTION</span></strong></a>
+                                <a href="./detail-production.html" class="full-menu-depth2-link">
+                                    <p>한국영화 제작 현황<br>9월 개봉작 살펴보기 (2026. 9. 제작상황판)</p><br>
+                                    <p>2026-10-13</p>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="m-only">
+                        <div class="full-menu-util">
+                            <a href="./list.html" class="btn-instagram">
+                                인스타그램
+                                <img src="./assets/images/icon-instagram.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <a href="#reader" data-open-modal="reader" class="btn-talk">
+                                독자의견
+                                <img src="./assets/images/icon-talk.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <button class="btn-folder" type="button">
+                                지난호 보기
+                                <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18" fetchpriority="low" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" fetchpriority="low" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-menu">
+            <div class="quick-menu">
+                <p class="title js-m-quick-open">Quick Menu</p>
+                <div class="menu">
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-3-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>인스타<br class="m-only">그램</p>
+                    </a>
+                    <a href="#reader" data-open-modal="reader">
+                        <img src="./assets/images/img-quick-2-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>독자<br class="m-only">의견</p>
+                    </a>
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-30-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>뉴스레터 <br>신청</p>
+                    </a>
+                </div>
+            </div>
+            <button class="btn-page-top" type="button">
+                <img src="./assets/images/img-quick-top.webp" alt="" width="14" height="13" loading="lazy"> TOP
+            </button>
+        </div>
+
+        <div id="reader" class="modal-wrap" style="display: none;">
+            <div class="modal" style="padding: 2rem; width: 100%;">
+                <div class="modal-hd">
+                    <div class="title-wrap" style="text-align: left;">
+                        <h2>독자의견 보내기</h2>
+                        <p class="sub-title" style="margin-top: 10px;">여러분의 소중한 의견을 기다리고 있습니다.</p>
+                    </div>
+                    <button type="button" class="modal-close" data-close-modal="reader" aria-label="팝업 닫기"></button>
+                </div>
+                <div class="modal-bd">
+                    <div class="modal-cont">
+                        <div class="notice-content">
+                            <p class="common-text-1" style="margin-bottom: 20px;">
+                                <img src="./assets/images/popup0904.webp" alt="웹진 한국영화 독자의견 안내" width="800" height="700" fetchpriority="low" loading="lazy">
+                            </p>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="input-col">
+                                <label for="opinion1">의견내용</label>
+                                <div class="input-box">
+                                    <textarea name="opinion1" id="opinion1" class="scroll_box" placeholder="보내주실 의견을 편하게 입력해 주세요."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-ft">
+                    <a href="#none" class="btn-submit senSave" vo="M1">의견보내기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="max-container">
+            <div class="content-container">
+                <div class="footer-info">
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/footer-logo.webp" alt="한국영화" width="250" height="53" loading="lazy">
+                    </a>
+                    <div class="footer-util">
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/footer-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" loading="lazy">
+                        </a>
+                        <div class="search-box">
+                            <input type="text" class="stxt" aria-label="하단 검색어 입력">
+                            <button type="button" class="sch" aria-label="검색">
+                                <img src="./assets/images/icon-search.webp" alt="" width="21" height="21" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-instagram pc-only">
+                            인스타그램
+                            <img src="./assets/images/icon-instagram-w.webp" alt="" width="19" height="19" loading="lazy">
+                        </a>
+                        <a href="#reader" data-open-modal="reader" class="btn-talk pc-only">
+                            독자의견
+                            <img src="./assets/images/icon-talk-w.webp" alt="" width="21" height="21" loading="lazy">
+                        </a>
+                        <button class="btn-folder" type="button">
+                            지난호 보기
+                            <img src="./assets/images/icon-folder-w.webp" alt="" width="23" height="18" loading="lazy">
+                        </button>
+                        <button type="button" class="btn-full-menu">
+                            2026년 10월
+                            <img src="./assets/images/icon-menu-w.webp" alt="전체 메뉴 열기" width="23" height="16" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <div class="copyright">
+                        48058 부산광역시 해운대구 수영강변대로 130 (우동)<br>
+                        문의: kmovie@hankyung.com<br>
+                        Copyrights ⓒ 2026 BY KOFIC. All rights reserved.
+                    </div>
+                    <div class="detail">
+                        <div>
+                            발행인: 한상준<br>
+                            편집장: 김혜선<br>
+                            발간처: 영화진흥위원회 정책본부 정책개발팀
+                        </div>
+                        <div>
+                            기획편집: 박주영 이윤경<br>
+                            발행사: (주)한경매거진앤북<br>
+                            eISSN 3140-460X
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-10 pc-only" style="font-size: 16px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+                <p class="mt-10 m-only" style="font-size: 12px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
