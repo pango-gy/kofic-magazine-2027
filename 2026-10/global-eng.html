@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +7,13 @@
     <title>A Festival in Step with an Entire City | 웹진 한국영화</title>
     <meta name="description" content="The Busan International Film Festival is seeking to expand across Asia and the world while maintaining its strong ties to Busan.">
 
-    <link rel="preload" href="../assets/fonts/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../assets/fonts/GmarketSansMedium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="../assets/images/2026-10/global/global1001_00.webp" type="image/webp" media="(min-width: 781px)" fetchpriority="high">
-    <link rel="preload" as="image" href="../assets/images/2026-10/global/global1001_00m.webp" type="image/webp" media="(max-width: 780px)" fetchpriority="high">
-
-    <link href="../assets/css/normalize.css" rel="stylesheet">
-    <link href="../assets/css/nice-select.css" rel="stylesheet">
-    <link href="../assets/css/slick.css" rel="stylesheet">
-    <link href="../assets/css/styles.css" rel="stylesheet">
-    <link href="../assets/css/styles-old.css" rel="stylesheet">
-    <link href="../assets/css/sub_24css.css" rel="stylesheet">
-    <link href="../assets/css/refine.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link href="../assets/css/editorial-polish.css" rel="stylesheet">
-    <script src="../assets/js/page-iris.js"></script>
-
+    <link rel="preload" as="image" href="../assets/images/2026-10/global/global1001_00.webp" type="image/webp" fetchpriority="high">
+    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
     <style>
-.sub-visual-text-wrap .title,
-.sub-visual-text-wrap .sub-title {
-    font-family: 'noto', 'Noto Sans KR', Arial, sans-serif !important;
-}
 /* 기사 본문 내용에만 Noto Sans 적용 */
 .sub-view-content .content-container-1,
 .sub-view-content .content-container-1 p,
@@ -43,20 +29,10 @@
     --article-body-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
     --article-summary-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
 }
-    .sub-visual-text-wrap .detail {
-     align-items: flex-end;
-     }
-    .sub-visual-text-wrap .badge {
-     align-items: center;
-     display: flex;
-     width: 200px;
-     justify-content: center;
-     margin: auto;
-     }
+    
+    
     @media screen and (max-width: 780px) {
-    .sub-visual-text-wrap .badge {
-     width: 110px;
-    }
+    
     .sub-visual {
      height: 70vh;
     }
@@ -216,125 +192,97 @@
     .grid-header img { height: 65px; }
   }
     </style>
-
-    <script defer src="../assets/js/jquery-3.7.1.min.js"></script>
-    <script defer src="../assets/js/jquery.nice-select.min.js"></script>
-    <script defer src="../assets/js/slick.min.js"></script>
-    <script defer src="../assets/js/lenis.min.js"></script>
-    <script defer src="../assets/js/CustomEase.min.js"></script>
-    <script defer src="../assets/js/gsap.3.12.2.min.js"></script>
-    <script defer src="../assets/js/ScrollTrigger.3.12.7.min.js"></script>
-    <script defer src="../assets/js/ScrollToPlugin.3.12.7.min.js"></script>
-    <script defer src="../assets/js/cosmosfarm-share-buttons.js"></script>
-    <script defer src="../assets/js/ui.common.js"></script>
-    <script defer src="../assets/js/ui.common.old.js"></script>
-    <script defer src="../assets/js/editorial-polish.js"></script>
+    <script defer src="../assets/js/magazine-2027.js"></script>
 </head>
 <body>
-    <header class="header" data-lenis-prevent>
-        <div class="content-container">
-            <a href="../index.html" class="header-logo m-only">
-                <img src="../assets/images/common/header-logo.webp" alt="한국영화" width="300" height="100">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+    <header class="ed-header">
+        <div class="ed-header-inner">
+            <a href="../index.html" class="ed-brand" aria-label="웹진 한국영화 홈">
+                <span class="ed-brand-mark">
+                    <img src="../assets/images/common/header-logo.webp" alt="한국영화" class="ed-brand-logo" width="300" height="100">
+                </span>
+                <span class="ed-brand-issue">VOL. 2026.10</span>
             </a>
-            <div class="header-util">
-                <a href="../list.html" class="btn-kofic" aria-label="영화진흥위원회">
-                    <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25">
-                </a>
-                <div class="search-box">
-                    <input type="text" class="stxt" aria-label="검색어 입력">
-                    <button type="button" class="sch" aria-label="검색">
-                        <img src="../assets/images/common/icon-search.webp" alt="" width="21" height="21">
-                    </button>
+
+            <nav class="ed-nav" aria-label="주요 섹션 메뉴">
+                <div class="ed-nav-item"><a href="../list.html?section=SPECIAL" class="ed-nav-link">SPECIAL</a></div>
+                <div class="ed-nav-item"><a href="../list.html?section=INTERVIEW" class="ed-nav-link">INTERVIEW</a></div>
+                <div class="ed-nav-item"><a href="../list.html?section=CRITIC" class="ed-nav-link">CRITIC</a></div>
+                <div class="ed-nav-item">
+                    <a href="../list.html?section=GLOBAL" class="ed-nav-link" aria-current="page">GLOBAL ▾</a>
+                    <div class="ed-nav-dropdown">
+                        <a href="../list.html?section=GLOBAL">GLOBAL (국문)</a>
+                        <a href="../list.html?section=GLOBAL(ENG)">GLOBAL (ENG)</a>
+                    </div>
                 </div>
-                <button class="btn-folder" type="button">
-                    지난호 보기
-                    <img src="../assets/images/common/icon-folder.webp" alt="" width="23" height="18">
+                <div class="ed-nav-item"><a href="../list.html?section=KOFIC%20STORY" class="ed-nav-link">KOFIC STORY</a></div>
+                <div class="ed-nav-item"><a href="../list.html?section=BOX%20OFFICE" class="ed-nav-link">BOX OFFICE</a></div>
+                <div class="ed-nav-item"><a href="../list.html?section=PRODUCTION" class="ed-nav-link">PRODUCTION</a></div>
+            </nav>
+
+            <div class="ed-header-actions">
+                <button type="button" class="ed-icon-btn" data-open-drawer="search" aria-label="기사 검색 열기">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <span class="btn-label">검색</span>
                 </button>
-                <button type="button" class="btn-full-menu">
-                    2026년 10월
-                    <img src="../assets/images/common/icon-menu.webp" alt="전체 메뉴 열기" width="23" height="16">
+                <button type="button" class="ed-icon-btn is-primary" data-open-drawer="index" aria-label="10월호 목차 열기">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h12"/></svg>
+                    <span class="btn-label">10월호 목차</span>
                 </button>
-            </div>
-            <div class="inner">
-                <a href="../index.html" class="header-logo">
-                    <img src="../assets/images/common/header-logo.webp" alt="한국영화" width="300" height="100">
-                </a>
-                <nav class="header-nav" aria-label="주요 섹션 메뉴">
-                    <div class="header-depth1">
-                        <a href="../list.html?section=SPECIAL" class="header-depth1-link">SPECIAL</a>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=INTERVIEW" class="header-depth1-link">INTERVIEW</a>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=CRITIC" class="header-depth1-link">CRITIC</a>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=GLOBAL" class="header-depth1-link">GLOBAL</a>
-                        <div class="header-depth2">
-                            <a href="../list.html?section=GLOBAL" class="header-depth2-link">GLOBAL</a>
-                            <a href="../list.html?section=GLOBAL(ENG)" class="header-depth2-link">GLOBAL(ENG)</a>
-                        </div>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=KOFIC%20STORY" class="header-depth1-link">KOFIC STORY</a>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=BOX%20OFFICE" class="header-depth1-link">BOX OFFICE</a>
-                    </div>
-                    <div class="header-depth1">
-                        <a href="../list.html?section=PRODUCTION" class="header-depth1-link">PRODUCTION</a>
-                    </div>
-                </nav>
             </div>
         </div>
+        <div class="ed-progress-bar" aria-hidden="true"></div>
     </header>
 
-    <div class="content">
-    <div class="sub-visual pc-only" style="background-image: url('../assets/images/2026-10/global/global1001_00.webp')"></div>
-    <div class="sub-visual m-only" style="background-image: url('../assets/images/2026-10/global/global1001_00m.webp')"></div>
-	<div class="sub-visual"><p class="common-desc" style=" position: absolute; right: 2vw; color: #FFF; bottom: 0.4vw; text-align: right; line-height: 1.3;">
-	BIFF Everywhere with local residents on a car-free street near Pusan National University</p></div>
-    <div class="sub-view-content">
-        <span class="bg" tabindex="-1"></span>
-        <div class="sub-view-content-inner">
-            <div class="max-container">
-                <div class="content-container">
-                    <div class="sub-visual-text-wrap">
-                        <div class="checkbox-wrap">
-                            <label for="viewCheck">
-                                <input type="checkbox" id="viewCheck" /> <span>View Larger Text</span>
-                            </label>
-                        </div>
-                        <div class="badge-wrap">
-                            <span class="badge">GLOBAL(ENG)</span>
-                        </div>
-                        <p class="title">A Festival in Step <br class="m-only">with <br class="m-only">an Entire City</p>
-                        <p class="sub-title">Community BIFF <br class="m-only">and BIFF Everywhere</p>
+    <main id="main-content">
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <nav class="article-breadcrumb" aria-label="기사 위치">
+                    <a href="../index.html">HOME</a>
+                    <span class="sep">/</span>
+                    <a href="../list.html?section=GLOBAL(ENG)">GLOBAL(ENG)</a>
+                </nav>
 
-                        <div class="detail">
-                            <p class="date">October 19, 2026</p>
-                            <p class="write">
-                                <span>By Lee Woo-bin (Cine21 Reporter) <br>
-								Photos Courtesy of the Busan <br class="m-only">International Film Festival</span>
-                            </p>
-                            <button type="button" class="btn-page-share">
-                               Share
-                                <img src="../assets/images/common/icon-share-2.webp" alt="" width="28" height="29">
-                            </button>
+                <h1 class="article-title">A Festival in Step <br class="m-only">with <br class="m-only">an Entire City</h1>
+                <p class="article-subtitle">Community BIFF <br class="m-only">and BIFF Everywhere</p>
 
-                            <div id="detailSharePopup" class="share-popup">
-<button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="../assets/images/common/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
-                                <button type="button" class="js-share-sns" data-platform="naver"><img src="../assets/images/common/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
-                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="../assets/images/common/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
-                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="../assets/images/common/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
-</div>
+                <div class="article-meta-bar">
+                    <div class="article-byline-group">
+                        <div class="article-date-row">
+                            <span>October 19, 2026</span>
+                            <span class="article-read-time" id="articleReadTime">읽는 중…</span>
                         </div>
+                        <div class="article-credits"><span>By Lee Woo-bin (Cine21 Reporter) <br> Photos Courtesy of the Busan <br class="m-only">International Film Festival</span></div>
+                    </div>
+
+                    <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
+                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
+                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
+                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
+                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
+                        </div>
+                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
+                        </div>
+                        <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
                     </div>
                 </div>
             </div>
-            <div class="content-container-1">
-                <div class="sub-summation">
+        </header>
+
+        <figure class="article-cover">
+            <div class="article-cover-frame">
+                <img src="../assets/images/2026-10/global/global1001_00.webp" alt="A Festival in Step with an Entire City" fetchpriority="high">
+            </div>
+            <figcaption class="article-cover-caption">BIFF Everywhere with local residents on a car-free street near Pusan National University</figcaption>
+        </figure>
+
+        <article class="article-main">
+<div class="sub-summation">
                     <p class="title">
                         
                     </p>
@@ -521,317 +469,186 @@ BIFF Everywhere also continues to collaborate with local institutions and organi
                                 <button type="button" class="js-share-sns" data-platform="facebook"><img src="../assets/images/common/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
                                 <button type="button" class="js-share-sns" data-platform="twitter"><img src="../assets/images/common/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
                         </div>
-                    </div>
+        </article>
 
-                
+        <section class="article-footer-band" aria-label="이전·다음 기사 및 관련기사">
+            <div class="ed-container">
+                <nav class="article-nav-bar" id="articleNavBar" aria-label="이전·다음 기사 이동"></nav>
 
-            <div class="line-1"></div>
-            <div class="content-container">
-                <div class="common-page-list" >
-                    <a href="../list.html?section=GLOBAL(ENG)" class="link-list">List</a>
-
-                    <p class="n-common-title-1">Related Posts</p>
-
-                   <div class="list">
-                        <div class="item">
-                            <a href="./global.html">
-                                <div class="image"><img src="../assets/images/2026-10/thumbs/0_202634181034430637.webp" srcset="../assets/images/2026-10/thumbs/0_202634181034430637-300w.webp 300w, ../assets/images/2026-10/thumbs/0_202634181034430637.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="도시 전체와 호흡하는 축제로" width="457" height="635" loading="lazy"></div>
-                                <p class="text-1">GLOBAL</p>
-                                <p class="text-2">도시 전체와 호흡하는 축제로</p>
-                                <p class="text-3">커뮤니티비프와 동네방네비프</p>
-                            </a>
+                <h2 class="related-heading">Related Articles</h2>
+                <div class="related-grid">
+                    <a href="./global.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-10/global/global1001_00.webp" alt="도시 전체와 호흡하는 축제로" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">GLOBAL</p>
+                            <h3 class="ed-card-title">도시 전체와 호흡하는 축제로</h3>
+                            <p class="ed-card-deck">커뮤니티비프와 동네방네비프</p>
                         </div>
-                        <div class="item">
-                            <a href="./special-2.html">
-                                <div class="image"><img src="../assets/images/2026-10/thumbs/0_202624181024530122.webp" srcset="../assets/images/2026-10/thumbs/0_202624181024530122-300w.webp 300w, ../assets/images/2026-10/thumbs/0_202624181024530122.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="진실 기록 넘어 사회 변화로" width="457" height="635" loading="lazy"></div>
-                                <p class="text-1">SPECIAL ②</p>
-                                <p class="text-2">진실 기록 넘어 사회 변화로</p>
-                                <p class="text-3">한국형 ‘임팩트 다큐’ 생태계, 필요하다</p>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="./kofic-story.html">
-                                <div class="image"><img src="../assets/images/2026-10/thumbs/0_202639181039060737.webp" srcset="../assets/images/2026-10/thumbs/0_202639181039060737-300w.webp 300w, ../assets/images/2026-10/thumbs/0_202639181039060737.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="창작자, 어떤 판 위에서 놀게 할 것인가" width="457" height="635" loading="lazy"></div>
-                                <p class="text-1">KOFIC STORY</p>
-                                <p class="text-2">창작자, 어떤 판 위에서 놀게 할 것인가</p>
-                                <p class="text-3">2026 KOFIC AI 쇼케이스</p>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="./special-1.html">
-                                <div class="image"><img src="../assets/images/2026-10/thumbs/0_202643181043140079.webp" srcset="../assets/images/2026-10/thumbs/0_202643181043140079-300w.webp 300w, ../assets/images/2026-10/thumbs/0_202643181043140079.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="새로운 영화·영상 제작 거점으로의 출발" width="457" height="635" loading="lazy"></div>
-                                <p class="text-1">SPECIAL ①</p>
-                                <p class="text-2">새로운 영화·영상 제작 거점으로의 출발</p>
-                                <p class="text-3">부산기장촬영소를 가다</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        <div class="image-view-layer">
-            <div class="image">
-                <div class="btn-group">
-                    <button type="button" class="btn-close" aria-label="확대 이미지 닫기">
-                        <img src="../assets/images/common/icon-close-white.webp" alt="" width="256" height="256" fetchpriority="low" loading="lazy">
-                    </button>
-                </div>
-                <img class="target-image" src="" alt="">
-            </div>
-        </div>
-        <div class="full-menu" style="display: none;">
-            <div class="full-menu-content">
-                <div class="content-container">
-                    <div class="full-menu-header">
-                        <a href="../index.html" class="logo">
-                            <img src="../assets/images/common/header-logo.webp" alt="한국영화" width="300" height="100" fetchpriority="low" loading="lazy">
-                        </a>
-                        <button type="button" class="btn-full-menu-close" aria-label="전체 메뉴 닫기">
-                            <img src="../assets/images/common/icon-full-menu-close.webp" alt="" width="80" height="80" fetchpriority="low" loading="lazy">
-                        </button>
-                    </div>
-                    <nav class="full-menu-nav" aria-label="2026년 10월호 전체 메뉴">
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=SPECIAL" class="full-menu-depth1-link is-active">SPECIAL</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=SPECIAL" class="full-menu-special-link"><strong><span>SPECIAL</span></strong></a>
-                                <a href="./special-1.html" class="full-menu-depth2-link">
-                                    <p>새로운 영화·영상 제작 거점으로의 출발<br>부산기장촬영소를 가다</p><br>
-                                    <p>2026-10-06</p>
-                                </a>
-                                <a href="./special-2.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>진실 기록 넘어 사회 변화로<br>한국형 ‘임팩트 다큐’ 생태계, 필요하다</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=INTERVIEW" class="full-menu-depth1-link">INTERVIEW</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=INTERVIEW" class="full-menu-special-link"><strong><span>INTERVIEW</span></strong></a>
-                                <a href="./people-1.html" class="full-menu-depth2-link">
-                                    <p>인간다움과 인간다운 죽음에 대하여<br>&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p><br>
-                                    <p>2026-10-06</p>
-                                </a>
-                                <a href="./people-2.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>엉뚱하지만 파괴적인<br>&lt;부활남: 더 레드&gt; 정성호 무술감독</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=CRITIC" class="full-menu-depth1-link">CRITIC</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=CRITIC" class="full-menu-special-link"><strong><span>CRITIC</span></strong></a>
-                                <a href="./reading-1.html" class="full-menu-depth2-link">
-                                    <p>미옥과 호석의 내일을 위한 시간<br>&lt;가능한 사랑&gt;</p><br>
-                                    <p>2026-10-06</p>
-                                </a>
-                                <a href="./reading-2.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>낙원 없이 살아가는 법<br>&lt;실낙원&gt; YES or NO</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=GLOBAL" class="full-menu-depth1-link">GLOBAL</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=GLOBAL" class="full-menu-special-link"><strong><span>GLOBAL</span></strong></a>
-                                <a href="../list.html?section=GLOBAL(ENG)" class="full-menu-special-link"><strong><span>GLOBAL(ENG)</span></strong></a>
-                                <a href="./global.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>도시 전체와 호흡하는 축제로<br>커뮤니티비프와 동네방네비프</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                                <a href="./global-eng.html" class="full-menu-depth2-link">
-                                    <p>A Festival in Step with an Entire City<br>Community BIFF and BIFF Everywhere</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=KOFIC%20STORY" class="full-menu-depth1-link">KOFIC STORY</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=KOFIC%20STORY" class="full-menu-special-link"><strong><span>KOFIC STORY</span></strong></a>
-                                <a href="./kofic-story.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>창작자, 어떤 판 위에서 놀게 할 것인가<br>2026 KOFIC AI 쇼케이스</p><br>
-                                    <p>2026-10-19</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=BOX%20OFFICE" class="full-menu-depth1-link">BOX OFFICE</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=BOX%20OFFICE" class="full-menu-special-link"><strong><span>BOX OFFICE</span></strong></a>
-                                <a href="./boxoffice-5.html" class="full-menu-depth2-link">
-                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
-                                    <p>주간 박스오피스<br>10월 5주차 위클리 박스오피스</p><br>
-                                    <p>2026-10-30</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="full-menu-depth1">
-                            <a href="../list.html?section=PRODUCTION" class="full-menu-depth1-link no-child">PRODUCTION</a>
-                            <div class="full-menu-depth2">
-                                <a href="../list.html?section=PRODUCTION" class="full-menu-special-link"><strong><span>PRODUCTION</span></strong></a>
-                                <a href="./production.html" class="full-menu-depth2-link">
-                                    <p>한국영화 제작 현황<br>9월 개봉작 살펴보기 (2026. 9. 제작상황판)</p><br>
-                                    <p>2026-10-13</p>
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-                    <div class="m-only">
-                        <div class="full-menu-util">
-                            <a href="../list.html" class="btn-instagram">
-                                인스타그램
-                                <img src="../assets/images/common/icon-instagram.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
-                            </a>
-                            <a href="#reader" data-open-modal="reader" class="btn-talk">
-                                독자의견
-                                <img src="../assets/images/common/icon-talk.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
-                            </a>
-                            <button class="btn-folder" type="button">
-                                지난호 보기
-                                <img src="../assets/images/common/icon-folder.webp" alt="" width="23" height="18" fetchpriority="low" loading="lazy">
-                            </button>
-                        </div>
-                        <a href="../list.html" class="btn-kofic" aria-label="영화진흥위원회">
-                            <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" fetchpriority="low" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="floating-menu">
-            <div class="quick-menu">
-                <p class="title js-m-quick-open">Quick Menu</p>
-                <div class="menu">
-                    <a href="../list.html">
-                        <img src="../assets/images/common/img-quick-3-old.webp" alt="" width="63" height="50" loading="lazy">
-                        <p>인스타<br class="m-only">그램</p>
                     </a>
-                    <a href="#reader" data-open-modal="reader">
-                        <img src="../assets/images/common/img-quick-2-old.webp" alt="" width="63" height="50" loading="lazy">
-                        <p>독자<br class="m-only">의견</p>
+                    <a href="./special-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ②</p>
+                            <h3 class="ed-card-title">진실 기록 넘어 사회 변화로</h3>
+                            <p class="ed-card-deck">한국형 ‘임팩트 다큐’ 생태계, 필요하다</p>
+                        </div>
                     </a>
-                    <a href="../list.html">
-                        <img src="../assets/images/common/img-quick-30-old.webp" alt="" width="63" height="50" loading="lazy">
-                        <p>뉴스레터 <br>신청</p>
+                    <a href="./kofic-story.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-10/kofic-story/kofic10_00.webp" alt="창작자, 어떤 판 위에서 놀게 할 것인가" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">KOFIC STORY</p>
+                            <h3 class="ed-card-title">창작자, 어떤 판 위에서 놀게 할 것인가</h3>
+                            <p class="ed-card-deck">2026 KOFIC AI 쇼케이스</p>
+                        </div>
+                    </a>
+                    <a href="./reading-1.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-10/reading-1/reading1001_00.webp" alt="미옥과 호석의 내일을 위한 시간" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">CRITIC ①</p>
+                            <h3 class="ed-card-title">미옥과 호석의 내일을 위한 시간</h3>
+                            <p class="ed-card-deck">〈가능한 사랑〉 비평</p>
+                        </div>
                     </a>
                 </div>
             </div>
-            <button class="btn-page-top" type="button">
-                <img src="../assets/images/common/img-quick-top.webp" alt="" width="14" height="13" loading="lazy"> TOP
-            </button>
-        </div>
+        </section>
+    </main>
 
-        <div id="reader" class="modal-wrap" style="display: none;">
-            <div class="modal" style="padding: 2rem; width: 100%;">
-                <div class="modal-hd">
-                    <div class="title-wrap" style="text-align: left;">
-                        <h2>독자의견 보내기</h2>
-                        <p class="sub-title" style="margin-top: 10px;">여러분의 소중한 의견을 기다리고 있습니다.</p>
+    <footer class="ed-footer">
+        <div class="ed-container">
+            <div class="ed-footer-grid">
+                <div>
+                    <div class="ed-footer-logos">
+                        <img src="../assets/images/common/footer-logo.webp" alt="한국영화" width="194" height="65" loading="lazy">
+                        <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
-                    <button type="button" class="modal-close" data-close-modal="reader" aria-label="팝업 닫기"></button>
+                    <p class="ed-footer-info">
+                        발행처 · 영화진흥위원회 (KOFIC)<br>
+                        (48058) 부산광역시 해운대구 수영강변대로 130(우동)<br>
+                        웹진 〈한국영화〉 2026년 10월호
+                    </p>
                 </div>
-                <div class="modal-bd">
-                    <div class="modal-cont">
-                        <div class="notice-content">
-                            <p class="common-text-1" style="margin-bottom: 20px;">
-                                <img src="../assets/images/common/popup0904.webp" alt="웹진 한국영화 독자의견 안내" width="800" height="700" fetchpriority="low" loading="lazy">
-                            </p>
-                        </div>
-                        <div class="input-wrap">
-                            <div class="input-col">
-                                <label for="opinion1">의견내용</label>
-                                <div class="input-box">
-                                    <textarea name="opinion1" id="opinion1" class="scroll_box" placeholder="보내주실 의견을 편하게 입력해 주세요."></textarea>
-                                </div>
-                            </div>
-                        </div>
+                <div class="ed-footer-col">
+                    <h3>SECTIONS</h3>
+                    <div class="ed-footer-links">
+                        <a href="../list.html?section=SPECIAL">SPECIAL</a>
+                        <a href="../list.html?section=INTERVIEW">INTERVIEW</a>
+                        <a href="../list.html?section=CRITIC">CRITIC</a>
+                        <a href="../list.html?section=GLOBAL">GLOBAL</a>
+                        <a href="../list.html?section=GLOBAL(ENG)">GLOBAL (ENG)</a>
+                        <a href="../list.html?section=KOFIC%20STORY">KOFIC STORY</a>
+                        <a href="../list.html?section=BOX%20OFFICE">BOX OFFICE</a>
+                        <a href="../list.html?section=PRODUCTION">PRODUCTION</a>
                     </div>
                 </div>
-                <div class="modal-ft">
-                    <a href="#none" class="btn-submit senSave" vo="M1">의견보내기</a>
+                <div class="ed-footer-col">
+                    <h3>READER DESK</h3>
+                    <div class="ed-footer-actions">
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalOpinion"><span>독자 의견 남기기</span><span aria-hidden="true">→</span></button>
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalNewsletter"><span>월간 뉴스레터 구독</span><span aria-hidden="true">→</span></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="max-container">
-            <div class="content-container">
-                <div class="footer-info">
-                    <a href="../index.html" class="logo">
-                        <img src="../assets/images/common/footer-logo.webp" alt="한국영화" width="250" height="53" loading="lazy">
-                    </a>
-                    <div class="footer-util">
-                        <a href="../list.html" class="btn-kofic" aria-label="영화진흥위원회">
-                            <img src="../assets/images/common/footer-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" loading="lazy">
-                        </a>
-                        <div class="search-box">
-                            <input type="text" class="stxt" aria-label="하단 검색어 입력">
-                            <button type="button" class="sch" aria-label="검색">
-                                <img src="../assets/images/common/icon-search.webp" alt="" width="21" height="21" loading="lazy">
-                            </button>
-                        </div>
-                        <a href="../list.html" class="btn-instagram pc-only">
-                            인스타그램
-                            <img src="../assets/images/common/icon-instagram-w.webp" alt="" width="19" height="19" loading="lazy">
-                        </a>
-                        <a href="#reader" data-open-modal="reader" class="btn-talk pc-only">
-                            독자의견
-                            <img src="../assets/images/common/icon-talk-w.webp" alt="" width="21" height="21" loading="lazy">
-                        </a>
-                        <button class="btn-folder" type="button">
-                            지난호 보기
-                            <img src="../assets/images/common/icon-folder-w.webp" alt="" width="23" height="18" loading="lazy">
-                        </button>
-                        <button type="button" class="btn-full-menu">
-                            2026년 10월
-                            <img src="../assets/images/common/icon-menu-w.webp" alt="전체 메뉴 열기" width="23" height="16" loading="lazy">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="footer-contact">
-                    <div class="copyright">
-                        48058 부산광역시 해운대구 수영강변대로 130 (우동)<br>
-                        문의: kmovie@hankyung.com<br>
-                        Copyrights ⓒ 2026 BY KOFIC. All rights reserved.
-                    </div>
-                    <div class="detail">
-                        <div>
-                            발행인: 한상준<br>
-                            편집장: 김혜선<br>
-                            발간처: 영화진흥위원회 정책본부 정책개발팀
-                        </div>
-                        <div>
-                            기획편집: 박주영 이윤경<br>
-                            발행사: (주)한경매거진앤북<br>
-                            eISSN 3140-460X
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-10 pc-only" style="font-size: 16px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
-                <p class="mt-10 m-only" style="font-size: 12px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+            <div class="ed-footer-bottom">
+                <span>COPYRIGHT © KOREAN FILM COUNCIL. ALL RIGHTS RESERVED.</span>
+                <span><a href="../index.html">메인으로 돌아가기 →</a></span>
             </div>
         </div>
     </footer>
+
+    <!-- Full-Screen Issue Drawer -->
+    <div class="ed-drawer" id="issueDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="2026년 10월호 전체 목차 및 검색">
+        <div class="ed-drawer-panel">
+            <div class="ed-drawer-head">
+                <div class="ed-drawer-title">
+                    <span>ISSUE INDEX · VOL. 2026.10</span>
+                    2026년 10월호 전체 목차
+                </div>
+                <button type="button" class="ed-drawer-close" data-close-drawer aria-label="닫기">×</button>
+            </div>
+            <div class="ed-drawer-search">
+                <form data-search-form>
+                    <input type="search" placeholder="제목, 감독, 배우, 태그 검색..." aria-label="전체 기사 검색">
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+            <div class="ed-drawer-body">
+                <div class="ed-drawer-group">
+                    <h3>SPECIAL <a href="../list.html?section=SPECIAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./special-2.html"><strong>진실 기록 넘어 사회 변화로</strong><span>한국형 ‘임팩트 다큐’ 생태계, 필요하다</span></a>
+                        <a href="./special-1.html"><strong>새로운 영화·영상 제작 거점으로의 출발</strong><span>부산기장촬영소를 가다</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>INTERVIEW <a href="../list.html?section=INTERVIEW">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./people-2.html"><strong>엉뚱하지만 파괴적인</strong><span>〈부활남: 더 레드〉 정성호 무술감독</span></a>
+                        <a href="./people-1.html"><strong>인간다움과 인간다운 죽음에 대하여</strong><span>〈구제역에서 살아 돌아온 돼지〉 故 허범욱 감독</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>CRITIC <a href="../list.html?section=CRITIC">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./reading-2.html"><strong>낙원 없이 살아가는 법</strong><span>〈실낙원〉 YES or NO 대담</span></a>
+                        <a href="./reading-1.html"><strong>미옥과 호석의 내일을 위한 시간</strong><span>〈가능한 사랑〉 비평</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>GLOBAL &amp; KOFIC STORY <a href="../list.html?section=GLOBAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./global.html"><strong>도시 전체와 호흡하는 축제로</strong><span>커뮤니티비프와 동네방네비프</span></a>
+                        <a href="./global-eng.html"><strong>A Festival in Step with an Entire City</strong><span>GLOBAL (English Edition)</span></a>
+                        <a href="./kofic-story.html"><strong>창작자, 어떤 판 위에서 놀게 할 것인가</strong><span>2026 KOFIC AI 쇼케이스</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>BOX OFFICE <a href="../list.html?section=BOX%20OFFICE">5편 모두 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./boxoffice-5.html"><strong>10월 5주차 위클리 박스오피스</strong><span>2026.11.03</span></a>
+                        <a href="./boxoffice-4.html"><strong>10월 4주차 위클리 박스오피스</strong><span>2026.10.27</span></a>
+                        <a href="./boxoffice-3.html"><strong>10월 3주차 위클리 박스오피스</strong><span>2026.10.20</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>PRODUCTION <a href="../list.html?section=PRODUCTION">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./production.html"><strong>9월 개봉작 살펴보기</strong><span>2026. 9. 한국영화 제작상황판</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="ed-lightbox" id="edLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
+        <button type="button" class="ed-lightbox-close" aria-label="확대 닫기">×</button>
+        <img src="" alt="">
+        <p class="ed-lightbox-caption"></p>
+    </div>
+
+    <!-- Modals -->
+    <div class="ed-modal" id="modalOpinion" aria-hidden="true" role="dialog" aria-modal="true" aria-label="독자 의견 보내기">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>독자 의견 남기기</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="opinion">
+                <input type="text" placeholder="성함 또는 닉네임" required>
+                <textarea placeholder="웹진 〈한국영화〉에 전하고 싶은 의견을 남겨 주세요." required></textarea>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">의견 보내기</button>
+            </form>
+        </div>
+    </div>
+    <div class="ed-modal" id="modalNewsletter" aria-hidden="true" role="dialog" aria-modal="true" aria-label="뉴스레터 구독 신청">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>월간 뉴스레터 구독</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="newsletter">
+                <input type="text" placeholder="이름" required>
+                <input type="email" placeholder="이메일 주소" required>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">무료 구독 신청</button>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" class="ed-top-btn" id="edTopBtn" aria-label="맨 위로 이동">↑</button>
 </body>
 </html>
