@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>미옥과 호석의 내일을 위한 시간 | 웹진 한국영화</title>
+    <meta name="description" content="“노동이 사라져 가는 시대에, 사람과 사람 사이의 관계가 끊어져 가는 시대에 영화로 무엇을 할 수 있는지, 영화가 무엇을 해야만 하는지 질문하기 위해 이 영화를 만들었다.”">
+
+    <link rel="preload" href="./assets/fonts/GmarketSansBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/GmarketSansMedium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="./assets/images/reading1001_00.webp" type="image/webp" media="(min-width: 781px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./assets/images/reading1001_00m.webp" type="image/webp" media="(max-width: 780px)" fetchpriority="high">
+
+    <link href="./assets/css/normalize.css" rel="stylesheet">
+    <link href="./assets/css/nice-select.css" rel="stylesheet">
+    <link href="./assets/css/slick.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <link href="./assets/css/styles-old.css" rel="stylesheet">
+    <link href="./assets/css/sub_24css.css" rel="stylesheet">
+    <link href="./assets/css/refine.css" rel="stylesheet">
+    <script src="./assets/js/page-iris.js"></script>
+
+    <style>
+    .sub-visual-text-wrap .detail {
+     align-items: flex-end;
+     }
+    .sub-visual-text-wrap .badge {
+     align-items: center;
+     display: flex;
+     width: 150px;
+     justify-content: center;
+     margin: auto;
+     }
+    .name-badge.color-3{
+     background: #f08300;
+     }
+    .question {
+     font-size: 24px;
+     font-weight: 700;
+     margin-top: 90px;
+     word-break:keep-all;
+    }
+    @media screen and (min-width: 781px) and (max-width: 1919px) {
+    .question {
+     font-size: 1.46vw;
+     font-weight: 700;
+     margin-top: 4.6875vw;
+    }
+    }
+    @media screen and (max-width: 780px) {
+    .question{
+     font-size: 16px;
+     font-weight: 700;
+     margin-top: 65px;
+    }
+    .sub-visual-text-wrap .badge {
+     width: 85px;
+    }
+    .sub-visual {
+     height: 70vh;
+    }
+    }
+    </style>
+
+    <script defer src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script defer src="./assets/js/jquery.nice-select.min.js"></script>
+    <script defer src="./assets/js/slick.min.js"></script>
+    <script defer src="./assets/js/lenis.min.js"></script>
+    <script defer src="./assets/js/CustomEase.min.js"></script>
+    <script defer src="./assets/js/gsap.3.12.2.min.js"></script>
+    <script defer src="./assets/js/ScrollTrigger.3.12.7.min.js"></script>
+    <script defer src="./assets/js/ScrollToPlugin.3.12.7.min.js"></script>
+    <script defer src="./assets/js/cosmosfarm-share-buttons.js"></script>
+    <script defer src="./assets/js/ui.common.js"></script>
+    <script defer src="./assets/js/ui.common.old.js"></script>
+</head>
+<body>
+    <header class="header" data-lenis-prevent>
+        <div class="content-container">
+            <a href="./index.html" class="header-logo m-only">
+                <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+            </a>
+            <div class="header-util">
+                <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                    <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25">
+                </a>
+                <div class="search-box">
+                    <input type="text" class="stxt" aria-label="검색어 입력">
+                    <button type="button" class="sch" aria-label="검색">
+                        <img src="./assets/images/icon-search.webp" alt="" width="21" height="21">
+                    </button>
+                </div>
+                <button class="btn-folder" type="button">
+                    지난호 보기
+                    <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18">
+                </button>
+                <button type="button" class="btn-full-menu">
+                    2026년 10월
+                    <img src="./assets/images/icon-menu.webp" alt="전체 메뉴 열기" width="23" height="16">
+                </button>
+            </div>
+            <div class="inner">
+                <a href="./index.html" class="header-logo">
+                    <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100">
+                </a>
+                <nav class="header-nav" aria-label="주요 섹션 메뉴">
+                    <div class="header-depth1">
+                        <a href="./list.html?section=SPECIAL" class="header-depth1-link">SPECIAL</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PEOPLE" class="header-depth1-link">PEOPLE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=READING" class="header-depth1-link">READING</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=GLOBAL" class="header-depth1-link">GLOBAL</a>
+                        <div class="header-depth2">
+                            <a href="./list.html?section=GLOBAL" class="header-depth2-link">GLOBAL</a>
+                            <a href="./list.html?section=GLOBAL(ENG)" class="header-depth2-link">GLOBAL(ENG)</a>
+                        </div>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=KOFIC%20STORY" class="header-depth1-link">KOFIC STORY</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=BOX%20OFFICE" class="header-depth1-link">BOX OFFICE</a>
+                    </div>
+                    <div class="header-depth1">
+                        <a href="./list.html?section=PRODUCTION" class="header-depth1-link">PRODUCTION</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+    <div class="sub-visual pc-only" style="background-image: url('./assets/images/reading1001_00.webp')"></div>
+    <div class="sub-visual m-only" style="background-image: url('./assets/images/reading1001_00m.webp')"></div>
+
+    <div class="sub-view-content">
+        <span class="bg" tabindex="-1"></span>
+        <div class="sub-view-content-inner">
+            <div class="max-container">
+                <div class="content-container">
+                    <div class="sub-visual-text-wrap">
+                        <div class="checkbox-wrap">
+                            <label for="viewCheck">
+                                <input type="checkbox" id="viewCheck" /> <span>큰 글씨 보기</span>
+                            </label>
+                        </div>
+                        <div class="badge-wrap">
+                            <span class="badge">READING ①</span>
+                        </div>
+                        <p class="title">미옥과 호석의 내일을 위한 시간</p>
+                        <p class="sub-title"><가능한 사랑></p>
+
+                        <div class="detail">
+                            <p class="date">2026-10-06</p>
+                            <p class="write">
+                                <span>글 _ 주성철(영화평론가, 씨네플레이 편집장) <br class="m-only">사진 제공 _ 넷플릭스</span>
+                            </p>
+                            <button type="button" class="btn-page-share">
+                                공유하기
+                                <img src="./assets/images/icon-share-2.webp" alt="" width="28" height="29">
+                            </button>
+
+                            <div id="detailSharePopup" class="share-popup">
+<button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container-1">
+                <div class="sub-summation">
+                    <p class="title">
+                        
+                    </p>
+                    <ul style="background-color: #cccccc47;">
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>있는 그대로 담은 노동자 현실, 다큐멘터리 문법 빌려 직설적으로 </p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>‘피사체와의 사랑은 가능하다’는 자기 최면에 대한 이창동 감독의 반성  </p>
+                        </li>
+                        <li>
+                            <span><img src="./assets/images/icon-check.webp" alt="" width="30" height="25"></span>
+                            <p>미감을 넘어 실감으로… 모든 장면이 놀라운 올해 가장 문제적 작품</p>
+                        </li>
+                    </ul>
+                </div>
+
+               
+
+				
+				<div class="common-image-slide-1 ">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/reading1001_01.webp" data-full-src="./assets/images/reading1001_01.webp" alt="reading1001_01" width="500" height="741" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                </div>
+				
+				
+				
+
+				<p class="n-common-text-1">
+               “노동이 사라져 가는 시대에, 사람과 사람 사이의 관계가 끊어져 가는 시대에 영화로 무엇을 할 수 있는지, 영화가 무엇을 해야만 하는지 질문하기 위해 이 영화를 만들었다.” 올해 베니스국제영화제에서 은사자상(심사위원대상)을 수상한 직후 얘기한 이창동 감독의 소감이다. 이후 귀국해 열린 기자 간담회에서는 “타인의 고통을 소비하지 않고, 그냥 영화를 만들기 위한 재료로 사용하지 않고, 그들의 이야기를 담아낼 수 있을 것인가, 하는 것은 평생 해 온 질문”이라고 말했다. 이창동 감독이 각각 베니스와 서울에서 얘기한 <가능한 사랑>의 두 개의 주제는 바로 우리 세계를 지탱하는 노동과 영화의 윤리에 관한 질문이다. 이창동 감독이 특히 <버닝>(2018) 이후 8년 만에 만든 작품이자, 칠순의 나이를 지나 7번째 장편영화인 <가능한 사랑>에 이르러 ‘창작자의 윤리’를 언급하며 자기 반영적인 작품을 만든 것은 실로 경이롭다.
+                </p>
+				
+				
+				
+				<div class="common-image-slide-1 ">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="./assets/images/reading1001_02.webp" srcset="./assets/images/reading1001_02-600w.webp 600w, ./assets/images/reading1001_02.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_02.webp" alt="reading1001_02" width="1000" height="541" class="js-image-full-layer" loading="lazy" style="margin: auto;"></div>
+                    </div>
+                </div>
+				
+				<p class="n-common-title-2">
+                  사라지는 노동자를 향한 이창동의 부채의식
+                </p>
+				<p class="n-common-text-1">
+                 해고 노동자 호석(설경구)과 아내 미옥(전도연), 그들에게는 소중한 아들 철(정섶)이 있다. 호석은 파업 당시 겪었던 트라우마를 아직 극복하지 못했고, 미옥은 마스크 공장에 다니며 생계를 유지하고 있다. 한편, ‘사라지는 노동자, 노동이 곧 삶이다’라는 주제로 다큐멘터리를 촬영하고 있는 예지(조여정)는 호석과 미옥에 대한 인터뷰를 요청하며 그들과 가까워진다. 예지의 남편 상우(조인성)도 종종 아내의 일을 도우며 그들 가족과 친해진다. 다큐멘터리 촬영에 적극적인 미옥과 예지는 서로 말을 나누며 친한 친구가 되지만, 다른 해고 노동자 동료들과 달리 심리치료도 거부하고 있는 호석은 여전히 인터뷰에 나서는 것을 망설인다. 그런 그들이 상우의 별장으로 함께 휴가를 떠나게 되고, 서로의 다른 삶과 숨은 욕망을 마주한다.<br><br>
+
+이창동 감독은 10여 년 전 실제로 대기업의 대량 해고와 파업, 강제 진압 사건을 영화화하려다 중단한 적 있다. 인터뷰에서 밝힌 바에 따르면, “내가 그 이야기를 정직하게 할 수 있는 자격이 있는지, 내가 그들에게 얼마나 가까운지에 대한 확신이 없었기 때문”에 만들어지지 못했다. 당시의 고민은 <가능한 사랑>에서 다큐멘터리를 만드는 예지 캐릭터에 녹아 있다고 할 수 있는데, 그 제작 과정 자체가 164분에 달하는 상영 시간의 절반 이상을 차지하고 있다. 예지가 인터뷰하고 취재하는 내용이 그대로 담겼고, 그를 통해 앞서 이창동 감독 영화에서 보기 힘들었던 플래시백도 상당 분량 담겼으며, 무엇보다 심리치료를 받는 해고 노동자들의 이야기와 함께 용기 내어 카메라 앞에 선 호석의 인터뷰도 담겼다. 즉, 노동자들의 이야기 그 자체를 최대한 있는 그대로 담고 싶다는 바람일 것이다.<br><br>
+
+<가능한 사랑>에서는 플래시백 영상은 물론 과거의 기억을 떠올리며 ‘옥쇄파업’이라는 표현을 여러 번 쓴다. 노조원들이 공장 문을 봉쇄하고 공장에서 숙식을 해결하는 형태의 파업을 그렇게 지칭하는데, 2009년 5월 22일부터 8월 6일까지 쌍용자동차 노조원들이 무려 총인원 36%에 달하는 사측의 인력 감축 구조조정 단행에 반발하여 평택공장에서 벌인 총파업 및 점거 투쟁이 가장 잘 알려져 있다. 영화에서는 호석이 다니던 직장이 ‘SP중공업’으로 나오는데, 잦은 산업 재해로 악명 높은 SPC그룹도 연상시킨다. 그런데 공장 후배들을 ‘동생’이라 부를 정도로 회사에 대한 애정이 남달랐고, 용접공이라는 자부심으로 아들의 이름마저 ‘철’로 지은 호석이었기에, 영화에서 그가 쌍용자동차의 SUV 즉 자신의 ‘회사 차’인 코란도를 타고 다니는 것은 거의 눈물 날 정도로 자연스럽다. 물론 SP중공업으로 설정돼 있긴 하나, 쌍용자동차의 옥쇄파업을 말하는 게 너무나도 명확하다. 말하자면 <가능한 사랑>은 영화의 화법 자체가 이전 이창동 영화와 달리 굉장히 ‘직설적’이다. 영화 속 콘텐츠 제작 지원 심사 자리에서 예지는 자신의 작품을 프레젠테이션하며 “다큐멘터리야말로 가장 강력한 스토리텔링 도구”라고 말하는데, <가능한 사랑>이라는 극영화의 ‘추구미’ 또한 그렇다.
+                </p>
+				
+				
+				<div class="common-image-block-2 caption-image">
+                 <div class="inner">
+                  <div class="image"><img src="./assets/images/reading1001_03.webp" srcset="./assets/images/reading1001_03-600w.webp 600w, ./assets/images/reading1001_03.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_03.webp" alt="reading1001_03" width="1000" height="541" class="js-image-full-layer" loading="lazy"></div>
+                  <div class="image" style="text-align: right;"><img src="./assets/images/reading1001_04.webp" srcset="./assets/images/reading1001_04-600w.webp 600w, ./assets/images/reading1001_04.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_04.webp" alt="reading1001_04" width="1000" height="541" class="js-image-full-layer" loading="lazy"></div>
+                  </div>
+                 </div>
+				
+                <p class="n-common-title-2">
+                 가장 아름다운 순간과 고통스러운 순간의 화해는 가능한가
+                </p>
+				<p class="n-common-text-1">
+                 이창동 감독의 5번째 장편영화 <시>(2010)에서 미자(윤정희)가 다니는 문화센터의 시 창작교실에서, 수강생들이 한 명씩 차례로 자신의 ‘가장 아름다웠던 순간’을 이야기하는 장면이 있다. 배우의 연기라기보다 실제 일반인을 인터뷰한 다큐멘터리처럼 보이는 장면인데, 허구와 현실의 경계가 흐려지며 저마다 자기 인생에서 잊히지 않는 아주 사적인 순간을 이야기한다. 그 장면은 <가능한 사랑>에서 심리치료를 받겠다고 결심한 호석이, <시>의 그 장면과 마찬가지로 비직업 배우들로 보이는 다른 사람들의 이야기를 듣는 장면과 굉장히 닮아 있다. 아니, 닮은 것 이상으로 의도적이라고 할 만큼 같은 방식으로 연출한 장면이다. 그런데 이번에는 한 명씩 차례로 ‘파업으로 인한 해고 이후 가장 힘들었던 순간’을 이야기한다. 구조조정 당시 계속 회사에 남게 된 ‘산 자’가 아니라, 회사를 떠난 ‘죽은 자’들인 그들은 엘리베이터에서 산 자를 만났을 때 얼마나 괴로운지, 당당하게 자신의 주장을 펼쳤음에도 ‘빨갱이’라고 몰리는 순간을 얘기하며, 고통의 순간을 나눈다.<br><br>
+
+<시>와 <가능한 사랑> 모두 비직업 배우처럼 보이는 이들을 캐스팅해 유사한 장면을 연출하며, 그것이 개인의 이야기인 동시에 집단의 이야기처럼 보이게끔 만든다. 결국 그 모든 일이 우리 모두에게 일어날 수 있는 삶의 순간일 수 있다. 서두에서 “노동이 사라져 가는 시대에, 사람과 사람 사이의 관계가 끊어져 가는 시대에 영화로 무엇을 할 수 있는지, 영화가 무엇을 해야만 하는지 질문하기 위해” <가능한 사랑>을 만들었다는 얘기가 바로 그렇게 담긴다. 어쩌면 10여 년 전 준비하던 영화를 끝내 완성하지 못한 부채의식 때문일까, 노동하는 사람들의 진솔하고 내밀한 삶의 이야기를 그리겠다는 이창동 감독의 다짐이 바로 그 장면에 담겼다. <시>의 시 창작교실과 <가능한 사랑>의 심리치료 센터는 결국 같은 곳이다. 우리 삶은 <시>처럼 아름답기도 하고 <가능한 사랑>처럼 고통스럽기도 하다. 그렇게 우리의 삶은 계속된다.
+                </p>
+				
+
+              
+				
+				<div class="common-image-block-2 caption-image">
+                 <div class="inner">
+                  <div class="image"><img src="./assets/images/reading1001_05.webp" srcset="./assets/images/reading1001_05-600w.webp 600w, ./assets/images/reading1001_05.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_05.webp" alt="reading1001_05" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                  <div class="image" style="text-align: right;"><img src="./assets/images/reading1001_06.webp" srcset="./assets/images/reading1001_06-600w.webp 600w, ./assets/images/reading1001_06.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_06.webp" alt="reading1001_06" width="1000" height="667" class="js-image-full-layer" loading="lazy"></div>
+                  </div>
+                 </div>
+	
+				<p class="n-common-text-1">
+               그러한 부채의식과 다짐은, 아마도 이창동 감독의 분신으로 여겨지는 예지 캐릭터에 오롯이 담겼다. 역시 서두에서 얘기한 또 다른 주제인 “타인의 고통을 소비하지 않고, 그냥 영화를 만들기 위한 재료로 사용하지 않고, 그들의 이야기를 담아낼 수 있을 것인가” 하는 그의 평생의 질문이 예지의 다큐멘터리 제작 과정에 담긴다. 호석의 개별 인터뷰를 기어이 따내고자 하는 욕망을 감추지 못하는 예지는, 그를 ‘특별한’ 사람이라 생각한다. 다른 해고 노동자들과 달리 마지막 순간까지 자기 얘기를 꺼내지 않으려는 호석을 보면서 그렇게 여기는 것 같은데, 그런 그를 특별하게 생각하는 것은 결코 거짓이 아닐 것이다. 다만 그 특별함이 내 작품에만 담기길 바라는 연출자의 독점욕일 것이다.<br><br>
+
+호석이 특별하다는 얘기에 대해 상우는 “그(호석) 역시 뻔한 해고 노동자일 수도 있을 것”이라 말한다. 또한 미옥과 친구처럼 허물없이 반말하며 지내는 모습을 보고서는, 어느 정도 칭찬의 의미로 “메소드 연기를 잘하고 있다”고 말한다. 한없이 상우를 아끼고 사랑하는 예지이지만, 그 ‘메소드 연기를 하고 있다’는 표현 앞에서는 얼마간 ‘긁힌다’. 그리고 “나는 그 사람들을 사랑하려는 거야”라고 말한다. <가능한 사랑>이라는 아리송한 제목이 바로 거기서 유래한다. 예지처럼 이창동 감독 역시 연출자로서 피사체와의 사랑이 가능하다는 자기 최면 속에서 살아왔다는 고백이 아닐까. 세상 모든 예술가가 알면서도 눙치며 살아온 모든 것들에 대한 반성이랄까. 그가 칠순이 지난 나이에, 과작(寡作) 7번째 장편영화를 내놓으며 그런 전면적인 자기 반영의 영화를 만들었다는 것이 놀랍다.
+
+                </p>
+				
+				<div class="common-image-block-2 caption-image">
+                 <div class="inner">
+                  <div class="image"><img src="./assets/images/reading1001_07.webp" srcset="./assets/images/reading1001_07-600w.webp 600w, ./assets/images/reading1001_07.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_07.webp" alt="reading1001_07" width="1000" height="541" class="js-image-full-layer" loading="lazy"></div>
+                  <div class="image" style="text-align: right;"><img src="./assets/images/reading1001_08.webp" srcset="./assets/images/reading1001_08-600w.webp 600w, ./assets/images/reading1001_08.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="./assets/images/reading1001_08.webp" alt="reading1001_08" width="1000" height="541" class="js-image-full-layer" loading="lazy"></div>
+                  </div>
+                 </div>
+				
+				<p class="n-common-title-2">
+                 사실주의와 표현주의 사이, 경이로운 혁신
+                </p>
+				<p class="n-common-text-1">
+                서두에서 얘기한 두 주제를 초월해 <가능한 사랑>이 놀라운 것은, 영화의 후반부에 있다. <버닝> 이후 8년 만의 영화이자, 7번째 장편영화에 이르러 이창동 감독의 영화적 문법과 화법이 달라졌다는 인상은 두 가족이 상우의 별장으로 함께 휴가를 떠나는 순간부터 새로운 차원으로 진입한다. 별장 2층 집의 지하실이 단순히 봉준호 감독 <기생충>(2019)을 연상시킨다는 것을 넘어, 한국영화에서 그 2층 집에 들어선 것은 계급과 욕망이 뒤엉키는 <하녀>(1960)로 대표되는 김기영 감독의 세계에 당도한 것을 의미한다. 평소 표현주의 계열의 김기영 감독을 존경하는 것으로 유명한 박찬욱, 봉준호 감독과 달리 <오발탄>(1961)으로 대표되는 사실주의 계열의 유현목 감독과 가깝다고 여겨져 온 이창동 감독이었기에 실로 놀라운 순간이다. 봉건사회가 아닌 현대사회의 그 ‘하녀’ 캐릭터는 이들 예술가가 바라보는 한국 사회의 계급 문제라는 관점에서 굉장히 중요한 설정이다. 박찬욱 감독의 경우 이른바 ‘복수 3부작’ 이후 만든 태주(김옥빈)의 <박쥐>(2009), 숙희(김태리)의 <아가씨>(2016), 서래(탕웨이)의 <헤어질 결심>(2022)을 ‘하녀 3부작’이라고 칭할 수 있을 정도고, 봉준호 감독 <기생충> 또한 박사장(이선균) 집에서 살아가는 서로 다른 두 집단의 하인 가족들이 대립하는 이야기였다. <가능한 사랑>에는 바로 그 별장에 ‘하인’이라 부를 만한 캐릭터가 이창동 감독의 영화에서 처음 등장한다. 심지어 그는 상우 집안의 일제강점기 시절 골동품이라 할 수 있는 호루라기 소리에 달려오며, 계급을 넘어 한국 근현대사의 모순이라는 역사적 맥락까지 끌어온다. 아마도 영화에서 가장 간담이 서늘한 장면 중 하나다.<br><br>
+
+끝으로, <가능한 사랑>의 2층 집에 대해 이야기해야 할 것 같다. 그 또한 이창동 감독 영화에 노골적으로 ‘세트’처럼 여겨지는 집이 등장한 최초의 사례라 할 수 있다. 여기서 세 감독은 각기 서로 다른 방식으로 <하녀>의 2층 집을 변주한다. 봉준호의 <기생충>의 2층 집은 아래로 내려가 지하실을 활용하여 은둔자를 만들었다면, 박찬욱의 <어쩔수가없다>(2025)의 2층 집은 위로 올라가 옥상을 활용하여 목격자를 만들었다. <가능한 사랑>의 2층 집은 바깥으로 나가 하인의 경비실을 만들어 CCTV를 설치했다. 그런데 영화에서 ‘진실’을 담고 있는 것은 놀랍게도 미옥과 호석을 따라다니는 예지의 카메라가 아니라, 별장 이곳저곳 원래부터 설치되어 24시간 녹화되고 있던 경비실의 CCTV 영상이다. 어쩌면 예술가의 미감(美感)이 CCTV라는 기계의 실감(實感)을 넘어서지 못한다는, 역시 이창동 감독의 자기 반영적 고백일까. 김기영 감독의 세계와 만난다는, 차원의 이동과 더불어 <가능한 사랑>은 모든 장면이 놀라움으로 가득하다. 한국영화계를 대표하는 노장 감독이 긴 침묵을 깨고 올해 가장 문제적인 작품을 내놓았다는 것, 실로 크나큰 희열이 아닐 수 없다.
+                </p>
+				
+				
+				<div class="common-image-block">
+                    <div class="video">
+                       <iframe width="1337" height="752" loading="lazy" src="https://www.youtube.com/embed/KYbt-0gixeQ" title="이창동 감독이 전하는 베니스국제영화제 은사자상 소감 | 가능한 사랑 | 넷플릭스" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="common-desc"><가능한 사랑> 이창동 감독의 베니스국제영화제 은사자상 수상 소감</p>
+                </div>
+				
+				
+			
+				 <button type="button" class="btn-page-back" >뒤로 가기</button>
+
+
+                <div class="common-tag-list">
+                    <span>가능한사랑</span>
+                    <span>이창동</span>
+                    <span>설경구</span>
+                    <span>전도연</span>
+                    <span>조인성</span>
+                    <span>조여정</span>
+                    <span>넷플릭스</span>
+                    <span>베니스국제영화제</span>
+					<span>토론토국제영화제</span>		
+                </div>
+
+            
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="./assets/images/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="./assets/images/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="./assets/images/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="./assets/images/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="./assets/images/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="./assets/images/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="./assets/images/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="./assets/images/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+                    </div>
+
+                
+
+            <div class="line-1"></div>
+            <div class="content-container">
+                <div class="common-page-list" >
+                    <a href="./list.html?section=READING" class="link-list">목록으로</a>
+
+                    <p class="n-common-title-1">관련기사</p>
+
+                    <div class="list">
+                        <div class="item">
+                            <a href="./detail-yesno.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202633181033040398.webp" srcset="./assets/images/bbs/0_202633181033040398-300w.webp 300w, ./assets/images/bbs/0_202633181033040398.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="낙원 없이 살아가는 법" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">READING ② - YES or NO</p>
+                                <p class="text-2">낙원 없이 살아가는 법</p>
+                                <p class="text-3">&lt;실낙원&gt;</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-people-1.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202651061251200580.webp" srcset="./assets/images/bbs/0_202651061251200580-300w.webp 300w, ./assets/images/bbs/0_202651061251200580.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="인간다움과 인간다운 죽음에 대하여" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">PEOPLE ①</p>
+                                <p class="text-2">인간다움과 인간다운 죽음에 대하여</p>
+                                <p class="text-3">&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-people-2.html">
+                                <div class="image"><img src="./assets/images/bbs/0_202628181028440065.webp" srcset="./assets/images/bbs/0_202628181028440065-300w.webp 300w, ./assets/images/bbs/0_202628181028440065.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="엉뚱하지만 파괴적인" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">PEOPLE ②</p>
+                                <p class="text-2">엉뚱하지만 파괴적인</p>
+                                <p class="text-3">&lt;부활남: 더 레드&gt; 정성호 무술감독</p>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="./detail-boxoffice.html">
+                                <div class="image"><img src="./assets/images/boxoffice1005_rel.webp" srcset="./assets/images/boxoffice1005_rel-300w.webp 300w, ./assets/images/boxoffice1005_rel.webp 457w" sizes="(max-width: 780px) 50vw, 25vw" alt="10월 5주차" width="457" height="635" loading="lazy"></div>
+                                <p class="text-1">BOX OFFICE</p>
+                                <p class="text-2">10월 5주차</p>
+                                <p class="text-3">10월 5주차 위클리 박스오피스</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="image-view-layer">
+            <div class="image">
+                <div class="btn-group">
+                    <button type="button" class="btn-close" aria-label="확대 이미지 닫기">
+                        <img src="./assets/images/icon-close-white.webp" alt="" width="256" height="256" fetchpriority="low" loading="lazy">
+                    </button>
+                </div>
+                <img class="target-image" src="" alt="">
+            </div>
+        </div>
+        <div class="full-menu" style="display: none;">
+            <div class="full-menu-content">
+                <div class="content-container">
+                    <div class="full-menu-header">
+                        <a href="./index.html" class="logo">
+                            <img src="./assets/images/header-logo.webp" alt="한국영화" width="300" height="100" fetchpriority="low" loading="lazy">
+                        </a>
+                        <button type="button" class="btn-full-menu-close" aria-label="전체 메뉴 닫기">
+                            <img src="./assets/images/icon-full-menu-close.webp" alt="" width="80" height="80" fetchpriority="low" loading="lazy">
+                        </button>
+                    </div>
+                    <nav class="full-menu-nav" aria-label="2026년 10월호 전체 메뉴">
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=SPECIAL" class="full-menu-depth1-link is-active">SPECIAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=SPECIAL" class="full-menu-special-link"><strong><span>SPECIAL</span></strong></a>
+                                <a href="./detail-special-1.html" class="full-menu-depth2-link">
+                                    <p>새로운 영화·영상 제작 거점으로의 출발<br>부산기장촬영소를 가다</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>진실 기록 넘어 사회 변화로<br>한국형 ‘임팩트 다큐’ 생태계, 필요하다</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PEOPLE" class="full-menu-depth1-link">PEOPLE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PEOPLE" class="full-menu-special-link"><strong><span>PEOPLE</span></strong></a>
+                                <a href="./detail-people-1.html" class="full-menu-depth2-link">
+                                    <p>인간다움과 인간다운 죽음에 대하여<br>&lt;구제역에서 살아 돌아온 돼지&gt; 故 허범욱 감독</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-people-2.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>엉뚱하지만 파괴적인<br>&lt;부활남: 더 레드&gt; 정성호 무술감독</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=READING" class="full-menu-depth1-link">READING</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=READING" class="full-menu-special-link"><strong><span>READING</span></strong></a>
+                                <a href="./detail-reading-1.html" class="full-menu-depth2-link">
+                                    <p>미옥과 호석의 내일을 위한 시간<br>&lt;가능한 사랑&gt;</p><br>
+                                    <p>2026-10-06</p>
+                                </a>
+                                <a href="./detail-yesno.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>낙원 없이 살아가는 법<br>&lt;실낙원&gt; YES or NO</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=GLOBAL" class="full-menu-depth1-link">GLOBAL</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=GLOBAL" class="full-menu-special-link"><strong><span>GLOBAL</span></strong></a>
+                                <a href="./list.html?section=GLOBAL(ENG)" class="full-menu-special-link"><strong><span>GLOBAL(ENG)</span></strong></a>
+                                <a href="./detail-global.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>도시 전체와 호흡하는 축제로<br>커뮤니티비프와 동네방네비프</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                                <a href="./detail-global-eng.html" class="full-menu-depth2-link">
+                                    <p>A Festival in Step with an Entire City<br>Community BIFF and BIFF Everywhere</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=KOFIC%20STORY" class="full-menu-depth1-link">KOFIC STORY</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=KOFIC%20STORY" class="full-menu-special-link"><strong><span>KOFIC STORY</span></strong></a>
+                                <a href="./detail-kofic-story.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>창작자, 어떤 판 위에서 놀게 할 것인가<br>2026 KOFIC AI 쇼케이스</p><br>
+                                    <p>2026-10-19</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=BOX%20OFFICE" class="full-menu-depth1-link">BOX OFFICE</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=BOX%20OFFICE" class="full-menu-special-link"><strong><span>BOX OFFICE</span></strong></a>
+                                <a href="./detail-boxoffice.html" class="full-menu-depth2-link">
+                                    <strong><span style="color: #f08300; font-size: 18px;">NEW</span></strong>
+                                    <p>주간 박스오피스<br>10월 5주차 위클리 박스오피스</p><br>
+                                    <p>2026-10-30</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="full-menu-depth1">
+                            <a href="./list.html?section=PRODUCTION" class="full-menu-depth1-link no-child">PRODUCTION</a>
+                            <div class="full-menu-depth2">
+                                <a href="./list.html?section=PRODUCTION" class="full-menu-special-link"><strong><span>PRODUCTION</span></strong></a>
+                                <a href="./detail-production.html" class="full-menu-depth2-link">
+                                    <p>한국영화 제작 현황<br>9월 개봉작 살펴보기 (2026. 9. 제작상황판)</p><br>
+                                    <p>2026-10-13</p>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="m-only">
+                        <div class="full-menu-util">
+                            <a href="./list.html" class="btn-instagram">
+                                인스타그램
+                                <img src="./assets/images/icon-instagram.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <a href="#reader" data-open-modal="reader" class="btn-talk">
+                                독자의견
+                                <img src="./assets/images/icon-talk.webp" alt="" width="63" height="50" fetchpriority="low" loading="lazy">
+                            </a>
+                            <button class="btn-folder" type="button">
+                                지난호 보기
+                                <img src="./assets/images/icon-folder.webp" alt="" width="23" height="18" fetchpriority="low" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" fetchpriority="low" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-menu">
+            <div class="quick-menu">
+                <p class="title js-m-quick-open">Quick Menu</p>
+                <div class="menu">
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-3-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>인스타<br class="m-only">그램</p>
+                    </a>
+                    <a href="#reader" data-open-modal="reader">
+                        <img src="./assets/images/img-quick-2-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>독자<br class="m-only">의견</p>
+                    </a>
+                    <a href="./list.html">
+                        <img src="./assets/images/img-quick-30-old.webp" alt="" width="63" height="50" loading="lazy">
+                        <p>뉴스레터 <br>신청</p>
+                    </a>
+                </div>
+            </div>
+            <button class="btn-page-top" type="button">
+                <img src="./assets/images/img-quick-top.webp" alt="" width="14" height="13" loading="lazy"> TOP
+            </button>
+        </div>
+
+        <div id="reader" class="modal-wrap" style="display: none;">
+            <div class="modal" style="padding: 2rem; width: 100%;">
+                <div class="modal-hd">
+                    <div class="title-wrap" style="text-align: left;">
+                        <h2>독자의견 보내기</h2>
+                        <p class="sub-title" style="margin-top: 10px;">여러분의 소중한 의견을 기다리고 있습니다.</p>
+                    </div>
+                    <button type="button" class="modal-close" data-close-modal="reader" aria-label="팝업 닫기"></button>
+                </div>
+                <div class="modal-bd">
+                    <div class="modal-cont">
+                        <div class="notice-content">
+                            <p class="common-text-1" style="margin-bottom: 20px;">
+                                <img src="./assets/images/popup0904.webp" alt="웹진 한국영화 독자의견 안내" width="800" height="700" fetchpriority="low" loading="lazy">
+                            </p>
+                        </div>
+                        <div class="input-wrap">
+                            <div class="input-col">
+                                <label for="opinion1">의견내용</label>
+                                <div class="input-box">
+                                    <textarea name="opinion1" id="opinion1" class="scroll_box" placeholder="보내주실 의견을 편하게 입력해 주세요."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-ft">
+                    <a href="#none" class="btn-submit senSave" vo="M1">의견보내기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="max-container">
+            <div class="content-container">
+                <div class="footer-info">
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/footer-logo.webp" alt="한국영화" width="250" height="53" loading="lazy">
+                    </a>
+                    <div class="footer-util">
+                        <a href="./list.html" class="btn-kofic" aria-label="영화진흥위원회">
+                            <img src="./assets/images/footer-kofic.webp" alt="KOFIC 영화진흥위원회" width="71" height="25" loading="lazy">
+                        </a>
+                        <div class="search-box">
+                            <input type="text" class="stxt" aria-label="하단 검색어 입력">
+                            <button type="button" class="sch" aria-label="검색">
+                                <img src="./assets/images/icon-search.webp" alt="" width="21" height="21" loading="lazy">
+                            </button>
+                        </div>
+                        <a href="./list.html" class="btn-instagram pc-only">
+                            인스타그램
+                            <img src="./assets/images/icon-instagram-w.webp" alt="" width="19" height="19" loading="lazy">
+                        </a>
+                        <a href="#reader" data-open-modal="reader" class="btn-talk pc-only">
+                            독자의견
+                            <img src="./assets/images/icon-talk-w.webp" alt="" width="21" height="21" loading="lazy">
+                        </a>
+                        <button class="btn-folder" type="button">
+                            지난호 보기
+                            <img src="./assets/images/icon-folder-w.webp" alt="" width="23" height="18" loading="lazy">
+                        </button>
+                        <button type="button" class="btn-full-menu">
+                            2026년 10월
+                            <img src="./assets/images/icon-menu-w.webp" alt="전체 메뉴 열기" width="23" height="16" loading="lazy">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <div class="copyright">
+                        48058 부산광역시 해운대구 수영강변대로 130 (우동)<br>
+                        문의: kmovie@hankyung.com<br>
+                        Copyrights ⓒ 2026 BY KOFIC. All rights reserved.
+                    </div>
+                    <div class="detail">
+                        <div>
+                            발행인: 한상준<br>
+                            편집장: 김혜선<br>
+                            발간처: 영화진흥위원회 정책본부 정책개발팀
+                        </div>
+                        <div>
+                            기획편집: 박주영 이윤경<br>
+                            발행사: (주)한경매거진앤북<br>
+                            eISSN 3140-460X
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-10 pc-only" style="font-size: 16px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+                <p class="mt-10 m-only" style="font-size: 12px;">* &lt;웹진 한국영화&gt;의 내용은 필자들의 견해이며 본 기관의 공식 입장과는 다를 수 있습니다.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
