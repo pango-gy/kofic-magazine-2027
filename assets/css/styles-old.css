@@ -95,8 +95,8 @@
     margin-bottom: 180px;
     height: 710px;
     margin-top: 90px;
-    background-image: url('../images/img-sub-visual-1.jpg');
-    background-image: image-set(url('../images/img-sub-visual-1.webp') type('image/webp') 1x, url('../images/img-sub-visual-1.jpg') type('image/jpeg') 1x);
+    background-image: url('../images/common/img-sub-visual-1.jpg');
+    background-image: image-set(url('../images/common/img-sub-visual-1.webp') type('image/webp') 1x, url('../images/common/img-sub-visual-1.jpg') type('image/jpeg') 1x);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1609,10 +1609,10 @@ margin-top: 30px;
     background-size: auto 20px;
 }
 
-.sub-pagination .first {background-image: url('../images/img-arrow-pagination-1.png'); background-image: image-set(url('../images/img-arrow-pagination-1.webp') type('image/webp') 1x, url('../images/img-arrow-pagination-1.png') type('image/png') 1x)}
-.sub-pagination .prev {background-image: url('../images/img-arrow-pagination-2.png'); background-image: image-set(url('../images/img-arrow-pagination-2.webp') type('image/webp') 1x, url('../images/img-arrow-pagination-2.png') type('image/png') 1x); margin-right: 13px;}
-.sub-pagination .last {transform: rotate(180deg); background-image: url('../images/img-arrow-pagination-1.png'); background-image: image-set(url('../images/img-arrow-pagination-1.webp') type('image/webp') 1x, url('../images/img-arrow-pagination-1.png') type('image/png') 1x);}
-.sub-pagination .next {transform: rotate(180deg); background-image: url('../images/img-arrow-pagination-2.png'); background-image: image-set(url('../images/img-arrow-pagination-2.webp') type('image/webp') 1x, url('../images/img-arrow-pagination-2.png') type('image/png') 1x); margin-left: 13px;}
+.sub-pagination .first {background-image: url('../images/common/img-arrow-pagination-1.png'); background-image: image-set(url('../images/common/img-arrow-pagination-1.webp') type('image/webp') 1x, url('../images/common/img-arrow-pagination-1.png') type('image/png') 1x)}
+.sub-pagination .prev {background-image: url('../images/common/img-arrow-pagination-2.png'); background-image: image-set(url('../images/common/img-arrow-pagination-2.webp') type('image/webp') 1x, url('../images/common/img-arrow-pagination-2.png') type('image/png') 1x); margin-right: 13px;}
+.sub-pagination .last {transform: rotate(180deg); background-image: url('../images/common/img-arrow-pagination-1.png'); background-image: image-set(url('../images/common/img-arrow-pagination-1.webp') type('image/webp') 1x, url('../images/common/img-arrow-pagination-1.png') type('image/png') 1x);}
+.sub-pagination .next {transform: rotate(180deg); background-image: url('../images/common/img-arrow-pagination-2.png'); background-image: image-set(url('../images/common/img-arrow-pagination-2.webp') type('image/webp') 1x, url('../images/common/img-arrow-pagination-2.png') type('image/png') 1x); margin-left: 13px;}
 
 .sub-pagination a.active:hover {
     background-color: #5c3a93;
@@ -3142,12 +3142,12 @@ font-size: 0.8333vw;
 
     .common-list-1.m-list-slick-1 .slick-prev {
         left: 10px;
-        background-image: url("../images/icon-arrow-slide.png");
+        background-image: url("../images/common/icon-arrow-slide.png");
     }
 
     .common-list-1.m-list-slick-1 .slick-next {
         right: 10px;
-        background-image: url("../images/icon-arrow-slide.png");
+        background-image: url("../images/common/icon-arrow-slide.png");
     }
 
     .common-list-1.m-list-slick-1 .slick-arrow img {
