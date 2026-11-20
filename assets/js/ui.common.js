@@ -14,9 +14,11 @@ document.addEventListener("mousedown", () => {
     isMouseDown = true;
 });
 document.addEventListener("mousemove", () => {
-    blockWhileDragging(isMouseDown);
+    if (!isMouseDown) return;
+    blockWhileDragging(true);
 });
 document.addEventListener("mouseup", () => {
+    if (!isMouseDown) return;
     isMouseDown = false;
     blockWhileDragging(false);
 });
@@ -34,6 +36,8 @@ function popClose(id) {
 }
 
 $(function () {
+    const ROOT = (document.querySelector(".header-logo")?.getAttribute("href") || "./index.html").replace(/index\.html$/, "");
+
     if ($.fn.niceSelect) {
         $(".custom-select").niceSelect();
     }
@@ -54,7 +58,7 @@ $(function () {
 
     $(".btn-folder").on("click", function (e) {
         e.preventDefault();
-        window.location.href = "./list.html";
+        window.location.href = ROOT + "list.html";
     });
 
     // Desktop GNB hover dropdown
@@ -67,7 +71,7 @@ $(function () {
         $(".header-depth1").removeClass("is-active");
     });
 
-    // Search input sync & navigation to detail page
+    // Search input sync & navigation to list page
     $(".stxt").on("input", function () {
         $(".stxt").val($(this).val());
     });
@@ -78,7 +82,7 @@ $(function () {
             alert("검색어를 2글자 이상 입력하셔야 합니다.");
             return;
         }
-        window.location.href = "./list.html?q=" + encodeURIComponent(query);
+        window.location.href = ROOT + "list.html?q=" + encodeURIComponent(query);
     }
 
     $(".stxt").on("keydown", function (e) {
@@ -237,15 +241,17 @@ $(function () {
         });
     }
 
-    // Detail Page Image Slider
-    if ($(".common-image-slide-1 .slides-wrap").length) {
-        $(".common-image-slide-1 .slides-wrap").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            dots: false
-        });
-    }
+    // Detail Page Image Slider (only initialize Slick when 2+ images exist)
+    $(".common-image-slide-1 .slides-wrap").each(function () {
+        if ($(this).children(".image").length > 1) {
+            $(this).slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false
+            });
+        }
+    });
 
     // PC Main Visual click navigation
     $pcMainVisual.on("click", ".text-wrap", function (e) {
@@ -299,30 +305,25 @@ $(function () {
         }
     });
 
-    // Mobile emotion button rotation on detail page
-    let count = 0;
-    let timer = null;
-    const snsMobileInterval = function () {
-        count = count === 4 ? 0 : count + 1;
-        $(".sub-sns .emotion button").removeClass("view-mobile");
-        $(".sub-sns .emotion button").eq(count).addClass("view-mobile");
-    };
-
+    // Detail page floating quick visibility (rAF-throttled, no jarring mobile emotion rotation)
+    let quickVisible = null;
+    let quickRaf = false;
     function syncDetailResponsiveUI() {
-        if ($(window).scrollTop() > 0) {
-            $(".sub-quick").fadeIn(100);
-        } else {
-            $(".sub-quick").fadeOut(100);
-        }
-
-        if ($(".sub-sns .emotion button").length && $(window).width() <= 780) {
-            if (!timer) {
-                timer = setInterval(snsMobileInterval, 3000);
+        if (quickRaf) return;
+        quickRaf = true;
+        requestAnimationFrame(() => {
+            quickRaf = false;
+            const shouldShow = window.scrollY > 120;
+            if (shouldShow !== quickVisible) {
+                quickVisible = shouldShow;
+                $(".sub-quick").toggleClass("is-visible", shouldShow);
+                if (shouldShow) {
+                    $(".sub-quick").stop(true, true).fadeIn(140);
+                } else {
+                    $(".sub-quick").stop(true, true).fadeOut(140);
+                }
             }
-        } else if (timer) {
-            clearInterval(timer);
-            timer = null;
-        }
+        });
     }
 
     $(window).on("load resize scroll", syncDetailResponsiveUI);
@@ -330,7 +331,11 @@ $(function () {
     // Detail page controls
     $(".btn-page-back").on("click", function (e) {
         e.preventDefault();
-        window.location.href = "./index.html";
+        if (document.referrer && document.referrer.indexOf(window.location.origin) === 0) {
+            window.history.back();
+        } else {
+            window.location.href = ROOT + "list.html";
+        }
     });
 
     $(".btn-page-top, .btn-quick-up").on("click", function (e) {
@@ -390,8 +395,8 @@ $(function () {
 
     // Tag clicks navigate to filtered list page
     $(document).on("click", ".common-tag-list span, .common-tags-2 span", function () {
-        const tag = $.trim($(this).text());
-        window.location.href = "./list.html?q=" + encodeURIComponent(tag);
+        const tag = $.trim($(this).text()).replace(/^#/, "");
+        window.location.href = ROOT + "list.html?q=" + encodeURIComponent(tag);
     });
 
     // Image full-screen zoom modal
