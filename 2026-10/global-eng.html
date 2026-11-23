@@ -11,6 +11,7 @@
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preload" as="image" href="../assets/images/2026-10/global/global1001_00.webp" type="image/webp" fetchpriority="high">
     <link href="../assets/css/magazine-2027.css" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css" rel="stylesheet">
     <style>
 /* 기사 본문 내용에만 Noto Sans 적용 */
 .sub-view-content .content-container-1,
@@ -191,46 +192,34 @@
   }
     </style>
     <script defer src="../assets/js/magazine-2027.js"></script>
+    <script defer src="../assets/js/layout-2027.js"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-    <header class="ed-header">
-        <div class="ed-header-inner">
-            <a href="../index.html" class="ed-brand" aria-label="웹진 한국영화 홈">
-                <span class="ed-brand-mark">
-                    <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" class="ed-brand-logo" width="1350" height="284">
-                </span>
+    <header class="ed-header mk-header">
+        <div class="mk-bar">
+            <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 10월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <a href="../index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
+                <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
             </a>
-
-            <nav class="ed-nav" aria-label="주요 섹션 메뉴">
-                <div class="ed-nav-item"><a href="../list.html?section=SPECIAL" class="ed-nav-link">SPECIAL</a></div>
-                <div class="ed-nav-item"><a href="../list.html?section=INTERVIEW" class="ed-nav-link">INTERVIEW</a></div>
-                <div class="ed-nav-item"><a href="../list.html?section=CRITIC" class="ed-nav-link">CRITIC</a></div>
-                <div class="ed-nav-item">
-                    <a href="../list.html?section=GLOBAL" class="ed-nav-link" aria-current="page">GLOBAL ▾</a>
-                    <div class="ed-nav-dropdown">
-                        <a href="../list.html?section=GLOBAL">GLOBAL (국문)</a>
-                        <a href="../list.html?section=GLOBAL(ENG)">GLOBAL (ENG)</a>
-                    </div>
-                </div>
-                <div class="ed-nav-item"><a href="../list.html?section=KOFIC%20STORY" class="ed-nav-link">KOFIC STORY</a></div>
-                <div class="ed-nav-item"><a href="../list.html?section=BOX%20OFFICE" class="ed-nav-link">BOX OFFICE</a></div>
-                <div class="ed-nav-item"><a href="../list.html?section=PRODUCTION" class="ed-nav-link">PRODUCTION</a></div>
-            </nav>
-
-            <div class="ed-header-actions">
-                <button type="button" class="ed-icon-btn" data-open-drawer="search" aria-label="기사 검색 열기">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-                    <span class="btn-label">검색</span>
-                </button>
-                <button type="button" class="ed-icon-btn is-primary" data-open-drawer="index" aria-label="10월호 목차 열기">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h12"/></svg>
-                    <span class="btn-label">10월호 목차</span>
-                </button>
+            <div class="mk-actions">
+                <span class="mk-issue-label">2026년 10월호</span>
+                <button type="button" class="mk-icon-btn mk-search-btn" data-open-drawer="search" aria-label="기사 검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
             </div>
+            <div class="ed-progress-bar" aria-hidden="true"></div>
         </div>
-        <div class="ed-progress-bar" aria-hidden="true"></div>
+        <nav class="mk-nav" aria-label="주요 섹션 메뉴">
+            <div class="mk-nav-track">
+                <a href="../list.html?section=SPECIAL" class="mk-nav-link">SPECIAL</a>
+                <a href="../list.html?section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
+                <a href="../list.html?section=CRITIC" class="mk-nav-link">CRITIC</a>
+                <a href="../list.html?section=GLOBAL" class="mk-nav-link" aria-current="page">GLOBAL</a>
+                <a href="../list.html?section=KOFIC%20STORY" class="mk-nav-link">KOFIC STORY</a>
+                <a href="../list.html?section=BOX%20OFFICE" class="mk-nav-link">BOX OFFICE</a>
+                <a href="../list.html?section=PRODUCTION" class="mk-nav-link">PRODUCTION</a>
+            </div>
+        </nav>
     </header>
 
     <main id="main-content">
