@@ -2,14 +2,12 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="./assets/images/common/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>웹진 한국영화 | 2026년 10월호</title>
     <meta name="description" content="영화진흥위원회가 발행하는 웹진 한국영화 2026년 10월호 — SPECIAL, INTERVIEW, CRITIC, GLOBAL, KOFIC STORY, BOX OFFICE, PRODUCTION">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
     <link rel="preload" as="image" href="./assets/images/2026-10/special-2/special1002_00.webp" type="image/webp" fetchpriority="high">
@@ -24,9 +22,8 @@
         <div class="ed-header-inner">
             <a href="./index.html" class="ed-brand" aria-label="웹진 한국영화 홈">
                 <span class="ed-brand-mark">
-                    <img src="./assets/images/common/header-logo.webp" alt="한국영화" class="ed-brand-logo" width="300" height="100">
+                    <img src="./assets/images/common/logo-c.svg" alt="웹진 한국영화" class="ed-brand-logo" width="1350" height="284">
                 </span>
-                <span class="ed-brand-issue">VOL. 2026.10</span>
             </a>
 
             <nav class="ed-nav" aria-label="주요 섹션 메뉴">
@@ -141,10 +138,10 @@
             </div>
         </section>
 
-        <!-- Quick Issue Section Strip & Search -->
-        <div class="issue-strip">
+        <!-- Quick Issue Section Strip (tablet/mobile only; desktop uses the header nav) -->
+        <nav class="issue-strip" aria-label="이번 호 섹션 바로가기">
             <div class="ed-container issue-strip-inner">
-                <div class="issue-pills" aria-label="섹션 바로가기">
+                <div class="issue-pills">
                     <a href="./list.html?section=SPECIAL" class="issue-pill">SPECIAL <span>2</span></a>
                     <a href="./list.html?section=INTERVIEW" class="issue-pill">INTERVIEW <span>2</span></a>
                     <a href="./list.html?section=CRITIC" class="issue-pill">CRITIC <span>2</span></a>
@@ -153,12 +150,8 @@
                     <a href="./list.html?section=BOX%20OFFICE" class="issue-pill">BOX OFFICE <span>5</span></a>
                     <a href="./list.html?section=PRODUCTION" class="issue-pill">PRODUCTION <span>1</span></a>
                 </div>
-                <form class="issue-quick-search" data-search-form>
-                    <input type="search" placeholder="영화, 감독, 키워드 검색..." aria-label="기사 검색">
-                    <button type="submit">검색</button>
-                </form>
             </div>
-        </div>
+        </nav>
 
         <!-- ACT II: SPECIAL Asymmetric 7:5 Feature Spread -->
         <section class="ed-section">
@@ -482,7 +475,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="./assets/images/common/footer-logo.webp" alt="한국영화" width="194" height="65" loading="lazy">
+                        <img src="./assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="./assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

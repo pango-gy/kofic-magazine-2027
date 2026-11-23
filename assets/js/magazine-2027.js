@@ -42,16 +42,49 @@
         return window.location.pathname.includes("/2026-10/") ? "../" : "./";
     }
 
+    // word-break: keep-all only keeps runs *between spaces* together; browsers
+    // still break inside runs glued with punctuation ("<실낙원>|의",
+    // "장치다.|(웃음)", "제작·|배급"). Wrap such short runs in a no-wrap span.
+    // Runs longer than 18 chars are left alone so narrow screens can't overflow.
+    function glueKoreanPunctuation(root) {
+        if (!root) return;
+        const GLUE = /[<>()\[\]「」『』‘’“”·&=]/;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+                const p = node.parentElement;
+                if (!p || p.closest("script, style, textarea, input, code, pre, .nb")) return NodeFilter.FILTER_REJECT;
+                return GLUE.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+            }
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach((node) => {
+            const parts = node.nodeValue.split(/(\s+)/);
+            if (!parts.some((t) => t && !/^\s+$/.test(t) && GLUE.test(t) && t.length > 1 && t.length <= 18)) return;
+            const frag = document.createDocumentFragment();
+            parts.forEach((t) => {
+                if (t && !/^\s+$/.test(t) && GLUE.test(t) && t.length > 1 && t.length <= 18) {
+                    const span = document.createElement("span");
+                    span.className = "nb";
+                    span.textContent = t;
+                    frag.appendChild(span);
+                } else if (t) {
+                    frag.appendChild(document.createTextNode(t));
+                }
+            });
+            node.parentNode.replaceChild(frag, node);
+        });
+    }
+
     function init() {
+        glueKoreanPunctuation(document.getElementById("main-content") || document.body);
         const rootPrefix = getRootPrefix();
         const header = document.querySelector(".ed-header");
         const drawer = document.getElementById("issueDrawer");
         const topBtn = document.getElementById("edTopBtn");
 
         // 1. Header scroll state & Back-to-top button
-        let lastY = window.scrollY;
         let scrollRaf = false;
-        const mobileMq = window.matchMedia("(max-width: 780px)");
 
         function onScroll() {
             scrollRaf = false;
@@ -59,13 +92,9 @@
             const y = Math.max(0, Math.min(window.scrollY, maxScroll));
 
             if (header) {
+                // The header stays pinned on every screen size (it used to slide
+                // away on mobile scroll-down, which left sticky bars floating).
                 header.classList.toggle("is-scrolled", y > 12);
-                if (mobileMq.matches && (!drawer || !drawer.classList.contains("is-open"))) {
-                    if (y > lastY && y > 130) header.classList.add("is-hidden");
-                    else if (y < lastY || y <= 40) header.classList.remove("is-hidden");
-                } else {
-                    header.classList.remove("is-hidden");
-                }
             }
             if (topBtn) {
                 topBtn.classList.toggle("is-visible", y > 420);
@@ -76,7 +105,6 @@
                 const ratio = maxScroll > 0 ? y / maxScroll : 0;
                 document.documentElement.style.setProperty("--ed-read-progress", ratio.toFixed(4));
             }
-            lastY = y;
         }
 
         window.addEventListener("scroll", () => {
@@ -191,8 +219,13 @@
             const meta = document.getElementById("heroMeta");
             const cta = document.getElementById("heroCta");
             const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const switcher = heroStage.querySelector(".hero-switcher") || heroStage;
+            const SLIDE_MS = 6000;
             let idx = 0;
             let timer = null;
+            let remaining = SLIDE_MS;
+            let startedAt = 0;
+            let paused = false;
 
             function setSlide(nextIdx) {
                 idx = (nextIdx + tabs.length) % tabs.length;
@@ -209,23 +242,53 @@
                 if (cta) cta.setAttribute("href", tab.dataset.href || "#");
             }
 
-            function startAuto() {
-                if (reduceMotion) return;
-                clearInterval(timer);
-                timer = setInterval(() => setSlide(idx + 1), 6000);
+            // Every slide gets the same SLIDE_MS. A pause keeps the time already
+            // spent, so resuming finishes the slide instead of restarting it, and
+            // the tab's progress bar (CSS) freezes with it via .is-paused.
+            function schedule() {
+                clearTimeout(timer);
+                if (reduceMotion || paused) return;
+                startedAt = performance.now();
+                timer = setTimeout(() => {
+                    setSlide(idx + 1);
+                    remaining = SLIDE_MS;
+                    schedule();
+                }, remaining);
+            }
+
+            function pause() {
+                if (paused) return;
+                paused = true;
+                clearTimeout(timer);
+                remaining = Math.max(0, remaining - (performance.now() - startedAt));
+                heroStage.classList.add("is-paused");
+            }
+
+            function resume() {
+                if (!paused) return;
+                paused = false;
+                heroStage.classList.remove("is-paused");
+                schedule();
             }
 
             tabs.forEach((btn, i) => {
                 btn.addEventListener("click", () => {
                     setSlide(i);
-                    startAuto();
+                    remaining = SLIDE_MS;
+                    schedule();
                 });
             });
 
-            heroStage.addEventListener("mouseenter", () => clearInterval(timer));
-            heroStage.addEventListener("mouseleave", startAuto);
+            // Pause only while the pointer is on the tab row (not the whole cover,
+            // where the mouse tends to rest right after the page loads), while
+            // keyboard focus is inside the cover, or while the browser tab is hidden.
+            switcher.addEventListener("mouseenter", pause);
+            switcher.addEventListener("mouseleave", resume);
+            heroStage.addEventListener("focusin", (e) => { if (e.target.matches(":focus-visible")) pause(); });
+            heroStage.addEventListener("focusout", (e) => { if (!heroStage.contains(e.relatedTarget)) resume(); });
+            document.addEventListener("visibilitychange", () => (document.hidden ? pause() : resume()));
             setSlide(0);
-            startAuto();
+            schedule();
         }
 
         // 5. MAIN PAGE: Box Office Top 3 Poster Switcher
@@ -258,6 +321,15 @@
         // 7. DETAIL PAGE: Theme, Font Size, Reading Time, TOC, Carousels, Lightbox, Reactions, Prev/Next
         const articleMain = document.querySelector(".article-main");
         if (articleMain) {
+            // 7-0. Single photos: expose each image's aspect ratio (from its
+            // width/height attributes) so CSS can cap portrait shots by height
+            // while the box already has its final size before the file loads.
+            articleMain.querySelectorAll(".common-image-slide-1 .image img, .common-image-block .image img").forEach((img) => {
+                const w = Number(img.getAttribute("width"));
+                const h = Number(img.getAttribute("height"));
+                if (w > 0 && h > 0) img.style.setProperty("--img-ar", (w / h).toFixed(4));
+            });
+
             // 7a. Theme Switcher (paper / sepia / dark)
             const themeBtns = document.querySelectorAll("[data-set-theme]");
             function applyTheme(theme) {

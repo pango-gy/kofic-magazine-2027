@@ -45,41 +45,44 @@
    1. Design Tokens & Reading Themes
    ========================================================================== */
 :root {
-    /* Surfaces — Warm Archival Paper */
-    --bg-page: #f7f4ee;
+    /* Surfaces — clean white with a faint brand-purple tint */
+    --bg-page: #f9f8fb;
     --bg-surface: #ffffff;
-    --bg-panel: #efeae0;
-    --bg-panel-alt: #e7e0d3;
-    --bg-cinema: #0e101d;
-    --bg-cinema-2: #16192b;
-    --bg-footer: #090b14;
+    --bg-panel: #f4f1f8;
+    --bg-panel-alt: #ebe5f3;
+    --bg-cinema: #24163d;
+    --bg-cinema-2: #33234f;
+    --bg-footer: #1a0f2e;
 
     /* Ink & Contrast */
-    --ink: #13141c;
-    --ink-2: #3b3d4a;
-    --ink-muted: #666876;
-    --ink-on-dark: #f5f3ee;
-    --ink-on-dark-muted: rgba(245, 243, 238, 0.7);
+    --ink: #17141f;
+    --ink-2: #3e3748;
+    --ink-muted: #625a6e;
+    --ink-on-dark: #f7f4fb;
+    --ink-on-dark-muted: rgba(247, 244, 251, 0.72);
+    --ink-on-accent: #17141f; /* white on #f08300 fails AA; dark ink passes */
 
-    /* Brand Accent — KOFIC Cinema Vermilion-Orange + Heritage Navy */
-    --navy: #141937;
-    --accent: #e86a17;
-    --accent-hover: #cf590c;
-    --accent-text: #b84b06; /* WCAG AA >= 5.2:1 on #f7f4ee & #fff */
-    --accent-soft: rgba(232, 106, 23, 0.11);
+    /* Brand — logo purple + logo orange (logo option C) */
+    --navy: #5b3891;
+    --accent: #f08300;
+    --accent-hover: #d87500;
+    --accent-text: #b35a00; /* orange for text: AA >= 5.9:1 on #fff and #f9f8fb */
+    --accent-soft: rgba(240, 131, 0, 0.12);
 
     /* Borders & Elevation */
-    --rule: rgba(19, 20, 28, 0.11);
-    --rule-strong: #13141c;
-    --rule-dark: rgba(255, 255, 255, 0.13);
-    --shadow-sm: 0 2px 10px rgba(14, 16, 29, 0.05);
-    --shadow-md: 0 12px 32px rgba(14, 16, 29, 0.09);
-    --shadow-lg: 0 24px 60px rgba(8, 10, 20, 0.34);
+    --rule: rgba(36, 22, 61, 0.12);
+    --rule-strong: #17141f;
+    --rule-dark: rgba(255, 255, 255, 0.14);
+    --shadow-sm: 0 2px 10px rgba(36, 22, 61, 0.06);
+    --shadow-md: 0 12px 32px rgba(36, 22, 61, 0.1);
+    --shadow-lg: 0 24px 60px rgba(20, 12, 36, 0.36);
 
-    /* Typography */
-    --font-serif: 'Noto Serif KR', 'noto-s', Georgia, serif;
+    /* Typography — Pretendard only; headline role keeps its own token */
+    --font-serif: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     --font-sans: 'Pretendard Variable', 'Pretendard', 'ns', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-    --font-label: 'gs', 'Pretendard Variable', sans-serif;
+    /* Labels/pills/eyebrows: Pretendard too. GmarketSans ('gs') sat off-center
+       in its line box, so pill and chip text looked vertically misaligned. */
+    --font-label: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
 
     /* Reading Scale */
     --read-scale: 1;
@@ -109,16 +112,16 @@ html[data-theme="sepia"] {
 
 /* Screening Room Dark Reading Mode (Detail Pages) */
 html[data-theme="dark"] {
-    --bg-page: #11131e;
-    --bg-surface: #181b2a;
-    --bg-panel: #1f2336;
-    --bg-panel-alt: #272c42;
-    --ink: #f1efe9;
-    --ink-2: #cbccd6;
-    --ink-muted: #989baa;
-    --navy: #e9ecf8;
-    --accent-text: #ff9447;
-    --accent-soft: rgba(232, 106, 23, 0.2);
+    --bg-page: #141020;
+    --bg-surface: #1c1730;
+    --bg-panel: #241e3a;
+    --bg-panel-alt: #2d2648;
+    --ink: #f3f0f8;
+    --ink-2: #d0c9dc;
+    --ink-muted: #a59cb4;
+    --navy: #e4dcf2;
+    --accent-text: #ffa340;
+    --accent-soft: rgba(240, 131, 0, 0.2);
     --rule: rgba(255, 255, 255, 0.12);
     --rule-strong: rgba(255, 255, 255, 0.45);
     --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.3);
@@ -148,6 +151,10 @@ body {
     background-color: var(--bg-page);
     color: var(--ink);
     font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    /* Korean: break lines only between words, site-wide */
+    word-break: keep-all;
+    overflow-wrap: break-word;
     font-size: 1rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -164,6 +171,12 @@ img, svg, video, iframe {
 
 img {
     height: auto;
+}
+
+/* Short runs glued with punctuation ("<실낙원>의", "서래(탕웨이)") are
+   wrapped in .nb by JS so they never split across lines. */
+.nb {
+    white-space: nowrap;
 }
 
 a {
@@ -248,10 +261,6 @@ h1, h2, h3, h4, p, figure, blockquote {
     box-shadow: var(--shadow-sm);
 }
 
-.ed-header.is-hidden:not(:focus-within) {
-    transform: translateY(-100%);
-}
-
 .ed-header-inner {
     display: flex;
     align-items: center;
@@ -276,27 +285,13 @@ h1, h2, h3, h4, p, figure, blockquote {
 }
 
 .ed-brand-logo {
-    height: 28px;
+    height: 34px;
     width: auto;
     object-fit: contain;
 }
 
 html[data-theme="dark"] .ed-brand-logo {
     filter: brightness(0) invert(1);
-}
-
-.ed-brand-issue {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 9px;
-    border-radius: 999px;
-    background: var(--bg-panel);
-    border: 1px solid var(--rule);
-    font-family: var(--font-label);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-2);
-    font-variant-numeric: tabular-nums;
 }
 
 /* Primary Nav */
@@ -317,9 +312,9 @@ html[data-theme="dark"] .ed-brand-logo {
     gap: 4px;
     padding-block: 8px;
     font-family: var(--font-label);
-    font-size: 0.8125rem;
-    font-weight: 400;
-    letter-spacing: 0.07em;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     color: var(--ink-2);
     white-space: nowrap;
     transition: color 0.18s ease;
@@ -436,7 +431,7 @@ html[data-theme="dark"] .ed-brand-logo {
 html[data-theme="dark"] .ed-icon-btn.is-primary {
     background: var(--accent);
     border-color: var(--accent);
-    color: #fff;
+    color: var(--ink-on-accent);
 }
 
 .ed-icon-btn.is-primary:hover {
@@ -477,11 +472,6 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     to { transform: scaleX(1); }
 }
 
-@media (max-width: 1280px) {
-    .ed-brand-issue {
-        display: none;
-    }
-}
 
 @media (max-width: 1180px) {
     .ed-nav {
@@ -557,7 +547,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     display: block;
     font-family: var(--font-label);
     font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--accent-text);
     margin-block-end: 2px;
 }
@@ -628,7 +618,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     border-bottom: 2px solid var(--rule-strong);
     font-family: var(--font-label);
     font-size: 0.8125rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: var(--navy);
 }
 
@@ -684,7 +674,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 65% 75% at 28% 35%, rgba(232, 106, 23, 0.14), transparent 70%);
+    background: radial-gradient(ellipse 65% 75% at 28% 35%, rgba(240, 131, 0, 0.14), transparent 70%);
     pointer-events: none;
 }
 
@@ -726,15 +716,19 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     inset-block-start: 16px;
     inset-inline-start: 16px;
     z-index: 2;
-    padding: 6px 12px;
+    /* right padding minus one letter-spacing, so the trailing tracking
+       after the last letter doesn't make the pill look lopsided */
+    padding: 6px calc(12px - 0.05em) 6px 12px;
     border-radius: 999px;
-    background: rgba(14, 16, 29, 0.72);
+    background: rgba(36, 22, 61, 0.72);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.16);
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.7rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.05em;
+    word-spacing: 0.08em;
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -750,8 +744,9 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     align-items: center;
     gap: 10px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.8125rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: #ff9c52;
 }
 
@@ -767,7 +762,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     font-size: clamp(1.85rem, 3.2vw, 3.1rem);
     font-weight: 700;
     line-height: 1.25;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
     color: #ffffff;
     word-break: keep-all;
     text-wrap: balance;
@@ -805,7 +800,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     padding: 13px 24px;
     border-radius: 999px;
     background: var(--accent);
-    color: #fff;
+    color: var(--ink-on-accent);
     font-weight: 700;
     font-size: 0.9375rem;
     transition: background-color 0.2s ease, transform 0.2s var(--ease);
@@ -863,7 +858,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
 
 .hero-tab.is-active {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(232, 106, 23, 0.55);
+    border-color: rgba(240, 131, 0, 0.55);
     color: #fff;
 }
 
@@ -882,6 +877,11 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     animation: hero-bar 6s linear forwards;
 }
 
+/* Freeze the progress bar together with the auto-advance timer */
+.hero-stage.is-paused .hero-tab.is-active::after {
+    animation-play-state: paused;
+}
+
 @keyframes hero-bar {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
@@ -892,8 +892,9 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     align-items: center;
     gap: 6px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: #ff9c52;
     font-variant-numeric: tabular-nums;
 }
@@ -951,13 +952,14 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
+    padding: 6px calc(14px - 0.03em) 6px 14px;
     border-radius: 999px;
     background: var(--bg-page);
     border: 1px solid var(--rule);
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.75rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.03em;
     color: var(--ink-2);
     transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
@@ -978,33 +980,31 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     color: #ff9c52;
 }
 
-.issue-quick-search {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 6px 4px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--rule);
-    background: var(--bg-page);
-    inline-size: min(100%, 280px);
+/* The strip only fills in for the header nav, which hides at <= 1180px.
+   On wider screens it would just repeat the header, so it's hidden there. */
+@media (min-width: 1181px) {
+    .issue-strip {
+        display: none;
+    }
 }
 
-.issue-quick-search input {
-    flex: 1;
-    min-inline-size: 0;
-    border: 0;
-    background: transparent;
-    font-size: 0.85rem;
-    outline: none;
-}
+/* Phones: one swipeable row instead of three wrapped rows */
+@media (max-width: 600px) {
+    .issue-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-inline: calc(var(--gutter) * -1);
+        padding-inline: var(--gutter);
+    }
 
-.issue-quick-search button {
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: var(--bg-cinema);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 600;
+    .issue-pills::-webkit-scrollbar {
+        display: none;
+    }
+
+    .issue-pill {
+        flex: none;
+    }
 }
 
 /* ==========================================================================
@@ -1044,8 +1044,9 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     align-items: center;
     gap: 8px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: var(--accent-text);
     margin-block-end: 6px;
     font-variant-numeric: tabular-nums;
@@ -1059,7 +1060,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     font-family: var(--font-serif);
     font-size: clamp(1.5rem, 2.4vw, 2.25rem);
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
     line-height: 1.2;
 }
 
@@ -1078,10 +1079,11 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     align-items: center;
     gap: 6px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.8125rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     color: var(--ink-2);
-    padding: 8px 16px;
+    padding: 8px calc(16px - 0.03em) 8px 16px;
     border-radius: 999px;
     border: 1px solid var(--rule);
     background: var(--bg-surface);
@@ -1130,8 +1132,9 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     align-items: center;
     gap: 8px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.72rem;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.05em;
     color: var(--accent-text);
     text-transform: uppercase;
 }
@@ -1147,7 +1150,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     font-family: var(--font-serif);
     font-weight: 700;
     line-height: 1.35;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--ink);
     word-break: keep-all;
     text-wrap: balance;
@@ -1171,10 +1174,11 @@ a:hover .ed-card-title {
     font-weight: 500;
 }
 
-/* ACT II: SPECIAL Asymmetric 7:5 Spread */
+/* ACT II: SPECIAL — two equal cards (①·② are the same tier; the 1.35:1
+   split was too small to read as a deliberate lead and looked like a bug) */
 .special-spread {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(24px, 3.2vw, 44px);
     align-items: stretch;
 }
@@ -1211,7 +1215,6 @@ a:hover .ed-card-title {
 .special-side {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 18px;
     padding: 20px;
     background: var(--bg-surface);
@@ -1231,7 +1234,17 @@ a:hover .ed-card-title {
 }
 
 .special-side .ed-card-title {
-    font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+}
+
+.special-side .ed-card-deck {
+    font-size: 1rem;
+}
+
+/* Byline sits at the bottom of both cards so the pair lines up */
+.special-lead > :last-child,
+.special-side > :last-child {
+    margin-block-start: auto;
 }
 
 .special-key-box {
@@ -1353,13 +1366,14 @@ a:hover .ed-card-title {
     position: absolute;
     inset-block-end: 14px;
     inset-inline-start: 14px;
-    padding: 5px 12px;
+    padding: 5px calc(12px - 0.04em) 5px 12px;
     border-radius: 999px;
-    background: rgba(14, 16, 29, 0.82);
+    background: rgba(36, 22, 61, 0.82);
     color: #fff;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.7rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
 }
 
 .critic-body {
@@ -1526,7 +1540,7 @@ a:hover .ed-card-title {
 .bo-rank-item:hover,
 .bo-rank-item.is-active {
     background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(232, 106, 23, 0.55);
+    border-color: rgba(240, 131, 0, 0.55);
 }
 
 .bo-rank-num {
@@ -1581,7 +1595,7 @@ a:hover .ed-card-title {
 
 .bo-weeks a:hover {
     background: var(--accent);
-    color: #fff;
+    color: var(--ink-on-accent);
 }
 
 /* Production Horizontal Cinema Reel */
@@ -1734,8 +1748,9 @@ a:hover .ed-card-title {
     gap: 12px;
     margin-block-end: 10px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--accent-text);
 }
 
@@ -1743,7 +1758,7 @@ a:hover .ed-card-title {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 3.8vw, 3.25rem);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     line-height: 1.15;
 }
 
@@ -1764,6 +1779,24 @@ a:hover .ed-card-title {
     padding-block: 14px;
 }
 
+/* Desktop: the header nav already offers the same section filters
+   (list.html?section=…), "전체 기사" covers "전체", and the current section
+   is highlighted there — so the duplicate tab row is hidden. Below 1181px
+   the header nav collapses, and the tabs come back. */
+@media (min-width: 1181px) {
+    .archive-dock .archive-tabs {
+        display: none;
+    }
+}
+
+/* Phones: the header stays pinned; a second pinned bar (tabs + sort/view +
+   search, ~175px) would cover too much, so the dock just scrolls with the page. */
+@media (max-width: 780px) {
+    .archive-dock {
+        position: static;
+    }
+}
+
 .archive-dock-inner {
     display: flex;
     flex-direction: column;
@@ -1781,14 +1814,15 @@ a:hover .ed-card-title {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 15px;
+    padding: 8px calc(15px - 0.03em) 8px 15px;
     border-radius: 999px;
     border: 1px solid var(--rule);
     background: var(--bg-surface);
     color: var(--ink-2);
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.78rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     transition: all 0.18s ease;
 }
 
@@ -2085,8 +2119,9 @@ a:hover .ed-card-title {
     gap: 8px;
     margin-block-end: 20px;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--accent-text);
 }
 
@@ -2103,7 +2138,7 @@ a:hover .ed-card-title {
     font-size: clamp(1.85rem, 3.6vw, 3rem);
     font-weight: 700;
     line-height: 1.28;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
     color: var(--ink);
     word-break: keep-all;
     text-wrap: balance;
@@ -2242,6 +2277,14 @@ a:hover .ed-card-title {
     padding-block-end: 64px;
 }
 
+/* Several articles still carry old CMS <style> blocks that set fonts the
+   site no longer loads ('SUIT', 'KakaoSmallSans', plain 'Pretendard'), so
+   that text fell back to the system font. Force Pretendard for anything
+   classed inside the article body; (0,2,0) beats those (0,1,x) rules. */
+.article-main [class] {
+    font-family: var(--font-sans);
+}
+
 .article-main > .n-common-text-1,
 .article-main > .n-common-title-2,
 .article-main > .common-title-3,
@@ -2252,7 +2295,8 @@ a:hover .ed-card-title {
 .article-main > .sub-sns,
 .article-main > .n-common-text-col-2,
 .article-main > .common-link-list {
-    max-inline-size: 700px;
+    /* Text and photos share one 850px column */
+    max-inline-size: 850px;
     margin-inline: auto;
 }
 
@@ -2280,8 +2324,9 @@ a:hover .ed-card-title {
     content: "KEY POINTS · 기사 핵심 요약";
     display: block;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: var(--accent-text);
     padding-block-end: 10px;
     border-bottom: 1px solid var(--rule);
@@ -2331,8 +2376,9 @@ a:hover .ed-card-title {
     align-items: center;
     justify-content: space-between;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.82rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     color: var(--navy);
     cursor: pointer;
     list-style: none;
@@ -2365,6 +2411,7 @@ a:hover .ed-card-title {
 
 .ed-toc-num {
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.72rem;
     color: var(--accent-text);
     font-variant-numeric: tabular-nums;
@@ -2374,7 +2421,7 @@ a:hover .ed-card-title {
 .article-main .n-common-text-1 {
     font-size: calc(1.125rem * var(--read-scale));
     line-height: 1.92;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
     color: var(--ink);
     word-break: keep-all;
     overflow-wrap: anywhere;
@@ -2397,7 +2444,7 @@ a:hover .ed-card-title {
     font-size: clamp(1.35rem, 2.1vw, 1.75rem);
     font-weight: 700;
     line-height: 1.38;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--ink);
     word-break: keep-all;
     text-wrap: balance;
@@ -2440,7 +2487,7 @@ a:hover .ed-card-title {
     margin-inline-end: 10px;
     border-radius: 50%;
     background: var(--accent);
-    color: #fff;
+    color: var(--ink-on-accent);
     font-family: var(--font-label);
     font-size: 0.78rem;
     font-weight: 700;
@@ -2492,10 +2539,15 @@ a:hover .ed-card-title {
 
 /* CRITIC Yes/No Verdict Cards */
 .article-main .n-common-text-col-2 {
+    margin-block: 40px;
+}
+
+/* The cards sit inside .inner, so the two-column grid goes there
+   (on the outer block it only saw one child and stacked the cards). */
+.article-main .n-common-text-col-2 > .inner {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
-    margin-block: 40px;
 }
 
 .article-main .n-common-text-col-2 .item {
@@ -2516,7 +2568,7 @@ a:hover .ed-card-title {
 }
 
 @media (max-width: 640px) {
-    .article-main .n-common-text-col-2 {
+    .article-main .n-common-text-col-2 > .inner {
         grid-template-columns: 1fr;
     }
 }
@@ -2527,7 +2579,9 @@ a:hover .ed-card-title {
 .article-main .common-image-block-2,
 .article-main .common-image-col-2 {
     margin-block: 40px;
-    max-inline-size: 940px;
+    /* Shared 850px column with the text; the old 940px
+       made landscape shots oversized and portraits ~1350px tall. */
+    max-inline-size: 850px;
     margin-inline: auto;
 }
 
@@ -2559,12 +2613,13 @@ a:hover .ed-card-title {
     align-items: center;
     justify-content: space-between;
     margin-block-start: 12px;
-    max-inline-size: 700px;
+    max-inline-size: 850px;
     margin-inline: auto;
 }
 
 .ed-carousel-counter {
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.78rem;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
@@ -2590,7 +2645,7 @@ a:hover .ed-card-title {
 .ed-carousel-btn:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: #fff;
+    color: var(--ink-on-accent);
 }
 
 .article-main .common-image-slide-1 img,
@@ -2602,18 +2657,81 @@ a:hover .ed-card-title {
     cursor: zoom-in;
 }
 
-.article-main .common-image-block-2,
-.article-main .common-image-col-2 {
+/* Single photos (incl. carousel slides): natural proportions, centered, and
+   no taller than ~620px, so portraits don't fill one or two whole screens.
+   Width is capped via the aspect ratio set by JS (--img-ar = w/h), which keeps
+   the box sized before the (lazy) file loads; height follows from the
+   width/height attributes. */
+.article-main .common-image-slide-1 .image img,
+.article-main .common-image-block .image img {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: min(100%, calc(min(620px, 78vh) * var(--img-ar, 100)));
+    block-size: auto;
+    margin-inline: auto;
+}
+
+/* Two-up image rows. The images live inside .inner, so the grid goes there
+   (on the outer block it only saw one child and stacked everything). */
+.article-main .common-image-block-2 > .inner,
+.article-main .common-image-col-2 > .inner {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
     align-items: start;
 }
 
+.article-main .common-image-block-2 > .inner + .inner,
+.article-main .common-image-col-2 > .inner + .inner {
+    margin-block-start: 20px;
+}
+
+/* Legacy <br> spacers between rows and inline text-align from the old CMS */
+.article-main .common-image-block-2 > br,
+.article-main .common-image-col-2 > br {
+    display: none;
+}
+
+.article-main .common-image-block-2 .image,
+.article-main .common-image-col-2 .image {
+    text-align: initial !important;
+}
+
+.article-main .common-image-block-2 .image img,
+.article-main .common-image-col-2 .image img {
+    display: block;
+}
+
+/* A lone image or the caption spans the whole row */
+.article-main .common-image-block-2 > .inner > .image:only-of-type,
+.article-main .common-image-col-2 > .inner > .image:only-of-type,
+.article-main .common-image-block-2 > .inner > .common-desc,
+.article-main .common-image-col-2 > .inner > .common-desc {
+    grid-column: 1 / -1;
+}
+
+.article-main .common-image-block-2 > .inner > .common-desc,
+.article-main .common-image-col-2 > .inner > .common-desc {
+    margin-block-start: -4px;
+}
+
+/* Breakpoint helpers already used in article HTML (br.m-only etc.) */
+.m-only {
+    display: none;
+}
+
 @media (max-width: 680px) {
-    .article-main .common-image-block-2,
-    .article-main .common-image-col-2 {
+    .article-main .common-image-block-2 > .inner,
+    .article-main .common-image-col-2 > .inner {
         grid-template-columns: 1fr;
+    }
+
+    .pc-only {
+        display: none;
+    }
+
+    .m-only {
+        display: revert;
     }
 }
 
@@ -2653,7 +2771,7 @@ a:hover .ed-card-title {
     display: block;
     font-family: var(--font-label);
     font-size: 0.85rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     color: var(--accent-text);
 }
 
@@ -2672,6 +2790,11 @@ a:hover .ed-card-title {
 }
 
 .article-main .common-list-3 .item {
+    /* production.html still carries an old inline <style> giving .item a
+       3-per-row width (33.3%) and margins; inside this grid that shrank each
+       card to ~1/3 of its column (titles stacked one letter per line). */
+    inline-size: auto;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -2954,8 +3077,9 @@ a:hover .ed-card-title {
 
 .article-nav-dir {
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: var(--accent-text);
 }
 
@@ -2973,13 +3097,14 @@ a:hover .ed-card-title {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: 12px calc(24px - 0.03em) 12px 24px;
     border-radius: 999px;
     background: var(--bg-cinema);
     color: #fff;
     font-family: var(--font-label);
+    font-weight: 600;
     font-size: 0.8125rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     white-space: nowrap;
 }
 
@@ -3111,7 +3236,7 @@ a:hover .ed-card-title {
 .ed-footer-col h3 {
     font-family: var(--font-label);
     font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: #ff9c52;
     margin-block-end: 14px;
 }
@@ -3154,7 +3279,7 @@ a:hover .ed-card-title {
 
 .ed-footer-btn:hover {
     border-color: var(--accent);
-    background: rgba(232, 106, 23, 0.16);
+    background: rgba(240, 131, 0, 0.16);
 }
 
 .ed-footer-bottom {
