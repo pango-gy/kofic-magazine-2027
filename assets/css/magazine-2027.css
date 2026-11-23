@@ -2784,9 +2784,20 @@ a:hover .ed-card-title {
 
 .article-main .common-list-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-    gap: 22px 18px;
-    margin-block: 28px 44px;
+    /* Like the original site: 3 per row inside the ~850px article column
+       (original ~860px). Phones drop to 2 below. */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 24px;
+    max-inline-size: 850px;
+    margin-inline: auto;
+    margin-block: 32px 52px;
+}
+
+@media (max-width: 600px) {
+    .article-main .common-list-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
+    }
 }
 
 .article-main .common-list-3 .item {
@@ -2797,8 +2808,8 @@ a:hover .ed-card-title {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 12px;
+    gap: 14px;
+    padding: 16px;
     background: var(--bg-surface);
     border: 1px solid var(--rule);
     border-radius: var(--radius-md);
@@ -2819,17 +2830,39 @@ a:hover .ed-card-title {
 
 .article-main .common-list-3 .item .title {
     font-weight: 700;
-    font-size: 0.9375rem;
-    line-height: 1.38;
+    font-size: 1.0625rem;
+    line-height: 1.4;
     color: var(--ink);
     word-break: keep-all;
 }
 
 .article-main .common-list-3 .item .text {
-    font-size: 0.8rem;
-    line-height: 1.6;
+    font-size: 0.8125rem;
+    line-height: 1.65;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
+}
+
+/* Specs rebuilt by JS: one "label · value" row each, empty fields dropped */
+.article-main .common-list-3 .item .text.is-specs {
+    display: grid;
+    gap: 5px;
+    padding-block-start: 12px;
+    border-top: 1px solid var(--rule);
+}
+
+.article-main .common-list-3 .spec-row {
+    display: grid;
+    grid-template-columns: 4.6em minmax(0, 1fr);
+    gap: 8px;
+}
+
+.article-main .common-list-3 .spec-k {
+    color: var(--ink-muted);
+}
+
+.article-main .common-list-3 .spec-v {
+    color: var(--ink-2);
 }
 
 .article-main .common-list-3 .item .text b {
@@ -2840,6 +2873,15 @@ a:hover .ed-card-title {
 .article-main .common-table-2,
 .article-main .common-table-1 {
     margin-block: 36px;
+}
+
+/* Tables share the 850px article column (wide ones scroll inside it) */
+.article-main .common-table-1,
+.article-main .common-table-2,
+.article-main .flat-table-container,
+.article-main .flat-table-header {
+    max-inline-size: 850px;
+    margin-inline: auto;
 }
 
 .article-main .table-title {
@@ -2878,7 +2920,7 @@ a:hover .ed-card-title {
 
 .article-main .flat-table-container {
     overflow-x: auto;
-    max-inline-size: 100%;
+    max-inline-size: min(100%, 850px);
 }
 
 .article-main .flat-table-container th,
@@ -2901,6 +2943,11 @@ a:hover .ed-card-title {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    /* Old inline <style> in production/boxoffice pages set width: 600px and
+       flex-direction: column, which stretched each button to full width. */
+    inline-size: auto;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .article-main .common-link-list a,

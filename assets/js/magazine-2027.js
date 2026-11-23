@@ -330,6 +330,34 @@
                 if (w > 0 && h > 0) img.style.setProperty("--img-ar", (w / h).toFixed(4));
             });
 
+            // 7-1. Production film cards: the spec text is "label: value<br>..."
+            // with many empty fields (크랭크인/크랭크업). Rebuild it as one
+            // label/value row per line and drop the empty ones.
+            articleMain.querySelectorAll(".common-list-3 .item .text").forEach((p) => {
+                const lines = p.innerText.split("\n").map((l) => l.trim()).filter(Boolean);
+                const rows = lines
+                    .map((l) => {
+                        const i = l.indexOf(":");
+                        return i < 0 ? null : { k: l.slice(0, i).trim(), v: l.slice(i + 1).trim() };
+                    })
+                    .filter((r) => r && r.k && r.v);
+                if (!rows.length) return;
+                p.textContent = "";
+                rows.forEach(({ k, v }) => {
+                    const row = document.createElement("span");
+                    row.className = "spec-row";
+                    const kEl = document.createElement("span");
+                    kEl.className = "spec-k";
+                    kEl.textContent = k;
+                    const vEl = document.createElement("span");
+                    vEl.className = "spec-v";
+                    vEl.textContent = v;
+                    row.append(kEl, vEl);
+                    p.appendChild(row);
+                });
+                p.classList.add("is-specs");
+            });
+
             // 7a. Theme Switcher (paper / sepia / dark)
             const themeBtns = document.querySelectorAll("[data-set-theme]");
             function applyTheme(theme) {
