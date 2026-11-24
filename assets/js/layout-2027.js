@@ -297,6 +297,55 @@
         document.body.classList.add("has-read-rail");
     }
 
+    /* Wide data tables with grouped columns (weekly box office: 전체 / 한국 /
+       외국) cannot fit a phone. Build one small table per group from the same
+       cells — period + that group's columns — and show those on phones in
+       place of the wide table (CSS switches between the two). */
+    function initSplitTables() {
+        document.querySelectorAll(".article-main .common-table-2").forEach((box) => {
+            const table = box.querySelector("table");
+            if (!table || !table.tHead || table.tHead.rows.length < 2 || box.nextElementSibling?.classList.contains("mk-tsplit")) return;
+            const top = Array.from(table.tHead.rows[0].cells);
+            const sub = Array.from(table.tHead.rows[1].cells).map((th) => th.textContent.trim());
+            const lead = top[0].textContent.trim();
+            const groups = [];
+            let at = 0;
+            top.slice(1).forEach((th) => {
+                const span = th.colSpan || 1;
+                groups.push({ name: th.textContent.trim(), from: at, to: at + span });
+                at += span;
+            });
+            if (!groups.length || at !== sub.length) return;
+            const wrap = document.createElement("div");
+            wrap.className = "mk-tsplit";
+            groups.forEach((g) => {
+                const t = document.createElement("table");
+                const cap = t.createCaption();
+                cap.textContent = g.name;
+                const hr = t.createTHead().insertRow();
+                [lead].concat(sub.slice(g.from, g.to)).forEach((text) => {
+                    const th = document.createElement("th");
+                    th.scope = "col";
+                    th.textContent = text.replace(/\s*\(/, " (");
+                    hr.appendChild(th);
+                });
+                const body = t.createTBody();
+                Array.from(table.tBodies[0].rows).forEach((row) => {
+                    const cells = Array.from(row.cells);
+                    const r = body.insertRow();
+                    const th = document.createElement("th");
+                    th.scope = "row";
+                    th.textContent = cells[0].textContent.trim();
+                    r.appendChild(th);
+                    cells.slice(1 + g.from, 1 + g.to).forEach((td) => { r.insertCell().textContent = td.textContent.trim(); });
+                });
+                wrap.appendChild(t);
+            });
+            box.insertAdjacentElement("afterend", wrap);
+            box.classList.add("has-tsplit");
+        });
+    }
+
     function initArticleToc() {
         const main = document.querySelector(".article-main:not(.mk-prod-table)");
         if (!main) return;
@@ -408,6 +457,7 @@
         initPosterWall();
         initCoverLockups();
         initArticleToc();
+        initSplitTables();
         initQuickMenu();
         initReadRail();
         initProdTable();

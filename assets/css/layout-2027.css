@@ -4092,3 +4092,199 @@ main [id] { scroll-margin-top: 0; }
     .mk-wr-stars::after, .mk-wr-grid .mk-wr-item .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 2px)); }
     .mk-wr-top .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 3px)); }
 }
+
+/* --------------------------------------------------------------------------
+   Tables on phones
+   -------------------------------------------------------------------------- */
+/* Grouped data table → one small table per group (built by initSplitTables) */
+.mk-tsplit { display: none; }
+@media (max-width: 760px) {
+    .article-main .common-table-2.has-tsplit { display: none; }
+    .article-main .mk-tsplit { display: block; margin-block: 20px 44px; }
+    .article-main .mk-tsplit table { inline-size: 100%; table-layout: fixed; }
+    .article-main .mk-tsplit table + table { margin-block-start: 40px; }
+    .article-main .mk-tsplit caption { padding-block-end: 12px; font-size: 19px; font-weight: 800; letter-spacing: -0.03em; text-align: left; color: var(--ink); caption-side: top; }
+    .article-main .mk-tsplit th,
+    .article-main .mk-tsplit td { padding: 13px 0 13px 8px; font-size: 15px; text-align: right; white-space: nowrap; }
+    .article-main .mk-tsplit thead th { padding-block: 0 10px; white-space: normal; line-height: 1.3; vertical-align: bottom; }
+    .article-main .mk-tsplit th:first-child,
+    .article-main .mk-tsplit td:first-child { inline-size: 27%; padding-inline-start: 0; text-align: left; }
+    .article-main .mk-tsplit tbody td { font-weight: 500; }
+    .article-main .mk-tsplit tbody tr:first-child > * { font-weight: 800; }
+}
+
+/* Studio spec tables (special-1): the page's own phone layout stacked the
+   cells but kept blue label chips, right alignment and a 620px min-width, so
+   everything was cut off. Now: one "label · value" line per cell, left
+   aligned, no sideways scroll. */
+@media (max-width: 768px) {
+    .article-main .flat-table-container { overflow-x: visible; padding-block-end: 0; }
+    .article-main .flat-table-container table { min-inline-size: 0; inline-size: 100%; table-layout: auto; }
+    .article-main .flat-table-header { border-block-end: 2px solid var(--ink); padding-block-end: 12px; }
+    .article-main .spec-table tr { display: block; margin: 0; padding: 0; border: 0; background: none; }
+    .article-main .spec-table td,
+    .article-main .spec-table td:first-child {
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: start;
+        padding: 14px 0;
+        border: 0;
+        border-block-end: 1px solid var(--mk-line);
+        text-align: left;
+        font-weight: 500;
+    }
+    .article-main .spec-table tr:last-child td:last-child { border-block-end: 0; }
+    .article-main .spec-table td::before {
+        content: attr(data-label);
+        display: block;
+        position: static;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        background: none;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: left;
+        color: var(--ink-muted);
+    }
+    .article-main .spec-table td > * { grid-column: 2; text-align: left; }
+    .article-main .spec-table .val-main,
+    .article-main .spec-table .val-facility { font-size: 17px; }
+    .article-main .spec-table .val-dim,
+    .article-main .spec-table .val-sub { font-size: 15px; }
+    /* schedule table: the date is a small heading, the items follow under it */
+    .article-main .spec-table5 thead { display: none; }
+    .article-main .spec-table5,
+    .article-main .spec-table5 tbody,
+    .article-main .spec-table5 tr,
+    .article-main .spec-table5 td { display: block; inline-size: 100%; }
+    .article-main .spec-table5 td { padding: 0; border: 0; background: none; text-align: left; }
+    .article-main .spec-table5 tr { padding-block: 18px; border-block-end: 1px solid var(--mk-line); }
+    .article-main .spec-table5 tr:last-child { border-block-end: 0; }
+    .article-main .spec-table5 .val-main5 { font-size: 18px; }
+    .article-main .spec-table5 .val-sub5 { margin-block: 2px 12px; font-size: 15px; }
+    .article-main .spec-table5 .content-list li { font-size: 16px; }
+}
+
+/* Article body: lines may break inside a word, as on news portals — the right
+   edge stays even. Titles, sub-headings and questions still keep words whole. */
+.article-main .n-common-text-1:not(.question),
+.article-main .common-desc,
+.article-main .wr-text,
+.article-main .wr-meta,
+.article-main table td,
+.article-main .content-list li { word-break: normal; overflow-wrap: break-word; }
+.article-main .n-common-text-1:not(.question) * { word-break: normal; }
+@media (max-width: 768px) {
+    /* schedule table: date and period left-aligned like everything else */
+    .article-main .spec-table5 td,
+    .article-main .spec-table5 .date-col,
+    .article-main .spec-table5 .val-main5,
+    .article-main .spec-table5 .val-sub5 { text-align: left; }
+    .article-main .spec-table td,
+    .article-main .spec-table td:first-child { inline-size: 100%; box-sizing: border-box; }
+}
+@media (max-width: 768px) {
+    /* every spec line gets its hairline; only the last one in the table has none */
+    .article-main .spec-table tbody tr td,
+    .article-main .spec-table tbody tr:last-child td { border-block-end: 1px solid var(--mk-line); }
+    .article-main .spec-table tbody tr:last-child td:last-child { border-block-end: 0; }
+}
+/* captions are always left-aligned, under the left edge of the photo */
+.article-main .common-desc { text-align: left !important; }
+
+/* Main page Weekly Review, right side simplified: no thumbnails — one line per
+   film: title, stars, average. The lead on the left keeps its photo. */
+.mk-wr-grid .mk-wr-thumb { display: none; }
+.mk-wr-grid .mk-wr-item { grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; padding-block: 0; align-items: center; }
+.mk-wr-grid .mk-wr-list > li:first-child .mk-wr-item,
+.mk-wr-grid .mk-wr-list > li:last-child .mk-wr-item { align-items: center; }
+.mk-wr-grid .mk-wr-text { flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; }
+.mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk-wr-grid .mk-wr-item .mk-wr-stars { flex: none; margin: 0; align-self: center; }
+.mk-wr-grid .mk-wr-item .mk-wr-score { min-inline-size: 2.2em; font-size: 30px; }
+.mk-wr-grid .mk-wr-list > li { min-block-size: 64px; }
+@media (max-width: 1100px) {
+    .mk-wr-grid .mk-wr-list > li { display: flex; }
+    .mk-wr-grid .mk-wr-item { padding-block: 14px; }
+}
+@media (max-width: 760px) {
+    .mk-wr-grid .mk-wr-item { grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 17px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-score { font-size: 22px; }
+    .mk-wr-grid .mk-wr-text { gap: 10px; }
+    .mk-wr-grid .mk-wr-list > li { min-block-size: 0; }
+}
+@media (max-width: 1100px) {
+    /* stacked layout: rows take their own height (they were collapsing onto each other) */
+    .mk-wr-grid .mk-wr-list { display: block; }
+    .mk-wr-grid .mk-wr-list > li { display: block; flex: none; min-block-size: 0; }
+    .mk-wr-grid .mk-wr-item { padding-block: 14px; }
+}
+/* body text: the "keep together" helper spans no longer hold a line open either */
+.article-main .n-common-text-1:not(.question) .nb,
+.article-main .common-desc .nb,
+.article-main .wr-text .nb { white-space: normal; }
+
+/* Main page Weekly Review, right side: thumbnail, title, the number. No stars
+   in the rows (the lead on the left keeps them). */
+.mk-wr-grid .mk-wr-thumb { display: block; }
+.mk-wr-grid .mk-wr-item .mk-wr-stars { display: none; }
+.mk-wr-grid .mk-wr-item { grid-template-columns: 120px minmax(0, 1fr) auto; column-gap: 22px; padding-block: 10px; }
+.mk-wr-grid .mk-wr-text { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; }
+.mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 22px; white-space: normal; overflow: visible; text-overflow: clip; }
+.mk-wr-grid .mk-wr-item .mk-wr-score { font-size: 32px; }
+.mk-wr-grid .mk-wr-list > li { min-block-size: 0; }
+.mk-wr-grid .mk-wr-list > li:first-child .mk-wr-item { padding-block-start: 0; }
+.mk-wr-grid .mk-wr-list > li:last-child .mk-wr-item { padding-block-end: 0; }
+@media (max-width: 760px) {
+    .mk-wr-grid .mk-wr-item { grid-template-columns: 96px minmax(0, 1fr) auto; column-gap: 14px; padding-block: 12px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 17px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-score { font-size: 24px; }
+}
+@media (min-width: 1101px) {
+    /* rows need room for an 80px thumbnail plus air; the lead photo grows to match */
+    .mk-wr-grid .mk-wr-list > li { min-block-size: 100px; }
+    .mk-wr-grid .mk-wr-list > li:first-child,
+    .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 90px; }
+}
+
+/* Main page Weekly Review — polish
+   1·2 the lead's label is black and says what the number is (and from how many reviewers)
+   3   bigger stars, paler empty stars, so a half star reads as half
+   4   larger thumbnails in the rows
+   5   rows and lead respond to the pointer: the photo lifts a little */
+.mk-wr-flag { display: flex; align-items: baseline; gap: 12px; margin-block-start: 26px; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.mk-wr-flag i { font-style: normal; font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-muted); }
+.mk-wr-stars { color: #e6e5e2; }
+.mk-wr-top .mk-wr-stars { margin-block-start: 16px; font-size: 32px; letter-spacing: 5px; }
+.mk-wr-top .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 5px)); }
+.mk-wr-photo img, .mk-wr-thumb img { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease; }
+.mk-wr-top:hover .mk-wr-photo img,
+.mk-wr-item:hover .mk-wr-thumb img { transform: scale(1.04); filter: brightness(1.06); }
+@media (min-width: 1101px) {
+    .mk-wr-grid .mk-wr-item { grid-template-columns: 144px minmax(0, 1fr) auto; column-gap: 26px; }
+    .mk-wr-grid .mk-wr-list > li { min-block-size: 116px; }
+    .mk-wr-grid .mk-wr-list > li:first-child,
+    .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 106px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 23px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-score { font-size: 34px; }
+}
+@media (max-width: 760px) {
+    .mk-wr-flag { margin-block-start: 18px; font-size: 16px; }
+    .mk-wr-top .mk-wr-stars { font-size: 26px; letter-spacing: 4px; }
+    .mk-wr-top .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 4px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .mk-wr-photo img, .mk-wr-thumb img { transition: none; }
+    .mk-wr-top:hover .mk-wr-photo img, .mk-wr-item:hover .mk-wr-thumb img { transform: none; }
+}
+@media (min-width: 1101px) {
+    /* keep the section near one screen tall */
+    .mk-wr-grid .mk-wr-item { grid-template-columns: 132px minmax(0, 1fr) auto; }
+    .mk-wr-grid .mk-wr-list > li { min-block-size: 102px; }
+    .mk-wr-grid .mk-wr-list > li:first-child,
+    .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 95px; }
+}
