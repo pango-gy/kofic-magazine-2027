@@ -4392,3 +4392,10 @@ main [id] { scroll-margin-top: 0; }
 .ed-drawer-hint { margin: 0 0 14px; font-size: 0.9375rem; color: var(--ink-muted); }
 
 .archive-card[hidden] { display: none !important; }
+
+/* Hero fits the window: on a short window (browser with a tab strip on top,
+   small laptop) the tiles get shorter instead of running off the bottom.
+   272px = header + space above + the title line + a margin below. */
+@media (min-width: 1101px) {
+    .mk-cover-grid { block-size: clamp(420px, min(41vw, 100svh - 272px), 780px); }
+}
