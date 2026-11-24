@@ -3582,3 +3582,8 @@ body:has(.mk-newsletter) .ed-footer {
    tables, bands, buttons, inputs, the quick menu, modals.
    -------------------------------------------------------------------------- */
 body *:not(.mk-cover):not(.mk-cover *) { border-radius: 0 !important; }
+
+/* Never break a line inside a Korean word. (A word longer than its box — a
+   URL, say — may still wrap rather than run off the page.) */
+body, body * { word-break: keep-all; }
+body { overflow-wrap: break-word; }
