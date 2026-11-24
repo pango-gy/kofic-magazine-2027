@@ -10,10 +10,10 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-    <link href="./assets/css/magazine-2027.css?v=20261129g" rel="stylesheet">
-    <link href="./assets/css/layout-2027.css?v=20261129g" rel="stylesheet">
-    <script defer src="./assets/js/magazine-2027.js?v=20261129g"></script>
-    <script defer src="./assets/js/layout-2027.js?v=20261129g"></script>
+    <link href="./assets/css/magazine-2027.css?v=20261129w" rel="stylesheet">
+    <link href="./assets/css/layout-2027.css?v=20261129w" rel="stylesheet">
+    <script defer src="./assets/js/magazine-2027.js?v=20261129w"></script>
+    <script defer src="./assets/js/layout-2027.js?v=20261129w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -32,6 +32,7 @@
         </div>
         <nav class="mk-nav" aria-label="주요 섹션 메뉴">
             <div class="mk-nav-track">
+                <a href="./list.html?section=NEWS" class="mk-nav-link">NEWS</a>
                 <a href="./list.html?section=SPECIAL" class="mk-nav-link">SPECIAL</a>
                 <a href="./list.html?section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
                 <a href="./list.html?section=CRITIC" class="mk-nav-link">CRITIC</a>
@@ -49,7 +50,7 @@
             <div class="ed-container">
                 <div class="archive-kicker">
                     <span>ARCHIVE · 웹진 한국영화 2026년 10월호</span>
-                    <span id="archiveCount" aria-live="polite">총 15편</span>
+                    <span id="archiveCount" aria-live="polite">총 18편</span>
                 </div>
                 <h1 class="archive-title" id="archiveTitle">October 2026</h1>
                 <p class="archive-desc" id="archiveDesc">2026년 10월호 전체 기사 아카이브</p>
@@ -61,6 +62,7 @@
             <div class="ed-container archive-dock-inner">
                 <div class="archive-tabs" role="tablist" aria-label="섹션별 필터">
                     <button type="button" class="archive-tab is-active" data-filter="ALL">전체</button>
+                    <button type="button" class="archive-tab" data-filter="NEWS">NEWS</button>
                     <button type="button" class="archive-tab" data-filter="SPECIAL">SPECIAL</button>
                     <button type="button" class="archive-tab" data-filter="INTERVIEW">INTERVIEW</button>
                     <button type="button" class="archive-tab" data-filter="CRITIC">CRITIC</button>
@@ -77,6 +79,8 @@
                             <button type="button" class="seg-btn" data-lang="KOR" aria-pressed="false">국문</button>
                             <button type="button" class="seg-btn" data-lang="ENG" aria-pressed="false">ENG</button>
                         </div>
+
+                        <div class="seg-group" id="cornerGroup" hidden role="group" aria-label="코너 필터" data-label="코너"></div>
 
                         <div class="seg-group" role="group" aria-label="정렬" data-label="정렬">
                             <button type="button" class="seg-btn is-active" data-sort="section" aria-pressed="true">섹션순</button>
@@ -108,7 +112,17 @@
                 </div>
 
                 <div class="archive-grid has-featured" id="archiveGrid">
-                    <a href="./2026-10/special-2.html" class="archive-card is-featured" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
+                    <a href="./2026-10/news-1.html" class="archive-card" data-corner="영화제" data-section="NEWS" data-date="2026-11-12" data-search="NEWS 뉴스 영화제 서울국제프라이드영화제 SIPFF 프라이드영화제 퀴어영화 김조광수 김승환 블랙 볼 주성철 GV 국제공동제작">
+                        <div class="ed-media"><img src="./assets/images/2026-10/news-1/news1001_00.webp" alt="서울국제프라이드영화제 현장" loading="lazy"></div>
+                        <div class="archive-card-body">
+                            <p class="ed-kicker">NEWS · <span class="ed-corner">영화제</span> <span class="ed-date">2026.11.12</span></p>
+                            <h2 class="ed-card-title">매진 행렬에 연대 GV까지, 스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</h2>
+                            <p class="ed-card-deck">제16회 서울국제프라이드영화제(SIPFF) 2026</p>
+                            <div class="archive-card-foot"><span>글 · 주성철</span><span>영화제</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./2026-10/special-2.html" class="archive-card" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
                         <div class="ed-media"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">SPECIAL ② <span class="ed-date">2026.10.19</span></p>
@@ -125,6 +139,16 @@
                             <h2 class="ed-card-title">새로운 영화·영상 제작 거점으로의 출발</h2>
                             <p class="ed-card-deck">부산기장촬영소를 가다</p>
                             <div class="archive-card-foot"><span>글 · 박경희</span><span>현장 리포트</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./2026-10/people-3.html" class="archive-card" data-section="INTERVIEW" data-date="2026-11-23" data-search="INTERVIEW ③ 인터뷰 배우 인터뷰 폭설 구교환 김윤석 홍의정 박수영 성찬얼 현택 쇼박스">
+                        <div class="ed-media"><img src="./assets/images/2026-10/people-3/people1003_00.webp" alt="폭설 구교환 인터뷰" loading="lazy"></div>
+                        <div class="archive-card-body">
+                            <p class="ed-kicker">INTERVIEW ③ <span class="ed-date">2026.11.23</span></p>
+                            <h2 class="ed-card-title">“이번 영화의 현택, 관객이 완성해 주는 연기”</h2>
+                            <p class="ed-card-deck">〈폭설〉 배우 구교환 ①</p>
+                            <div class="archive-card-foot"><span>글 · 성찬얼</span><span>배우 인터뷰</span></div>
                         </div>
                     </a>
 
@@ -148,10 +172,20 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-2.html" class="archive-card" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
+                    <a href="./2026-10/reading-3.html" class="archive-card" data-corner="WEEKLY REVIEW" data-section="CRITIC" data-date="2024-10-17" data-search="CRITIC ③ WEEKLY REVIEW 위클리 리뷰 별점 단평 보통의 가족 더러운 돈에 손대지 마라 구룡성채 빚가리 페이퍼맨 잠자리 구하기 닥터 코토 진료소 이은선 이지혜 정시우 김형석 정유미">
+                        <div class="ed-media"><img src="./assets/images/2026-10/reading-3/reading1003_00.webp" alt="보통의 가족 스틸" loading="lazy"></div>
+                        <div class="archive-card-body">
+                            <p class="ed-kicker">CRITIC ③ · <span class="ed-corner">WEEKLY REVIEW</span> <span class="ed-date">2024.10.17</span></p>
+                            <h2 class="ed-card-title">이번 주 개봉작, 평자들의 별점</h2>
+                            <p class="ed-card-deck">〈보통의 가족〉 외 7편</p>
+                            <div class="archive-card-foot"><span>글 · 이은선 외 4명</span><span>단평 모음</span></div>
+                        </div>
+                    </a>
+
+                    <a href="./2026-10/reading-2.html" class="archive-card" data-corner="YES or NO" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-2/reading1002_00.webp" alt="낙원 없이 살아가는 법" loading="lazy"></div>
                         <div class="archive-card-body">
-                            <p class="ed-kicker">CRITIC ② · YES or NO <span class="ed-date">2026.10.19</span></p>
+                            <p class="ed-kicker">CRITIC ② · <span class="ed-corner">YES or NO</span> <span class="ed-date">2026.10.19</span></p>
                             <h2 class="ed-card-title">낙원 없이 살아가는 법</h2>
                             <p class="ed-card-deck">〈실낙원〉 찬반 비평 대담</p>
                             <div class="archive-card-foot"><span>대담 · 송석주, 한상희</span><span>비평 대담</span></div>
@@ -297,6 +331,7 @@
                 <div class="ed-footer-col">
                     <h3>SECTIONS</h3>
                     <div class="ed-footer-links">
+                        <a href="./list.html?section=NEWS">NEWS</a>
                         <a href="./list.html?section=SPECIAL">SPECIAL</a>
                         <a href="./list.html?section=INTERVIEW">INTERVIEW</a>
                         <a href="./list.html?section=CRITIC">CRITIC</a>
@@ -340,6 +375,12 @@
             </div>
             <div class="ed-drawer-body">
                 <div class="ed-drawer-group">
+                    <h3>NEWS <a href="./list.html?section=NEWS">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./2026-10/news-1.html"><strong>스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</strong><span>제16회 서울국제프라이드영화제(SIPFF) 2026</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
                     <h3>SPECIAL <a href="./list.html?section=SPECIAL">전체 →</a></h3>
                     <div class="ed-drawer-links">
                         <a href="./2026-10/special-2.html"><strong>진실 기록 넘어 사회 변화로</strong><span>한국형 ‘임팩트 다큐’ 생태계, 필요하다</span></a>
@@ -349,6 +390,7 @@
                 <div class="ed-drawer-group">
                     <h3>INTERVIEW <a href="./list.html?section=INTERVIEW">전체 →</a></h3>
                     <div class="ed-drawer-links">
+                        <a href="./2026-10/people-3.html"><strong>“이번 영화의 현택, 관객이 완성해 주는 연기”</strong><span>〈폭설〉 배우 구교환 ①</span></a>
                         <a href="./2026-10/people-2.html"><strong>엉뚱하지만 파괴적인</strong><span>〈부활남: 더 레드〉 정성호 무술감독</span></a>
                         <a href="./2026-10/people-1.html"><strong>인간다움과 인간다운 죽음에 대하여</strong><span>〈구제역에서 살아 돌아온 돼지〉 故 허범욱 감독</span></a>
                     </div>
@@ -356,6 +398,7 @@
                 <div class="ed-drawer-group">
                     <h3>CRITIC <a href="./list.html?section=CRITIC">전체 →</a></h3>
                     <div class="ed-drawer-links">
+                        <a href="./2026-10/reading-3.html"><strong>이번 주 개봉작, 평자들의 별점</strong><span>WEEKLY REVIEW · 〈보통의 가족〉 외 7편</span></a>
                         <a href="./2026-10/reading-2.html"><strong>낙원 없이 살아가는 법</strong><span>〈실낙원〉 YES or NO 대담</span></a>
                         <a href="./2026-10/reading-1.html"><strong>미옥과 호석의 내일을 위한 시간</strong><span>〈가능한 사랑〉 비평</span></a>
                     </div>
@@ -415,6 +458,7 @@
             const SECTION_ALIAS = { PEOPLE: "INTERVIEW", READING: "CRITIC" };
             const SECTION_DESC = {
                 ALL: "2026년 10월호 전체 기사 아카이브",
+                NEWS: "한국영화의 오늘을 매일 기록하는 소식",
                 SPECIAL: "한국영화의 현재와 미래를 짚는 심층 기획",
                 INTERVIEW: "한국영화 현장을 이끄는 창작자들의 목소리",
                 CRITIC: "화제작을 깊이 읽는 영화 비평과 찬반 대담",
@@ -430,6 +474,8 @@
             const aliasSec = SECTION_ALIAS[rawSec.toUpperCase()];
             let currentSec = aliasSec || rawSec || "ALL";
             let currentLang = currentSec === "GLOBAL(ENG)" ? "ENG" : "ALL";
+            // Corner inside a section (WEEKLY REVIEW, YES or NO…): ?corner=…
+            let currentCorner = params.get("corner") || "ALL";
             if (currentSec === "GLOBAL(ENG)") currentSec = "GLOBAL";
             let currentQuery = (params.get("q") || "").trim();
             let currentSort = "section";
@@ -448,6 +494,7 @@
             const cards = Array.from(gridEl.querySelectorAll(".archive-card"));
             const tabs = Array.from(document.querySelectorAll(".archive-tab"));
             const langGroup = document.getElementById("globalLangGroup");
+            const cornerGroup = document.getElementById("cornerGroup");
             const langBtns = Array.from(document.querySelectorAll("[data-lang]"));
             const sortBtns = Array.from(document.querySelectorAll("[data-sort]"));
             const viewBtns = Array.from(document.querySelectorAll("[data-view]"));
@@ -490,6 +537,7 @@
                 else u.searchParams.set("section", currentSec);
                 if (currentQuery) u.searchParams.set("q", currentQuery);
                 else u.searchParams.delete("q");
+                if (currentCorner !== "ALL" && currentSec !== "ALL") u.searchParams.set("corner", currentCorner); else u.searchParams.delete("corner");
                 window.history.replaceState({}, "", u);
             }
 
@@ -510,6 +558,25 @@
                 });
 
                 langGroup.hidden = currentSec !== "GLOBAL";
+                // Corners present in this section become a filter of their own
+                const corners = [];
+                cards.forEach((el) => {
+                    if (currentSec !== "ALL" && matchSec(el.dataset.section, currentSec, currentLang) && el.dataset.corner && !corners.includes(el.dataset.corner)) corners.push(el.dataset.corner);
+                });
+                if (!corners.includes(currentCorner)) currentCorner = "ALL";
+                cornerGroup.hidden = corners.length === 0;
+                cornerGroup.textContent = "";
+                if (corners.length) {
+                    ["ALL"].concat(corners).forEach((name) => {
+                        const b = document.createElement("button");
+                        b.type = "button";
+                        b.className = "seg-btn" + (name === currentCorner ? " is-active" : "");
+                        b.setAttribute("aria-pressed", name === currentCorner ? "true" : "false");
+                        b.textContent = name === "ALL" ? "전체" : name;
+                        b.addEventListener("click", () => { currentCorner = name; syncUrl(); render(); });
+                        cornerGroup.appendChild(b);
+                    });
+                }
                 langBtns.forEach((b) => {
                     const a = b.dataset.lang === currentLang;
                     b.classList.toggle("is-active", a);
@@ -534,6 +601,7 @@
 
                 const SECTION_NAME = {
                     "ALL": ["October 2026", "10월호 전체 기사"],
+                    "NEWS": ["NEWS", "뉴스"],
                     "SPECIAL": ["SPECIAL", "스페셜"],
                     "INTERVIEW": ["INTERVIEW", "인터뷰"],
                     "CRITIC": ["CRITIC", "비평"],
@@ -565,7 +633,7 @@
                 // Filter
                 let visible = 0;
                 sorted.forEach((el) => {
-                    const ok = matchSec(el.dataset.section, currentSec, currentLang) && (!kw || (el.dataset.search || "").toLowerCase().includes(kw));
+                    const ok = matchSec(el.dataset.section, currentSec, currentLang) && (currentCorner === "ALL" || el.dataset.corner === currentCorner) && (!kw || (el.dataset.search || "").toLowerCase().includes(kw));
                     el.style.display = ok ? "" : "none";
                     el.classList.remove("is-featured");
                     if (ok) visible++;

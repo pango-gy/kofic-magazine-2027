@@ -11,10 +11,10 @@
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
     <link rel="preload" as="image" href="./assets/images/2026-10/special-1/special1001_00.webp" type="image/webp" fetchpriority="high">
-    <link href="./assets/css/magazine-2027.css?v=20261129g" rel="stylesheet">
-    <link href="./assets/css/layout-2027.css?v=20261129g" rel="stylesheet">
-    <script defer src="./assets/js/magazine-2027.js?v=20261129g"></script>
-    <script defer src="./assets/js/layout-2027.js?v=20261129g"></script>
+    <link href="./assets/css/magazine-2027.css?v=20261129w" rel="stylesheet">
+    <link href="./assets/css/layout-2027.css?v=20261129w" rel="stylesheet">
+    <script defer src="./assets/js/magazine-2027.js?v=20261129w"></script>
+    <script defer src="./assets/js/layout-2027.js?v=20261129w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -32,6 +32,7 @@
         </div>
         <nav class="mk-nav" aria-label="주요 섹션 메뉴">
             <div class="mk-nav-track">
+                <a href="./list.html?section=NEWS" class="mk-nav-link">NEWS</a>
                 <a href="./list.html?section=SPECIAL" class="mk-nav-link">SPECIAL</a>
                 <a href="./list.html?section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
                 <a href="./list.html?section=CRITIC" class="mk-nav-link">CRITIC</a>
@@ -57,7 +58,7 @@
         <section class="mk-cover" aria-label="2026년 10월호 커버스토리">
             <div class="mk-cover-head">
                 <p class="mk-cover-title">2026년 10월호<span lang="en">Cover Stories</span></p>
-                <a class="mk-cover-all" href="./list.html">전체 15편 보기 <span aria-hidden="true">→</span></a>
+                <a class="mk-cover-all" href="./list.html">전체 18편 보기 <span aria-hidden="true">→</span></a>
             </div>
             <div class="mk-cover-grid">
                 <a class="mk-cover-card mk-cover-card--a" data-step="br" href="./2026-10/special-1.html">
@@ -142,6 +143,49 @@
         <!-- Pull quote: one line from this issue's interview, set large with no
              photo, as a pause between the cover cards and the article row. The
              words are taken verbatim from the article. -->
+        <!-- News and Yes or No share one row: two columns, each a section of its
+             own. News: newest first, add items at the top. -->
+        <section class="mk-section mk-pair" aria-label="뉴스와 쟁점">
+            <div class="mk-container mk-pair-grid">
+                <div class="mk-pair-col mk-news" id="news" aria-labelledby="mk-h-newslist">
+                    <div class="mk-sec-head">
+                        <h2 id="mk-h-newslist" class="mk-sec-title"><span lang="en">News</span><span class="mk-sec-ko">뉴스</span></h2>
+                        <a class="mk-sec-more" href="./list.html?section=NEWS">전체 뉴스 보기 <span aria-hidden="true">→</span></a>
+                    </div>
+                    <ol class="mk-news-list">
+                        <li>
+                            <a class="mk-news-item" href="./2026-10/news-1.html">
+                                <span class="mk-news-meta"><time datetime="2026-11-12">2026.11.12</time><b>영화제</b></span>
+                                <span class="mk-news-title">매진 행렬에 성소수자 인권단체 연대 GV까지, 스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</span>
+                                <span class="mk-news-photo"><img src="./assets/images/2026-10/news-1/news1001_00.webp" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="mk-pair-col mk-debate" id="yesorno" aria-labelledby="mk-h-debate">
+                    <div class="mk-sec-head">
+                        <h2 id="mk-h-debate" class="mk-sec-title"><span lang="en">Yes or No</span><span class="mk-sec-ko">쟁점</span></h2>
+                        <a class="mk-sec-more" href="./2026-10/reading-2.html">대담 전문 읽기 <span aria-hidden="true">→</span></a>
+                    </div>
+                    <p class="mk-debate-q"><span>〈실낙원〉 · 감독 연상호</span>결국 〈실낙원〉은 YES인가 NO인가?</p>
+                    <div class="mk-debate-sides">
+                        <a class="mk-debate-side" href="./2026-10/reading-2.html">
+                            <span class="mk-debate-who"><b>송석주</b>이투데이 기자, 영화평론가</span>
+                            <span class="mk-debate-mark is-yes" role="img" aria-label="판정: YES"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><b>YES</b></span>
+                            <span class="mk-debate-line">“친숙함의 틈 포착한 공간 연출… 신파 없이 질주”</span>
+                            <span class="mk-debate-verdict"><b>YES.</b> 극장에서 충분히 볼 만하다.</span>
+                        </a>
+                        <a class="mk-debate-side" href="./2026-10/reading-2.html">
+                            <span class="mk-debate-who"><b>한상희</b>영화평론가</span>
+                            <span class="mk-debate-mark is-split" role="img" aria-label="판정: 조건에 따라 YES 또는 NO"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg><b>YES / NO</b></span>
+                            <span class="mk-debate-line">“이미지와 실체 위계 묻는 설정 흥미… 아쉬운 연출·시나리오”</span>
+                            <span class="mk-debate-verdict">장르적 가능성을 느껴 보고 싶고, SF적인 상상력과 존재론적 질문을 마주해 보고 싶다면 <b>YES.</b> 완성도 높은 수작을 만나고 싶다면 <b>NO</b>다.</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="mk-quote" aria-label="이번 호 인터뷰 한 줄">
             <a class="mk-quote-link" href="./2026-10/people-1.html">
                 <span class="mk-sec-title mk-quote-head"><span lang="en">Interview</span><span class="mk-sec-ko">인터뷰</span></span>
@@ -188,36 +232,107 @@
 
         <!-- Yes or No: the two critics of this issue's debate, side by side, each
              with the headline line and the closing verdict from the article. -->
-        <section class="mk-debate" id="yesorno" aria-labelledby="mk-h-debate">
-            <div class="mk-container">
-                <div class="mk-sec-head">
-                    <h2 id="mk-h-debate" class="mk-sec-title"><span lang="en">Yes or No</span><span class="mk-sec-ko">쟁점</span></h2>
-                    <a class="mk-sec-more" href="./2026-10/reading-2.html">대담 전문 읽기 <span aria-hidden="true">→</span></a>
-                </div>
-                <p class="mk-debate-q"><span>〈실낙원〉 · 감독 연상호</span>결국 〈실낙원〉은 YES인가 NO인가?</p>
-                <div class="mk-debate-sides">
-                    <a class="mk-debate-side" href="./2026-10/reading-2.html">
-                        <span class="mk-debate-who"><b>송석주</b>이투데이 기자, 영화평론가</span>
-                        <span class="mk-debate-line">“친숙함의 틈 포착한 공간 연출… 신파 없이 질주”</span>
-                        <span class="mk-debate-verdict"><b>YES.</b> 극장에서 충분히 볼 만하다.</span>
-                    </a>
-                    <a class="mk-debate-side" href="./2026-10/reading-2.html">
-                        <span class="mk-debate-who"><b>한상희</b>영화평론가</span>
-                        <span class="mk-debate-line">“이미지와 실체 위계 묻는 설정 흥미… 아쉬운 연출·시나리오”</span>
-                        <span class="mk-debate-verdict">장르적 가능성을 느껴 보고 싶고, SF적인 상상력과 존재론적 질문을 마주해 보고 싶다면 <b>YES.</b> 완성도 높은 수작을 만나고 싶다면 <b>NO</b>다.</span>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <!-- More: the feature articles that are neither on the cover nor in the
              pull quote above, in one row (photo, title under it, one line of plain
              meta). Every article of the issue appears on this page exactly once. -->
+        <!-- Weekly Review: this week's releases with the reviewers' average score
+             (out of 5), as a number and as five stars filled to that score.
+             The highest average leads on the left; the rest follow in order of score. Numbers come from the review page. -->
+        <section class="mk-section mk-wr" id="weekly" aria-labelledby="mk-h-wr">
+            <div class="mk-container">
+                <div class="mk-sec-head">
+                    <h2 id="mk-h-wr" class="mk-sec-title"><span lang="en">Weekly Review</span><span class="mk-sec-ko">이번 주 개봉작 별점</span></h2>
+                    <a class="mk-sec-more" href="./list.html?section=CRITIC&amp;corner=WEEKLY%20REVIEW">지난 WEEKLY REVIEW <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="mk-wr-grid">
+                    <a class="mk-wr-top" href="./2026-10/reading-3.html#wr-7">
+                        <span class="mk-wr-photo"><img src="./assets/images/2026-10/reading-3/reading1003_07.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                        <span class="mk-wr-flag">이번 주 최고점</span>
+                        <span class="mk-wr-topline"><b class="mk-wr-score">3.8</b><span class="mk-wr-film">잠자리 구하기</span></span>
+                        <span class="mk-wr-stars" style="--score: 3.8" role="img" aria-label="5점 만점에 평균 3.8점"></span>
+                    </a>
+                    <ol class="mk-wr-list">
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-1">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_01.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">보통의 가족</span>
+                                    <span class="mk-wr-stars" style="--score: 3.5" role="img" aria-label="5점 만점에 평균 3.5점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.5</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-6">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_06.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">페이퍼맨</span>
+                                    <span class="mk-wr-stars" style="--score: 3.2" role="img" aria-label="5점 만점에 평균 3.2점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.2</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-2">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_02.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">더러운 돈에 손대지 마라</span>
+                                    <span class="mk-wr-stars" style="--score: 3.0" role="img" aria-label="5점 만점에 평균 3.0점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.0</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-3">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_03.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">우리는 천국에 갈 순 없지만 사랑은 할 수 있겠지</span>
+                                    <span class="mk-wr-stars" style="--score: 3.0" role="img" aria-label="5점 만점에 평균 3.0점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.0</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-4">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_04.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">구룡성채: 무법지대</span>
+                                    <span class="mk-wr-stars" style="--score: 3.0" role="img" aria-label="5점 만점에 평균 3.0점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.0</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-8">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_08.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">닥터 코토 진료소</span>
+                                    <span class="mk-wr-stars" style="--score: 3.0" role="img" aria-label="5점 만점에 평균 3.0점"></span>
+                                </span>
+                                <b class="mk-wr-score">3.0</b>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mk-wr-item" href="./2026-10/reading-3.html#wr-5">
+                                <span class="mk-wr-thumb"><img src="./assets/images/2026-10/reading-3/reading1003_05.webp" alt="" width="1000" height="667" loading="lazy" decoding="async"></span>
+                                <span class="mk-wr-text">
+                                    <span class="mk-wr-film">빚가리</span>
+                                    <span class="mk-wr-stars" style="--score: 2.8" role="img" aria-label="5점 만점에 평균 2.8점"></span>
+                                </span>
+                                <b class="mk-wr-score">2.8</b>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
         <section class="mk-section mk-stories" id="stories" aria-labelledby="mk-h-stories">
             <div class="mk-container">
                 <div class="mk-sec-head">
                     <h2 id="mk-h-stories" class="mk-sec-title"><span lang="en">More</span><span class="mk-sec-ko">이번 호 기사 더 보기</span></h2>
-                    <a class="mk-sec-more" href="./list.html">전체 15편 보기 <span aria-hidden="true">→</span></a>
+                    <a class="mk-sec-more" href="./list.html">전체 18편 보기 <span aria-hidden="true">→</span></a>
                 </div>
                 <ul class="mk-story-grid">
                     <li>
@@ -254,6 +369,14 @@
 
         <!-- BOX OFFICE -->
         <section class="mk-section mk-box mk-bo" id="boxoffice" aria-labelledby="mk-h-box">
+            <!-- Backdrop: this week's three posters, blurred out of recognition, so
+                 the band takes its colour from the films themselves. Update the
+                 three files with the chart. -->
+            <div class="mk-bo-glow" aria-hidden="true">
+                <img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_02.webp" alt="" loading="lazy" decoding="async">
+                <img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_01.webp" alt="" loading="lazy" decoding="async">
+                <img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_03.webp" alt="" loading="lazy" decoding="async">
+            </div>
             <div class="mk-container">
                 <div class="mk-sec-head">
                     <h2 id="mk-h-box" class="mk-sec-title"><span lang="en">Box Office</span><span class="mk-sec-ko">10월 5주차 박스오피스</span></h2>
@@ -406,6 +529,7 @@
                 <div class="ed-footer-col">
                     <h3>SECTIONS</h3>
                     <div class="ed-footer-links">
+                        <a href="./list.html?section=NEWS">NEWS</a>
                         <a href="./list.html?section=SPECIAL">SPECIAL</a>
                         <a href="./list.html?section=INTERVIEW">INTERVIEW</a>
                         <a href="./list.html?section=CRITIC">CRITIC</a>
@@ -434,7 +558,7 @@
 
             <div class="ed-footer-bottom">
                 <span>COPYRIGHT © KOREAN FILM COUNCIL. ALL RIGHTS RESERVED.</span>
-                <span>2026년 10월호 · 총 15편 수록</span>
+                <span>2026년 10월호 · 총 18편 수록</span>
             </div>
         </div>
     </footer>
@@ -457,6 +581,12 @@
             </div>
             <div class="ed-drawer-body">
                 <div class="ed-drawer-group">
+                    <h3>NEWS <a href="./list.html?section=NEWS">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="./2026-10/news-1.html"><strong>스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</strong><span>제16회 서울국제프라이드영화제(SIPFF) 2026</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
                     <h3>SPECIAL <a href="./list.html?section=SPECIAL">전체 →</a></h3>
                     <div class="ed-drawer-links">
                         <a href="./2026-10/special-2.html"><strong>진실 기록 넘어 사회 변화로</strong><span>한국형 ‘임팩트 다큐’ 생태계, 필요하다</span></a>
@@ -466,6 +596,7 @@
                 <div class="ed-drawer-group">
                     <h3>INTERVIEW <a href="./list.html?section=INTERVIEW">전체 →</a></h3>
                     <div class="ed-drawer-links">
+                        <a href="./2026-10/people-3.html"><strong>“이번 영화의 현택, 관객이 완성해 주는 연기”</strong><span>〈폭설〉 배우 구교환 ①</span></a>
                         <a href="./2026-10/people-2.html"><strong>엉뚱하지만 파괴적인</strong><span>〈부활남: 더 레드〉 정성호 무술감독</span></a>
                         <a href="./2026-10/people-1.html"><strong>인간다움과 인간다운 죽음에 대하여</strong><span>〈구제역에서 살아 돌아온 돼지〉 故 허범욱 감독</span></a>
                     </div>
@@ -473,6 +604,7 @@
                 <div class="ed-drawer-group">
                     <h3>CRITIC <a href="./list.html?section=CRITIC">전체 →</a></h3>
                     <div class="ed-drawer-links">
+                        <a href="./2026-10/reading-3.html"><strong>이번 주 개봉작, 평자들의 별점</strong><span>WEEKLY REVIEW · 〈보통의 가족〉 외 7편</span></a>
                         <a href="./2026-10/reading-2.html"><strong>낙원 없이 살아가는 법</strong><span>〈실낙원〉 YES or NO 대담</span></a>
                         <a href="./2026-10/reading-1.html"><strong>미옥과 호석의 내일을 위한 시간</strong><span>〈가능한 사랑〉 비평</span></a>
                     </div>

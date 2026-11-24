@@ -6,10 +6,13 @@
     window.__kofic2027Init = true;
 
     const ISSUE_ARTICLES = [
+        { file: "news-1.html", section: "NEWS", label: "NEWS · 영화제", title: "스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제", sub: "제16회 서울국제프라이드영화제(SIPFF) 2026" },
         { file: "special-2.html", section: "SPECIAL", label: "SPECIAL ②", title: "진실 기록 넘어 사회 변화로", sub: "한국형 ‘임팩트 다큐’ 생태계, 필요하다" },
         { file: "special-1.html", section: "SPECIAL", label: "SPECIAL ①", title: "새로운 영화·영상 제작 거점으로의 출발", sub: "부산기장촬영소를 가다" },
+        { file: "people-3.html", section: "INTERVIEW", label: "INTERVIEW ③", title: "“이번 영화의 현택, 관객이 완성해 주는 연기”", sub: "<폭설> 배우 구교환 ①" },
         { file: "people-2.html", section: "INTERVIEW", label: "INTERVIEW ②", title: "엉뚱하지만 파괴적인", sub: "<부활남: 더 레드> 정성호 무술감독" },
         { file: "people-1.html", section: "INTERVIEW", label: "INTERVIEW ①", title: "인간다움과 인간다운 죽음에 대하여", sub: "<구제역에서 살아 돌아온 돼지> 故 허범욱 감독" },
+        { file: "reading-3.html", section: "CRITIC", label: "CRITIC ③ · WEEKLY REVIEW", title: "이번 주 개봉작, 평자들의 별점", sub: "<보통의 가족> 외 7편" },
         { file: "reading-2.html", section: "CRITIC", label: "CRITIC ② · YES or NO", title: "낙원 없이 살아가는 법", sub: "<실낙원>" },
         { file: "reading-1.html", section: "CRITIC", label: "CRITIC ①", title: "미옥과 호석의 내일을 위한 시간", sub: "<가능한 사랑>" },
         { file: "global.html", section: "GLOBAL", label: "GLOBAL", title: "도시 전체와 호흡하는 축제로", sub: "커뮤니티비프와 동네방네비프" },
