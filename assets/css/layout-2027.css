@@ -3587,3 +3587,165 @@ body *:not(.mk-cover):not(.mk-cover *) { border-radius: 0 !important; }
    URL, say — may still wrap rather than run off the page.) */
 body, body * { word-break: keep-all; }
 body { overflow-wrap: break-word; }
+
+/* Phone / tablet header: the section menu is a plain line of words under the
+   logo row — no grey box, no padding box. It runs to the right edge and fades
+   there, so it reads as "more this way". One rule under the whole header. */
+@media (max-width: 1100px) {
+    .mk-header:not(.mk-header--masthead) .mk-bar { border-bottom: 0; padding-block: 10px 4px; }
+    .mk-header:not(.mk-header--masthead) .mk-nav {
+        margin: 0;
+        border-bottom: 1px solid var(--mk-line);
+        background: var(--bg-surface);
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+        mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+    }
+    .mk-header:not(.mk-header--masthead) .mk-nav-track {
+        gap: 24px;
+        padding: 0 48px 0 20px;
+        background: none;
+        scroll-padding-inline: 20px;
+    }
+    .mk-header:not(.mk-header--masthead) .mk-nav-link {
+        padding: 12px 0 14px;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: rgb(27 19 38 / 0.5);
+    }
+    .mk-header:not(.mk-header--masthead) .mk-nav-link[aria-current="page"] { background: none; font-weight: 800; color: var(--navy); }
+}
+/* "전체 15편 보기 →" beside the issue title: no underline, like the other links */
+.mk-cover-all, .mk-cover-all:hover { padding-block-end: 0; border-block-end: 0; font-weight: 800; }
+
+/* List page, phone/tablet = the same page as on PC:
+   - the section tabs under the title repeated the header menu (and marked
+     "전체" as current inside a section) — the header menu is the section menu
+   - the lead card's text was centred and narrow; it is left-aligned, full width
+   - the lead card kept its section name inside a section list
+   - the search box runs the full width */
+.archive-dock .archive-tabs { display: none; }
+.archive-grid.is-one-section .archive-card.is-featured .ed-kicker,
+.archive-grid.has-featured.is-one-section .archive-card.is-featured .ed-kicker { font-size: 0; }
+.archive-grid.has-featured.is-one-section .archive-card.is-featured .ed-kicker > * { font-size: 15px; }
+@media (max-width: 720px) {
+    .archive-grid.has-featured .archive-card.is-featured { align-items: stretch; }
+    .archive-controls { align-items: stretch; }
+    .archive-search-box { flex: 1 1 100%; max-inline-size: none; }
+}
+/* with the section name gone, the date starts flush left */
+.archive-grid.is-one-section .archive-card .ed-kicker > :first-child { margin-inline-start: 0 !important; padding-inline-start: 0 !important; }
+.archive-grid.is-one-section .archive-card .ed-kicker { gap: 0; column-gap: 0; }
+.archive-grid.is-one-section .archive-card .ed-kicker > * + * { margin-inline-start: 8px !important; }
+
+
+
+/* --------------------------------------------------------------------------
+   Box Office podium: 1–3 as posters, first place in the middle and tallest,
+   second on the left, third on the right and lowest. Rank numerals in gold,
+   silver, bronze — the only colour in the section. 4–10 follow as a list.
+   -------------------------------------------------------------------------- */
+.mk-bo-podium {
+    list-style: none;
+    margin: 0 auto 64px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 200fr) minmax(0, 260fr) minmax(0, 170fr);
+    align-items: start;
+    column-gap: 36px;
+    max-inline-size: 740px;
+}
+.mk-bo-pod { display: flex; flex-direction: column; align-items: center; text-align: center; min-inline-size: 0; }
+.mk-bo-pod.is-1 { order: 2; }
+.mk-bo-pod.is-2 { order: 1; padding-block-start: 64px; }
+.mk-bo-pod.is-3 { order: 3; padding-block-start: 120px; }
+.mk-bo-pod-rank { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.mk-bo-pod.is-1 .mk-bo-pod-rank { font-size: 84px; color: #e3b341; }
+.mk-bo-pod.is-2 .mk-bo-pod-rank { color: #c9ccd3; }
+.mk-bo-pod.is-3 .mk-bo-pod-rank { font-size: 54px; color: #cf8a4e; }
+.mk-bo-pod-poster { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 183 / 262; object-fit: cover; margin-block-start: 14px; filter: var(--expo, none); box-shadow: 0 24px 48px rgb(0 0 0 / 0.5); }
+.mk-bo-pod-film { margin-block-start: 20px; font-size: 18px; font-weight: 800; line-height: 1.35; letter-spacing: -0.035em; text-wrap: balance; }
+.mk-bo-pod.is-1 .mk-bo-pod-film { font-size: 22px; }
+.mk-bo-pod-aud { margin-block-start: 10px; font-size: 26px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.mk-bo-pod.is-1 .mk-bo-pod-aud { font-size: 34px; }
+.mk-bo-pod-meta { margin-block-start: 10px; font-size: 15px; line-height: 1.45; color: var(--bo-muted); text-wrap: balance; }
+/* the list under it now holds 4–10 only: all rows alike */
+.mk-bo-list .mk-bo-row .mk-bo-film { grid-column: 2 / 4; }
+@media (max-width: 760px) {
+    .mk-bo-podium { column-gap: 12px; margin-block-end: 44px; }
+    .mk-bo-pod.is-2 { padding-block-start: 36px; }
+    .mk-bo-pod.is-3 { padding-block-start: 68px; }
+    .mk-bo-pod-rank { font-size: 40px; }
+    .mk-bo-pod.is-1 .mk-bo-pod-rank { font-size: 52px; }
+    .mk-bo-pod.is-3 .mk-bo-pod-rank { font-size: 34px; }
+    .mk-bo-pod-poster { margin-block-start: 10px; box-shadow: 0 12px 24px rgb(0 0 0 / 0.5); }
+    .mk-bo-pod-film, .mk-bo-pod.is-1 .mk-bo-pod-film { margin-block-start: 12px; font-size: 15px; }
+    .mk-bo-pod-aud { font-size: 18px; }
+    .mk-bo-pod.is-1 .mk-bo-pod-aud { font-size: 22px; }
+    .mk-bo-pod-meta { display: none; }
+}
+
+
+/* Box Office now shows the podium only (no 4–10 list, no indie chart): the
+   summary and the podium sit side by side, centred on each other. */
+.mk-bo-grid { align-items: center; }
+.mk-bo-podium { margin-block-end: 0; }
+.mk-bo-past { margin-block-start: 56px; }
+@media (max-width: 1180px) {
+    .mk-bo-side { display: block; }
+    .mk-bo-chart { order: -1; }
+}
+
+/* "Read more" links react on hover everywhere: the arrow steps right, and the
+   text changes colour — purple on white, dimmed on the dark bands (where the
+   old rule turned white text white). */
+.mk-sec-more span, .mk-quote-more span, .mk-cover-all span { display: inline-block; transition: transform 0.18s ease; }
+.mk-sec-more:hover span, .mk-quote-link:hover .mk-quote-more span, .mk-cover-all:hover span { transform: translateX(5px); }
+.mk-sec-more, .mk-quote-more, .mk-cover-all { transition: color 0.18s ease; }
+.mk-box .mk-sec-more:hover,
+.mk-prod-stage .mk-sec-more:hover { color: rgb(255 255 255 / 0.62); }
+.mk-quote-link:hover .mk-quote-more { color: var(--navy); }
+@media (prefers-reduced-motion: reduce) {
+    .mk-sec-more span, .mk-quote-more span, .mk-cover-all span { transition: none; }
+}
+
+/* Box Office, compact: the title joins the summary in the left column and the
+   podium starts level with it on the right, so the band is about as tall as
+   the podium itself. Smaller posters, less padding. */
+.mk-box.mk-bo { padding-block: 72px; }
+.mk-bo-podium { grid-template-columns: minmax(0, 150fr) minmax(0, 190fr) minmax(0, 130fr); column-gap: 28px; max-inline-size: 540px; }
+.mk-bo-pod.is-2 { padding-block-start: 44px; }
+.mk-bo-pod.is-3 { padding-block-start: 84px; }
+.mk-bo-pod-rank { font-size: 44px; }
+.mk-bo-pod.is-1 .mk-bo-pod-rank { font-size: 60px; }
+.mk-bo-pod.is-3 .mk-bo-pod-rank { font-size: 38px; }
+.mk-bo-pod-poster { margin-block-start: 10px; box-shadow: 0 16px 32px rgb(0 0 0 / 0.5); }
+.mk-bo-pod-film { margin-block-start: 14px; font-size: 16px; }
+.mk-bo-pod.is-1 .mk-bo-pod-film { font-size: 18px; }
+.mk-bo-pod-aud { margin-block-start: 8px; font-size: 22px; }
+.mk-bo-pod.is-1 .mk-bo-pod-aud { font-size: 28px; }
+.mk-bo-pod-meta { margin-block-start: 8px; }
+.mk-bo-stats { margin-block-start: 32px; }
+.mk-bo-stats dd { font-size: 36px; }
+.mk-bo-past { margin-block-start: 36px; }
+@media (min-width: 1181px) {
+    .mk-bo > .mk-container { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); column-gap: 72px; align-items: center; }
+    .mk-bo .mk-sec-head { grid-column: 1; grid-row: 1; flex-direction: column; align-items: flex-start; gap: 14px; margin-block-end: 36px; align-self: end; }
+    .mk-bo .mk-sec-head .mk-sec-more { margin: 0; }
+    .mk-bo-grid { display: contents; }
+    .mk-bo-side { grid-column: 1; grid-row: 2; align-self: start; }
+    .mk-bo-chart { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 760px) {
+    .mk-box.mk-bo { padding-block: 48px; }
+    .mk-bo-podium { column-gap: 12px; }
+    .mk-bo-pod.is-2 { padding-block-start: 30px; }
+    .mk-bo-pod.is-3 { padding-block-start: 56px; }
+    .mk-bo-pod-rank { font-size: 34px; }
+    .mk-bo-pod.is-1 .mk-bo-pod-rank { font-size: 44px; }
+    .mk-bo-pod.is-3 .mk-bo-pod-rank { font-size: 30px; }
+    .mk-bo-pod-film, .mk-bo-pod.is-1 .mk-bo-pod-film { font-size: 15px; }
+    .mk-bo-pod-aud { font-size: 17px; }
+    .mk-bo-pod.is-1 .mk-bo-pod-aud { font-size: 20px; }
+    .mk-bo-stats dd { font-size: 28px; }
+}

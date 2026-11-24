@@ -337,6 +337,15 @@
         });
     }
 
+    /* On phones the section menu is one line that scrolls sideways: bring the
+       current section into view instead of leaving it off the right edge. */
+    function revealCurrentSection() {
+        const track = document.querySelector(".mk-nav-track");
+        const cur = track && track.querySelector('[aria-current="page"]');
+        if (!cur || track.scrollWidth <= track.clientWidth) return;
+        track.scrollLeft = Math.max(0, cur.offsetLeft - (track.clientWidth - cur.offsetWidth) / 2);
+    }
+
     /* Poster wall (Production stage): lay the source list out into tilted rows that
        fill the whole section. Rows and posters per row follow the wall's
        size. Films are placed row by row from the top, so every film shows
@@ -404,6 +413,7 @@
         initProdTable();
         initStickyTableScroll();
         markCurrentSection();
+        revealCurrentSection();
     }
 
     if (document.readyState === "loading") {
