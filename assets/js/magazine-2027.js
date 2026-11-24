@@ -371,7 +371,9 @@
                 });
             }
             themeBtns.forEach((b) => b.addEventListener("click", () => applyTheme(b.dataset.setTheme)));
-            applyTheme(localStorage.getItem("kofic_theme") || "paper");
+            // The theme buttons were removed from the article header; without
+            // them a saved sepia/dark choice could never be undone, so use paper.
+            applyTheme(themeBtns.length ? (localStorage.getItem("kofic_theme") || "paper") : "paper");
 
             // 7b. Font Scale Switcher (sm / md / lg)
             const scaleBtns = document.querySelectorAll("[data-set-scale]");
@@ -392,7 +394,7 @@
             const readTimeEl = document.getElementById("articleReadTime");
             if (readTimeEl) {
                 let chars = 0;
-                articleMain.querySelectorAll(".n-common-text-1, .sub-summation li p").forEach((el) => {
+                document.querySelectorAll(".article-main .n-common-text-1, .sub-summation li p").forEach((el) => {
                     chars += (el.textContent || "").replace(/\s+/g, "").length;
                 });
                 const isEng = /global-eng\.html/i.test(window.location.pathname);

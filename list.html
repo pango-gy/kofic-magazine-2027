@@ -12,6 +12,7 @@
 
     <link href="./assets/css/magazine-2027.css" rel="stylesheet">
     <link href="./assets/css/layout-2027.css" rel="stylesheet">
+    <script>document.documentElement.classList.add("list-pending");</script>
     <script defer src="./assets/js/magazine-2027.js"></script>
     <script defer src="./assets/js/layout-2027.js"></script>
 </head>
@@ -23,7 +24,7 @@
         <div class="mk-bar">
             <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 10월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
             <a href="./index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
-                <img src="./assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
+                <img src="./assets/images/common/logo-a.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1109" height="270">
             </a>
             <div class="mk-actions">
                 <span class="mk-issue-label">2026년 10월호</span>
@@ -47,18 +48,21 @@
         <!-- Editorial Archive Masthead -->
         <section class="archive-head">
             <div class="ed-container">
-                <div class="archive-kicker">
-                    <span>ARCHIVE · 웹진 한국영화 2026년 10월호</span>
-                    <span id="archiveCount" aria-live="polite">총 15편</span>
-                </div>
-                <h1 class="archive-title" id="archiveTitle">October 2026</h1>
-                <p class="archive-desc" id="archiveDesc">2026년 10월호 전체 기사 아카이브</p>
+                <nav class="archive-crumb" aria-label="경로"><a href="./index.html">홈</a> <span aria-hidden="true">/</span> <span id="archiveCrumb">전체 기사</span></nav>
+                <h1 class="archive-title" id="archiveTitle">전체 기사</h1>
+                <p class="archive-desc" id="archiveDesc">2026년 10월호 전체 기사</p>
+                <form class="archive-head-search" id="archiveHeadSearch" role="search" hidden>
+                    <label class="mk-sr" for="archiveHeadInput">검색어</label>
+                    <input type="search" id="archiveHeadInput" placeholder="기사, 감독, 영화 제목 검색" autocomplete="off">
+                    <button type="submit">검색</button>
+                </form>
             </div>
         </section>
 
         <!-- Sticky Filter, Sort, View-Mode & Instant Search Dock -->
         <div class="archive-dock">
             <div class="ed-container archive-dock-inner">
+                <div class="archive-issues" id="archiveIssues" role="group" aria-label="발행호 필터"></div>
                 <div class="archive-tabs" role="tablist" aria-label="섹션별 필터">
                     <button type="button" class="archive-tab is-active" data-filter="ALL">전체</button>
                     <button type="button" class="archive-tab" data-filter="SPECIAL">SPECIAL</button>
@@ -89,6 +93,8 @@
                         </div>
                     </div>
 
+                    <span class="archive-count" id="archiveCount" aria-live="polite">총 15편</span>
+
                     <div class="archive-search-box">
                         <input type="search" id="listSearchInput" class="archive-search-input" placeholder="제목, 필자, 영화명, 태그 즉시 검색..." aria-label="목록 내 기사 검색">
                         <button type="button" id="listSearchClear" class="archive-search-clear" aria-label="검색어 지우기" hidden>×</button>
@@ -108,7 +114,7 @@
                 </div>
 
                 <div class="archive-grid has-featured" id="archiveGrid">
-                    <a href="./2026-10/special-2.html" class="archive-card is-featured" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
+                    <a href="./2026-10/special-2.html" class="archive-card is-featured" data-issue="2026-10" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
                         <div class="ed-media"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">SPECIAL ② <span class="ed-date">2026.10.19</span></p>
@@ -118,7 +124,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/special-1.html" class="archive-card" data-section="SPECIAL" data-date="2026-10-06" data-search="SPECIAL ① 새로운 영화 영상 제작 거점으로의 출발 부산기장촬영소를 가다 박경희 부산기장촬영소 영화진흥위원회 스튜디오 촬영소 로케이션 부산영상위원회 기장군 제작 촬영">
+                    <a href="./2026-10/special-1.html" class="archive-card" data-issue="2026-10" data-section="SPECIAL" data-date="2026-10-06" data-search="SPECIAL ① 새로운 영화 영상 제작 거점으로의 출발 부산기장촬영소를 가다 박경희 부산기장촬영소 영화진흥위원회 스튜디오 촬영소 로케이션 부산영상위원회 기장군 제작 촬영">
                         <div class="ed-media"><img src="./assets/images/2026-10/special-1/special1001_00.webp" alt="새로운 영화·영상 제작 거점으로의 출발" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">SPECIAL ① <span class="ed-date">2026.10.06</span></p>
@@ -128,7 +134,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/people-2.html" class="archive-card" data-section="INTERVIEW" data-date="2026-10-19" data-search="INTERVIEW ② PEOPLE 인터뷰 엉뚱하지만 파괴적인 부활남 더 레드 정성호 무술감독 김혜선 부활남더레드 정성호 웹툰 액션 무술 스턴트 백종열 구교환 신승호 강기영">
+                    <a href="./2026-10/people-2.html" class="archive-card" data-issue="2026-10" data-section="INTERVIEW" data-date="2026-10-19" data-search="INTERVIEW ② PEOPLE 인터뷰 엉뚱하지만 파괴적인 부활남 더 레드 정성호 무술감독 김혜선 부활남더레드 정성호 웹툰 액션 무술 스턴트 백종열 구교환 신승호 강기영">
                         <div class="ed-media"><img src="./assets/images/2026-10/people-2/people1002_00.webp" alt="엉뚱하지만 파괴적인" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">INTERVIEW ② <span class="ed-date">2026.10.19</span></p>
@@ -138,7 +144,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/people-1.html" class="archive-card" data-section="INTERVIEW" data-date="2026-10-06" data-search="INTERVIEW ① PEOPLE 인터뷰 인간다움과 인간다운 죽음에 대하여 구제역에서 살아 돌아온 돼지 故 허범욱 감독 민용준 허범욱 구제역에서살아돌아온돼지 애니메이션 독립영화 갈라파고스 선량한인간들의도시 평범한식사 창백한얼굴들">
+                    <a href="./2026-10/people-1.html" class="archive-card" data-issue="2026-10" data-section="INTERVIEW" data-date="2026-10-06" data-search="INTERVIEW ① PEOPLE 인터뷰 인간다움과 인간다운 죽음에 대하여 구제역에서 살아 돌아온 돼지 故 허범욱 감독 민용준 허범욱 구제역에서살아돌아온돼지 애니메이션 독립영화 갈라파고스 선량한인간들의도시 평범한식사 창백한얼굴들">
                         <div class="ed-media"><img src="./assets/images/2026-10/people-1/people1001_00.webp" alt="인간다움과 인간다운 죽음에 대하여" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">INTERVIEW ① <span class="ed-date">2026.10.06</span></p>
@@ -148,7 +154,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-2.html" class="archive-card" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
+                    <a href="./2026-10/reading-2.html" class="archive-card" data-issue="2026-10" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-2/reading1002_00.webp" alt="낙원 없이 살아가는 법" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ② · YES or NO <span class="ed-date">2026.10.19</span></p>
@@ -158,7 +164,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-1.html" class="archive-card" data-section="CRITIC" data-date="2026-10-06" data-search="CRITIC ① READING 비평 리뷰 미옥과 호석의 내일을 위한 시간 가능한 사랑 주성철 가능한사랑 이창동 설경구 전도연 조인성 조여정 넷플릭스 베니스국제영화제 토론토국제영화제">
+                    <a href="./2026-10/reading-1.html" class="archive-card" data-issue="2026-10" data-section="CRITIC" data-date="2026-10-06" data-search="CRITIC ① READING 비평 리뷰 미옥과 호석의 내일을 위한 시간 가능한 사랑 주성철 가능한사랑 이창동 설경구 전도연 조인성 조여정 넷플릭스 베니스국제영화제 토론토국제영화제">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-1/reading1001_00.webp" alt="미옥과 호석의 내일을 위한 시간" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ① <span class="ed-date">2026.10.06</span></p>
@@ -168,7 +174,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/global.html" class="archive-card" data-section="GLOBAL" data-date="2026-10-19" data-search="GLOBAL 도시 전체와 호흡하는 축제로 커뮤니티비프와 동네방네비프 이우빈 부산국제영화제 동네방네비프 커뮤니티비프 리퀘스트시네마 마스터톡 커비컬렉션 누구나영화만들기">
+                    <a href="./2026-10/global.html" class="archive-card" data-issue="2026-10" data-section="GLOBAL" data-date="2026-10-19" data-search="GLOBAL 도시 전체와 호흡하는 축제로 커뮤니티비프와 동네방네비프 이우빈 부산국제영화제 동네방네비프 커뮤니티비프 리퀘스트시네마 마스터톡 커비컬렉션 누구나영화만들기">
                         <div class="ed-media"><img src="./assets/images/2026-10/global/global1001_00.webp" alt="도시 전체와 호흡하는 축제로" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">GLOBAL <span class="ed-date">2026.10.19</span></p>
@@ -178,7 +184,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/global-eng.html" class="archive-card" data-section="GLOBAL(ENG)" data-date="2026-10-19" data-search="GLOBAL(ENG) A Festival in Step with an Entire City Community BIFF and BIFF Everywhere Lee Woo-bin BusanInternationalFilmFestival BIFFEverywhere CommunityBIFF RequestCinema MasterTalk">
+                    <a href="./2026-10/global-eng.html" class="archive-card" data-issue="2026-10" data-section="GLOBAL(ENG)" data-date="2026-10-19" data-search="GLOBAL(ENG) A Festival in Step with an Entire City Community BIFF and BIFF Everywhere Lee Woo-bin BusanInternationalFilmFestival BIFFEverywhere CommunityBIFF RequestCinema MasterTalk">
                         <div class="ed-media"><img src="./assets/images/2026-10/thumbs/2_202637181037010928.webp" alt="A Festival in Step with an Entire City" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">GLOBAL <span class="lang-tag">ENG</span> <span class="ed-date">2026.10.19</span></p>
@@ -188,7 +194,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/kofic-story.html" class="archive-card" data-section="KOFIC STORY" data-date="2026-10-19" data-search="KOFIC STORY 창작자 어떤 판 위에서 놀게 할 것인가 2026 KOFIC AI 쇼케이스 유승목 영화진흥위원회 KOFIC 한국영화아카데미 KAFA AI 첨단영화제작교육 영화인교육 영화교육">
+                    <a href="./2026-10/kofic-story.html" class="archive-card" data-issue="2026-10" data-section="KOFIC STORY" data-date="2026-10-19" data-search="KOFIC STORY 창작자 어떤 판 위에서 놀게 할 것인가 2026 KOFIC AI 쇼케이스 유승목 영화진흥위원회 KOFIC 한국영화아카데미 KAFA AI 첨단영화제작교육 영화인교육 영화교육">
                         <div class="ed-media"><img src="./assets/images/2026-10/kofic-story/kofic10_00.webp" alt="창작자, 어떤 판 위에서 놀게 할 것인가" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">KOFIC STORY <span class="ed-date">2026.10.19</span></p>
@@ -198,7 +204,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-5.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-11-03" data-search="BOX OFFICE 10월 5주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월5주차 영화순위 치이카와 하트오브비스트 암살자들">
+                    <a href="./2026-10/boxoffice-5.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-11-03" data-search="BOX OFFICE 10월 5주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월5주차 영화순위 치이카와 하트오브비스트 암살자들">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_00.webp" alt="10월 5주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.11.03</span></p>
@@ -208,7 +214,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-4.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-27" data-search="BOX OFFICE 10월 4주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월4주차 영화순위">
+                    <a href="./2026-10/boxoffice-4.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-27" data-search="BOX OFFICE 10월 4주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월4주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_00.webp" alt="10월 4주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.27</span></p>
@@ -218,7 +224,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-3.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-20" data-search="BOX OFFICE 10월 3주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월3주차 영화순위">
+                    <a href="./2026-10/boxoffice-3.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-20" data-search="BOX OFFICE 10월 3주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월3주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_00.webp" alt="10월 3주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.20</span></p>
@@ -228,7 +234,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-2.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-13" data-search="BOX OFFICE 10월 2주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월2주차 영화순위">
+                    <a href="./2026-10/boxoffice-2.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-13" data-search="BOX OFFICE 10월 2주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월2주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_00.webp" alt="10월 2주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.13</span></p>
@@ -238,7 +244,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-1.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-07" data-search="BOX OFFICE 10월 1주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월1주차 영화순위">
+                    <a href="./2026-10/boxoffice-1.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-07" data-search="BOX OFFICE 10월 1주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월1주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_00.webp" alt="10월 1주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.07</span></p>
@@ -248,7 +254,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/production.html" class="archive-card" data-section="PRODUCTION" data-date="2026-10-13" data-search="PRODUCTION 9월 개봉작 살펴보기 2026 9 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 9월개봉작 제작상황판">
+                    <a href="./2026-10/production.html" class="archive-card" data-issue="2026-10" data-section="PRODUCTION" data-date="2026-10-13" data-search="PRODUCTION 9월 개봉작 살펴보기 2026 9 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 9월개봉작 제작상황판">
                         <div class="ed-media"><img src="./assets/images/2026-10/production/production10_00.webp" alt="9월 개봉작 살펴보기" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">PRODUCTION <span class="ed-date">2026.10.13</span></p>
@@ -275,6 +281,8 @@
                         <button type="button" class="suggest-chip" data-kw="AI">#AI</button>
                     </div>
                 </div>
+
+                <nav class="archive-pager" id="archivePager" aria-label="페이지"></nav>
             </div>
         </section>
     </main>
@@ -285,7 +293,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="./assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="./assets/images/common/logo-a-on-dark.svg" alt="웹진 한국영화" width="1109" height="270" loading="lazy">
                         <img src="./assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">
@@ -411,10 +419,10 @@
     <button type="button" class="ed-top-btn" id="edTopBtn" aria-label="맨 위로 이동">↑</button>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        (function () {
             const SECTION_ALIAS = { PEOPLE: "INTERVIEW", READING: "CRITIC" };
             const SECTION_DESC = {
-                ALL: "2026년 10월호 전체 기사 아카이브",
+                ALL: "2026년 10월호 전체 기사",
                 SPECIAL: "한국영화의 현재와 미래를 짚는 심층 기획",
                 INTERVIEW: "한국영화 현장을 이끄는 창작자들의 목소리",
                 CRITIC: "화제작을 깊이 읽는 영화 비평과 찬반 대담",
@@ -424,6 +432,8 @@
                 "BOX OFFICE": "주간 박스오피스 흥행 흐름과 관객 데이터",
                 PRODUCTION: "한국영화 제작 및 개봉 현황 리포트"
             };
+            // One page = 1 large + 6 cards, as in the mockup.
+            const PAGE_SIZE = 7;
 
             const params = new URLSearchParams(window.location.search);
             const rawSec = (params.get("section") || "ALL").trim();
@@ -432,6 +442,8 @@
             let currentLang = currentSec === "GLOBAL(ENG)" ? "ENG" : "ALL";
             if (currentSec === "GLOBAL(ENG)") currentSec = "GLOBAL";
             let currentQuery = (params.get("q") || "").trim();
+            let currentIssue = (params.get("issue") || "ALL").trim();
+            let currentPage = Math.max(1, parseInt(params.get("page"), 10) || 1);
             let currentSort = "section";
             let currentView = "grid";
 
@@ -442,9 +454,14 @@
             }
 
             const titleEl = document.getElementById("archiveTitle");
+            const crumbEl = document.getElementById("archiveCrumb");
+            const headForm = document.getElementById("archiveHeadSearch");
+            const headInput = document.getElementById("archiveHeadInput");
             const descEl = document.getElementById("archiveDesc");
             const countEl = document.getElementById("archiveCount");
             const gridEl = document.getElementById("archiveGrid");
+            const issueEl = document.getElementById("archiveIssues");
+            const pagerEl = document.getElementById("archivePager");
             const cards = Array.from(gridEl.querySelectorAll(".archive-card"));
             const tabs = Array.from(document.querySelectorAll(".archive-tab"));
             const langGroup = document.getElementById("globalLangGroup");
@@ -461,8 +478,54 @@
             const emptyAllBtn = document.getElementById("emptyAllSecBtn");
             const emptyResetBtn = document.getElementById("emptyResetBtn");
 
-            cards.forEach((c, idx) => { c.dataset.order = String(idx); });
+            const issueLabel = (iss) => `${Number(iss.slice(5, 7))}월호`;
+
+            cards.forEach((c, idx) => {
+                c.dataset.order = String(idx);
+                c.querySelectorAll(".ed-card-title, .ed-card-deck").forEach((el) => { el.dataset.plain = el.textContent; });
+                // Kicker gets the issue ("· 10월호"), as in the mockup.
+                const kicker = c.querySelector(".ed-kicker");
+                if (kicker && c.dataset.issue && !kicker.querySelector(".ed-issue")) {
+                    const s = document.createElement("span");
+                    s.className = "ed-issue";
+                    s.textContent = "· " + issueLabel(c.dataset.issue);
+                    const date = kicker.querySelector(".ed-date");
+                    kicker.insertBefore(s, date);
+                }
+            });
             if (currentQuery && searchInput) searchInput.value = currentQuery;
+
+            // Issue pills come from the articles that exist, newest first, so a
+            // new issue's cards make its pill appear on their own.
+            const issues = Array.from(new Set(cards.map((c) => c.dataset.issue).filter(Boolean))).sort().reverse();
+            if (!issues.includes(currentIssue)) currentIssue = "ALL";
+            const issueBtns = [["ALL", "전체"], ...issues.map((i) => [i, issueLabel(i)])].map(([val, label]) => {
+                const b = document.createElement("button");
+                b.type = "button";
+                b.className = "archive-issue";
+                b.dataset.issue = val;
+                b.textContent = label;
+                b.addEventListener("click", () => { currentIssue = val; currentPage = 1; syncUrl(); render(); });
+                issueEl.appendChild(b);
+                return b;
+            });
+
+            // Search mode: wrap the keyword in <mark> inside title and deck.
+            function highlight(el, kw) {
+                const text = el.dataset.plain;
+                el.textContent = "";
+                if (!kw) { el.textContent = text; return; }
+                const lower = text.toLowerCase();
+                let i = 0;
+                for (let j = lower.indexOf(kw); j !== -1; j = lower.indexOf(kw, i)) {
+                    el.append(text.slice(i, j));
+                    const m = document.createElement("mark");
+                    m.textContent = text.slice(j, j + kw.length);
+                    el.append(m);
+                    i = j + kw.length;
+                }
+                el.append(text.slice(i));
+            }
 
             function matchSec(itemSec, sec, lang) {
                 if (sec === "ALL") return true;
@@ -490,7 +553,35 @@
                 else u.searchParams.set("section", currentSec);
                 if (currentQuery) u.searchParams.set("q", currentQuery);
                 else u.searchParams.delete("q");
+                if (currentIssue !== "ALL") u.searchParams.set("issue", currentIssue);
+                else u.searchParams.delete("issue");
+                if (currentPage > 1) u.searchParams.set("page", String(currentPage));
+                else u.searchParams.delete("page");
                 window.history.replaceState({}, "", u);
+            }
+
+            function pagerItem(label, page, opts) {
+                const o = opts || {};
+                if (o.disabled) {
+                    const s = document.createElement("span");
+                    s.className = "archive-page is-step is-disabled";
+                    s.textContent = label;
+                    s.setAttribute("aria-disabled", "true");
+                    return s;
+                }
+                const b = document.createElement("button");
+                b.type = "button";
+                b.className = "archive-page" + (o.step ? " is-step" : "");
+                b.textContent = label;
+                if (o.current) b.setAttribute("aria-current", "page");
+                if (o.aria) b.setAttribute("aria-label", o.aria);
+                b.addEventListener("click", () => {
+                    currentPage = page;
+                    syncUrl();
+                    render();
+                    document.querySelector(".archive-dock").scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+                return b;
             }
 
             function render() {
@@ -502,12 +593,7 @@
                     b.classList.toggle("is-active", active);
                     b.setAttribute("aria-selected", active ? "true" : "false");
                 });
-
-                document.querySelectorAll("[data-nav-sec]").forEach((a) => {
-                    const active = currentSec !== "ALL" && a.dataset.navSec === currentSec;
-                    if (active) a.setAttribute("aria-current", "page");
-                    else a.removeAttribute("aria-current");
-                });
+                issueBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.issue === currentIssue)));
 
                 langGroup.hidden = currentSec !== "GLOBAL";
                 langBtns.forEach((b) => {
@@ -515,13 +601,11 @@
                     b.classList.toggle("is-active", a);
                     b.setAttribute("aria-pressed", a ? "true" : "false");
                 });
-
                 sortBtns.forEach((b) => {
                     const a = b.dataset.sort === currentSort;
                     b.classList.toggle("is-active", a);
                     b.setAttribute("aria-pressed", a ? "true" : "false");
                 });
-
                 viewBtns.forEach((b) => {
                     const a = b.dataset.view === currentView;
                     b.classList.toggle("is-active", a);
@@ -532,8 +616,22 @@
                 chipBar.hidden = !currentQuery;
                 chipText.textContent = "검색어: " + currentQuery;
 
-                titleEl.textContent = kw ? (currentSec === "ALL" ? "Search" : displaySec) : (displaySec === "ALL" ? "October 2026" : displaySec);
-                descEl.textContent = kw ? `‘${currentQuery}’ 검색 결과` : (SECTION_DESC[displaySec] || SECTION_DESC.ALL);
+                document.body.classList.toggle("is-search", !!kw);
+                headForm.hidden = !kw;
+                if (kw && document.activeElement !== headInput) headInput.value = currentQuery;
+                crumbEl.textContent = kw ? "검색" : (displaySec === "ALL" ? "전체 기사" : displaySec);
+                if (kw) {
+                    titleEl.textContent = "";
+                    const q = document.createElement("span");
+                    q.className = "archive-q";
+                    q.textContent = currentQuery;
+                    titleEl.append("‘", q, "’ 검색 결과 ");
+                } else {
+                    titleEl.textContent = displaySec === "ALL" ? "전체 기사" : displaySec;
+                }
+                descEl.textContent = kw ? "" : (SECTION_DESC[displaySec] || SECTION_DESC.ALL);
+                descEl.hidden = !!kw;
+                cards.forEach((c) => c.querySelectorAll("[data-plain]").forEach((el) => highlight(el, kw)));
 
                 // Sort
                 const sorted = cards.slice().sort((a, b) => {
@@ -546,58 +644,98 @@
                 sorted.forEach((el) => gridEl.appendChild(el));
 
                 // Filter
-                let visible = 0;
+                const matches = sorted.filter((el) =>
+                    matchSec(el.dataset.section, currentSec, currentLang) &&
+                    (currentIssue === "ALL" || el.dataset.issue === currentIssue) &&
+                    (!kw || (el.dataset.search || "").toLowerCase().includes(kw)));
+                const total = matches.length;
+                const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+                if (currentPage > pages) currentPage = pages;
+                const pageItems = matches.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+                const n = pageItems.length;
+
+                // Layout for this page: 4+ → one large + cards; 2–3 → equal
+                // columns; 1 → the large layout alone. No stray half rows.
+                const featured = !kw && currentView === "grid" && (n === 1 || n >= 4);
+                const newest = matches.reduce((m, el) => ((el.dataset.date || "") > m ? el.dataset.date : m), "");
                 sorted.forEach((el) => {
-                    const ok = matchSec(el.dataset.section, currentSec, currentLang) && (!kw || (el.dataset.search || "").toLowerCase().includes(kw));
-                    el.style.display = ok ? "" : "none";
-                    el.classList.remove("is-featured");
-                    if (ok) {
-                        if (visible === 0 && currentSec === "ALL" && !kw && currentView === "grid") {
-                            el.classList.add("is-featured");
-                        }
-                        visible++;
+                    el.style.display = "none";
+                    el.classList.remove("is-featured", "is-newest");
+                });
+                pageItems.forEach((el, i) => {
+                    el.style.display = "";
+                    if (featured && i === 0) {
+                        el.classList.add("is-featured");
+                        if (el.dataset.date === newest) el.classList.add("is-newest");
                     }
                 });
 
                 gridEl.classList.toggle("is-list-view", currentView === "list");
-                gridEl.classList.toggle("has-featured", currentSec === "ALL" && !kw && currentView === "grid");
+                gridEl.classList.toggle("has-featured", featured);
+                gridEl.classList.toggle("is-search", !!kw);
+                gridEl.dataset.cols = !kw && currentView === "grid" && (n === 2 || n === 3) ? String(n) : "";
 
-                countEl.textContent = `총 ${visible}편`;
-                emptyEl.style.display = visible === 0 ? "block" : "none";
-                if (visible === 0) {
-                    const scope = currentSec === "ALL" ? "전체 섹션" : displaySec + " 섹션";
+                countEl.textContent = `총 ${total}편`;
+                if (kw) {
+                    const c = document.createElement("span");
+                    c.className = "archive-q-count";
+                    c.textContent = `${total}건`;
+                    titleEl.append(c);
+                }
+
+                // Pagination: always shown, even when everything fits on one page.
+                pagerEl.textContent = "";
+                pagerEl.append(pagerItem("이전", currentPage - 1, { step: true, disabled: currentPage === 1, aria: "이전 페이지" }));
+                for (let p = 1; p <= pages; p++) {
+                    pagerEl.append(pagerItem(String(p), p, { current: p === currentPage, aria: `${p}페이지` }));
+                }
+                pagerEl.append(pagerItem("다음", currentPage + 1, { step: true, disabled: currentPage === pages, aria: "다음 페이지" }));
+
+                emptyEl.style.display = total === 0 ? "block" : "none";
+                if (total === 0) {
+                    const scope = (currentIssue === "ALL" ? "" : issueLabel(currentIssue) + " ") + (currentSec === "ALL" ? "전체 섹션" : displaySec + " 섹션");
                     emptyText.textContent = currentQuery ? `‘${currentQuery}’에 해당하는 ${scope} 기사가 없습니다.` : `${scope}에 해당하는 기사가 없습니다.`;
                     emptyAllBtn.hidden = currentSec === "ALL" || !currentQuery;
                 }
             }
 
+            const reset = () => { currentPage = 1; };
             tabs.forEach((b) => b.addEventListener("click", () => {
                 currentSec = b.dataset.filter;
                 if (currentSec !== "GLOBAL") currentLang = "ALL";
-                syncUrl();
-                render();
+                reset(); syncUrl(); render();
             }));
-            langBtns.forEach((b) => b.addEventListener("click", () => { currentLang = b.dataset.lang; syncUrl(); render(); }));
-            sortBtns.forEach((b) => b.addEventListener("click", () => { currentSort = b.dataset.sort; render(); }));
+            langBtns.forEach((b) => b.addEventListener("click", () => { currentLang = b.dataset.lang; reset(); syncUrl(); render(); }));
+            sortBtns.forEach((b) => b.addEventListener("click", () => { currentSort = b.dataset.sort; reset(); syncUrl(); render(); }));
             viewBtns.forEach((b) => b.addEventListener("click", () => { currentView = b.dataset.view; render(); }));
 
             let t = null;
             searchInput.addEventListener("input", () => {
                 clearTimeout(t);
-                t = setTimeout(() => { currentQuery = searchInput.value.trim(); syncUrl(); render(); }, 100);
+                t = setTimeout(() => { currentQuery = searchInput.value.trim(); reset(); syncUrl(); render(); }, 100);
             });
 
-            function clearQ() { currentQuery = ""; searchInput.value = ""; syncUrl(); render(); }
+            headForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                currentQuery = headInput.value.trim();
+                searchInput.value = currentQuery;
+                reset(); syncUrl(); render();
+            });
+
+            function clearQ() { currentQuery = ""; searchInput.value = ""; reset(); syncUrl(); render(); }
             searchClear.addEventListener("click", clearQ);
             chipClear.addEventListener("click", clearQ);
-            emptyAllBtn.addEventListener("click", () => { currentSec = "ALL"; currentLang = "ALL"; syncUrl(); render(); });
-            emptyResetBtn.addEventListener("click", () => { currentSec = "ALL"; currentLang = "ALL"; currentQuery = ""; searchInput.value = ""; syncUrl(); render(); });
+            emptyAllBtn.addEventListener("click", () => { currentSec = "ALL"; currentLang = "ALL"; reset(); syncUrl(); render(); });
+            emptyResetBtn.addEventListener("click", () => { currentSec = "ALL"; currentLang = "ALL"; currentIssue = "ALL"; currentQuery = ""; searchInput.value = ""; reset(); syncUrl(); render(); });
             document.querySelectorAll(".suggest-chip").forEach((c) => c.addEventListener("click", () => {
-                currentSec = "ALL"; currentLang = "ALL"; currentQuery = c.dataset.kw || ""; searchInput.value = currentQuery; syncUrl(); render();
+                currentSec = "ALL"; currentLang = "ALL"; currentQuery = c.dataset.kw || ""; searchInput.value = currentQuery; reset(); syncUrl(); render();
             }));
 
             render();
-        });
+            document.documentElement.classList.remove("list-pending");
+        })();
     </script>
+    <!-- Safety net: show the list even if the script above failed -->
+    <script>document.documentElement.classList.remove("list-pending");</script>
 </body>
 </html>

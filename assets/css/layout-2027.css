@@ -62,7 +62,7 @@
 .mk-nav-link {
     padding: 12px 14px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 0;
     color: var(--ink);
     white-space: nowrap;
@@ -118,6 +118,17 @@
 }
 .mk-btn-accent:hover { background: var(--accent-hover); }
 
+/* Header "뉴스레터 구독": soft lavender with purple text instead of bright orange */
+.mk-actions .mk-btn-accent {
+    background: #ede7f5;
+    color: var(--navy);
+    font-weight: 700;
+}
+.mk-actions .mk-btn-accent:hover {
+    background: var(--navy);
+    color: #fff;
+}
+
 /* Masthead variant (main page): issue | logo | actions, section strip below.
    The top row scrolls away; the section strip stays pinned. */
 .mk-header--masthead.ed-header {
@@ -152,6 +163,35 @@
     border-radius: 8px;
 }
 .mk-header--masthead .mk-nav-link:hover { background: var(--bg-surface); }
+
+/* PC: same menu as the sub pages — plain links on one line, no grey box,
+   under the centred logo row. Phones keep the scrolling strip below. */
+@media (min-width: 901px) {
+    .mk-header--masthead.ed-header {
+        inset-block-start: -76px;          /* logo row scrolls away, menu line stays */
+        row-gap: 8px;
+        padding-block: 20px 0;
+        border-bottom: 1px solid var(--mk-line);
+    }
+    .mk-header--masthead .mk-nav-track {
+        justify-content: center;
+        gap: 4px;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+    .mk-header--masthead .mk-nav-link {
+        padding: 12px 16px;
+        border-radius: 0;
+    }
+    /* No line between the logo row and the menu. The logo row (20 + 48)
+       and the gap (8) scroll away; the menu stays pinned. */
+    .mk-header--masthead.ed-header { row-gap: 8px; inset-block-start: -76px; }
+    .mk-header--masthead .mk-nav-link:hover {
+        background: transparent;
+        color: var(--navy);
+    }
+}
 
 /* Compact header gets tight before the nav fits: hide the issue label first */
 @media (max-width: 1240px) {
@@ -1000,7 +1040,7 @@
     border-block-end: 0;
     border-block-start: 1px solid var(--mk-line);
 }
-.article-hero-inner > :not(.article-breadcrumb):not(.article-subtitle):not(.article-title):not(.article-meta-bar) { order: 4; }
+.article-hero-inner > :not(.article-breadcrumb):not(.article-subtitle):not(.article-title):not(.article-meta-bar):not(.hero-label):not(.hero-points):not(.hero-stats) { order: 4; }
 
 .article-cover {
     inline-size: min(100% - (var(--mk-pad) * 2), var(--mk-max));
@@ -1041,7 +1081,7 @@
 .mk-critic-duo q { quotes: "“" "”"; }
 
 /* --------------------------------------------------------------------------
-   15. List page (archive) — mockup List
+   15. List page (archive) and search results — mockup List / Search
    -------------------------------------------------------------------------- */
 .archive-head {
     background: var(--mk-tint);
@@ -1051,27 +1091,72 @@
 .archive-head .ed-container,
 .archive-dock .ed-container,
 .archive-body .ed-container { inline-size: min(100% - (var(--mk-pad) * 2), var(--mk-max)); }
-.archive-kicker {
-    margin-block-end: 14px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0;
-    color: var(--ink-muted);
-}
+.archive-head .ed-container { display: flex; flex-direction: column; gap: 14px; }
+.archive-crumb { font-size: 14px; color: var(--ink-muted); }
+.archive-crumb a:hover { color: var(--navy); text-decoration: underline; }
 .archive-title {
+    margin: 0;
     font-weight: 800;
     font-size: 52px;
+    line-height: 1.2;
     letter-spacing: -0.03em;
 }
-.archive-desc { margin-block-start: 14px; font-size: 18px; line-height: 1.7; color: var(--ink-2); }
+.archive-desc { margin: 0; max-inline-size: 40em; font-size: 18px; line-height: 1.7; color: var(--ink-2); }
+.archive-desc[hidden] { display: none; }
 
-.archive-dock { background: var(--bg-surface); }
+/* Filter row: pills on the left, count and sort on the right. Not pinned. */
+.archive-dock {
+    position: static;
+    background: var(--bg-surface);
+    border-bottom: 0;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    padding-block: 28px 0;
+}
+.archive-dock-inner { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; }
+.archive-tabs { gap: 8px; }
+.archive-tab {
+    min-block-size: 44px;
+    padding: 0 18px;
+    border-radius: 22px;
+    border: 1px solid var(--mk-line);
+    background: var(--bg-surface);
+    color: var(--ink);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0;
+}
+.archive-tab:hover { border-color: var(--navy); color: var(--navy); }
+.archive-tab { transition: none; }
+.archive-tab.is-active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.archive-tab-count { font-size: 12px; }
+.archive-tab.is-active .archive-tab-count { color: #fff; opacity: 0.75; }
 
-/* The header nav collapses below 1101px now, so the section tabs come back there */
+.archive-controls { flex: 1 1 auto; justify-content: flex-end; gap: 16px; }
+.archive-count { order: -1; margin-inline-end: auto; font-size: 14px; color: var(--ink-muted); }
+.archive-ctrl-left { gap: 4px; }
+.archive-ctrl-left .seg-group { padding: 0; border: 0; border-radius: 0; background: transparent; }
+.archive-ctrl-left .seg-group[hidden] { display: none; }
+.archive-ctrl-left .seg-btn {
+    padding: 8px 6px;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-muted);
+}
+.archive-ctrl-left .seg-btn.is-active { color: var(--ink); font-weight: 800; background: transparent; box-shadow: none; }
+.archive-ctrl-left .seg-group + .seg-group { margin-inline-start: 12px; }
+.archive-ctrl-left .seg-group:has([data-view]) { display: none; }   /* mockup has no card/list switch */
+.archive-search-box { display: none; }                              /* search lives in the header */
+
 @media (min-width: 1101px) and (max-width: 1180px) {
     .archive-dock .archive-tabs { display: none; }
 }
 
+.archive-body { padding-block: 32px 56px; }
 .archive-grid { gap: 40px 28px; }
 .archive-card,
 .archive-card:hover {
@@ -1082,20 +1167,18 @@
     transform: none;
     overflow: visible;
 }
-.archive-card .ed-media {
-    aspect-ratio: 367 / 214;
-    border-radius: 10px;
-    overflow: hidden;
-}
+.archive-card .ed-media { aspect-ratio: 367 / 214; border-radius: 10px; overflow: hidden; }
 .archive-card-body { padding: 14px 0 0; gap: 10px; }
 .archive-card .ed-kicker { color: var(--navy); font-size: 13px; font-weight: 700; letter-spacing: 0; }
 .archive-card .ed-card-title { font-weight: 800; font-size: 21px; line-height: 1.4; letter-spacing: -0.03em; }
 .archive-card:hover .ed-card-title { text-decoration: underline; text-underline-offset: 4px; }
 .archive-card .ed-card-deck { font-size: 14px; color: var(--ink-muted); }
-.archive-card-foot { border-top: 0; padding-block-start: 0; font-size: 13px; }
+.archive-card-foot { display: none; }   /* mockup cards: kicker, title, subtitle only */
 
+/* First article: large image 7 / text 5 */
 .archive-grid.has-featured .archive-card.is-featured {
     grid-column: 1 / -1;
+    display: grid;
     grid-template-columns: 7fr 5fr;
     gap: 40px;
     align-items: center;
@@ -1110,9 +1193,63 @@
 .archive-grid.has-featured .archive-card.is-featured .ed-kicker { font-size: 14px; }
 .archive-grid.has-featured .archive-card.is-featured .ed-card-title { font-size: 40px; line-height: 1.3; }
 .archive-grid.has-featured .archive-card.is-featured .ed-card-deck { font-size: 17px; font-weight: 600; color: var(--ink-2); -webkit-line-clamp: 3; line-clamp: 3; }
+.archive-grid.has-featured .archive-card.is-featured .archive-card-foot { display: flex; justify-content: flex-start; gap: 12px; margin: 0; font-size: 14px; }
+.archive-grid.has-featured .archive-card.is-featured .archive-card-foot > span:last-child { display: none; }
 
 .archive-grid.is-list-view .archive-card { gap: 24px; align-items: center; }
 .archive-grid.is-list-view .archive-card .archive-card-body { padding: 0; }
+
+/* Search mode */
+body.is-search .archive-head .ed-container,
+body.is-search .archive-dock .ed-container,
+body.is-search .archive-body .ed-container { inline-size: min(100% - (var(--mk-pad) * 2), 784px); }
+body.is-search .archive-head { padding-block: 56px 44px; }
+body.is-search .archive-title { font-size: 32px; }
+.archive-q { color: var(--navy); }
+.archive-q-count { font-size: 20px; font-weight: 600; letter-spacing: 0; color: var(--ink-muted); }
+.archive-head-search { display: flex; gap: 10px; }
+.archive-head-search[hidden] { display: none; }
+.archive-head-search input {
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: 56px;
+    padding: 0 20px;
+    border: 2px solid var(--navy);
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+}
+.archive-head-search button {
+    min-block-size: 56px;
+    padding: 0 28px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+}
+body.is-search .archive-dock .archive-tabs { display: flex; }
+body.is-search .archive-controls { display: none; }
+body.is-search .archive-chip-bar { display: none; }
+
+.archive-grid.is-search { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.archive-grid.is-search .archive-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 24px;
+    padding-block: 24px;
+    border-top: 1px solid var(--mk-line);
+}
+.archive-grid.is-search .ed-media { order: 2; inline-size: 180px; block-size: 110px; aspect-ratio: auto; border-radius: 8px; }
+.archive-grid.is-search .archive-card-body { padding: 0; gap: 8px; }
+.archive-grid.is-search .ed-card-deck { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.archive-grid mark { background: #ffd9a8; color: var(--ink); padding: 0 2px; }
 
 @media (max-width: 1024px) {
     .archive-grid.has-featured .archive-card.is-featured .ed-media { block-size: 340px; }
@@ -1123,11 +1260,25 @@
     .archive-head { padding-block: 40px 28px; }
     .archive-title { font-size: 36px; }
     .archive-desc { font-size: 16px; }
+    .archive-dock { padding-block-start: 20px; }
+    .archive-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; inline-size: 100%; }
+    .archive-tabs::-webkit-scrollbar { display: none; }
+    .archive-tab { flex: 0 0 auto; }
+    body.is-search .archive-head { padding-block: 32px 28px; }
+    body.is-search .archive-title { font-size: 26px; }
+    .archive-q-count { font-size: 16px; }
+    .archive-head-search input, .archive-head-search button { min-block-size: 50px; }
+    .archive-head-search input { font-size: 16px; }
+    .archive-head-search button { padding: 0 18px; }
+    .archive-grid.is-search .archive-card { grid-template-columns: minmax(0, 1fr) 96px; gap: 14px; padding-block: 18px; }
+    .archive-grid.is-search .ed-media { inline-size: 96px; block-size: 72px; }
+    .archive-grid.is-search .ed-card-title { font-size: 17px; }
+    .archive-grid.is-search .ed-card-deck { font-size: 14px; }
 }
 
 @media (max-width: 720px) {
     .archive-grid { gap: 32px; }
-    .archive-grid.has-featured .archive-card.is-featured { gap: 14px; }
+    .archive-grid.has-featured .archive-card.is-featured { grid-template-columns: minmax(0, 1fr); gap: 14px; }
     .archive-grid.has-featured .archive-card.is-featured .ed-media { block-size: auto; aspect-ratio: 16 / 10; }
     .archive-grid.has-featured .archive-card.is-featured .ed-card-title { font-size: 26px; }
 }
@@ -1136,3 +1287,704 @@
    orange top line moves up to sit above it. */
 .mk-newsletter { border-top: 3px solid var(--accent); }
 body:has(.mk-newsletter) .ed-footer { border-top: 0; }
+
+/* --------------------------------------------------------------------------
+   16. Data pages — mockup BoxOffice / Production
+   -------------------------------------------------------------------------- */
+.article-hero--data {
+    margin-block-end: 48px;
+    padding-block: 56px;
+    background: var(--mk-tint);
+}
+.article-hero--data .article-hero-inner {
+    inline-size: min(100% - (var(--mk-pad) * 2), var(--mk-max));
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: 32px;
+    row-gap: 14px;
+    align-items: end;
+}
+.article-hero--data .article-hero-inner > * { grid-column: 1; }
+.article-hero--data .article-breadcrumb { display: none; }
+.article-hero--data .article-title { order: 1; max-inline-size: 18em; font-size: 44px; line-height: 1.25; letter-spacing: -0.03em; }
+.article-hero--data .article-subtitle { order: 2; font-size: 16px; font-weight: 500; color: var(--ink-2); }
+.article-hero--data .article-meta-bar { order: 4; margin: 0; padding: 0; border: 0; }
+.hero-label {
+    order: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+}
+.hero-points {
+    order: 2;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.hero-points li { position: relative; padding-inline-start: 16px; }
+.hero-points li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.68em;
+    inline-size: 6px;
+    block-size: 6px;
+    border-radius: 3px;
+    background: var(--accent);
+}
+.hero-stats {
+    order: 3;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-auto-flow: column;
+    gap: 12px;
+}
+.article-hero--data .hero-stats { grid-column: 2; grid-row: 1 / span 4; align-self: end; }
+.hero-stats > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #fff;
+}
+.hero-stats dt { font-size: 13px; color: var(--ink-muted); }
+.hero-stats dd { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; color: var(--navy); white-space: nowrap; }
+
+/* Box office: dark band, week navigation */
+.article-hero--data:has(.hero-week) { background: var(--bg-cinema); color: #fff; }
+.article-hero--data:has(.hero-week) .hero-label { color: var(--accent); }
+.article-hero--data:has(.hero-week) .article-title { color: #fff; }
+.article-hero--data:has(.hero-week) .hero-points { color: #e4deec; }
+.article-hero--data:has(.hero-week) .hero-stats > div { background: var(--bg-cinema-2); }
+.article-hero--data:has(.hero-week) .hero-stats dt { color: #b9aecb; }
+.article-hero--data:has(.hero-week) .hero-stats dd { color: #fff; }
+.article-hero--data:has(.hero-week) .hero-stats > div:nth-child(2) dd { color: var(--accent); }
+.article-hero--data:has(.hero-week) .article-meta-bar,
+.article-hero--data:has(.hero-week) .article-byline-group,
+.article-hero--data:has(.hero-week) .article-date-row,
+.article-hero--data:has(.hero-week) .article-credits { color: #b9aecb; }
+.article-hero--data:has(.hero-week) .reader-pill-group { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.16); }
+.article-hero--data:has(.hero-week) .reader-btn { color: #d9d2e4; }
+.article-hero--data:has(.hero-week) .reader-btn.is-active { background: #fff; color: var(--ink); }
+.article-hero--data:has(.hero-week) .reader-share-btn { background: transparent; border-color: rgba(255, 255, 255, 0.24); color: #fff; }
+
+.hero-week { display: flex; align-items: center; gap: 8px; letter-spacing: 0; }
+.hero-week-btn {
+    inline-size: 44px;
+    block-size: 44px;
+    border-radius: 22px;
+    border: 1px solid #6e6380;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.hero-week-btn svg { inline-size: 18px; block-size: 18px; }
+a.hero-week-btn:hover { border-color: #fff; }
+.hero-week-btn.is-disabled { opacity: 0.3; }
+.hero-week-now { min-inline-size: 104px; text-align: center; font-size: 16px; font-weight: 800; color: #fff; }
+
+/* The summary box repeats the hero points on box office pages */
+body:has(.hero-week) .article-main .sub-summation { display: none; }
+
+/* Ranking / film tables built from the poster cards */
+.article-main .data-table-wrap {
+    max-inline-size: 850px;
+    margin: 20px auto 44px;
+    overflow-x: auto;
+}
+.data-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+    border-top: 2px solid var(--ink);
+}
+.data-table thead th {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--mk-line);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: start;
+    color: var(--ink-muted);
+    white-space: nowrap;
+}
+.data-table td,
+.data-table tbody th {
+    padding: 13px 8px;
+    border-bottom: 1px solid var(--mk-line);
+    text-align: start;
+    vertical-align: middle;
+    font-weight: 400;
+}
+.data-table tr > :first-child { padding-inline-start: 0; }
+.data-table tr > :last-child { padding-inline-end: 0; }
+.data-table .c-film { font-weight: 700; }
+.data-table .c-num,
+.data-table--rank thead th:nth-child(3),
+.data-table--rank thead th:nth-child(4) { text-align: end; white-space: nowrap; }
+.article-main .data-table th,
+.article-main .data-table td { background: transparent; }
+.data-table--rank .c-date,
+.data-table--rank thead th:nth-child(5) { text-align: end; color: var(--ink-muted); white-space: nowrap; }
+.data-table--rank .c-rank { inline-size: 40px; font-weight: 800; font-size: 17px; color: var(--ink-muted); }
+.data-table--rank tr.is-top .c-rank { color: var(--ink); font-size: 20px; }
+.data-table--rank tbody tr:first-child .c-rank { color: var(--accent); }
+.data-table--rank .c-film { display: flex; align-items: center; gap: 12px; }
+.data-table--rank .c-film img {
+    flex: none;
+    inline-size: 36px;
+    block-size: 52px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: var(--bg-panel);
+}
+
+/* Production board */
+.prod-board { max-inline-size: 850px; margin: 24px auto 32px; }
+.prod-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px 16px;
+    flex-wrap: wrap;
+    margin-block-end: 16px;
+}
+.prod-filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.prod-pill {
+    min-block-size: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    border: 1px solid var(--mk-line);
+    background: var(--bg-surface);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+.prod-pill:hover { border-color: var(--navy); color: var(--navy); }
+.prod-pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.prod-pill-count { font-size: 12px; font-weight: 600; opacity: 0.7; }
+.prod-filter-note { font-size: 13px; color: var(--ink-muted); }
+.prod-tag {
+    display: inline-block;
+    margin-inline-end: 4px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #ede7f5;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+    vertical-align: 2px;
+}
+a.prod-tag:hover { background: var(--navy); color: #fff; }
+.prod-board .data-table-wrap { margin: 0; max-inline-size: none; }
+.data-table--prod td,
+.data-table--prod tbody th { vertical-align: top; }
+.data-table--prod .c-date { color: var(--ink-muted); white-space: nowrap; }
+.data-table--prod .c-cast { color: var(--ink-2); }
+.data-table--prod tr[hidden] { display: none; }
+
+.prod-details {
+    max-inline-size: 850px;
+    margin: 0 auto 48px;
+    border-top: 1px solid var(--mk-line);
+    border-bottom: 1px solid var(--mk-line);
+}
+.prod-details > summary {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-block: 16px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+}
+.prod-details-hint { font-size: 13px; font-weight: 500; color: var(--ink-muted); }
+.prod-details[open] > summary { border-bottom: 1px solid var(--mk-line); }
+.prod-details .common-table-1 { margin-block: 16px 24px !important; }
+
+@media (max-width: 900px) {
+    .article-hero--data { padding-block: 36px; margin-block-end: 32px; }
+    .article-hero--data .article-hero-inner { grid-template-columns: minmax(0, 1fr); }
+    .article-hero--data .hero-stats { grid-column: 1; grid-row: auto; }
+    .article-hero--data .article-title { font-size: 28px; }
+    .hero-points { font-size: 15px; }
+    .hero-stats > div { padding: 14px 16px; }
+    .hero-stats dd { font-size: 22px; }
+    .data-table { font-size: 14px; }
+    .data-table--rank .c-date,
+    .data-table--rank thead th:nth-child(5) { display: none; }
+    .data-table--rank .c-film img { inline-size: 30px; block-size: 44px; }
+    .data-table--prod thead th:nth-child(5),
+    .data-table--prod .c-cast { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   17. List page — issue filter, pagination, few-article layouts
+   -------------------------------------------------------------------------- */
+.archive-issues { display: flex; gap: 8px; flex-wrap: wrap; }
+.archive-issue {
+    min-block-size: 44px;
+    padding: 0 18px;
+    border-radius: 22px;
+    border: 1px solid var(--mk-line);
+    background: var(--bg-surface);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+.archive-issue:hover { border-color: var(--navy); color: var(--navy); }
+.archive-issue[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+/* Section pills (small screens / search) sit on their own row under the issues */
+.archive-dock .archive-tabs { flex-basis: 100%; order: 1; }
+.archive-dock .archive-controls { order: 2; flex: 0 1 auto; }
+.archive-dock .archive-issues { order: 0; }
+.archive-count { order: 0; margin-inline-end: 8px; }
+
+.ed-issue { margin-inline-start: 2px; }
+.archive-card.is-newest .ed-kicker::before {
+    content: "최신";
+    display: inline-block;
+    margin-inline-end: 8px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: var(--ink-on-accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+    vertical-align: 1px;
+}
+
+/* 2 or 3 articles on a page: equal columns, no half-empty row */
+.archive-grid[data-cols="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+.archive-grid[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.archive-grid[data-cols="2"] .ed-media { aspect-ratio: 16 / 10; border-radius: 14px; }
+.archive-grid[data-cols="2"] .ed-card-title { font-size: 28px; line-height: 1.35; }
+.archive-grid[data-cols="2"] .ed-card-deck { font-size: 16px; }
+
+.archive-pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-block-start: 56px;
+    font-weight: 700;
+    font-size: 15px;
+}
+.archive-page {
+    min-inline-size: 44px;
+    block-size: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 22px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.archive-page:hover { background: var(--bg-panel); }
+.archive-page[aria-current="page"] { background: var(--navy); color: #fff; }
+.archive-page.is-step { padding: 0 16px; border: 1px solid var(--mk-line); }
+.archive-page.is-disabled { color: var(--ink-muted); opacity: 0.45; cursor: default; }
+.archive-page.is-disabled:hover { background: transparent; }
+
+@media (max-width: 900px) {
+    .archive-issues { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; inline-size: 100%; }
+    .archive-issues::-webkit-scrollbar { display: none; }
+    .archive-issue { flex: 0 0 auto; }
+    .archive-dock .archive-controls { flex: 1 1 100%; }
+    .archive-pager { margin-block-start: 40px; }
+}
+
+@media (max-width: 720px) {
+    .archive-grid[data-cols="2"],
+    .archive-grid[data-cols="3"] { grid-template-columns: minmax(0, 1fr); }
+    .archive-grid[data-cols="2"] .ed-card-title { font-size: 22px; }
+}
+
+/* list.html: until its script has applied the URL (section, search, page),
+   keep the heading and grid hidden so "전체 기사" never flashes first. */
+.list-pending .archive-head .ed-container,
+.list-pending .archive-dock,
+.list-pending .archive-grid,
+.list-pending .archive-pager { visibility: hidden; }
+
+/* Cover rotation timer: fills left to right over 7 s, holds while paused */
+.mk-hero-progress {
+    /* Full-width line along the bottom edge of the cover (the cover clips
+       it to its rounded corners). */
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 1;
+    block-size: 5px;
+    background: rgba(255, 255, 255, 0.16);
+}
+.mk-hero-progress[hidden] { display: none; }
+.mk-hero-progress span {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+/* "다음 커버스토리" label on the small card at the right of the cover */
+.mk-hero-next-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding-block-end: 10px;
+    margin-block-end: 2px;
+    border-bottom: 1px solid var(--mk-line);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+}
+.mk-hero-next-label::after { content: none; }
+.mk-hero-next-label > span:first-child::after { content: " →"; color: var(--accent); }
+.mk-hero-next-num { font-size: 12px; font-weight: 600; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+
+/* Sub-page header between 1101px and 1240px: logo, 7 menu items and search
+   share one row, so the items sit a little closer to stay on one line. */
+@media (min-width: 1101px) and (max-width: 1240px) {
+    .mk-header:not(.mk-header--masthead) .mk-nav-link { padding-inline: 10px; }
+}
+
+/* Breathing room between the menu line and the cover (PC) */
+@media (min-width: 901px) {
+    .mk-hero-wrap { margin-block-start: 28px; }
+}
+
+/* --------------------------------------------------------------------------
+   18. Article page — mockup Article
+   -------------------------------------------------------------------------- */
+/* Header block: badge, subtitle, title, summary box, byline row */
+.article-hero-inner > .article-meta-bar { order: 4; }
+.article-hero .sub-summation {
+    margin: 8px 0 0;
+    padding: 20px 22px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--mk-tint);
+}
+.article-hero .sub-summation .title { display: none; }
+.article-hero .sub-summation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.article-hero .sub-summation li { position: relative; padding-inline-start: 16px; }
+.article-hero .sub-summation li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.72em;
+    inline-size: 6px;
+    block-size: 6px;
+    border-radius: 3px;
+    background: var(--accent);
+}
+.article-hero .sub-summation li > span { display: none; }
+.article-hero .sub-summation li p {
+    margin: 0;
+    font-size: calc(17px * var(--read-scale));
+    font-weight: 600;
+    line-height: 1.6;
+    color: #2a2533;
+}
+
+.article-hero:not(.article-hero--data) .article-meta-bar { margin-block-start: 8px; padding-block-start: 14px; }
+.article-byline-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    font-size: 14px;
+    color: var(--ink-muted);
+}
+.article-byline-group .article-credits { order: 0; color: var(--ink-muted); }
+.article-byline-group .article-date-row { order: 1; font-size: 14px; }
+.reader-toolbar { gap: 8px; }
+.reader-share-btn {
+    min-block-size: 40px;
+    padding: 0 16px;
+    border-radius: 20px;
+    border-color: var(--mk-line);
+    font-size: 13px;
+}
+
+/* Body: purple subheadings, no rule/orange bar above them */
+.article-main .n-common-title-2,
+.article-main .common-title-3 {
+    margin-block: 52px 16px;
+    padding-block-start: 0;
+    border-top: 0;
+    font-family: inherit;
+    font-size: calc(24px * var(--read-scale));
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+}
+.article-main .n-common-title-2::before { display: none; }
+.article-main .n-common-text-1 { color: #2a2533; line-height: 1.9; }
+
+@media (max-width: 900px) {
+    .article-hero .sub-summation { padding: 16px 18px; }
+    .article-hero .sub-summation li p { font-size: calc(15px * var(--read-scale)); }
+    .article-main .n-common-title-2,
+    .article-main .common-title-3 { font-size: calc(20px * var(--read-scale)); margin-block: 40px 12px; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Article prev / next: previous and next side by side (850px together,
+   centred), "목록으로" centred underneath
+   -------------------------------------------------------------------------- */
+.article-nav-bar {
+    max-inline-size: 850px;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "prev next"
+        "list list";
+    gap: 20px 16px;
+}
+.article-nav-bar > :first-child { grid-area: prev; }
+.article-nav-bar > :last-child { grid-area: next; }
+.article-nav-bar > .article-nav-list { grid-area: list; justify-self: center; }
+
+@media (max-width: 720px) {
+    .article-nav-bar { grid-template-columns: minmax(0, 1fr); grid-template-areas: none; gap: 12px; }
+    .article-nav-bar > * { grid-area: auto !important; }
+    .article-nav-bar > .article-nav-list { order: 2; margin-block-start: 8px; }
+    .article-nav-bar > div:empty { display: none; }
+    .article-nav-card.is-next { text-align: start; }
+}
+
+/* --------------------------------------------------------------------------
+   20. Data board — tables right under the header (mockup BoxOffice /
+   Production). The cover photo is left out on these pages, as in the mockup.
+   -------------------------------------------------------------------------- */
+.data-board {
+    inline-size: min(100% - (var(--mk-pad) * 2), var(--mk-max));
+    margin: 0 auto 64px;
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 40px;
+    align-items: start;
+}
+.data-board--prod { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.data-board ~ .article-cover { display: none; }
+.data-board-title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+.data-board .data-table-wrap { max-inline-size: none; margin: 0; overflow-x: auto; }
+.data-board .prod-board { max-inline-size: none; margin: 0; }
+.data-board .prod-details { max-inline-size: none; margin: 0; }
+/* Side table (독립·예술영화): rank, film, 관객수 only */
+.data-board-side .data-table th:nth-child(n+4),
+.data-board-side .data-table td:nth-child(n+4) { display: none; }
+.data-board-side .data-table .c-film img { inline-size: 30px; block-size: 44px; }
+
+@media (max-width: 900px) {
+    .data-board { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-block-end: 40px; }
+    .data-board-title { font-size: 18px; }
+}
+
+/* Box office header as in the mockup: one column — label with week nav on
+   the right, headline, points, three stat cards in a row, byline last. */
+@media (min-width: 901px) {
+    .article-hero--data:has(.hero-week) .article-hero-inner { grid-template-columns: minmax(0, 1fr); row-gap: 20px; }
+    .article-hero--data:has(.hero-week) .hero-stats {
+        grid-column: 1;
+        grid-row: auto;
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);   /* 3 cards, or 2 on week 1, fill the row */
+        gap: 16px;
+        margin-block-start: 8px;
+    }
+}
+.article-hero--data:has(.hero-week) .hero-stats > div { padding: 20px 24px; }
+.article-hero--data:has(.hero-week) .hero-stats dt { font-size: 14px; }
+.article-hero--data:has(.hero-week) .hero-stats dd { font-size: 34px; }
+.article-hero--data:has(.hero-week) .article-title { font-size: 40px; line-height: 1.3; }
+@media (max-width: 900px) {
+    .article-hero--data:has(.hero-week) .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row; }
+    .article-hero--data:has(.hero-week) .hero-stats dd { font-size: 24px; }
+    .article-hero--data:has(.hero-week) .article-title { font-size: 26px; }
+}
+
+/* 독립·예술영화 ranked cards (mockup BoxOffice aside) */
+.indie-rank { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.indie-rank li {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--mk-tint);
+}
+.indie-rank li[hidden] { display: none; }
+.indie-num { font-size: 22px; font-weight: 800; color: var(--ink); text-align: center; font-variant-numeric: tabular-nums; }
+.indie-rank li:first-child .indie-num { color: var(--accent); }
+.indie-body { display: flex; flex-direction: column; gap: 2px; min-inline-size: 0; }
+.indie-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+.indie-meta { font-size: 12px; color: var(--ink-muted); }
+.indie-more {
+    margin-block-start: 10px;
+    inline-size: 100%;
+    min-block-size: 40px;
+    border: 1px solid var(--mk-line);
+    border-radius: 10px;
+    background: var(--bg-surface);
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.indie-more:hover { border-color: var(--navy); color: var(--navy); }
+.indie-article {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-block-start: 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--mk-line);
+    border-radius: 10px;
+}
+.indie-article-label { font-size: 12px; font-weight: 700; color: var(--navy); }
+.indie-article-title { font-size: 14px; font-weight: 700; color: var(--ink); }
+.indie-article:hover { border-color: var(--navy); }
+.indie-article:hover .indie-article-title { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Phones: font-size buttons big enough to tap */
+@media (max-width: 900px) {
+    .reader-btn { min-inline-size: 40px; min-block-size: 40px; padding: 0 10px; }
+    .reader-share-btn { min-block-size: 44px; }
+}
+
+/* The header menu already lists the sections on every screen size, so the
+   list page's section pills only appear in search results. */
+.archive-dock .archive-tabs { display: none; }
+body.is-search .archive-dock .archive-tabs { display: flex; }
+
+/* --------------------------------------------------------------------------
+   21. Mobile menu (☰) — mockup MobileMenu
+   -------------------------------------------------------------------------- */
+.mk-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-block-end: 24px;
+    background: #fff;
+    color: var(--ink);
+}
+.mk-menu[hidden] { display: none; }
+.mk-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+}
+.mk-menu-logo img { display: block; block-size: 28px; inline-size: auto; }
+.mk-menu-close {
+    inline-size: 44px;
+    block-size: 44px;
+    border: 0;
+    border-radius: 22px;
+    background: #f4f2f7;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.mk-menu-close svg { inline-size: 20px; block-size: 20px; }
+.mk-menu-nav { padding: 8px 16px 0; }
+.mk-menu-nav ul { list-style: none; margin: 0; padding: 0; }
+.mk-menu-nav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    min-block-size: 56px;
+    border-bottom: 1px solid var(--mk-line);
+}
+.mk-menu-name { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.mk-menu-nav a[aria-current="page"] .mk-menu-name { color: var(--navy); }
+.mk-menu-nav a:active .mk-menu-name { color: var(--navy); }
+.mk-menu-quick {
+    list-style: none;
+    margin: 24px 16px 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+.mk-menu-quick a,
+.mk-menu-quick button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    min-block-size: 48px;
+    border-radius: 10px;
+    border: 1px solid var(--mk-line);
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.mk-menu-quick .is-accent { border-color: #ede7f5; background: #ede7f5; color: var(--navy); }
+@media (min-width: 1101px) {
+    .mk-menu { display: none; }
+}
+
+/* Wherever the ☰ menu is shown, the section strip under the header is
+   redundant — hide it (sub pages up to 1100px, main page up to 900px). */
+@media (max-width: 1100px) {
+    .mk-header:not(.mk-header--masthead) .mk-nav { display: none; }
+}
+@media (max-width: 900px) {
+    .mk-header--masthead .mk-nav { display: none; }
+}
