@@ -376,7 +376,13 @@
             articleMain.querySelectorAll(".common-image-slide-1 .image img, .common-image-block .image img").forEach((img) => {
                 const w = Number(img.getAttribute("width"));
                 const h = Number(img.getAttribute("height"));
-                if (w > 0 && h > 0) img.style.setProperty("--img-ar", (w / h).toFixed(4));
+                if (!(w > 0 && h > 0)) return;
+                img.style.setProperty("--img-ar", (w / h).toFixed(4));
+                // A photo on its own: its caption follows the photo's width
+                const box = img.closest(".image");
+                const block = img.closest(".common-image-slide-1, .common-image-block");
+                const cap = block ? block.querySelector(".common-desc") : null;
+                if (cap && box && !box.previousElementSibling && !box.nextElementSibling) cap.style.setProperty("--img-ar", (w / h).toFixed(4));
             });
 
             // 7-1. Production film cards: the spec text is "label: value<br>..."

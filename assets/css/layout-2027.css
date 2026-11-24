@@ -4399,3 +4399,32 @@ main [id] { scroll-margin-top: 0; }
 @media (min-width: 1101px) {
     .mk-cover-grid { block-size: clamp(420px, min(41vw, 100svh - 272px), 780px); }
 }
+
+/* Weekly Review on the main page: lower rows so the whole section sits in one
+   window (was 740px tall for seven films) */
+@media (min-width: 1101px) {
+    .mk-wr-grid .mk-wr-item { grid-template-columns: 104px minmax(0, 1fr) auto; column-gap: 20px; padding-block: 8px; }
+    .mk-wr-grid .mk-wr-list > li,
+    .mk-wr-grid .mk-wr-list > li:first-child,
+    .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 78px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-film { font-size: 19px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-quote { margin-block-start: 3px; font-size: 15px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-score { font-size: 28px; }
+    .mk-wr-top .mk-wr-over .mk-wr-score { font-size: clamp(72px, 7vw, 112px); }
+    .mk-wr-top .mk-wr-flag { margin-block-start: 18px; }
+    .mk-wr-top > .mk-wr-film { margin-block-start: 6px; font-size: clamp(26px, 2.2vw, 34px); }
+    .mk-wr-top .mk-wr-quote { margin-block-start: 6px; font-size: 19px; }
+}
+
+/* Short windows (PC): the article's cover photo and the In Depth photo follow
+   the window height, so the photo ends inside the first screen and the text
+   starts sooner */
+@media (min-width: 1101px) {
+    .article-cover-frame img { block-size: clamp(380px, 100svh - 440px, 620px); }
+    .mk-deep-photo img { block-size: clamp(380px, 100svh - 330px, 520px); }
+}
+
+/* A single photo narrower than the column (a portrait) is centred; its caption
+   takes the same width (same formula as the photo, ratio set by the script), so
+   it starts at the photo's left edge instead of out at the column edge */
+.article-main .common-desc[style*="--img-ar"] { max-inline-size: min(100%, calc(min(620px, 78vh) * var(--img-ar, 100))); margin-inline: auto; }
