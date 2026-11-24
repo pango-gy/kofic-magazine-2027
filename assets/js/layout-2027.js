@@ -346,6 +346,37 @@
         });
     }
 
+    /* The section menu scrolls sideways when it does not fit. A finger swipes it
+       natively; a mouse cannot — so let the mouse drag it too (and do not treat
+       the end of a drag as a click on a link). */
+    function initNavDrag() {
+        const track = document.querySelector(".mk-nav-track");
+        if (!track) return;
+        let startX = 0, startLeft = 0, down = false, moved = false;
+        track.addEventListener("pointerdown", (e) => {
+            if (e.pointerType !== "mouse" || e.button !== 0 || track.scrollWidth <= track.clientWidth) return;
+            down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+        });
+        window.addEventListener("pointermove", (e) => {
+            if (!down) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 4) { moved = true; track.classList.add("is-dragging"); }
+            if (moved) track.scrollLeft = startLeft - dx;
+        });
+        const end = () => { if (!down) return; down = false; setTimeout(() => track.classList.remove("is-dragging"), 0); };
+        window.addEventListener("pointerup", end);
+        window.addEventListener("pointercancel", end);
+        track.addEventListener("click", (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+        track.addEventListener("dragstart", (e) => e.preventDefault());
+        // a vertical mouse wheel over the strip moves it sideways
+        track.addEventListener("wheel", (e) => {
+            if (track.scrollWidth <= track.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+            const before = track.scrollLeft;
+            track.scrollLeft += e.deltaY;
+            if (track.scrollLeft !== before) e.preventDefault();
+        }, { passive: false });
+    }
+
     function initArticleToc() {
         const main = document.querySelector(".article-main:not(.mk-prod-table)");
         if (!main) return;
@@ -457,6 +488,7 @@
         initPosterWall();
         initCoverLockups();
         initArticleToc();
+        initNavDrag();
         initSplitTables();
         initQuickMenu();
         initReadRail();
