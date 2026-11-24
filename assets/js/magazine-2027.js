@@ -385,7 +385,7 @@
             function applyScale(scale) {
                 const valid = ["sm", "md", "lg"].includes(scale) ? scale : "md";
                 document.documentElement.setAttribute("data-font-scale", valid);
-                try { localStorage.setItem("kofic_font_scale", valid); } catch (e) {}
+                try { localStorage.setItem("kofic_font_scale_v2", valid); } catch (e) {}
                 scaleBtns.forEach((b) => {
                     const active = b.dataset.setScale === valid;
                     b.classList.toggle("is-active", active);
@@ -393,7 +393,7 @@
                 });
             }
             scaleBtns.forEach((b) => b.addEventListener("click", () => applyScale(b.dataset.setScale)));
-            applyScale(localStorage.getItem("kofic_font_scale") || "md");
+            applyScale(localStorage.getItem("kofic_font_scale_v2") || "md");
 
             // 7c. Estimated Reading Time
             const readTimeEl = document.getElementById("articleReadTime");

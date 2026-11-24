@@ -4063,3 +4063,22 @@ body { overflow-wrap: break-word; }
 @media (max-width: 760px) {
     .mk-wr-grid .mk-wr-item { grid-template-columns: 96px minmax(0, 1fr) auto; }
 }
+
+/* Text size steps moved up one notch: what used to be "large" is now the
+   default (middle 가). Small = the old default, large = one step beyond.
+   (The saved choice uses a new storage key, so everyone starts on the middle.) */
+:root { --read-scale: 1.18; }
+html[data-font-scale="sm"] { --read-scale: 1; }
+html[data-font-scale="md"] { --read-scale: 1.18; }
+html[data-font-scale="lg"] { --read-scale: 1.36; }
+
+/* Anchor jumps (Weekly Review film links, contents list, #sections) stop
+   below the pinned header instead of sliding under it */
+html { scroll-padding-top: 108px; }
+.article-main .wr-film,
+.article-main .common-title-3,
+.article-main .n-common-title-2,
+main [id] { scroll-margin-top: 0; }
+@media (max-width: 1100px) {
+    html { scroll-padding-top: 148px; }
+}

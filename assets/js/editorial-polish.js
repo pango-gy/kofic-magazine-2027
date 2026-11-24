@@ -164,7 +164,7 @@
         // 7. 3-Step Font Size Control (작게 / 보통 / 크게) with localStorage
         const checkboxWrap = document.querySelector(".sub-visual-text-wrap .checkbox-wrap");
         if (checkboxWrap && !checkboxWrap.querySelector(".ed-font-controls")) {
-            const saved = localStorage.getItem("kofic_font_scale") || "md";
+            const saved = localStorage.getItem("kofic_font_scale_v2") || "md";
             const controls = document.createElement("div");
             controls.className = "ed-font-controls";
             controls.setAttribute("role", "group");
@@ -179,7 +179,7 @@
             function setScale(key) {
                 document.documentElement.setAttribute("data-font-scale", key);
                 body.classList.toggle("view-checked", key === "lg");
-                try { localStorage.setItem("kofic_font_scale", key); } catch (e) {}
+                try { localStorage.setItem("kofic_font_scale_v2", key); } catch (e) {}
                 controls.querySelectorAll(".ed-font-btn").forEach((btn) => {
                     const active = btn.dataset.scale === key;
                     btn.classList.toggle("is-active", active);
