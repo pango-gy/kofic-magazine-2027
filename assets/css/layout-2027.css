@@ -4288,3 +4288,71 @@ main [id] { scroll-margin-top: 0; }
     .mk-wr-grid .mk-wr-list > li:first-child,
     .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 95px; }
 }
+
+/* Stars, redrawn so a half is exactly half. The old version filled a line of
+   ★ characters by percentage, and letter-spacing pushed the cut off-centre.
+   Now: four equal star-shaped cells cut out of a grey bar (mask), and an ink
+   bar over it whose width is  whole stars × (cell + gap) + fraction × cell. */
+.mk-wr-stars,
+.mk-wr-top .mk-wr-stars,
+.mk-wr-grid .mk-wr-item .mk-wr-stars {
+    --sz: 22px;
+    --gap: 5px;
+    --whole: round(down, var(--score), 1);
+    position: relative;
+    display: inline-block;
+    inline-size: calc(4 * var(--sz) + 3 * var(--gap));
+    block-size: var(--sz);
+    font-size: 0;
+    letter-spacing: 0;
+    background: #e6e5e2;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.2 6.6 7.2 1-5.2 5.1 1.2 7.2L12 18.1l-6.4 3.4 1.2-7.2L1.6 9.2l7.2-1z'/%3E%3C/svg%3E") 0 0 / var(--sz) var(--sz) space no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.2 6.6 7.2 1-5.2 5.1 1.2 7.2L12 18.1l-6.4 3.4 1.2-7.2L1.6 9.2l7.2-1z'/%3E%3C/svg%3E") 0 0 / var(--sz) var(--sz) space no-repeat;
+}
+.mk-wr-stars::before { content: none !important; }
+.mk-wr-stars::after,
+.mk-wr-top .mk-wr-stars::after,
+.mk-wr-grid .mk-wr-item .mk-wr-stars::after {
+    content: "" !important;
+    position: absolute;
+    inset: 0 auto 0 0;
+    inline-size: calc(var(--whole) * (var(--sz) + var(--gap)) + (var(--score) - var(--whole)) * var(--sz));
+    background: var(--ink);
+}
+.mk-wr-top .mk-wr-stars { --sz: 34px; --gap: 7px; margin-block-start: 16px; }
+@media (max-width: 760px) {
+    .mk-wr-top .mk-wr-stars { --sz: 28px; --gap: 6px; }
+}
+/* the rows on the right still show the number only */
+.mk-wr-grid .mk-wr-item .mk-wr-stars { display: none; }
+
+/* --------------------------------------------------------------------------
+   Main page Weekly Review — the reviews get their voice back.
+   Lead: the score sits ON the photo, large; under it the film and the
+   reviewer's one line, set big. Rows: title + the one line + the number.
+   -------------------------------------------------------------------------- */
+.mk-wr-top .mk-wr-photo { position: relative; }
+.mk-wr-top .mk-wr-photo::after { content: ""; position: absolute; inset: 45% 0 0 0; background: linear-gradient(180deg, rgb(12 11 14 / 0), rgb(12 11 14 / 0.72)); pointer-events: none; }
+.mk-wr-over { position: absolute; inset: auto auto 26px 30px; z-index: 1; display: flex; align-items: flex-end; gap: 20px; color: #fff; }
+.mk-wr-top .mk-wr-over .mk-wr-score { font-size: clamp(84px, 9vw, 148px); line-height: 0.82; letter-spacing: -0.06em; color: #fff; }
+.mk-wr-top .mk-wr-over .mk-wr-stars { --sz: 30px; --gap: 6px; margin: 0 0 8px; background: rgb(255 255 255 / 0.34); }
+.mk-wr-top .mk-wr-over .mk-wr-stars::after { background: #fff; }
+.mk-wr-top .mk-wr-flag { margin-block-start: 24px; }
+.mk-wr-top > .mk-wr-film { margin-block-start: 10px; font-size: clamp(30px, 2.8vw, 44px); font-weight: 800; line-height: 1.2; letter-spacing: -0.045em; }
+.mk-wr-quote { font-weight: 700; letter-spacing: -0.03em; word-break: keep-all; text-wrap: balance; }
+.mk-wr-top .mk-wr-quote { margin-block-start: 12px; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.4; color: var(--ink-2); }
+.mk-wr-grid .mk-wr-item .mk-wr-quote { margin-block-start: 6px; font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--ink-muted); }
+.mk-wr-grid .mk-wr-text { justify-content: center; }
+@media (min-width: 1101px) {
+    .mk-wr-grid .mk-wr-list > li { min-block-size: 108px; }
+    .mk-wr-grid .mk-wr-list > li:first-child,
+    .mk-wr-grid .mk-wr-list > li:last-child { min-block-size: 100px; }
+}
+@media (max-width: 760px) {
+    .mk-wr-over { inset: auto auto 16px 18px; gap: 12px; }
+    .mk-wr-top .mk-wr-over .mk-wr-score { font-size: 76px; }
+    .mk-wr-top .mk-wr-over .mk-wr-stars { --sz: 22px; --gap: 4px; margin-block-end: 6px; }
+    .mk-wr-top > .mk-wr-film { font-size: 28px; }
+    .mk-wr-top .mk-wr-quote { font-size: 18px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-quote { font-size: 15px; }
+}
