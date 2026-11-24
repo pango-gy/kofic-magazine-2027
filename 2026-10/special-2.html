@@ -10,16 +10,16 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preload" as="image" href="../assets/images/2026-10/special-2/special1002_00.webp" type="image/webp" fetchpriority="high">
-    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="../assets/css/layout-2027.css" rel="stylesheet">
+    <link href="../assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
     <style>
 @media screen and (max-width: 780px) {
             
             .sub-visual { height: 70vh; }
         }
     </style>
-    <script defer src="../assets/js/magazine-2027.js"></script>
-    <script defer src="../assets/js/layout-2027.js"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -71,15 +71,11 @@
                     </div>
 
                     <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
-                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
-                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
-                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
-                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
-                        </div>
-                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
-                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
-                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
-                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
                         </div>
                         <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
                     </div>
@@ -90,30 +86,17 @@
         <figure class="article-cover">
             <div class="article-cover-frame">
                 <img src="../assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>스크린을 넘어 정책·사회 변화 이끌어 내는 ‘임팩트 다큐멘터리’</li>
+                    <li>한국 ‘관객 연대’·대만 ‘정부 지원’·일본 ‘커뮤니티 시네마’ 통한 유의미한 성과</li>
+                    <li>전용 예산·전문 인력 갖춘 한국형 임팩트 다큐멘터리 생태계 구축 촉구</li>
+                </ol>
             </div>
             <figcaption class="article-cover-caption">‘임팩트 한국 - 임팩트의 지도: 다큐멘터리, 운동, 그리고 관객(1980-2025)’에서 소개되고 있는 <학교 가는 길>(제공=부산국제영화제)</figcaption>
         </figure>
 
         <article class="article-main">
-<div class="sub-summation">
-                    <p class="title">
-                        
-                    </p>
-                    <ul>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>스크린을 넘어 정책·사회 변화 이끌어 내는 ‘임팩트 다큐멘터리’</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>한국 ‘관객 연대’·대만 ‘정부 지원’·일본 ‘커뮤니티 시네마’ 통한 유의미한 성과</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>전용 예산·전문 인력 갖춘 한국형 임팩트 다큐멘터리 생태계 구축 촉구</p>
-                        </li>
-                    </ul>
-                </div>
 
                
 
@@ -461,7 +444,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="../assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

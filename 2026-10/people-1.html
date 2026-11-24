@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preload" as="image" href="../assets/images/2026-10/people-1/people1001_00.webp" type="image/webp" fetchpriority="high">
-    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="../assets/css/layout-2027.css" rel="stylesheet">
+    <link href="../assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
     <style>
 .name-badge.color-4 {
      color: #673AB7;
@@ -74,8 +74,8 @@
     text-shadow: 0 3px 8px rgba(184, 92, 117, 0.15); /* 은은한 그림자로 깊이감 부여 */
   }
     </style>
-    <script defer src="../assets/js/magazine-2027.js"></script>
-    <script defer src="../assets/js/layout-2027.js"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -127,15 +127,11 @@
                     </div>
 
                     <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
-                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
-                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
-                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
-                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
-                        </div>
-                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
-                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
-                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
-                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
                         </div>
                         <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
                     </div>
@@ -146,35 +142,16 @@
         <figure class="article-cover">
             <div class="article-cover-frame">
                 <img src="../assets/images/2026-10/people-1/people1001_00.webp" alt="인간다움과 인간다운 죽음에 대하여" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>어려운 환경 속 독자적인 작품 세계를 구축해 온 고(故) 허범욱 감독</li>
+                    <li>한국 독립애니메이션의 비옥한 미래를 기약하며 남긴 5편의 작품</li>
+                    <li>유작 <구제역에서 살아 돌아온 돼지>로 마지막 인터뷰, ‘인간다움’에 대한 깊은 질문 던지다</li>
+                </ol>
             </div>
         </figure>
 
         <article class="article-main">
-<div class="sub-summation">
-					<p class="title">
-						
-					</p>
-					<ul>
-						<li>
-						<span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-						<p>
-							 어려운 환경 속 독자적인 작품 세계를 구축해 온 고(故) 허범욱 감독
-						</p>
-						</li>
-						<li>
-						<span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-						<p>
-							 한국 독립애니메이션의 비옥한 미래를 기약하며 남긴 5편의 작품
-						</p>
-						</li>
-						<li>
-						<span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-						<p>
-							 유작 <구제역에서 살아 돌아온 돼지>로 마지막 인터뷰, ‘인간다움’에 대한 깊은 질문 던지다
-						</p>
-						</li>
-					</ul>
-				</div>
 				<div class="memorial-floral-tribute">
 					<span class="floral-petal">✤</span>
 					<span class="floral-center">❀ ✿ ❁ ✿ ❀</span>
@@ -587,7 +564,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="../assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

@@ -230,7 +230,7 @@ h1, h2, h3, h4, p, figure, blockquote {
     background: var(--bg-cinema);
     color: #fff;
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     border-radius: var(--radius-sm);
     transition: inset-block-start 0.15s ease;
 }
@@ -382,7 +382,7 @@ html[data-theme="dark"] .ed-brand-logo {
 .ed-nav-dropdown a {
     padding: 8px 12px;
     border-radius: 2px;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--ink-2);
     transition: background-color 0.15s ease, color 0.15s ease;
@@ -412,7 +412,7 @@ html[data-theme="dark"] .ed-brand-logo {
     border: 1px solid var(--rule);
     background: var(--bg-surface);
     color: var(--ink);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
 }
@@ -546,7 +546,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
 .ed-drawer-title span {
     display: block;
     font-family: var(--font-label);
-    font-size: 0.7rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.05em;
     color: var(--accent-text);
     margin-block-end: 2px;
@@ -595,7 +595,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     background: var(--bg-cinema);
     color: #fff;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
 }
 
 .ed-drawer-body {
@@ -617,13 +617,13 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     margin-block-end: 12px;
     border-bottom: 2px solid var(--rule-strong);
     font-family: var(--font-label);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.04em;
     color: var(--navy);
 }
 
 .ed-drawer-group h3 a {
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     color: var(--accent-text);
 }
 
@@ -655,7 +655,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
 .ed-drawer-links span {
     display: block;
     margin-block-start: 2px;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
 }
 
@@ -726,7 +726,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     border: 1px solid rgba(255, 255, 255, 0.16);
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.05em;
     word-spacing: 0.08em;
     color: rgba(255, 255, 255, 0.9);
@@ -745,7 +745,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     gap: 10px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.06em;
     color: #ff9c52;
 }
@@ -780,7 +780,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: rgba(245, 243, 238, 0.62);
     font-variant-numeric: tabular-nums;
 }
@@ -819,7 +819,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     border-radius: 2px;
     border: 1px solid rgba(255, 255, 255, 0.22);
     color: rgba(255, 255, 255, 0.88);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
@@ -893,7 +893,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     gap: 6px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.6875rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.04em;
     color: #ff9c52;
     font-variant-numeric: tabular-nums;
@@ -906,7 +906,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-block-start: 6px;
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1.4;
     word-break: keep-all;
@@ -958,14 +958,14 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     border: 1px solid var(--rule);
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.03em;
     color: var(--ink-2);
     transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
 .issue-pill span {
-    font-size: 0.7rem;
+    font-size: 0.9375rem;
     color: var(--accent-text);
     font-variant-numeric: tabular-nums;
 }
@@ -1045,7 +1045,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     gap: 8px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.06em;
     color: var(--accent-text);
     margin-block-end: 6px;
@@ -1080,7 +1080,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     gap: 6px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.03em;
     color: var(--ink-2);
     padding: 8px calc(16px - 0.03em) 8px 16px;
@@ -1133,7 +1133,7 @@ html[data-theme="dark"] .ed-icon-btn.is-primary {
     gap: 8px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.72rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.05em;
     color: var(--accent-text);
     text-transform: uppercase;
@@ -1169,7 +1169,7 @@ a:hover .ed-card-title {
 }
 
 .ed-card-byline {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
     font-weight: 500;
 }
@@ -1252,7 +1252,7 @@ a:hover .ed-card-title {
     background: var(--bg-page);
     border-left: 3px solid var(--accent);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.55;
     color: var(--ink-2);
 }
@@ -1372,7 +1372,7 @@ a:hover .ed-card-title {
     color: #fff;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.04em;
 }
 
@@ -1390,7 +1390,7 @@ a:hover .ed-card-title {
     border-radius: var(--radius-sm);
     background: var(--accent-soft);
     color: var(--accent-text);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 700;
 }
 
@@ -1405,7 +1405,7 @@ a:hover .ed-card-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
 }
 
@@ -1455,7 +1455,7 @@ a:hover .ed-card-title {
 }
 
 .bento-card .ed-card-deck {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
 }
 
 .bento-card .ed-card-byline {
@@ -1469,7 +1469,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--navy);
     color: #fff;
-    font-size: 0.65rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.08em;
 }
 
@@ -1563,7 +1563,7 @@ a:hover .ed-card-title {
     display: flex;
     flex-wrap: wrap;
     gap: 6px 12px;
-    font-size: 0.8rem;
+    font-size: 0.9375rem;
     color: var(--ink-on-dark-muted);
     font-variant-numeric: tabular-nums;
 }
@@ -1579,7 +1579,7 @@ a:hover .ed-card-title {
 }
 
 .bo-weeks span {
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     color: var(--ink-on-dark-muted);
     margin-inline-end: 4px;
 }
@@ -1588,7 +1588,7 @@ a:hover .ed-card-title {
     padding: 5px 11px;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.07);
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     color: rgba(255, 255, 255, 0.85);
     transition: background-color 0.15s ease;
 }
@@ -1674,7 +1674,7 @@ a:hover .ed-card-title {
 }
 
 .prod-poster-name {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.82);
     white-space: nowrap;
@@ -1749,7 +1749,7 @@ a:hover .ed-card-title {
     margin-block-end: 10px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.05em;
     color: var(--accent-text);
 }
@@ -1821,7 +1821,7 @@ a:hover .ed-card-title {
     color: var(--ink-2);
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.03em;
     transition: all 0.18s ease;
 }
@@ -1838,7 +1838,7 @@ a:hover .ed-card-title {
 }
 
 .archive-tab-count {
-    font-size: 0.7rem;
+    font-size: 0.9375rem;
     opacity: 0.75;
     font-variant-numeric: tabular-nums;
 }
@@ -1878,7 +1878,7 @@ a:hover .ed-card-title {
 .seg-btn {
     padding: 5px 12px;
     border-radius: 2px;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--ink-muted);
     transition: background-color 0.16s ease, color 0.16s ease;
@@ -1902,7 +1902,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     border: 1px solid var(--rule);
     background: var(--bg-surface);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
 }
 
 .archive-search-clear {
@@ -1931,7 +1931,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--accent-soft);
     color: var(--accent-text);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 700;
 }
 
@@ -1980,7 +1980,7 @@ a:hover .ed-card-title {
 }
 
 .archive-card .ed-card-deck {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -1995,7 +1995,7 @@ a:hover .ed-card-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
 }
 
@@ -2054,7 +2054,7 @@ a:hover .ed-card-title {
     gap: 8px;
     margin-block-start: 20px;
     flex-wrap: wrap;
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
 }
 
@@ -2063,7 +2063,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--bg-surface);
     border: 1px solid var(--rule);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
 }
 
 .suggest-chip:hover {
@@ -2120,7 +2120,7 @@ a:hover .ed-card-title {
     margin-block-end: 20px;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.05em;
     color: var(--accent-text);
 }
@@ -2169,7 +2169,7 @@ a:hover .ed-card-title {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--ink-2);
 }
 
@@ -2177,7 +2177,7 @@ a:hover .ed-card-title {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
 }
@@ -2213,7 +2213,7 @@ a:hover .ed-card-title {
 .reader-btn {
     padding: 5px 10px;
     border-radius: 2px;
-    font-size: 0.76rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--ink-muted);
     transition: background-color 0.15s ease, color 0.15s ease;
@@ -2233,7 +2233,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     border: 1px solid var(--rule);
     background: var(--bg-surface);
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--ink-2);
 }
@@ -2265,7 +2265,7 @@ a:hover .ed-card-title {
 
 .article-cover-caption {
     margin-block-start: 12px;
-    font-size: 0.84rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
     text-align: center;
 }
@@ -2325,7 +2325,7 @@ a:hover .ed-card-title {
     display: block;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.72rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.06em;
     color: var(--accent-text);
     padding-block-end: 10px;
@@ -2343,7 +2343,7 @@ a:hover .ed-card-title {
 .article-main .sub-summation li::before {
     content: "0" counter(kp);
     font-family: var(--font-label);
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     color: var(--accent-text);
     font-variant-numeric: tabular-nums;
@@ -2377,7 +2377,7 @@ a:hover .ed-card-title {
     justify-content: space-between;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.82rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.03em;
     color: var(--navy);
     cursor: pointer;
@@ -2412,7 +2412,7 @@ a:hover .ed-card-title {
 .ed-toc-num {
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.72rem;
+    font-size: 0.9375rem;
     color: var(--accent-text);
     font-variant-numeric: tabular-nums;
 }
@@ -2489,7 +2489,7 @@ a:hover .ed-card-title {
     background: var(--accent);
     color: var(--ink-on-accent);
     font-family: var(--font-label);
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     line-height: 1;
     vertical-align: 1px;
@@ -2620,7 +2620,7 @@ a:hover .ed-card-title {
 .ed-carousel-counter {
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
 }
@@ -2755,7 +2755,7 @@ a:hover .ed-card-title {
     margin-block-start: 12px;
     padding-inline-start: 12px;
     border-inline-start: 2px solid var(--rule);
-    font-size: calc(0.875rem * var(--read-scale));
+    font-size: calc(0.9375rem * var(--read-scale));
     line-height: 1.6;
     color: var(--ink-muted);
     word-break: keep-all;
@@ -2770,7 +2770,7 @@ a:hover .ed-card-title {
 .article-main .common-list-2 strong {
     display: block;
     font-family: var(--font-label);
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.08em;
     color: var(--accent-text);
 }
@@ -2837,7 +2837,7 @@ a:hover .ed-card-title {
 }
 
 .article-main .common-list-3 .item .text {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     line-height: 1.65;
     color: var(--ink-muted);
     font-variant-numeric: tabular-nums;
@@ -2901,7 +2901,7 @@ a:hover .ed-card-title {
 .article-main table {
     inline-size: 100%;
     border-collapse: collapse;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-variant-numeric: tabular-nums;
 }
 
@@ -2959,7 +2959,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     border: 1px solid var(--rule);
     background: var(--bg-surface);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--accent-text);
 }
@@ -2992,7 +2992,7 @@ a:hover .ed-card-title {
     border: 1px solid var(--rule);
     background: var(--bg-surface);
     color: var(--ink-2);
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.16s ease;
@@ -3040,7 +3040,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--bg-surface);
     border: 1px solid var(--rule);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--ink-2);
     transition: transform 0.16s var(--ease), border-color 0.16s ease;
@@ -3072,7 +3072,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--bg-surface);
     border: 1px solid var(--rule);
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
 }
 
@@ -3125,7 +3125,7 @@ a:hover .ed-card-title {
 .article-nav-dir {
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.72rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.04em;
     color: var(--accent-text);
 }
@@ -3150,7 +3150,7 @@ a:hover .ed-card-title {
     color: #fff;
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.03em;
     white-space: nowrap;
 }
@@ -3208,7 +3208,7 @@ a:hover .ed-card-title {
 }
 
 .related-card .ed-card-deck {
-    font-size: 0.82rem;
+    font-size: 0.9375rem;
     color: var(--ink-muted);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -3275,14 +3275,14 @@ a:hover .ed-card-title {
 }
 
 .ed-footer-info {
-    font-size: 0.85rem;
+    font-size: 0.9375rem;
     line-height: 1.8;
     color: rgba(245, 243, 238, 0.62);
 }
 
 .ed-footer-col h3 {
     font-family: var(--font-label);
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.06em;
     color: #ff9c52;
     margin-block-end: 14px;
@@ -3292,7 +3292,7 @@ a:hover .ed-card-title {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px 16px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
 }
 
 .ed-footer-links a {
@@ -3319,7 +3319,7 @@ a:hover .ed-card-title {
     border: 1px solid rgba(255, 255, 255, 0.16);
     background: rgba(255, 255, 255, 0.04);
     color: #fff;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     transition: border-color 0.15s ease, background-color 0.15s ease;
 }
@@ -3337,7 +3337,7 @@ a:hover .ed-card-title {
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     color: rgba(245, 243, 238, 0.45);
 }
 
@@ -3383,7 +3383,7 @@ a:hover .ed-card-title {
 .ed-lightbox-caption {
     max-inline-size: 720px;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: rgba(255, 255, 255, 0.82);
 }
 
@@ -3502,7 +3502,7 @@ a:hover .ed-card-title {
     border-radius: 2px;
     background: var(--bg-cinema);
     color: #fff;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     box-shadow: var(--shadow-lg);
     opacity: 0;

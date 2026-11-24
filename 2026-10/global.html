@@ -10,10 +10,10 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preload" as="image" href="../assets/images/2026-10/global/global1001_00.webp" type="image/webp" fetchpriority="high">
-    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="../assets/css/layout-2027.css" rel="stylesheet">
-    <script defer src="../assets/js/magazine-2027.js"></script>
-    <script defer src="../assets/js/layout-2027.js"></script>
+    <link href="../assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
+    <script defer src="../assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -65,15 +65,11 @@
                     </div>
 
                     <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
-                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
-                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
-                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
-                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
-                        </div>
-                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
-                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
-                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
-                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
                         </div>
                         <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
                     </div>
@@ -84,30 +80,17 @@
         <figure class="article-cover">
             <div class="article-cover-frame">
                 <img src="../assets/images/2026-10/global/global1001_00.webp" alt="도시 전체와 호흡하는 축제로" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>관객이 프로그래머로… ‘커뮤니티비프’, 시민 참여 1.7배 증가</li>
+                    <li>시장부터 공항까지… 부산 곳곳을 영화관으로 바꾼 ‘동네방네비프’</li>
+                    <li>커뮤니티비프·동네방네비프, 지역과 상생하는 ‘일상의 영화제’ 지향</li>
+                </ol>
             </div>
             <figcaption class="article-cover-caption">부산대 차 없는 거리 내 중앙사거리에서 시민들과 함께한 ‘동네방네비프’</figcaption>
         </figure>
 
         <article class="article-main">
-<div class="sub-summation">
-                    <p class="title">
-                        
-                    </p>
-                    <ul>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>관객이 프로그래머로… ‘커뮤니티비프’, 시민 참여 1.7배 증가</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>시장부터 공항까지… 부산 곳곳을 영화관으로 바꾼 ‘동네방네비프’</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p>커뮤니티비프·동네방네비프, 지역과 상생하는 ‘일상의 영화제’ 지향</p>
-                        </li>
-                    </ul>
-                </div>
 
                 <p class="n-common-text-1 mt-60">
                  부산국제영화제는 아시아와 세계로 뻗어 나가되, 부산이라는 지역성도 잃지 않으려 한다. 그 중심엔 커뮤니티비프와 동네방네비프가 있다. 올해 9년째를 맞은 커뮤니티비프는 관객 주도형, 지역 중심의 축제다. 센텀시티의 영화의전당 인근에서 펼쳐지는 부산국제영화제 프로그램이 전통적인 영화제 상영의 형태를 띠고 있다면, 커뮤니티비프는 원래 부산국제영화제의 주 무대였던 남포동을 기점으로 독특한 프로그램들을 펼친다. 동네방네비프는 부산 지역 곳곳은 물론이거니와 부산 인근의 교외, 서울까지 상영 영역을 넓혀 영화제의 문화적 저변을 넓히는 중이다.<br><br>
@@ -321,7 +304,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="../assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

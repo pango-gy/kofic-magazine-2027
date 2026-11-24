@@ -10,10 +10,10 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-    <link href="./assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="./assets/css/layout-2027.css" rel="stylesheet">
-    <script defer src="./assets/js/magazine-2027.js"></script>
-    <script defer src="./assets/js/layout-2027.js"></script>
+    <link href="./assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="./assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
+    <script defer src="./assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="./assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -72,18 +72,18 @@
 
                 <div class="archive-controls">
                     <div class="archive-ctrl-left">
-                        <div class="seg-group" id="globalLangGroup" hidden aria-label="GLOBAL 언어 필터">
+                        <div class="seg-group" id="globalLangGroup" hidden aria-label="GLOBAL 언어 필터" data-label="언어">
                             <button type="button" class="seg-btn is-active" data-lang="ALL" aria-pressed="true">전체</button>
                             <button type="button" class="seg-btn" data-lang="KOR" aria-pressed="false">국문</button>
                             <button type="button" class="seg-btn" data-lang="ENG" aria-pressed="false">ENG</button>
                         </div>
 
-                        <div class="seg-group" role="group" aria-label="정렬">
+                        <div class="seg-group" role="group" aria-label="정렬" data-label="정렬">
                             <button type="button" class="seg-btn is-active" data-sort="section" aria-pressed="true">섹션순</button>
                             <button type="button" class="seg-btn" data-sort="latest" aria-pressed="false">최신순</button>
                         </div>
 
-                        <div class="seg-group" role="group" aria-label="보기 방식">
+                        <div class="seg-group" role="group" aria-label="보기 방식" data-label="보기">
                             <button type="button" class="seg-btn is-active" data-view="grid" aria-pressed="true">카드 보기</button>
                             <button type="button" class="seg-btn" data-view="list" aria-pressed="false">목록 보기</button>
                         </div>
@@ -285,7 +285,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="./assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="./assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="./assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">
@@ -532,7 +532,24 @@
                 chipBar.hidden = !currentQuery;
                 chipText.textContent = "검색어: " + currentQuery;
 
-                titleEl.textContent = kw ? (currentSec === "ALL" ? "Search" : displaySec) : (displaySec === "ALL" ? "October 2026" : displaySec);
+                const SECTION_NAME = {
+                    "ALL": ["October 2026", "10월호 전체 기사"],
+                    "SPECIAL": ["SPECIAL", "스페셜"],
+                    "INTERVIEW": ["INTERVIEW", "인터뷰"],
+                    "CRITIC": ["CRITIC", "비평"],
+                    "GLOBAL": ["GLOBAL", "글로벌"],
+                    "KOFIC STORY": ["KOFIC STORY", "영진위 이야기"],
+                    "BOX OFFICE": ["BOX OFFICE", "박스오피스"],
+                    "PRODUCTION": ["PRODUCTION", "제작 현황"]
+                };
+                const nm = (kw && currentSec === "ALL") ? ["Search", "검색"] : (SECTION_NAME[displaySec] || [displaySec, ""]);
+                titleEl.textContent = nm[0];
+                if (nm[1]) {
+                    const ko = document.createElement("span");
+                    ko.className = "archive-title-ko";
+                    ko.textContent = nm[1];
+                    titleEl.appendChild(ko);
+                }
                 descEl.textContent = kw ? `‘${currentQuery}’ 검색 결과` : (SECTION_DESC[displaySec] || SECTION_DESC.ALL);
 
                 // Sort
@@ -551,16 +568,19 @@
                     const ok = matchSec(el.dataset.section, currentSec, currentLang) && (!kw || (el.dataset.search || "").toLowerCase().includes(kw));
                     el.style.display = ok ? "" : "none";
                     el.classList.remove("is-featured");
-                    if (ok) {
-                        if (visible === 0 && currentSec === "ALL" && !kw && currentView === "grid") {
-                            el.classList.add("is-featured");
-                        }
-                        visible++;
-                    }
+                    if (ok) visible++;
                 });
+                // Lead card whenever the rest then fills whole rows; few articles go two-up
+                const shown = sorted.filter((el) => el.style.display !== "none");
+                const cols = shown.length <= 5 ? 2 : 3;
+                const lead = currentView === "grid" && !kw && shown.length > 0 && (currentSec === "ALL" || shown.length % cols === 1);
+                if (lead) shown[0].classList.add("is-featured");
+                gridEl.dataset.cols = String(cols);
 
                 gridEl.classList.toggle("is-list-view", currentView === "list");
-                gridEl.classList.toggle("has-featured", currentSec === "ALL" && !kw && currentView === "grid");
+                gridEl.classList.toggle("has-featured", lead);
+                // Inside one section every card would repeat that section's name: drop it there
+                gridEl.classList.toggle("is-one-section", currentSec !== "ALL");
 
                 countEl.textContent = `총 ${visible}편`;
                 emptyEl.style.display = visible === 0 ? "block" : "none";

@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
     <link rel="preload" as="image" href="../assets/images/2026-10/people-2/people1002_00.webp" type="image/webp" fetchpriority="high">
-    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="../assets/css/layout-2027.css" rel="stylesheet">
+    <link href="../assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
     <style>
 .name-badge.color-4 {
      color: #673AB7;
@@ -32,8 +32,8 @@
     -webkit-touch-callout: none;
      }
     </style>
-    <script defer src="../assets/js/magazine-2027.js"></script>
-    <script defer src="../assets/js/layout-2027.js"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -85,15 +85,11 @@
                     </div>
 
                     <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
-                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
-                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
-                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
-                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
-                        </div>
-                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
-                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
-                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
-                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
                         </div>
                         <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
                     </div>
@@ -104,29 +100,16 @@
         <figure class="article-cover">
             <div class="article-cover-frame">
                 <img src="../assets/images/2026-10/people-2/people1002_00.webp" alt="엉뚱하지만 파괴적인" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>정성호 무술감독, 초인적인 액션 레벨을 정교하게 설계하다</li>
+                    <li>디지털 기술을 영리하게 결합해 완성한 &lt;부활남: 더 레드&gt;의 타격감</li>
+                    <li>세분화된 스턴트 시스템, 리얼 액션을 꿈꾸는 한국영화 액션 장인</li>
+                </ol>
             </div>
         </figure>
 
         <article class="article-main">
-<div class="sub-summation">
-                    <p class="title">
-                        
-                    </p>
-                    <ul>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p> 정성호 무술감독, 초인적인 액션 레벨을 정교하게 설계하다</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p> 디지털 기술을 영리하게 결합해 완성한 &lt;부활남: 더 레드&gt;의 타격감</p>
-                        </li>
-                        <li>
-                            <span><img src="../assets/images/common/icon-check.webp" alt="" width="30" height="25"></span>
-                            <p> 세분화된 스턴트 시스템, 리얼 액션을 꿈꾸는 한국영화 액션 장인</p>
-                        </li>
-                    </ul>
-                </div>
 
                
 
@@ -373,7 +356,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="../assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

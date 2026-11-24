@@ -9,9 +9,8 @@
     <meta name="description" content="2026년 9월 한국영화 제작상황판 — 9월 개봉작과 제작 현황을 살펴본다.">
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="preload" as="image" href="../assets/images/2026-10/production/production10_00.webp" type="image/webp" fetchpriority="high">
-    <link href="../assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="../assets/css/layout-2027.css" rel="stylesheet">
+    <link href="../assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
     <style>
 .common-table-2 table th, .common-table-2 table td {
     white-space: normal;
@@ -120,8 +119,8 @@
 }
     }
     </style>
-    <script defer src="../assets/js/magazine-2027.js"></script>
-    <script defer src="../assets/js/layout-2027.js"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -152,473 +151,58 @@
     </header>
 
     <main id="main-content">
-        <header class="article-hero">
-            <div class="article-hero-inner">
-                <nav class="article-breadcrumb" aria-label="기사 위치">
-                    <a href="../index.html">HOME</a>
-                    <span class="sep">/</span>
-                    <a href="../list.html?section=PRODUCTION">PRODUCTION</a>
-                </nav>
-
-                <h1 class="article-title">한국영화 제작 현황</h1>
-                <p class="article-subtitle">2026. 9. 한국영화 제작상황판 (10월 10일 기준)</p>
-
-                <div class="article-meta-bar">
-                    <div class="article-byline-group">
-                        <div class="article-date-row">
-                            <span>2026-10-13</span>
-                            <span class="article-read-time" id="articleReadTime">읽는 중…</span>
-                        </div>
-                        <div class="article-credits"><span>글 _ 영화진흥위원회</span></div>
-                    </div>
-
-                    <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
-                        <div class="reader-pill-group" role="group" aria-label="읽기 테마">
-                            <button type="button" class="reader-btn is-active" data-set-theme="paper" aria-pressed="true">페이퍼</button>
-                            <button type="button" class="reader-btn" data-set-theme="sepia" aria-pressed="false">세피아</button>
-                            <button type="button" class="reader-btn" data-set-theme="dark" aria-pressed="false">다크</button>
-                        </div>
-                        <div class="reader-pill-group" role="group" aria-label="글자 크기">
-                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false">A-</button>
-                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true">A</button>
-                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false">A+</button>
-                        </div>
-                        <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
-                    </div>
+        <!-- Production index. The head keeps this article's own cover still, run
+             edge to edge of the window (outside the page column). The
+             film list between the markers is written by scripts/build_films.py from the production
+             table further down this page; edit the table (and the posters), then
+             run the script. data-related on a film ("label|href;label|href")
+             is kept by the script and shown on that film's page. -->
+        <div class="mk-prod-stage mk-prod-stage--photo">
+            <img class="mk-prod-stage-photo" src="../assets/images/2026-10/production/production10_00.webp" alt="" fetchpriority="high">
+            <nav class="mk-prod-crumb" aria-label="기사 위치"><a href="../index.html">HOME</a><span aria-hidden="true">/</span><a href="../list.html?section=PRODUCTION">PRODUCTION</a></nav>
+            <div class="mk-prod-head">
+                <div>
+                    <h1 class="mk-sec-title"><span lang="en">Production</span><span class="mk-sec-ko">제작 현황</span></h1>
+                    <p>2026. 9. 한국영화 제작상황판 (10월 10일 기준) · 글 영화진흥위원회 · 2026.10.13</p>
                 </div>
+                <dl class="mk-prod-stats">
+                    <div><dt>9월 개봉 한국영화</dt><dd>23편</dd></div>
+                    <div><dt>다큐멘터리</dt><dd>5편</dd></div>
+                </dl>
             </div>
-        </header>
+        </div>
+        <div class="mk-container mk-prod-index">
+            <h2 class="mk-plist-head">9월 개봉작 <span>포스터를 누르면 영화별 페이지로 이동합니다</span></h2>
+            <ul class="mk-plist">
+                <!-- films:start -->
+                <li><a class="mk-plist-item" id="film-01" href="./production/film-01.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_01.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.02 개봉 · 가족/드라마</span><span class="mk-plist-title">비광</span></a></li>
+                <li><a class="mk-plist-item" id="film-02" href="./production/film-02.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_02.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.02 개봉 · 다큐멘터리</span><span class="mk-plist-title">사진의 얼굴</span></a></li>
+                <li><a class="mk-plist-item" id="film-03" href="./production/film-03.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_03.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.02 개봉 · 드라마</span><span class="mk-plist-title">캐리어를 끄는 소녀</span></a></li>
+                <li><a class="mk-plist-item" id="film-04" href="./production/film-04.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_04.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.03 개봉 · 멜로/로맨스</span><span class="mk-plist-title">무진연가</span></a></li>
+                <li><a class="mk-plist-item" id="film-05" href="./production/film-05.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_05.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 다큐멘터리</span><span class="mk-plist-title">담요를 입은 사람</span></a></li>
+                <li><a class="mk-plist-item" id="film-06" href="./production/film-06.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_06.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 애니메이션</span><span class="mk-plist-title">아가미</span></a></li>
+                <li><a class="mk-plist-item" id="film-07" href="./production/film-07.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_07.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 드라마</span><span class="mk-plist-title">아버지의 집밥</span></a></li>
+                <li><a class="mk-plist-item" id="film-08" href="./production/film-08.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_08.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 액션/스릴러</span><span class="mk-plist-title">연옥: 살인마들의 자치구역</span></a></li>
+                <li><a class="mk-plist-item" id="film-09" href="./production/film-09.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_09.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 코미디</span><span class="mk-plist-title">웃으면 복이 와요: 내 이름은 수한무</span></a></li>
+                <li><a class="mk-plist-item" id="film-10" href="./production/film-10.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_10.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 코미디/드라마</span><span class="mk-plist-title">카를로비바리</span></a></li>
+                <li><a class="mk-plist-item" id="film-11" href="./production/film-11.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_11.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 다큐멘터리</span><span class="mk-plist-title">퍼펙트슛</span></a></li>
+                <li><a class="mk-plist-item" id="film-12" href="./production/film-12.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_12.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 드라마</span><span class="mk-plist-title">97 혜자, 표류기</span></a></li>
+                <li><a class="mk-plist-item" id="film-13" href="./production/film-13.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_13.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.09 개봉 · 드라마</span><span class="mk-plist-title">환희의 얼굴</span></a></li>
+                <li><a class="mk-plist-item" id="film-14" href="./production/film-14.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_14.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.10 개봉 · 다큐멘터리</span><span class="mk-plist-title">착지연습</span></a></li>
+                <li><a class="mk-plist-item" id="film-15" href="./production/film-15.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_15.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.11 개봉 · 다큐멘터리</span><span class="mk-plist-title">청년 조용기: 신을 저주하던 청년, 시대를 긋는 종이 되다</span></a></li>
+                <li><a class="mk-plist-item" id="film-16" href="./production/film-16.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_16.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.16 개봉 · 드라마</span><span class="mk-plist-title">인턴</span></a></li>
+                <li><a class="mk-plist-item" id="film-17" href="./production/film-17.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_17.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.16 개봉 · 드라마/가족</span><span class="mk-plist-title">철들 무렵</span></a></li>
+                <li><a class="mk-plist-item" id="film-18" href="./production/film-18.html" data-related="CRITIC 리뷰 · 미옥과 호석의 내일을 위한 시간|./reading-1.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_18.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.23 개봉 · 드라마</span><span class="mk-plist-title">가능한 사랑</span></a></li>
+                <li><a class="mk-plist-item" id="film-19" href="./production/film-19.html" data-related="BOX OFFICE · 10월 5주차 3위|./boxoffice-5.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_19.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.23 개봉 · 범죄/드라마</span><span class="mk-plist-title">암살자(들)</span></a></li>
+                <li><a class="mk-plist-item" id="film-20" href="./production/film-20.html" data-related="BOX OFFICE · 10월 5주차 5위|./boxoffice-5.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_20.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.23 개봉 · 드라마/범죄</span><span class="mk-plist-title">타짜: 벨제붑의 노래</span></a></li>
+                <li><a class="mk-plist-item" id="film-21" href="./production/film-21.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_21.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.30 개봉 · 가족/드라마</span><span class="mk-plist-title">가족여행</span></a></li>
+                <li><a class="mk-plist-item" id="film-22" href="./production/film-22.html" data-related="INTERVIEW · 정성호 무술감독, 엉뚱하지만 파괴적인|./people-2.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_22.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.30 개봉 · 액션</span><span class="mk-plist-title">부활남: 더 레드</span></a></li>
+                <li><a class="mk-plist-item" id="film-23" href="./production/film-23.html"><span class="mk-plist-poster"><img src="../assets/images/2026-10/production/production10_23.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></span><span class="mk-plist-date">09.30 개봉 · 공포(호러)/미스터리</span><span class="mk-plist-title">ⓝ 포르테</span></a></li>
+                <!-- films:end -->
+            </ul>
+        </div>
 
-        <figure class="article-cover">
-            <div class="article-cover-frame">
-                <img src="../assets/images/2026-10/production/production10_00.webp" alt="한국영화 제작 현황" fetchpriority="high">
-            </div>
-        </figure>
-
-        <article class="article-main">
-<div class="common-list-2">
-             <div class="title">
-         <strong>SEPTEMBER</strong>
-         <p>9월 개봉</p>
-      </div>
-			 </div>	
-		
-		<div class="common-list-3">
-			<div class="item" id="film-01">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_01.webp" alt="production10_01" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				비광
-				</p>
-				<p class="text">
-					개봉일: 2026-09-02<br>
-장르: 가족/드라마<br>
-제작연도: 2026년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이지원<br>
-캐스팅: 류승룡, 하지원, 김시아, 김해숙, 김선영, 김영민
-				</p>
-			</div>
-			<div class="item" id="film-02">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_02.webp" alt="production10_02" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				사진의 얼굴
-				</p>
-				<p class="text">
-				개봉일: 2026-09-02<br>
-장르: 다큐멘터리<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 고희영<br>
-캐스팅: 
-				</p>
-			</div>
-			<div class="item" id="film-03">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_03.webp" alt="production10_03" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				캐리어를 끄는 소녀
-				</p>
-				<p class="text">
-					개봉일: 2026-09-02<br>
-장르: 드라마<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 윤심경<br>
-캐스팅: 최명빈, 문승아, 김태훈, 유다인
-				</p>
-			</div>
-			<div class="item" id="film-04">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_04.webp" alt="production10_04" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			   무진연가
-				</p>
-				<p class="text">
-					개봉일: 2026-09-03<br>
-장르: 멜로/로맨스<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이정국<br>
-캐스팅: 김채영, 정우준
-				</p>
-			</div>
-			<div class="item" id="film-05">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_05.webp" alt="production10_05" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				담요를 입은 사람
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 다큐멘터리<br>
-제작연도: 2024년<br>
-크랭크인:<br>
-크랭크업:<br>
-감독: 박정미<br>
-캐스팅: 박정미
-				</p>
-			</div>
-			<div class="item" id="film-06">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_06.webp" alt="production10_06" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				아가미
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 애니메이션<br>
-제작연도: 2022년<br>
-크랭크인: 2022-03<br>
-크랭크업: 2023 <br>
-감독: 안재훈<br>
-캐스팅: 정해인, 강하늘, 이청아, 유재명, 김선영
-				</p>
-			</div>
-			<div class="item" id="film-07">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_07.webp" alt="production10_07" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				아버지의 집밥
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 드라마<br>
-제작연도: 2026년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이준익<br>
-캐스팅: 정진영, 이정은, 변요한, 박지연, 강형석, 박정윤, 박세준, 박지윤
-				</p>
-			</div>
-			<div class="item" id="film-08">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_08.webp" alt="production10_08" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				연옥: 살인마들의 자치구역
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 액션/스릴러<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이현명, 브루스 칸<br>
-캐스팅: 브루스 칸, 이채영, 김재현, 조성하, 박철민, 조재윤, 예수정
-				</p>
-			</div>
-			<div class="item" id="film-09">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_09.webp" alt="production10_09" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-				웃으면 복이 와요: 내 이름은 수한무
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 코미디<br>
-제작연도: 2026년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 김형진, 백재현<br>
-캐스팅: 구봉서(AI), 노원재, 최소연, 김돈호, 서성금, 안일권, 정승환
-				</p>
-			</div>
-			<div class="item" id="film-10">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_10.webp" alt="production10_10" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    카를로비바리
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 코미디/드라마<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이용석<br>
-캐스팅: 이제연, 오지호, 신지원, 강희만, 이명훈, 박시연
-				</p>
-			</div>
-			
-			<div class="item" id="film-11">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_11.webp" alt="production10_11" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			  퍼펙트슛
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 다큐멘터리<br>
-제작연도: 2024년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 오규익<br>
-캐스팅: 
-				</p>
-			</div>
-			
-			<div class="item" id="film-12">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_12.webp" alt="production10_12" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    97 혜자, 표류기
-				</p>
-				<p class="text">
-					개봉일: 2026-09-09<br>
-장르: 드라마<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 정기혁<br>
-캐스팅: 정은지, 김주안, 이혜
-				</p>
-			</div>
-			
-		
-		<div class="item" id="film-13">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_13.webp" alt="production10_13" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    환희의 얼굴
-				</p>
-				<p class="text">
-				개봉일: 2026-09-09<br>
-장르: 드라마<br>
-제작연도: 2024년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이제한<br>
-캐스팅: 정이주, 김시은, 황미영
-				</p>
-			</div>
-			
-		
-		<div class="item" id="film-14">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_14.webp" alt="production10_14" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			     착지연습
-				</p>
-				<p class="text">
-					개봉일: 2026-09-10<br>
-장르: 다큐멘터리<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 마민지<br>
-캐스팅: 
-				</p>
-			</div>
-			
-			<div class="item" id="film-15">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_15.webp" alt="production10_15" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    청년 조용기: 신을 저주하던 청년, 시대를 긋는 종이 되다
-				</p>
-				<p class="text">
-개봉일: 2026-09-11<br>
-장르: 다큐멘터리<br>
-제작연도: 2026년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 권혁만<br>
-캐스팅: 
-				</p>
-			</div>
-			
-			
-			<div class="item" id="film-16">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_16.webp" alt="production10_16" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    인턴
-				</p>
-				<p class="text">
-				개봉일: 2026-09-16<br>
-장르: 드라마<br>
-제작연도: 2026년<br>
-크랭크인: 2025-09-29<br>
-크랭크업: 2025-12<br>
-감독: 김도영<br>
-캐스팅: 최민식, 한소희, 김금순, 김준한, 류혜영, 김요한, 박예니
-
-				</p>
-			</div>
-			
-			<div class="item" id="film-17">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_17.webp" alt="production10_17" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    철들 무렵
-				</p>
-				<p class="text">
-				개봉일: 2026-09-16<br>
-장르: 드라마/가족<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 정승오<br>
-캐스팅: 기주봉, 하윤경, 양말복
-				</p>
-			</div>
-			
-			<div class="item" id="film-18">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_18.webp" alt="production10_18" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    가능한 사랑
-				</p>
-				<p class="text">
-				개봉일: 2026-09-23<br>
-장르: 드라마<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 이창동<br>
-캐스팅: 전도연, 설경구, 조인성, 조여정
-				</p>
-			</div>
-			
-			<div class="item" id="film-19">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_19.webp" alt="production10_19" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			    암살자(들)
-				</p>
-				<p class="text">
-				개봉일: 2026-09-23<br>
-장르: 범죄/드라마<br>
-제작연도: 2026년<br>
-크랭크인: 2025-08<br>
-크랭크업: <br>
-감독: 허진호<br>
-캐스팅: 유해진, 박해일, 이민호
-				</p>
-			</div>
-			
-			<div class="item" id="film-20">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_20.webp" alt="production10_20" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			   타짜: 벨제붑의 노래
-				</p>
-				<p class="text">
-				개봉일: 2026-09-23<br>
-장르: 드라마/범죄<br>
-제작연도: 2026년<br>
-크랭크인: 2025-09<br>
-크랭크업: 2026-02-06<br>
-감독: 최국희<br>
-캐스팅: 변요한, 노재원, 미요시 아야카
-				</p>
-			</div>
-			
-			<div class="item" id="film-21">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_21.webp" alt="production10_21" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			   가족여행
-				</p>
-				<p class="text">
-				개봉일: 2026-09-30<br>
-장르: 가족/드라마<br>
-제작연도: 2026년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 정종섭, 김정태<br>
-캐스팅: 이휘향, 서영희, 김정태, 남경읍, 홍정민, 박상면
-				</p>
-			</div>
-			
-			<div class="item" id="film-22">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_22.webp" alt="production10_22" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			   부활남: 더 레드
-				</p>
-				<p class="text">
-				개봉일: 2026-09-30<br>
-장르: 액션<br>
-제작연도: 2026년<br>
-크랭크인: 2023-05-07<br>
-크랭크업: 2023<br>
-감독: 백<br>
-캐스팅: 구교환, 신승호, 강기영, 김시아, 김성령
-				</p>
-			</div>
-			
-			<div class="item" id="film-23">
-				<div class="image">
-					<img src="../assets/images/2026-10/production/production10_23.webp" alt="production10_23" width="292" height="403" loading="lazy">
-				</div>
-				<p class="title">
-			   포르테
-				</p>
-				<p class="text">
-				개봉일: 2026-09-30<br>
-장르: 공포(호러)/미스터리<br>
-제작연도: 2025년<br>
-크랭크인: <br>
-크랭크업: <br>
-감독: 김형민<br>
-캐스팅: 임채영, 이정은 
-				</p>
-			</div>
-			
-		
-		
-		</div>
-		
-		
-
+        <article class="article-main mk-prod-table">
 		<p class="n-common-title-2">
                     2026. 09. 한국영화 제작상황판
         </p>
@@ -959,7 +543,7 @@ kt 스튜디오지니</td><td></td></tr>
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="../assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">

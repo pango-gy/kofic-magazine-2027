@@ -1,74 +1,327 @@
-/* Layout 2027 — main-page cover switcher and header menu state. */
+/* Layout 2027 — header menu state, cover lockup line breaks and the box office poster wall. */
 (function () {
     "use strict";
 
-    /* Cover hero: the side cards are the story switch. Picking one brings it
-       into the main frame; the side then shows the next two stories;
-       stories also rotate on a timer unless the reader is interacting. */
-    function initHero() {
-        const hero = document.querySelector("[data-mk-hero]");
-        if (!hero) return;
+    /* Cover lockups: choose where each Korean title breaks so the lines form
+       a staircase with the English section name on top. Every line should be
+       wider than the one above it, by steps as even as possible. Candidates
+       are "no break" and "break after word k"; ones that overflow the card
+       are dropped, and the rest are scored (narrower-than-above costs most,
+       then uneven steps; a single line that nearly fills the card is avoided).
+       Only if no break fits at all is the title shrunk onto one line. Runs again when the layout or the fonts change. */
+    function initCoverLockups() {
+        const cards = Array.from(document.querySelectorAll(".mk-cover-card"));
+        if (!cards.length) return;
+        const MIN_STEP = 14;
+        const probe = document.createElement("span");
+        probe.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;padding:0;background:none";
+        const widthIn = (host, text) => {
+            host.append(probe);
+            probe.textContent = text;
+            const w = probe.getBoundingClientRect().width;
+            probe.remove();
+            return w;
+        };
 
-        const stories = Array.from(hero.querySelectorAll(".mk-hero-story"));
-        const imgs = Array.from(hero.querySelectorAll(".mk-hero-media img"));
-        if (!stories.length) return;
-        const field = (name) => hero.querySelector(`[data-hero-field="${name}"]`);
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const DELAY = 7000;
-        const SIDE_COUNT = 2;
-        let current = 0;
-        let timer = null;
-        let paused = false;
+        function layout(card) {
+            if (card.dataset.kind === "plain") return;   // text under the photo wraps naturally
+            const box = card.querySelector(".mk-cover-card-text");
+            const en = card.querySelector(".mk-cover-card-title .mk-cover-card-en > span");
+            const ko = card.querySelector(".mk-cover-card-title .mk-cover-card-ko > span");
+            if (!box || !ko) return;   // tiles below the cover may have no English line
+            const copies = Array.from(card.querySelectorAll(".mk-cover-card-ko > span"));
+            const blocks = Array.from(card.querySelectorAll(".mk-cover-card-shape, .mk-cover-card-title"));
+            blocks.forEach((el) => el.style.removeProperty("--ko"));
+            const full = ko.dataset.full || ko.textContent.replace(/\s+/g, " ").trim();
+            copies.forEach((el) => { el.dataset.full = full; });
+            const words = full.split(" ");
 
-        function show(i) {
-            current = (i + stories.length) % stories.length;
-            const d = stories[current].dataset;
+            const cs = getComputedStyle(ko);
+            const pad = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+            const max = getComputedStyle(box).maxWidth;
+            const limit = (max.endsWith("%") ? card.clientWidth * parseFloat(max) / 100 : parseFloat(max) || card.clientWidth) - pad;
+            const enWidth = en ? widthIn(en.parentElement, en.textContent.trim()) : 0;
+            const koHost = ko.parentElement;
 
-            // The side shows only the next SIDE_COUNT stories, in reading order
-            stories.forEach((s, n) => {
-                const ahead = (n - current + stories.length) % stories.length;
-                s.setAttribute("aria-pressed", String(ahead === 0));
-                s.hidden = ahead === 0 || ahead > SIDE_COUNT;
-                s.style.order = String(ahead);
-                s.dataset.sidePos = String(ahead);
+            // Candidates: one line, two lines (break after word a), three lines
+            // (breaks after words a and b)
+            const options = [[full]];
+            for (let a = 1; a < words.length; a++) {
+                options.push([words.slice(0, a).join(" "), words.slice(a).join(" ")]);
+                for (let b = a + 1; b < words.length; b++) {
+                    options.push([words.slice(0, a).join(" "), words.slice(a, b).join(" "), words.slice(b).join(" ")]);
+                }
+            }
+            let best = null;
+            for (const lines of options) {
+                const widths = lines.map((line) => widthIn(koHost, line));
+                if (Math.max(...widths) > limit) continue;
+                const seq = [enWidth, ...widths];
+                const steps = seq.slice(1).map((w, i) => w - seq[i]);
+                const shortfall = steps.reduce((sum, d) => sum + Math.max(0, MIN_STEP - d), 0);
+                const uneven = steps.length > 1 ? Math.max(...steps) - Math.min(...steps) : steps[0];
+                // A single line that nearly fills the card looks crammed; a third
+                // line is a last resort
+                const crammed = lines.length === 1 && widths[0] > limit * 0.72 ? 5000 : 0;
+                const extra = lines.length === 3 ? 400 : 0;
+                const score = shortfall * 100 + uneven + crammed + extra;
+                if (!best || score < best.score) best = { score, lines, shortfall };
+            }
+            // Nothing fits even on three lines: shrink the title onto one line
+            if (!best) {
+                const whole = widthIn(koHost, full);
+                const scale = limit / whole;
+                if (scale < 1 && scale >= 0.86 && whole * scale - enWidth >= MIN_STEP) {
+                    const size = Math.floor(parseFloat(getComputedStyle(koHost).fontSize) * scale * 10) / 10;
+                    blocks.forEach((el) => el.style.setProperty("--ko", size + "px"));
+                    best = { lines: [full] };
+                }
+            }
+            copies.forEach((el) => {
+                el.parentElement.classList.toggle("is-set", Boolean(best));
+                el.textContent = "";
+                if (!best) { el.textContent = full; return; }   // nothing fits: natural wrapping
+                best.lines.forEach((line, i) => {
+                    if (i) el.append(document.createElement("br"));
+                    el.append(line);
+                });
             });
-            imgs.forEach((img, n) => img.classList.toggle("is-active", n === current));
-
-            // Fill whichever fields the hero copy currently shows
-            const set = (name, fn) => { const el = field(name); if (el) fn(el); };
-            set("kicker", (el) => { el.textContent = d.kicker; });
-            set("title", (el) => { el.textContent = d.title; el.href = d.href; });
-            set("deck", (el) => { el.textContent = d.deck; });
         }
 
-        function schedule() {
+        const run = () => cards.forEach(layout);
+        // The lockups are hidden (CSS) until the breaks are final: lay out
+        // once now, once more when the web font is in, then reveal.
+        const grid = document.querySelector(".mk-cover-grid");
+        const reveal = () => { run(); if (grid) grid.classList.add("is-ready"); };
+        run();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(reveal);
+        else reveal();
+        let timer = null;
+        window.addEventListener("resize", () => {
             clearTimeout(timer);
-            if (paused || reduceMotion || document.hidden) return;
-            timer = setTimeout(() => {
-                show(current + 1);
-                schedule();
-            }, DELAY);
+            timer = setTimeout(run, 150);
+        });
+    }
+
+    /* Production table (production.html): the status board lists every film
+       in one 170-row table, grouped by a tall "구분" cell. Turn those groups
+       into tabs and show one group at a time. Without this script the full
+       table stays as it is. */
+    function initProdTable() {
+        const table = document.querySelector(".mk-prod-table .common-table-1 table");
+        if (!table || !table.tBodies.length) return;
+        const groups = [];
+        Array.from(table.tBodies[0].rows).forEach((row) => {
+            const head = row.querySelector("td[rowspan]");
+            if (head) {
+                groups.push({ label: head.textContent.replace(/\s+/g, " ").trim().replace(/(\d+월)\s*개봉/, "$1 개봉"), rows: [] });
+                head.classList.add("mk-ptable-group");
+            }
+            if (groups.length) groups[groups.length - 1].rows.push(row);
+        });
+        // The film-title column stays put while the table scrolls sideways.
+        // It is the 16th cell from the end (the first row of a group has one
+        // extra cell in front, so counting from the start would be off).
+        Array.from(table.rows).forEach((row) => {
+            const cell = row.cells[row.cells.length - 16];
+            if (cell) cell.classList.add("mk-ptable-name");
+        });
+        if (groups.length < 2) return;
+        const firstHead = table.tHead && table.tHead.rows[0] && table.tHead.rows[0].cells[0];
+        if (firstHead) firstHead.classList.add("mk-ptable-group");
+
+        const tabs = document.createElement("div");
+        tabs.className = "mk-ptable-tabs";
+        tabs.setAttribute("role", "group");
+        tabs.setAttribute("aria-label", "제작 단계별로 보기");
+        const buttons = groups.map((group, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.append(group.label);
+            const count = document.createElement("span");
+            count.textContent = group.rows.length + "편";
+            btn.append(count);
+            btn.addEventListener("click", () => show(i));
+            tabs.append(btn);
+            return btn;
+        });
+        const box = table.closest(".common-table-1");
+        box.before(tabs);
+        box.classList.add("is-tabbed");
+
+        function show(index) {
+            groups.forEach((group, i) => group.rows.forEach((row) => { row.hidden = i !== index; }));
+            buttons.forEach((btn, i) => btn.setAttribute("aria-pressed", String(i === index)));
+            box.scrollLeft = 0;
+        }
+        show(0);
+    }
+
+    /* Wide table, sticky scrollbar: the table's own horizontal scrollbar sits
+       at its foot, out of sight on a tall table. A second bar under the table
+       stays pinned to the bottom of the window until the table's foot comes
+       into view, and the two are kept in step. */
+    function initStickyTableScroll() {
+        const box = document.querySelector(".mk-prod-table .common-table-1");
+        const table = box && box.querySelector("table");
+        if (!table) return;
+        const wrap = document.createElement("div");
+        wrap.className = "mk-ptable-wrap";
+        box.before(wrap);
+        const bar = document.createElement("div");
+        bar.className = "mk-ptable-scroll";
+        bar.setAttribute("aria-hidden", "true");
+        const spacer = document.createElement("div");
+        bar.append(spacer);
+        wrap.append(box, bar);
+
+        const measure = () => {
+            spacer.style.inlineSize = table.scrollWidth + "px";
+            bar.hidden = box.scrollWidth <= box.clientWidth + 1;
+        };
+        let lock = false;
+        const link = (from, to) => from.addEventListener("scroll", () => {
+            if (lock) { lock = false; return; }
+            if (to.scrollLeft !== from.scrollLeft) { lock = true; to.scrollLeft = from.scrollLeft; }
+        }, { passive: true });
+        link(bar, box);
+        link(box, bar);
+        // While the bar is pinned (the table's foot is still below the window),
+        // mark it so CSS can shade the edge where the table is cut off.
+        const end = document.createElement("div");
+        wrap.append(end);
+        if ("IntersectionObserver" in window) {
+            new IntersectionObserver((entries) => {
+                const e = entries[0];
+                bar.classList.toggle("is-pinned", !e.isIntersecting && e.boundingClientRect.top > 0);
+            }).observe(end);
+        }
+        measure();
+        if ("ResizeObserver" in window) new ResizeObserver(measure).observe(table);
+        window.addEventListener("resize", measure);
+    }
+
+    /* Article contents rail: on wide screens the table of contents (built by
+       magazine-2027.js as a closed <details>) sits in the right margin of the
+       centred text column and stays in view; open it there and mark the
+       section being read. On narrower screens it stays the collapsed line
+       above the text (and closes again if the window is narrowed). */
+    /* Quick menu (every page) and, on article pages, the reading tools that
+       follow the reader down the left margin. Everything in them is a link or
+       a button that stands in for a control already on the page. */
+    const QUICK_INSTAGRAM = "https://www.instagram.com/";   // placeholder: put the magazine's account here
+    function quickItems() {
+        const frag = document.createDocumentFragment();
+        const add = (el, text) => { el.className = "mk-quick-item"; el.textContent = text; frag.appendChild(el); return el; };
+        const ig = add(document.createElement("a"), "인스타그램");
+        ig.href = QUICK_INSTAGRAM; ig.target = "_blank"; ig.rel = "noopener";
+        [["modalOpinion", "독자의견"], ["modalNewsletter", "뉴스레터 신청"]].forEach(([id, text]) => {
+            const opener = document.querySelector(`.ed-footer [data-open-modal="${id}"]`);
+            if (!opener) return;
+            const b = add(document.createElement("button"), text);
+            b.type = "button";
+            b.addEventListener("click", () => opener.click());
+        });
+        const top = add(document.createElement("button"), "맨 위로 ↑");
+        top.type = "button";
+        top.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        return frag;
+    }
+    function initQuickMenu() {
+        const box = document.createElement("nav");
+        box.className = "mk-quick";
+        box.setAttribute("aria-label", "퀵 메뉴");
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "mk-quick-toggle";
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Quick Menu";
+        const list = document.createElement("div");
+        list.className = "mk-quick-list";
+        list.appendChild(quickItems());
+        toggle.addEventListener("click", () => {
+            const open = box.classList.toggle("is-open");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        box.append(toggle, list);
+        document.body.appendChild(box);
+    }
+    function initReadRail() {
+        const main = document.querySelector(".article-main:not(.mk-prod-table)");
+        const sizeBtns = Array.from(document.querySelectorAll(".reader-toolbar [data-set-scale]"));
+        if (!main || !sizeBtns.length) return;
+        const rail = document.createElement("aside");
+        rail.className = "mk-rail";
+        rail.setAttribute("aria-label", "읽기 도구");
+
+        const tools = document.createElement("div");
+        tools.className = "mk-rail-group";
+        const label = document.createElement("span");
+        label.className = "mk-rail-label";
+        label.textContent = "글자 크기";
+        const sizes = document.createElement("div");
+        sizes.className = "mk-rail-sizes";
+        const mine = sizeBtns.map((src) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.dataset.scale = src.dataset.setScale;
+            b.textContent = "가";
+            b.setAttribute("aria-label", src.getAttribute("aria-label") || "글자 크기");
+            b.addEventListener("click", () => src.click());
+            sizes.appendChild(b);
+            return b;
+        });
+        const sync = () => {
+            const cur = document.documentElement.getAttribute("data-font-scale") || "md";
+            mine.forEach((b) => {
+                const on = b.dataset.scale === cur;
+                b.classList.toggle("is-active", on);
+                b.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+        };
+        new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ["data-font-scale"] });
+        sync();
+        tools.append(label, sizes);
+        const copySrc = document.querySelector(".reader-toolbar [data-copy-link]");
+        if (copySrc) {
+            const copy = document.createElement("button");
+            copy.type = "button";
+            copy.className = "mk-quick-item";
+            copy.textContent = "링크 복사";
+            copy.addEventListener("click", () => copySrc.click());
+            tools.appendChild(copy);
         }
 
-        stories.forEach((story, i) => story.addEventListener("click", (e) => {
-            show(i);
-            schedule();
-            // The picked card hides itself; for keyboard users, move focus to
-            // the story they just opened instead of dropping it on <body>.
-            if (e.detail === 0 && field("title")) field("title").focus();
-        }));
+        rail.append(tools);
+        main.appendChild(rail);
+        document.body.classList.add("has-read-rail");
+    }
 
-        // Pause while the reader is pointing at or focused inside the hero.
-        hero.addEventListener("mouseenter", () => { paused = true; schedule(); });
-        hero.addEventListener("mouseleave", () => { paused = false; schedule(); });
-        hero.addEventListener("focusin", () => { paused = true; schedule(); });
-        hero.addEventListener("focusout", (e) => {
-            if (!hero.contains(e.relatedTarget)) { paused = false; schedule(); }
-        });
-        document.addEventListener("visibilitychange", schedule);
-
-        show(0);
-        schedule();
+    function initArticleToc() {
+        const main = document.querySelector(".article-main:not(.mk-prod-table)");
+        if (!main) return;
+        const wide = window.matchMedia("(min-width: 1500px)");   // same breakpoint as the CSS rail
+        let tries = 0;
+        (function setup() {
+            const toc = main.querySelector(":scope > .ed-toc");
+            if (!toc) { if (tries++ < 20) setTimeout(setup, 100); return; }
+            main.classList.add("has-toc-rail");
+            const links = Array.from(toc.querySelectorAll("a[href^='#']"));
+            const targets = links.map((a) => document.getElementById(decodeURIComponent(a.getAttribute("href").slice(1))));
+            const apply = () => { toc.open = wide.matches; };
+            apply();
+            wide.addEventListener("change", apply);
+            // On the rail the heading is a label, not a toggle
+            toc.querySelector("summary").addEventListener("click", (e) => { if (wide.matches) e.preventDefault(); });
+            let frame = 0;
+            const mark = () => {
+                let current = -1;
+                targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < 170) current = i; });
+                links.forEach((a, i) => a.classList.toggle("is-current", i === current));
+            };
+            window.addEventListener("scroll", () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(mark); }, { passive: true });
+            mark();
+        })();
     }
 
     // list.html: mark the section from ?section= as current in the header nav.
@@ -84,7 +337,7 @@
         });
     }
 
-    /* Box office poster wall: lay the source list out into tilted rows that
+    /* Poster wall (Production stage): lay the source list out into tilted rows that
        fill the whole section. Rows and posters per row follow the wall's
        size. Films are placed row by row from the top, so every film shows
        once before any repeats, and a repeat only lands far below where that
@@ -102,7 +355,7 @@
 
         function build() {
             const css = getComputedStyle(wall);
-            const box = wall.closest(".mk-box");
+            const box = wall.closest(".mk-prod-stage, .mk-box");
             const poster = parseFloat(getComputedStyle(box).getPropertyValue("--wall-poster")) || 176;
             const gap = parseFloat(css.rowGap) || 14;
             const posterH = poster * (262 / 183);
@@ -143,8 +396,13 @@
     }
 
     function init() {
-        initHero();
         initPosterWall();
+        initCoverLockups();
+        initArticleToc();
+        initQuickMenu();
+        initReadRail();
+        initProdTable();
+        initStickyTableScroll();
         markCurrentSection();
     }
 

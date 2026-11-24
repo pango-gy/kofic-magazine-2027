@@ -1,0 +1,135 @@
+{
+  "_about": "Portraits from Wikimedia Commons, cropped to 4:5 and resized. Each entry applies only to the films listed (names are not unique). The film pages print author, licence and source for every photo used.",
+  "people": {
+    "이창동": {
+      "photo": "assets/images/people/lee-chang-dong.webp",
+      "films": [
+        "film-18"
+      ],
+      "author": "Marlene Landu",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chang-dong_Lee_01.jpg"
+    },
+    "전도연": {
+      "photo": "assets/images/people/jeon-do-yeon.webp",
+      "films": [
+        "film-18"
+      ],
+      "author": "Korea.net (해외문화홍보원), Flickr",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jeon_Do-yeon_in_2026.jpg"
+    },
+    "설경구": {
+      "photo": "assets/images/people/sol-kyung-gu.webp",
+      "films": [
+        "film-18"
+      ],
+      "author": "Harald Krichel",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sol_Kyung-gu-9435.jpg"
+    },
+    "조인성": {
+      "photo": "assets/images/people/zo-in-sung.webp",
+      "films": [
+        "film-18"
+      ],
+      "author": "Gabriel Hutchinson",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Zo_In-sung_at_the_2026_Cannes_Film_Festival_02_(cropped).jpg"
+    },
+    "신승호": {
+      "photo": "assets/images/people/shin-seung-ho.webp",
+      "films": [
+        "film-22"
+      ],
+      "author": "Lotte Entertainment",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shin_Seung-ho_in_July_2025.png"
+    },
+    "강기영": {
+      "photo": "assets/images/people/kang-ki-young.webp",
+      "films": [
+        "film-22"
+      ],
+      "author": "NewsInStar",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:181206_%EA%B0%95%EA%B8%B0%EC%98%81.jpg"
+    },
+    "김성령": {
+      "photo": "assets/images/people/kim-sung-ryung.webp",
+      "films": [
+        "film-22"
+      ],
+      "author": "User:PatrickStar46",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kim_Sung-ryung_190418.png"
+    },
+    "허진호": {
+      "photo": "assets/images/people/hur-jin-ho.webp",
+      "films": [
+        "film-19"
+      ],
+      "author": "JoshPopov",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:TIFF-2026-THE-ASSASSINS-HUR-JIN-HO-01.png"
+    },
+    "최민식": {
+      "photo": "assets/images/people/choi-min-sik.webp",
+      "films": [
+        "film-16"
+      ],
+      "author": "Petr Novák, Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Choi_Min-sik.jpg"
+    },
+    "정진영": {
+      "photo": "assets/images/people/jung-jin-young.webp",
+      "films": [
+        "film-07"
+      ],
+      "author": "ItsNEWKorea",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%EC%A0%95%EC%A7%84%EC%98%81_Jeong_Jin-yeong_pandora_161130_01.png"
+    },
+    "정해인": {
+      "photo": "assets/images/people/jung-hae-in.webp",
+      "films": [
+        "film-06"
+      ],
+      "author": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jung_Hae-in_20260827.png"
+    },
+    "류승룡": {
+      "photo": "assets/images/people/ryu-seung-ryong.webp",
+      "films": [
+        "film-01"
+      ],
+      "author": "티비텐 TV10",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ryu_Seung-ryong_in_2025.png"
+    },
+    "하지원": {
+      "photo": "assets/images/people/ha-ji-won.webp",
+      "films": [
+        "film-01"
+      ],
+      "author": "디스패치",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%ED%95%98%EC%A7%80%EC%9B%90,_%EC%B2%AD%EC%88%9C%EB%AF%B8_%ED%8F%AD%EB%B0%9C_(2).jpg"
+    }
+  }
+}

@@ -39,7 +39,10 @@
     }
 
     function getRootPrefix() {
-        return window.location.pathname.includes("/2026-10/") ? "../" : "./";
+        // Issue pages sit one folder down; film pages (…/production/film-NN.html) two
+        const m = window.location.pathname.match(/\/\d{4}-\d{2}\/(.*)$/);
+        if (!m) return "./";
+        return "../".repeat(m[1].split("/").length);
     }
 
     // word-break: keep-all only keeps runs *between spaces* together; browsers
@@ -371,7 +374,8 @@
                 });
             }
             themeBtns.forEach((b) => b.addEventListener("click", () => applyTheme(b.dataset.setTheme)));
-            applyTheme(localStorage.getItem("kofic_theme") || "paper");
+            // The theme buttons are gone from the page; a theme saved earlier must not strand the reader in it
+            applyTheme(themeBtns.length ? (localStorage.getItem("kofic_theme") || "paper") : "paper");
 
             // 7b. Font Scale Switcher (sm / md / lg)
             const scaleBtns = document.querySelectorAll("[data-set-scale]");
@@ -439,54 +443,106 @@
                 if (imgs.length <= 1) return;
 
                 wrap.classList.add("ed-carousel-track");
+                // Navigation = a strip of the other photos joined to the foot of the frame
                 const nav = document.createElement("div");
-                nav.className = "ed-carousel-nav";
-                const counter = document.createElement("span");
-                counter.className = "ed-carousel-counter";
-                counter.textContent = `1 / ${imgs.length}`;
-                const btns = document.createElement("div");
-                btns.className = "ed-carousel-btns";
-                const prev = document.createElement("button");
-                prev.type = "button";
-                prev.className = "ed-carousel-btn";
-                prev.setAttribute("aria-label", "이전 이미지");
-                prev.textContent = "←";
-                const next = document.createElement("button");
-                next.type = "button";
-                next.className = "ed-carousel-btn";
-                next.setAttribute("aria-label", "다음 이미지");
-                next.textContent = "→";
-                btns.append(prev, next);
-                nav.append(counter, btns);
+                nav.className = "ed-carousel-thumbs";
+                nav.setAttribute("role", "group");
+                nav.setAttribute("aria-label", "사진 선택");
+                const thumbs = imgs.map((slide, i) => {
+                    const src = slide.querySelector("img");
+                    const b = document.createElement("button");
+                    b.type = "button";
+                    b.className = "ed-carousel-thumb";
+                    b.setAttribute("aria-label", `${i + 1}번째 사진 보기 (전체 ${imgs.length}장)`);
+                    const t = document.createElement("img");
+                    const small = src && (src.getAttribute("srcset") || "").split(",").map((x) => x.trim().split(" ")[0]).find((x) => /-600w\./.test(x));
+                    t.src = small || (src ? src.getAttribute("src") : "");
+                    t.alt = "";
+                    t.loading = "lazy";
+                    t.decoding = "async";
+                    b.appendChild(t);
+                    const show = () => wrap.scrollTo({ left: i * wrap.clientWidth, behavior: "smooth" });
+                    b.addEventListener("click", show);
+                    b.addEventListener("focus", show);
+                    // Mouse only: hovering a thumbnail brings that photo up into the frame
+                    b.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") show(); });
+                    nav.appendChild(b);
+                    return b;
+                });
                 wrap.insertAdjacentElement("afterend", nav);
 
-                let cur = 0;
-                const updateCounter = () => {
+                const mark = () => {
                     const w = wrap.clientWidth || 1;
-                    cur = Math.round(wrap.scrollLeft / w);
-                    counter.textContent = `${Math.min(imgs.length, Math.max(1, cur + 1))} / ${imgs.length}`;
+                    const cur = Math.min(imgs.length - 1, Math.max(0, Math.round(wrap.scrollLeft / w)));
+                    thumbs.forEach((b, i) => {
+                        b.classList.toggle("is-current", i === cur);
+                        if (i === cur) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+                    });
                 };
-                wrap.addEventListener("scroll", updateCounter, { passive: true });
-                prev.addEventListener("click", () => {
-                    const target = Math.max(0, cur - 1);
-                    wrap.scrollTo({ left: target * wrap.clientWidth, behavior: "smooth" });
-                });
-                next.addEventListener("click", () => {
-                    const target = Math.min(imgs.length - 1, cur + 1);
-                    wrap.scrollTo({ left: target * wrap.clientWidth, behavior: "smooth" });
-                });
+                wrap.addEventListener("scroll", mark, { passive: true });
+                mark();
             });
 
-            // 7f. Lightbox for Article Images
+            // 7f. Image viewer: every photo of the article in one sequence —
+            // counter, previous / next (buttons, arrow keys, swipe), caption.
             const lightbox = document.getElementById("edLightbox");
             const lbImg = lightbox?.querySelector("img");
             const lbCap = lightbox?.querySelector(".ed-lightbox-caption");
+            const lbItems = Array.from(document.querySelectorAll(".article-cover-frame img, .article-main .js-image-full-layer, .article-main .common-image-slide-1 img, .article-main .common-image-block-2 img, .article-main .common-image-col-2 img, .article-main .common-image-block .image img"))
+                .filter((img) => !img.closest(".ed-carousel-thumb"));
+            let lbIndex = 0;
+            let lbCount = null, lbPrev = null, lbNext = null;
 
-            function openLightbox(src, caption) {
+            if (lightbox && lbImg) {
+                const closeBtn = lightbox.querySelector(".ed-lightbox-close");
+                if (closeBtn) closeBtn.textContent = "닫기";
+                lbCount = document.createElement("span");
+                lbCount.className = "ed-lightbox-count";
+                lbCount.setAttribute("aria-live", "polite");
+                const mk = (cls, label, text, step) => {
+                    const b = document.createElement("button");
+                    b.type = "button";
+                    b.className = "ed-lightbox-nav " + cls;
+                    b.setAttribute("aria-label", label);
+                    b.textContent = text;
+                    b.addEventListener("click", (e) => { e.stopPropagation(); showLightbox(lbIndex + step); });
+                    return b;
+                };
+                lbPrev = mk("is-prev", "이전 사진", "←", -1);
+                lbNext = mk("is-next", "다음 사진", "→", 1);
+                lightbox.append(lbCount, lbPrev, lbNext);
+                let x0 = null;
+                lightbox.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+                lightbox.addEventListener("touchend", (e) => {
+                    if (x0 === null) return;
+                    const dx = e.changedTouches[0].clientX - x0;
+                    x0 = null;
+                    if (Math.abs(dx) > 50) showLightbox(lbIndex + (dx < 0 ? 1 : -1));
+                }, { passive: true });
+            }
+
+            function lightboxCaption(img) {
+                return img.closest(".common-image-slide-1, .common-image-block-2, .common-image-col-2, .common-image-block, .article-cover")
+                    ?.querySelector(".common-desc, .article-cover-caption")?.textContent.trim() || "";
+            }
+
+            function showLightbox(i) {
+                if (!lightbox || !lbImg || !lbItems.length) return;
+                lbIndex = Math.min(lbItems.length - 1, Math.max(0, i));
+                const img = lbItems[lbIndex];
+                const cap = lightboxCaption(img);
+                lbImg.src = img.dataset.fullSrc || img.currentSrc || img.src;
+                lbImg.alt = cap;
+                if (lbCap) lbCap.textContent = cap;
+                if (lbCount) lbCount.textContent = `${lbIndex + 1} / ${lbItems.length}`;
+                if (lbPrev) lbPrev.disabled = lbIndex === 0;
+                if (lbNext) lbNext.disabled = lbIndex === lbItems.length - 1;
+                lightbox.classList.toggle("is-single", lbItems.length < 2);
+            }
+
+            function openLightbox(i) {
                 if (!lightbox || !lbImg) return;
-                lbImg.src = src;
-                lbImg.alt = caption || "";
-                if (lbCap) lbCap.textContent = caption || "";
+                showLightbox(i);
                 lightbox.classList.add("is-open");
                 lightbox.setAttribute("aria-hidden", "false");
                 document.body.style.overflow = "hidden";
@@ -499,17 +555,16 @@
                 document.body.style.overflow = "";
             }
 
-            document.querySelectorAll(".article-cover-frame img, .article-main .js-image-full-layer, .article-main .common-image-slide-1 img, .article-main .common-image-block-2 img").forEach((img) => {
-                img.addEventListener("click", () => {
-                    const src = img.dataset.fullSrc || img.src;
-                    const cap = img.closest(".common-image-slide-1, .common-image-block-2, .article-cover")?.querySelector(".common-desc, .article-cover-caption")?.textContent?.trim() || img.alt || "";
-                    openLightbox(src, cap);
-                });
-            });
+            lbItems.forEach((img, i) => img.addEventListener("click", () => openLightbox(i)));
 
             lightbox?.querySelector(".ed-lightbox-close")?.addEventListener("click", closeLightbox);
             lightbox?.addEventListener("click", (e) => {
                 if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox?.classList.contains("is-open")) return;
+                if (e.key === "ArrowLeft") showLightbox(lbIndex - 1);
+                if (e.key === "ArrowRight") showLightbox(lbIndex + 1);
             });
 
             // 7g. Tag Click -> Filtered List Page
@@ -548,6 +603,11 @@
             document.querySelectorAll("[data-copy-link], .sub-sns .btn-copy, .sub-sns .btn-share").forEach((btn) => {
                 btn.addEventListener("click", (e) => {
                     e.preventDefault();
+                    // "Share" opens the system share sheet where there is one; otherwise it copies, like the copy button
+                    if (btn.classList.contains("btn-share") && navigator.share) {
+                        navigator.share({ title: document.title, url: window.location.href }).catch(() => {});
+                        return;
+                    }
                     copyPageLink();
                 });
             });

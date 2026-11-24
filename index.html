@@ -11,28 +11,23 @@
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
     <link rel="preload" as="image" href="./assets/images/2026-10/special-1/special1001_00.webp" type="image/webp" fetchpriority="high">
-    <link href="./assets/css/magazine-2027.css" rel="stylesheet">
-    <link href="./assets/css/layout-2027.css" rel="stylesheet">
-    <script defer src="./assets/js/magazine-2027.js"></script>
-    <script defer src="./assets/js/layout-2027.js"></script>
+    <link href="./assets/css/magazine-2027.css?v=20261128w" rel="stylesheet">
+    <link href="./assets/css/layout-2027.css?v=20261128w" rel="stylesheet">
+    <script defer src="./assets/js/magazine-2027.js?v=20261128w"></script>
+    <script defer src="./assets/js/layout-2027.js?v=20261128w"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-    <!-- Editorial Masthead Header -->
-    <header class="ed-header mk-header mk-header--masthead">
+    <!-- Header: logo left, section menu right (same bar as the inner pages) -->
+    <header class="ed-header mk-header">
         <div class="mk-bar">
             <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 10월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-            <div class="mk-issue">
-                <span class="mk-issue-label">2026년 10월호</span>
-                <a href="./list.html" class="mk-issue-link">전체 기사 보기</a>
-            </div>
             <a href="./index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
                 <img src="./assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
             </a>
             <div class="mk-actions">
                 <button type="button" class="mk-icon-btn mk-search-btn" data-open-drawer="search" aria-label="기사 검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
-                <button type="button" class="mk-btn-accent" data-open-modal="modalNewsletter">뉴스레터 구독</button>
             </div>
         </div>
         <nav class="mk-nav" aria-label="주요 섹션 메뉴">
@@ -49,325 +44,329 @@
     </header>
 
     <main id="main-content" class="mk-main">
-        <!-- Cover story hero: the current story fills the frame; the other cover
-             stories stack on the right (click one to bring it forward), and the
-             rest of the issue's contents (everything that is not a cover story)
-             runs along the bottom, ending in a "see all" tile. -->
-        <section class="mk-hero-wrap" aria-label="2026년 10월호 커버스토리">
-            <div class="mk-hero" data-mk-hero>
-                <div class="mk-hero-media" aria-hidden="true">
-                    <img class="is-active" src="./assets/images/2026-10/special-1/special1001_00.webp" alt="" fetchpriority="high">
-                    <img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="" loading="lazy">
-                    <img src="./assets/images/2026-10/people-2/people1002_00.webp" alt="" loading="lazy">
-                    <img src="./assets/images/2026-10/reading-2/reading1002_00.webp" alt="" loading="lazy">
-                </div>
-
-                <div class="mk-hero-copy">
-                    <h1 class="mk-hero-title"><a href="./2026-10/special-1.html" data-hero-field="title">새로운 영화·영상 제작 거점으로의 출발</a></h1>
-                    <p class="mk-hero-deck"><span class="mk-hero-kicker" data-hero-field="kicker">SPECIAL ①</span><span data-hero-field="deck">부산기장촬영소를 가다</span></p>
-                </div>
-
-                <div class="mk-hero-side">
-                    <p class="mk-hero-side-label" id="mk-hero-side-label">이번 호 커버스토리</p>
-                    <div class="mk-hero-stories" role="group" aria-labelledby="mk-hero-side-label">
-                        <button type="button" class="mk-hero-story" aria-pressed="true"
-                            data-href="./2026-10/special-1.html" data-kicker="SPECIAL ①" data-title="새로운 영화·영상 제작 거점으로의 출발"
-                            data-deck="부산기장촬영소를 가다">
-                            <span class="mk-hero-story-media"><img src="./assets/images/2026-10/special-1/special1001_00.webp" alt="" loading="lazy"><span class="mk-hero-story-kicker">SPECIAL ①</span></span>
-                            <span class="mk-hero-story-title">새로운 영화·영상 제작 거점으로의 출발</span>
-                        </button>
-                        <button type="button" class="mk-hero-story" aria-pressed="false"
-                            data-href="./2026-10/special-2.html" data-kicker="SPECIAL ②" data-title="진실 기록 넘어 사회 변화로"
-                            data-deck="한국형 ‘임팩트 다큐’ 생태계, 필요하다">
-                            <span class="mk-hero-story-media"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="" loading="lazy"><span class="mk-hero-story-kicker">SPECIAL ②</span></span>
-                            <span class="mk-hero-story-title">진실 기록 넘어 사회 변화로</span>
-                        </button>
-                        <button type="button" class="mk-hero-story" aria-pressed="false" data-side-pos="2"
-                            data-href="./2026-10/people-2.html" data-kicker="INTERVIEW ②" data-title="엉뚱하지만 파괴적인"
-                            data-deck="〈부활남: 더 레드〉 정성호 무술감독">
-                            <span class="mk-hero-story-media"><img src="./assets/images/2026-10/people-2/people1002_00.webp" alt="" loading="lazy"><span class="mk-hero-story-kicker">INTERVIEW ②</span></span>
-                            <span class="mk-hero-story-title">엉뚱하지만 파괴적인</span>
-                        </button>
-                        <button type="button" class="mk-hero-story" aria-pressed="false" hidden
-                            data-href="./2026-10/reading-2.html" data-kicker="CRITIC ② YES or NO" data-title="낙원 없이 살아가는 법"
-                            data-deck="〈실낙원〉 찬반 대담">
-                            <span class="mk-hero-story-media"><img src="./assets/images/2026-10/reading-2/reading1002_00.webp" alt="" loading="lazy"><span class="mk-hero-story-kicker">CRITIC ② YES or NO</span></span>
-                            <span class="mk-hero-story-title">낙원 없이 살아가는 법</span>
-                        </button>
-                    </div>
-                </div>
-
-                <nav class="mk-hero-strip" aria-labelledby="mk-h-toc">
-                    <div class="mk-hero-strip-head">
-                        <h2 id="mk-h-toc" class="mk-hero-strip-title">이번 호 다른 기사 <span>전체 15편</span><span class="mk-hero-strip-date">2026.10.19 업데이트</span></h2>
-                    </div>
-                    <ol class="mk-hero-toc">
-                        <li>
-                            <a class="mk-hero-toc-card" href="./2026-10/people-1.html">
-                                <img src="./assets/images/2026-10/people-1/people1001_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">INTERVIEW ①</span>
-                                <span class="mk-hero-toc-title">인간다움과 인간다운 죽음에 대하여</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="mk-hero-toc-card" href="./2026-10/reading-1.html">
-                                <img src="./assets/images/2026-10/reading-1/reading1001_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">CRITIC ①</span>
-                                <span class="mk-hero-toc-title">미옥과 호석의 내일을 위한 시간</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="mk-hero-toc-card" href="./2026-10/global.html">
-                                <img src="./assets/images/2026-10/global/global1001_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">GLOBAL</span>
-                                <span class="mk-hero-toc-title">도시 전체와 호흡하는 축제로</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="mk-hero-toc-card" href="./2026-10/kofic-story.html">
-                                <img src="./assets/images/2026-10/kofic-story/kofic10_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">KOFIC STORY</span>
-                                <span class="mk-hero-toc-title">창작자, 어떤 판 위에서 놀게 할 것인가</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="mk-hero-toc-card" href="./list.html?section=BOX%20OFFICE">
-                                <img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">BOX OFFICE</span>
-                                <span class="mk-hero-toc-title">10월 1~5주차 위클리 박스오피스</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="mk-hero-toc-card" href="./2026-10/production.html">
-                                <img src="./assets/images/2026-10/production/production10_00m.webp" alt="" loading="lazy" decoding="async">
-                                <span class="mk-hero-toc-kicker">PRODUCTION</span>
-                                <span class="mk-hero-toc-title">9월 개봉작 살펴보기</span>
-                            </a>
-                        </li>
-                        <li class="mk-hero-toc-more">
-                            <a href="./list.html">10월호<br>전체 15편 보기 →</a>
-                        </li>
-                    </ol>
-                </nav>
+        <!-- Cover stories: seven fixed cards, one per section (never two of a kind)
+             in a bento that runs edge to edge of the window. The English section
+             name and the Korean title form one lockup on white steps rising from
+             a bottom corner of the photo; layout-2027.js picks the title's line
+             break so each line is wider than the one above (a staircase).
+             Three kinds of card are mixed: the default (text steps cut into a
+             corner), data-kind="float" (a white label floating on the photo) and
+             data-kind="plain" (plain photo, text under it).
+             --expo on a photo evens out its exposure against the others (dark
+             stills lifted, bright ones pulled down); set it per photo each issue. -->
+        <section class="mk-cover" aria-label="2026년 10월호 커버스토리">
+            <div class="mk-cover-head">
+                <p class="mk-cover-title">2026년 10월호<span lang="en">Cover Stories</span></p>
+                <a class="mk-cover-all" href="./list.html">전체 15편 보기 <span aria-hidden="true">→</span></a>
             </div>
+            <div class="mk-cover-grid">
+                <a class="mk-cover-card mk-cover-card--a" data-step="br" href="./2026-10/special-1.html">
+                    <img src="./assets/images/2026-10/special-1/special1001_00.webp" alt="" fetchpriority="high">
+                    <span class="mk-cover-card-deck">부산기장촬영소를 가다</span>
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Special</span></span><span class="mk-cover-card-ko"><span>새로운 영화·영상 제작 거점으로의 출발</span></span></span>
+                        <h1 class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Special</span></span><span class="mk-cover-card-ko"><span>새로운 영화·영상 제작 거점으로의 출발</span></span></h1>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--b" data-step="tl" data-kind="float" href="./2026-10/people-2.html">
+                    <img src="./assets/images/2026-10/people-2/people1002_00.webp" alt="" style="--expo: brightness(0.88)" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Interview</span></span><span class="mk-cover-card-ko"><span>엉뚱하지만 파괴적인</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Interview</span></span><span class="mk-cover-card-ko"><span>엉뚱하지만 파괴적인</span></span></span>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--c" data-step="br" href="./2026-10/reading-1.html">
+                    <img src="./assets/images/2026-10/reading-1/reading1001_00m.webp" alt="" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Critic</span></span><span class="mk-cover-card-ko"><span>미옥과 호석의 내일을 위한 시간</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Critic</span></span><span class="mk-cover-card-ko"><span>미옥과 호석의 내일을 위한 시간</span></span></span>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--d" data-kind="plain" href="./2026-10/global.html">
+                    <img src="./assets/images/2026-10/global/global1001_00m.webp" alt="" style="--expo: url(#mk-lift-soft)" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Global</span></span><span class="mk-cover-card-ko"><span>도시 전체와 호흡하는 축제로</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Global</span></span><span class="mk-cover-card-ko"><span>도시 전체와 호흡하는 축제로</span></span></span>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--e" data-step="bl" href="./2026-10/kofic-story.html">
+                    <img src="./assets/images/2026-10/kofic-story/kofic10_00m.webp" alt="" style="--expo: url(#mk-lift-soft)" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Kofic Story</span></span><span class="mk-cover-card-ko"><span>창작자, 어떤 판 위에서 놀게 할 것인가</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Kofic Story</span></span><span class="mk-cover-card-ko"><span>창작자, 어떤 판 위에서 놀게 할 것인가</span></span></span>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--f" data-step="tl" data-kind="float" href="./list.html?section=BOX%20OFFICE">
+                    <img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_00.webp" alt="" style="--expo: brightness(0.86)" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Box Office</span></span><span class="mk-cover-card-ko"><span>10월 1~5주차 위클리 박스오피스</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Box Office</span></span><span class="mk-cover-card-ko"><span>10월 1~5주차 위클리 박스오피스</span></span></span>
+                    </span>
+                </a>
+                <a class="mk-cover-card mk-cover-card--g" data-kind="plain" href="./2026-10/production.html">
+                    <img src="./assets/images/2026-10/production/production10_00.webp" alt="" style="--expo: brightness(1.06)" loading="lazy">
+                    <span class="mk-cover-card-text">
+                        <span class="mk-cover-card-shape" aria-hidden="true"><span class="mk-cover-card-en" lang="en"><span>Production</span></span><span class="mk-cover-card-ko"><span>9월 개봉작 살펴보기</span></span></span>
+                        <span class="mk-cover-card-title"><span class="mk-cover-card-en" lang="en"><span>Production</span></span><span class="mk-cover-card-ko"><span>9월 개봉작 살펴보기</span></span></span>
+                    </span>
+                </a>
+            </div>
+            <!-- Shape filter for the title notches: melts each line's white box into
+                 one soft-cornered step shape that follows the text -->
+            <svg class="mk-cover-defs" width="0" height="0" aria-hidden="true" focusable="false">
+                <defs>
+                    <filter id="mk-goo" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="9"/>
+                        <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 24 -11"/>
+                    </filter>
+                    <!-- Exposure lifts for dark photos: raise shadows and midtones, keep
+                         highlights where they are (a plain brightness() would burn them out) -->
+                    <filter id="mk-lift" color-interpolation-filters="sRGB">
+                        <feComponentTransfer>
+                            <feFuncR type="gamma" exponent="0.58"/><feFuncG type="gamma" exponent="0.58"/><feFuncB type="gamma" exponent="0.58"/>
+                        </feComponentTransfer>
+                    </filter>
+                    <filter id="mk-lift-soft" color-interpolation-filters="sRGB">
+                        <feComponentTransfer>
+                            <feFuncR type="gamma" exponent="0.8"/><feFuncG type="gamma" exponent="0.8"/><feFuncB type="gamma" exponent="0.8"/>
+                        </feComponentTransfer>
+                    </filter>
+                    <filter id="mk-goo-sm" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+                        <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 24 -11"/>
+                    </filter>
+                </defs>
+            </svg>
         </section>
 
-        <!-- SPECIAL -->
-        <section class="mk-section" id="special" aria-labelledby="mk-h-special">
+        <!-- Pull quote: one line from this issue's interview, set large with no
+             photo, as a pause between the cover cards and the article row. The
+             words are taken verbatim from the article. -->
+        <section class="mk-quote" aria-label="이번 호 인터뷰 한 줄">
+            <a class="mk-quote-link" href="./2026-10/people-1.html">
+                <span class="mk-sec-title mk-quote-head"><span lang="en">Interview</span><span class="mk-sec-ko">인터뷰</span></span>
+                <span class="mk-quote-text">“가장 많이 생각한 건 인간다움에 관한 것이었다. 좀 더 구체적으로는 인간답게 죽는다는 건 무엇일까 생각했다.”</span>
+                <span class="mk-quote-foot">
+                    <span class="mk-quote-who"><b>故 허범욱 감독</b>〈구제역에서 살아 돌아온 돼지〉</span>
+                    <span class="mk-quote-more">인터뷰 읽기 <span aria-hidden="true">→</span></span>
+                </span>
+                <!-- Four photos laid over one another: three stills from the film
+                     behind, the director in front -->
+                <span class="mk-quote-photo">
+                    <img class="mk-quote-photo-back" src="./assets/images/2026-10/people-1/people1001_07.webp" alt="" loading="lazy">
+                    <img class="mk-quote-photo-back mk-quote-photo-back--2" src="./assets/images/2026-10/people-1/people1001_09.webp" alt="" loading="lazy">
+                    <img class="mk-quote-photo-back mk-quote-photo-back--3" src="./assets/images/2026-10/people-1/people1001_08.webp" alt="" loading="lazy">
+                    <img class="mk-quote-photo-front" src="./assets/images/2026-10/people-1/people1001_00m.webp" alt="故 허범욱 감독" loading="lazy" style="--expo: brightness(0.92)">
+                </span>
+            </a>
+        </section>
+
+        <!-- In Depth: one feature opened up on the main page: its question, then
+             the three points the article itself lists. -->
+        <section class="mk-section mk-deep" id="indepth" aria-labelledby="mk-h-deep">
             <div class="mk-container">
-                <div class="mk-sec-head mk-sec-head--center">
-                    <h2 id="mk-h-special" class="mk-sec-title">SPECIAL</h2>
-                    <span class="mk-sec-rule" aria-hidden="true"></span>
+                <div class="mk-sec-head">
+                    <h2 id="mk-h-deep" class="mk-sec-title"><span lang="en">In Depth</span><span class="mk-sec-ko">깊이 읽기</span></h2>
+                    <a class="mk-sec-more" href="./2026-10/special-2.html">기사 전문 읽기 <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="mk-special">
-                    <a href="./2026-10/special-2.html" class="mk-special-text">
-                        <!-- Article photo shown only where an eraser "rubbed out" the page
-                             (static CSS mask, see .mk-special-fog) -->
-                        <span class="mk-special-fog" aria-hidden="true"><img src="./assets/images/2026-10/special-2/special1002_00m.webp" alt="" loading="lazy" decoding="async"></span>
-                        <span class="mk-kicker">SPECIAL ②</span>
-                        <span class="mk-special-title">진실 기록 넘어 <mark>사회 변화</mark>로</span>
-                        <span class="mk-special-deck">한국형 ‘임팩트 다큐’ 생태계, 필요하다</span>
-                        <ul class="mk-dots mk-dots--purple">
-                            <li>스크린을 넘어 정책·사회 변화 이끌어 내는 ‘임팩트 다큐멘터리’</li>
-                            <li>한국 ‘관객 연대’·대만 ‘정부 지원’·일본 ‘커뮤니티 시네마’ 통한 유의미한 성과</li>
-                            <li>전용 예산·전문 인력 갖춘 한국형 임팩트 다큐멘터리 생태계 구축 촉구</li>
-                        </ul>
+                <a class="mk-deep-body" href="./2026-10/special-2.html">
+                    <span class="mk-deep-photo"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="임팩트 다큐 포럼 현장" loading="lazy" style="--expo: url(#mk-lift-soft)"></span>
+                    <span class="mk-deep-text">
+                        <span class="mk-deep-kicker" lang="en">Special</span>
+                        <span class="mk-deep-title">진실 기록 넘어 사회 변화로</span>
+                        <span class="mk-deep-deck">한국형 ‘임팩트 다큐’ 생태계, 필요하다</span>
+                        <span class="mk-deep-points" role="list">
+                            <span role="listitem"><b aria-hidden="true">1</b><span>스크린을 넘어 정책·사회 변화 이끌어 내는 ‘임팩트 다큐멘터리’</span></span>
+                            <span role="listitem"><b aria-hidden="true">2</b><span>한국 ‘관객 연대’·대만 ‘정부 지원’·일본 ‘커뮤니티 시네마’ 통한 유의미한 성과</span></span>
+                            <span role="listitem"><b aria-hidden="true">3</b><span>전용 예산·전문 인력 갖춘 한국형 임팩트 다큐멘터리 생태계 구축 촉구</span></span>
+                        </span>
                         <span class="mk-byline">글 곽명동(마이데일리 기자) · 2026.10.19</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Yes or No: the two critics of this issue's debate, side by side, each
+             with the headline line and the closing verdict from the article. -->
+        <section class="mk-debate" id="yesorno" aria-labelledby="mk-h-debate">
+            <div class="mk-container">
+                <div class="mk-sec-head">
+                    <h2 id="mk-h-debate" class="mk-sec-title"><span lang="en">Yes or No</span><span class="mk-sec-ko">쟁점</span></h2>
+                    <a class="mk-sec-more" href="./2026-10/reading-2.html">대담 전문 읽기 <span aria-hidden="true">→</span></a>
+                </div>
+                <p class="mk-debate-q"><span>〈실낙원〉 · 감독 연상호</span>결국 〈실낙원〉은 YES인가 NO인가?</p>
+                <div class="mk-debate-sides">
+                    <a class="mk-debate-side" href="./2026-10/reading-2.html">
+                        <span class="mk-debate-who"><b>송석주</b>이투데이 기자, 영화평론가</span>
+                        <span class="mk-debate-line">“친숙함의 틈 포착한 공간 연출… 신파 없이 질주”</span>
+                        <span class="mk-debate-verdict"><b>YES.</b> 극장에서 충분히 볼 만하다.</span>
                     </a>
-                    <a href="./2026-10/special-1.html" class="mk-special-photo">
-                        <img src="./assets/images/2026-10/special-1/special1001_00.webp" alt="부산기장촬영소 전경" loading="lazy">
-                        <span class="mk-kicker">SPECIAL ①</span>
-                        <span class="mk-special-photo-title">새로운 영화·영상 제작 거점으로의 출발</span>
-                        <span class="mk-special-photo-deck">부산기장촬영소를 가다 — 로케이션 인센티브 등 영화·영상산업 활성화와 역량 강화 지원 계획</span>
-                        <span class="mk-byline">글 박경희(한경매거진앤북 기자) · 2026.10.06</span>
+                    <a class="mk-debate-side" href="./2026-10/reading-2.html">
+                        <span class="mk-debate-who"><b>한상희</b>영화평론가</span>
+                        <span class="mk-debate-line">“이미지와 실체 위계 묻는 설정 흥미… 아쉬운 연출·시나리오”</span>
+                        <span class="mk-debate-verdict">장르적 가능성을 느껴 보고 싶고, SF적인 상상력과 존재론적 질문을 마주해 보고 싶다면 <b>YES.</b> 완성도 높은 수작을 만나고 싶다면 <b>NO</b>다.</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <div class="mk-tint">
-            <!-- INTERVIEW -->
-            <section class="mk-section" id="interview" aria-labelledby="mk-h-interview">
-                <div class="mk-container">
-                    <div class="mk-sec-head mk-sec-head--center">
-                        <h2 id="mk-h-interview" class="mk-sec-title">INTERVIEW</h2>
-                        <span class="mk-sec-rule" aria-hidden="true"></span>
-                    </div>
-                    <div class="mk-interview">
-                        <a href="./2026-10/people-1.html" class="mk-interview-card">
-                            <img src="./assets/images/2026-10/people-1/people1001_00m.webp" alt="故 허범욱 감독 인터뷰 사진" loading="lazy">
-                            <span class="mk-interview-body">
-                                <span class="mk-kicker">INTERVIEW ①</span>
-                                <span class="mk-interview-title">인간다움과 인간다운 죽음에 대하여</span>
-                                <span class="mk-interview-subject">〈구제역에서 살아 돌아온 돼지〉 故 허범욱 감독</span>
-                                <span class="mk-interview-deck">어려운 환경 속 독자적인 작품 세계를 구축해 온 고(故) 허범욱 감독</span>
-                                <span class="mk-byline">글 민용준(영화 저널리스트) · 2026.10.06</span>
-                            </span>
-                        </a>
-                        <a href="./2026-10/people-2.html" class="mk-interview-card">
-                            <img src="./assets/images/2026-10/people-2/people1002_00m.webp" alt="정성호 무술감독 인터뷰 사진" loading="lazy">
-                            <span class="mk-interview-body">
-                                <span class="mk-kicker">INTERVIEW ②</span>
-                                <span class="mk-interview-title">엉뚱하지만 파괴적인</span>
-                                <span class="mk-interview-subject">〈부활남: 더 레드〉 정성호 무술감독</span>
-                                <span class="mk-interview-deck">정성호 무술감독, 초인적인 액션 레벨을 정교하게 설계하다</span>
-                                <span class="mk-byline">글 김혜선(웹진 한국영화 편집장) · 2026.10.19</span>
-                            </span>
-                        </a>
-                    </div>
+        <!-- More: the feature articles that are neither on the cover nor in the
+             pull quote above, in one row (photo, title under it, one line of plain
+             meta). Every article of the issue appears on this page exactly once. -->
+        <section class="mk-section mk-stories" id="stories" aria-labelledby="mk-h-stories">
+            <div class="mk-container">
+                <div class="mk-sec-head">
+                    <h2 id="mk-h-stories" class="mk-sec-title"><span lang="en">More</span><span class="mk-sec-ko">이번 호 기사 더 보기</span></h2>
+                    <a class="mk-sec-more" href="./list.html">전체 15편 보기 <span aria-hidden="true">→</span></a>
                 </div>
-            </section>
-
-            <!-- CRITIC -->
-            <section class="mk-section mk-section--tight-top" id="critic" aria-labelledby="mk-h-critic">
-                <div class="mk-container mk-critic">
-                    <div class="mk-critic-head">
-                        <h2 id="mk-h-critic" class="mk-sec-title">CRITIC</h2>
-                        <p>이달의 한국영화를 깊이 읽는 비평과 찬반 대담</p>
-                    </div>
-                    <div class="mk-critic-list">
-                        <a href="./2026-10/reading-1.html" class="mk-critic-row">
-                            <span class="mk-critic-num" aria-hidden="true">01</span>
-                            <span class="mk-critic-body">
-                                <span class="mk-critic-film">〈가능한 사랑〉 · 감독 이창동</span>
-                                <span class="mk-critic-title">미옥과 호석의 <mark>내일</mark>을 위한 시간</span>
-                                <span class="mk-critic-deck">미감을 넘어 실감으로… 모든 장면이 놀라운 올해 가장 문제적 작품</span>
-                                <span class="mk-byline">글 주성철(영화평론가, 씨네플레이 편집장) · 2026.10.06</span>
-                            </span>
-                            <img src="./assets/images/2026-10/production/production10_18.webp" alt="영화 가능한 사랑 포스터" loading="lazy">
+                <ul class="mk-story-grid">
+                    <li>
+                        <a class="mk-story" href="./2026-10/global-eng.html">
+                            <span class="mk-story-media"><img src="./assets/images/2026-10/global/global1001_01.webp" alt="" loading="lazy" style="--expo: url(#mk-lift)"></span>
+                            <span class="mk-story-title" lang="en">A Festival in Step with an Entire City</span>
+                            <span class="mk-story-meta"><b lang="en">Global · English</b><span>2026.10.19</span><span>By Lee Woo-bin</span></span>
                         </a>
-                        <a href="./2026-10/reading-2.html" class="mk-critic-row">
-                            <span class="mk-critic-num" aria-hidden="true">02</span>
-                            <span class="mk-critic-body">
-                                <span class="mk-critic-film"><span class="mk-tag-dark">YES or NO</span>〈실낙원〉 · 감독 연상호</span>
-                                <span class="mk-critic-title"><mark>낙원 없이</mark> 살아가는 법</span>
-                                <span class="mk-critic-duo">
-                                    <span><b>송석주 이투데이 기자, 영화평론가</b><q>친숙함의 틈 포착한 공간 연출… 신파 없이 질주</q></span>
-                                    <span><b>한상희 영화평론가</b><q>이미지와 실체 위계 묻는 설정 흥미… 아쉬운 연출·시나리오</q></span>
-                                </span>
-                                <span class="mk-byline">진행 김혜선(웹진 한국영화 편집장) · 2026.10.19</span>
-                            </span>
-                            <img src="./assets/images/2026-10/reading-2/reading1002_00m.webp" alt="영화 실낙원 대담 사진" loading="lazy">
+                    </li>
+                    <li>
+                        <a class="mk-story" href="./2026-10/boxoffice-4.html">
+                            <span class="mk-story-media"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_00m.webp" alt="" loading="lazy" style="--expo: brightness(0.88)"></span>
+                            <span class="mk-story-title">10월 4주차 위클리 박스오피스</span>
+                            <span class="mk-story-meta"><b lang="en">Box Office</b><span>2026.10.27</span><span>글 김선아</span></span>
                         </a>
-                    </div>
-                </div>
-            </section>
-        </div>
+                    </li>
+                    <li>
+                        <a class="mk-story" href="./2026-10/boxoffice-3.html">
+                            <span class="mk-story-media"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_00m.webp" alt="" loading="lazy" style="--expo: brightness(0.88)"></span>
+                            <span class="mk-story-title">10월 3주차 위클리 박스오피스</span>
+                            <span class="mk-story-meta"><b lang="en">Box Office</b><span>2026.10.20</span><span>글 김선아</span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="mk-story" href="./2026-10/boxoffice-2.html">
+                            <span class="mk-story-media"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_00m.webp" alt="" loading="lazy" style="--expo: brightness(0.88)"></span>
+                            <span class="mk-story-title">10월 2주차 위클리 박스오피스</span>
+                            <span class="mk-story-meta"><b lang="en">Box Office</b><span>2026.10.13</span><span>글 김선아</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
         <!-- BOX OFFICE -->
-        <section class="mk-section mk-box" id="boxoffice" aria-labelledby="mk-h-box">
-            <!-- Stage: full-width poster wall with the week's headline on top.
-                 The wall is decorative; layout-2027.js lays the single list below
-                 out into tilted, slowly swaying rows, each film appearing once.
-                 This week's films (boxoffice-5) come first, then the rest of
-                 the month's; refresh the list each week. -->
-            <div class="mk-box-stage">
-                <div class="mk-box-wall" aria-hidden="true">
-                    <ul class="mk-box-wall-src" data-mk-wall>
-                        <li data-title="극장판 치이카와: 인어 섬의 비밀"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_01.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="하트 오브 비스트" data-new><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_02.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="암살자(들)"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_03.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="수능, 출제의 비밀"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_04.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="타짜: 벨제붑의 노래"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_05.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="실낙원"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_06.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="클레이페이스"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_07.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="오디세이"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_08.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="여전히 찬란하게"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_09.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="룩백"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_10.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="킬링타임"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_13.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="레위기"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_14.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="브루넬로: 우아한 선구자"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_15.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="흐르는 여정"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_16.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="눈 둘 데가 없네"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_17.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="가족여행"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_18.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="침묵의 빛"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_19.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="이방인"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_20.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="베러티"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_09.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="입에 대한 앙케트"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_15.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="부에노스 아이레스여 안녕"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_19.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="씽씽"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_20.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="웨일폴: 고래에 먹힌 남자"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_05.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="전자오락수호대"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_06.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="스트리트 파이터"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_08.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="부활남: 더 레드"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_10.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="파리스 그린이 밝는 날에"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_15.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="다이노 패밀리: 사고뭉치 공룡 탐험대"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_16.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="퓨리어스"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_17.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="헤븐 노우즈 왓"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_19.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="다윗"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_20.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="디거"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_08.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="옵세션"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_09.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="인턴"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_10.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="나의 사적인 예술가"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_14.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="철들 무렵"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_15.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="청년 조용기: 신을 저주하던 청년, 시대를 긋는 종이 되다"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_16.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="알파"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_17.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="홀리보이"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_19.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="어떻게 해야 했을까?"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_20.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="가능한 사랑"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_06.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="어벤져스: 엔드게임 앙코르"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_09.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="리틀 드래곤: 몬스터 섬의 비밀"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_17.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="꿈꾸던 모험"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_19.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                        <li data-title="아가미"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_20.webp" alt="" width="183" height="262" loading="lazy" decoding="async"></li>
-                    </ul>
-                </div>
-                <div class="mk-container mk-box-stage-copy">
-                    <p class="mk-box-eyebrow">BOX OFFICE · 10월 5주차</p>
-                    <h2 id="mk-h-box" class="mk-box-title">〈극장판 치이카와〉 장기 흥행 속 1위</h2>
-                    <p class="mk-box-deck">신작 〈하트 오브 비스트〉가 2위로 가세한 10월 5주차 극장가</p>
-                    <dl class="mk-box-stats">
-                        <div><dt>주간 전체 관객</dt><dd>114만 명</dd></div>
-                        <div><dt>외국영화 점유율</dt><dd class="is-accent">70.2%</dd></div>
-                    </dl>
-                    <a href="./2026-10/boxoffice-5.html" class="mk-btn-accent">10월 5주차 리포트 읽기 →</a>
-                </div>
-            </div>
+        <section class="mk-section mk-box mk-bo" id="boxoffice" aria-labelledby="mk-h-box">
             <div class="mk-container">
-                <ol class="mk-box-top">
-                    <li>
-                        <div class="mk-box-card-info"><span class="mk-box-rank is-first">1</span><span class="mk-box-film">극장판 치이카와: 인어 섬의 비밀</span><span class="mk-box-meta"><span>관객 34만 명</span><span>매출 34억 원</span><span>누적 258만 명</span></span></div>
-                        <img class="mk-box-card-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_01.webp" alt="" width="183" height="262" loading="lazy" decoding="async">
-                    </li>
-                    <li>
-                        <div class="mk-box-card-info"><span class="mk-box-rank">2</span><span class="mk-box-film">하트 오브 비스트</span><span class="mk-box-meta"><span>관객 21만 명</span><span>매출 21억 원</span><span>10.28 개봉 · 신규 진입</span></span></div>
-                        <img class="mk-box-card-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_02.webp" alt="" width="183" height="262" loading="lazy" decoding="async">
-                    </li>
-                    <li>
-                        <div class="mk-box-card-info"><span class="mk-box-rank">3</span><span class="mk-box-film">암살자(들)</span><span class="mk-box-meta"><span>관객 7만 명</span><span>매출 7억 원</span><span>누적 345만 명</span></span></div>
-                        <img class="mk-box-card-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_03.webp" alt="" width="183" height="262" loading="lazy" decoding="async">
-                    </li>
-                </ol>
-                <div class="mk-box-lists">
-                    <div class="mk-box-panel">
-                        <h3>4~10위</h3>
-                        <ol class="mk-box-rows" start="4">
-                            <li><b>4</b><span>수능, 출제의 비밀</span><span>7만 명</span><span>6억 원</span></li>
-                            <li><b>5</b><span>타짜: 벨제붑의 노래</span><span>6만 명</span><span>6억 원</span></li>
-                            <li><b>6</b><span>실낙원</span><span>5만 명</span><span>4억 원</span></li>
-                            <li><b>7</b><span>클레이페이스</span><span>4만 명</span><span>4억 원</span></li>
-                            <li><b>8</b><span>오디세이</span><span>2만 명</span><span>3억 원</span></li>
-                            <li><b>9</b><span>여전히 찬란하게</span><span>2만 명</span><span>2억 원</span></li>
-                            <li><b>10</b><span>룩백</span><span>2만 명</span><span>2억 원</span></li>
-                        </ol>
-                    </div>
-                    <div class="mk-box-panel">
-                        <h3>독립·예술영화 TOP 5</h3>
-                        <p>한국영화 〈여전히 찬란하게〉 2주 연속 1위</p>
-                        <ol class="mk-box-indie">
-                            <li><span><b class="is-accent">1</b>여전히 찬란하게</span><span>한국</span></li>
-                            <li><span><b>2</b>룩백</span><span>일본</span></li>
-                            <li><span><b>3</b>킬링타임</span><span>한국</span></li>
-                            <li><span><b>4</b>레위기</span><span>호주</span></li>
-                            <li><span><b>5</b>브루넬로: 우아한 선구자</span><span>이탈리아</span></li>
-                        </ol>
-                    </div>
+                <div class="mk-sec-head">
+                    <h2 id="mk-h-box" class="mk-sec-title"><span lang="en">Box Office</span><span class="mk-sec-ko">10월 5주차 박스오피스</span></h2>
+                    <a class="mk-sec-more" href="./2026-10/boxoffice-5.html">10월 5주차 리포트 읽기 <span aria-hidden="true">→</span></a>
                 </div>
-                <div class="mk-box-weeks">
-                    <span>지난 주차</span>
-                    <a href="./2026-10/boxoffice-4.html">4주차</a>
-                    <a href="./2026-10/boxoffice-3.html">3주차</a>
-                    <a href="./2026-10/boxoffice-2.html">2주차</a>
-                    <a href="./2026-10/boxoffice-1.html">1주차</a>
+                <div class="mk-bo-grid">
+                    <!-- Left: the week in one sentence, two totals, the indie chart, past weeks -->
+                    <div class="mk-bo-side">
+                        <p class="mk-bo-headline">〈극장판 치이카와〉 장기 흥행 속 1위</p>
+                        <p class="mk-bo-deck">신작 〈하트 오브 비스트〉가 2위로 가세한 10월 5주차 극장가</p>
+                        <dl class="mk-bo-stats">
+                            <div><dt>주간 전체 관객</dt><dd>114만 명</dd></div>
+                            <div><dt>외국영화 점유율</dt><dd>70.2%</dd></div>
+                        </dl>
+                        <div class="mk-bo-indie">
+                            <h3>독립·예술영화 TOP 5</h3>
+                            <ol>
+                                <li><b>1</b><span>여전히 찬란하게</span><i>한국</i></li>
+                                <li><b>2</b><span>룩백</span><i>일본</i></li>
+                                <li><b>3</b><span>킬링타임</span><i>한국</i></li>
+                                <li><b>4</b><span>레위기</span><i>호주</i></li>
+                                <li><b>5</b><span>브루넬로: 우아한 선구자</span><i>이탈리아</i></li>
+                            </ol>
+                        </div>
+                        <p class="mk-bo-past">
+                            <span>지난 주차 리포트</span>
+                            <a href="./2026-10/boxoffice-4.html">10월 4주차</a>
+                            <a href="./2026-10/boxoffice-3.html">3주차</a>
+                            <a href="./2026-10/boxoffice-2.html">2주차</a>
+                            <a href="./2026-10/boxoffice-1.html">1주차</a>
+                        </p>
+                    </div>
+                    <!-- Right: the whole top ten as one list. --aud-max is this week's
+                         top audience (만 명); each row's --aud draws its bar. Update
+                         both with the numbers each week. -->
+                    <div class="mk-bo-chart" style="--aud-max: 34">
+                        <div class="mk-bo-cols" aria-hidden="true"><span>순위</span><span>영화</span><span>매출</span><span></span><span>주간 관객</span></div>
+                        <ol class="mk-bo-list">
+                        <li class="mk-bo-row is-top is-first" style="--aud: 34">
+                            <b class="mk-bo-rank">1</b>
+                            <img class="mk-bo-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_01.webp" alt="" width="183" height="262" loading="lazy" decoding="async" style="--expo: brightness(0.9)">
+                            <span class="mk-bo-film">극장판 치이카와: 인어 섬의 비밀<small>누적 258만 명</small></span>
+                            <span class="mk-bo-rev">34억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">34만 명</span>
+                        </li>
+                        <li class="mk-bo-row is-top" style="--aud: 21">
+                            <b class="mk-bo-rank">2</b>
+                            <img class="mk-bo-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_02.webp" alt="" width="183" height="262" loading="lazy" decoding="async">
+                            <span class="mk-bo-film">하트 오브 비스트<small>10.28 개봉 · 신규 진입</small></span>
+                            <span class="mk-bo-rev">21억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">21만 명</span>
+                        </li>
+                        <li class="mk-bo-row is-top" style="--aud: 7">
+                            <b class="mk-bo-rank">3</b>
+                            <img class="mk-bo-poster" src="./assets/images/2026-10/boxoffice-5/boxoffice1005_03.webp" alt="" width="183" height="262" loading="lazy" decoding="async">
+                            <span class="mk-bo-film">암살자(들)<small>누적 345만 명</small></span>
+                            <span class="mk-bo-rev">7억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">7만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 7">
+                            <b class="mk-bo-rank">4</b>
+                            <span class="mk-bo-film">수능, 출제의 비밀</span>
+                            <span class="mk-bo-rev">6억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">7만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 6">
+                            <b class="mk-bo-rank">5</b>
+                            <span class="mk-bo-film">타짜: 벨제붑의 노래</span>
+                            <span class="mk-bo-rev">6억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">6만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 5">
+                            <b class="mk-bo-rank">6</b>
+                            <span class="mk-bo-film">실낙원</span>
+                            <span class="mk-bo-rev">4억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">5만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 4">
+                            <b class="mk-bo-rank">7</b>
+                            <span class="mk-bo-film">클레이페이스</span>
+                            <span class="mk-bo-rev">4억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">4만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 2">
+                            <b class="mk-bo-rank">8</b>
+                            <span class="mk-bo-film">오디세이</span>
+                            <span class="mk-bo-rev">3억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">2만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 2">
+                            <b class="mk-bo-rank">9</b>
+                            <span class="mk-bo-film">여전히 찬란하게</span>
+                            <span class="mk-bo-rev">2억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">2만 명</span>
+                        </li>
+                        <li class="mk-bo-row" style="--aud: 2">
+                            <b class="mk-bo-rank">10</b>
+                            <span class="mk-bo-film">룩백</span>
+                            <span class="mk-bo-rev">2억 원</span>
+                            <span class="mk-bo-bar" aria-hidden="true"></span>
+                            <span class="mk-bo-aud">2만 명</span>
+                        </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </section>
@@ -375,59 +374,62 @@
         <!-- PRODUCTION -->
         <section class="mk-section" id="production" aria-labelledby="mk-h-prod">
             <div class="mk-container">
-                <div class="mk-prod-head">
-                    <div>
-                        <h2 id="mk-h-prod" class="mk-sec-title">PRODUCTION</h2>
-                        <p>2026년 9월 한국영화 제작상황판 · 9월 개봉작 살펴보기</p>
+                <!-- Stage: a wall of the month's 23 release posters behind the head.
+                     Decorative; layout-2027.js lays the list out into tilted, slowly
+                     swaying rows. The films shown in the row below go last so the wall
+                     shows the other releases first. Replace the list each month. -->
+                <div class="mk-prod-stage">
+                    <div class="mk-box-wall" aria-hidden="true">
+                        <ul class="mk-box-wall-src" data-mk-wall>
+                            <li><img src="./assets/images/2026-10/production/production10_02.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_03.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_04.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_05.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_08.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_09.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_10.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_11.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_12.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_13.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_14.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_15.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_17.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_21.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_23.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_18.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_22.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_19.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_16.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_20.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_07.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_06.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                            <li><img src="./assets/images/2026-10/production/production10_01.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></li>
+                        </ul>
                     </div>
-                    <dl class="mk-prod-stats">
-                        <div><dt>9월 개봉 한국영화</dt><dd>23편</dd></div>
-                        <div><dt>그중 다큐멘터리</dt><dd>5편</dd></div>
-                    </dl>
+                    <div class="mk-prod-head">
+                        <div>
+                            <h2 id="mk-h-prod" class="mk-sec-title"><span lang="en">Production</span><span class="mk-sec-ko">제작 현황</span></h2>
+                            <p>2026년 9월 한국영화 제작상황판 · 9월 개봉작 살펴보기</p>
+                        </div>
+                        <dl class="mk-prod-stats">
+                            <div><dt>9월 개봉 한국영화</dt><dd>23편</dd></div>
+                            <div><dt>다큐멘터리</dt><dd>5편</dd></div>
+                        </dl>
+                    </div>
                 </div>
                 <ul class="mk-prod-grid">
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-18" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_18.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production.html#film-18">가능한 사랑</a><span class="mk-prod-cast">감독 이창동 · 전도연, 설경구, 조인성, 조여정</span><a href="./2026-10/reading-1.html">CRITIC 리뷰 보기</a></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-22" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_22.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.30 개봉 · 액션</span><a class="mk-prod-title" href="./2026-10/production.html#film-22">부활남: 더 레드</a><span class="mk-prod-cast">구교환, 신승호, 강기영, 김시아, 김성령</span><a href="./2026-10/people-2.html">INTERVIEW 보기</a></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-19" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_19.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 범죄/드라마</span><a class="mk-prod-title" href="./2026-10/production.html#film-19">암살자(들)</a><span class="mk-prod-cast">감독 허진호 · 유해진, 박해일, 이민호</span><a href="./2026-10/boxoffice-5.html">박스오피스 3위</a></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-16" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_16.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.16 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production.html#film-16">인턴</a><span class="mk-prod-cast">감독 김도영 · 최민식, 한소희, 김금순, 김준한</span></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-20" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_20.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 드라마/범죄</span><a class="mk-prod-title" href="./2026-10/production.html#film-20">타짜: 벨제붑의 노래</a><span class="mk-prod-cast">감독 최국희 · 변요한, 노재원, 미요시 아야카</span></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-07" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_07.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.09 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production.html#film-07">아버지의 집밥</a><span class="mk-prod-cast">감독 이준익 · 정진영, 이정은, 변요한</span></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-06" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_06.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.09 개봉 · 애니메이션</span><a class="mk-prod-title" href="./2026-10/production.html#film-06">아가미</a><span class="mk-prod-cast">감독 안재훈 · 정해인, 강하늘, 이청아</span></div></li>
-                    <li><a class="mk-prod-poster-link" href="./2026-10/production.html#film-01" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_01.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.02 개봉 · 가족/드라마</span><a class="mk-prod-title" href="./2026-10/production.html#film-01">비광</a><span class="mk-prod-cast">감독 이지원 · 류승룡, 하지원, 김시아</span></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-18.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_18.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production/film-18.html">가능한 사랑</a><span class="mk-prod-cast">감독 이창동 · 전도연, 설경구, 조인성, 조여정</span><a href="./2026-10/reading-1.html">CRITIC 리뷰 보기</a></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-22.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_22.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.30 개봉 · 액션</span><a class="mk-prod-title" href="./2026-10/production/film-22.html">부활남: 더 레드</a><span class="mk-prod-cast">구교환, 신승호, 강기영, 김시아, 김성령</span><a href="./2026-10/people-2.html">INTERVIEW 보기</a></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-19.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_19.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 범죄/드라마</span><a class="mk-prod-title" href="./2026-10/production/film-19.html">암살자(들)</a><span class="mk-prod-cast">감독 허진호 · 유해진, 박해일, 이민호</span><a href="./2026-10/boxoffice-5.html">박스오피스 3위</a></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-16.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_16.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.16 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production/film-16.html">인턴</a><span class="mk-prod-cast">감독 김도영 · 최민식, 한소희, 김금순, 김준한</span></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-20.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_20.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.23 개봉 · 드라마/범죄</span><a class="mk-prod-title" href="./2026-10/production/film-20.html">타짜: 벨제붑의 노래</a><span class="mk-prod-cast">감독 최국희 · 변요한, 노재원, 미요시 아야카</span></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-07.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_07.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.09 개봉 · 드라마</span><a class="mk-prod-title" href="./2026-10/production/film-07.html">아버지의 집밥</a><span class="mk-prod-cast">감독 이준익 · 정진영, 이정은, 변요한</span></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-06.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_06.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.09 개봉 · 애니메이션</span><a class="mk-prod-title" href="./2026-10/production/film-06.html">아가미</a><span class="mk-prod-cast">감독 안재훈 · 정해인, 강하늘, 이청아</span></div></li>
+                    <li><a class="mk-prod-poster-link" href="./2026-10/production/film-01.html" tabindex="-1" aria-hidden="true"><img class="mk-prod-poster" src="./assets/images/2026-10/production/production10_01.webp" alt="" width="292" height="403" loading="lazy" decoding="async"></a><div class="mk-prod-info"><span class="mk-prod-date">09.02 개봉 · 가족/드라마</span><a class="mk-prod-title" href="./2026-10/production/film-01.html">비광</a><span class="mk-prod-cast">감독 이지원 · 류승룡, 하지원, 김시아</span></div></li>
                 </ul>
-                <a href="./2026-10/production.html" class="mk-btn-outline">9월 개봉작 23편 전체 보기</a>
+                <a href="./2026-10/production.html" class="mk-sec-more mk-sec-more--foot">9월 개봉작 23편 전체 보기 <span aria-hidden="true">→</span></a>
             </div>
         </section>
-
-        <!-- GLOBAL + KOFIC STORY -->
-        <div class="mk-tint">
-            <div class="mk-container mk-duo">
-                <section id="global" aria-labelledby="mk-h-global" class="mk-duo-col">
-                    <h2 id="mk-h-global" class="mk-duo-title">GLOBAL</h2>
-                    <a href="./2026-10/global.html" class="mk-duo-card">
-                        <img src="./assets/images/2026-10/global/global1001_00.webp" alt="부산국제영화제 커뮤니티비프 현장" loading="lazy">
-                        <span class="mk-duo-card-title">도시 전체와 호흡하는 축제로</span>
-                        <span class="mk-duo-card-sub">커뮤니티비프와 동네방네비프</span>
-                        <span class="mk-duo-card-deck">관객이 프로그래머로… ‘커뮤니티비프’, 시민 참여 1.7배 증가</span>
-                        <span class="mk-byline">글 이우빈(씨네21 기자) · 2026.10.19</span>
-                    </a>
-                    <a href="./2026-10/global-eng.html" class="mk-eng-link" lang="en">
-                        <span><span class="mk-kicker">READ IN ENGLISH</span><span class="mk-eng-title">A Festival in Step with an Entire City</span></span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </a>
-                </section>
-                <section id="kofic" aria-labelledby="mk-h-kofic" class="mk-duo-col">
-                    <h2 id="mk-h-kofic" class="mk-duo-title">KOFIC STORY</h2>
-                    <a href="./2026-10/kofic-story.html" class="mk-duo-card">
-                        <img src="./assets/images/2026-10/kofic-story/kofic10_00.webp" alt="2026 KOFIC AI 쇼케이스 현장" loading="lazy">
-                        <span class="mk-duo-card-title">창작자, 어떤 판 위에서 놀게 할 것인가</span>
-                        <span class="mk-duo-card-sub">2026 KOFIC AI 쇼케이스</span>
-                        <span class="mk-duo-card-deck">더 정교해진 AI, 더 중요해진 창작자의 오리지널리티</span>
-                        <span class="mk-byline">글 유승목(한국경제신문 문화부 기자) · 2026.10.19</span>
-                    </a>
-                </section>
-            </div>
-        </div>
 
         <!-- Newsletter -->
         <section class="mk-newsletter" id="newsletter" aria-labelledby="mk-h-news">
@@ -452,7 +454,7 @@
             <div class="ed-footer-grid">
                 <div>
                     <div class="ed-footer-logos">
-                        <img src="./assets/images/common/logo-c-on-dark.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="./assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
                         <img src="./assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
                     </div>
                     <p class="ed-footer-info">
