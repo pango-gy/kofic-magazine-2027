@@ -4356,3 +4356,12 @@ main [id] { scroll-margin-top: 0; }
     .mk-wr-top .mk-wr-quote { font-size: 18px; }
     .mk-wr-grid .mk-wr-item .mk-wr-quote { font-size: 15px; }
 }
+
+/* Weekly Review page: more air between films than between the reviews inside
+   one film (was 96px vs 64px — too close to tell the groups apart) */
+.article-main .wr-film { margin-block-start: 168px; }
+.article-main .wr-film:first-of-type { margin-block-start: 88px; }
+@media (max-width: 760px) {
+    .article-main .wr-film { margin-block-start: 120px; }
+    .article-main .wr-film:first-of-type { margin-block-start: 64px; }
+}
