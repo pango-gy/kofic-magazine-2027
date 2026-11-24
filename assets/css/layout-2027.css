@@ -4082,3 +4082,13 @@ main [id] { scroll-margin-top: 0; }
 @media (max-width: 1100px) {
     html { scroll-padding-top: 148px; }
 }
+
+/* Weekly Review scores are out of FOUR: four stars, filled to score / 4 */
+.mk-wr-stars::before, .mk-wr-stars::after { content: "★★★★"; }
+.mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 3px)); }
+.mk-wr-grid .mk-wr-item .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 2px)); }
+.mk-wr-top .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 4px)); }
+@media (max-width: 760px) {
+    .mk-wr-stars::after, .mk-wr-grid .mk-wr-item .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 2px)); }
+    .mk-wr-top .mk-wr-stars::after { inline-size: calc(var(--score) / 4 * (100% - 3px)); }
+}
