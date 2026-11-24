@@ -4380,3 +4380,15 @@ main [id] { scroll-margin-top: 0; }
     .mk-nav-track.is-dragging .mk-nav-link { pointer-events: none; }
     .mk-nav-track .mk-nav-link { -webkit-user-drag: none; }
 }
+
+
+/* Drawer: the menu button shows the index, the search button the search */
+.ed-drawer:not(.is-search) .ed-drawer-search { display: none; }
+.ed-drawer.is-search .ed-drawer-body { display: none; }
+.ed-drawer:not(.is-search) .ed-drawer-results { display: none; }
+.ed-drawer-search { background: none; border-bottom: 0; padding-block: 24px 8px; }
+.ed-drawer-search input { padding: 14px 16px; font-size: 1.0625rem; }
+.ed-drawer-results { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 12px clamp(20px, 4vw, 36px) 48px; }
+.ed-drawer-hint { margin: 0 0 14px; font-size: 0.9375rem; color: var(--ink-muted); }
+
+.archive-card[hidden] { display: none !important; }

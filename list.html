@@ -10,10 +10,11 @@
 
     <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-    <link href="./assets/css/magazine-2027.css?v=20261130t" rel="stylesheet">
-    <link href="./assets/css/layout-2027.css?v=20261130t" rel="stylesheet">
-    <script defer src="./assets/js/magazine-2027.js?v=20261130t"></script>
-    <script defer src="./assets/js/layout-2027.js?v=20261130t"></script>
+    <link href="./assets/css/magazine-2027.css?v=202611241705" rel="stylesheet">
+    <link href="./assets/css/layout-2027.css?v=202611241705" rel="stylesheet">
+    <script defer src="./assets/js/issue-data.js?v=202611241705"></script>
+    <script defer src="./assets/js/magazine-2027.js?v=202611241705"></script>
+    <script defer src="./assets/js/layout-2027.js?v=202611241705"></script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -49,7 +50,7 @@
         <section class="archive-head">
             <div class="ed-container">
                 <div class="archive-kicker">
-                    <span>ARCHIVE · 웹진 한국영화 2026년 10월호</span>
+                    <span id="archiveIssue">ARCHIVE · 웹진 한국영화 2026년 10월호</span>
                     <span id="archiveCount" aria-live="polite">총 19편</span>
                 </div>
                 <h1 class="archive-title" id="archiveTitle">October 2026</h1>
@@ -74,6 +75,8 @@
 
                 <div class="archive-controls">
                     <div class="archive-ctrl-left">
+                        <div class="seg-group" id="issueGroup" hidden role="group" aria-label="호 선택" data-label="호"></div>
+
                         <div class="seg-group" id="globalLangGroup" hidden aria-label="GLOBAL 언어 필터" data-label="언어">
                             <button type="button" class="seg-btn is-active" data-lang="ALL" aria-pressed="true">전체</button>
                             <button type="button" class="seg-btn" data-lang="KOR" aria-pressed="false">국문</button>
@@ -112,7 +115,8 @@
                 </div>
 
                 <div class="archive-grid has-featured" id="archiveGrid">
-                    <a href="./2026-10/news-1.html" class="archive-card" data-corner="영화제" data-section="NEWS" data-date="2026-11-12" data-search="NEWS 뉴스 영화제 서울국제프라이드영화제 SIPFF 프라이드영화제 퀴어영화 김조광수 김승환 블랙 볼 주성철 GV 국제공동제작">
+                    <!-- cards:start -->
+                    <a href="./2026-10/news-1.html" class="archive-card" data-issue="2026-10" data-corner="영화제" data-section="NEWS" data-date="2026-11-12" data-search="NEWS 뉴스 영화제 서울국제프라이드영화제 SIPFF 프라이드영화제 퀴어영화 김조광수 김승환 블랙 볼 주성철 GV 국제공동제작">
                         <div class="ed-media"><img src="./assets/images/2026-10/news-1/news1001_00.webp" alt="서울국제프라이드영화제 현장" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">NEWS · <span class="ed-corner">영화제</span> <span class="ed-date">2026.11.12</span></p>
@@ -122,8 +126,8 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/special-2.html" class="archive-card" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
-                        <div class="ed-media"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로"></div>
+                    <a href="./2026-10/special-2.html" class="archive-card" data-issue="2026-10" data-section="SPECIAL" data-date="2026-10-19" data-search="SPECIAL ② 진실 기록 넘어 사회 변화로 한국형 임팩트 다큐 생태계 필요하다 곽명동 다큐멘터리 임팩트다큐멘터리 ACFM 독스퀘어 부산국제영화제 독립영화 학교가는길 수라 1980사북">
+                        <div class="ed-media"><img src="./assets/images/2026-10/special-2/special1002_00.webp" alt="진실 기록 넘어 사회 변화로" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">SPECIAL ② <span class="ed-date">2026.10.19</span></p>
                             <h2 class="ed-card-title">진실 기록 넘어 사회 변화로</h2>
@@ -132,7 +136,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/special-1.html" class="archive-card" data-section="SPECIAL" data-date="2026-10-06" data-search="SPECIAL ① 새로운 영화 영상 제작 거점으로의 출발 부산기장촬영소를 가다 박경희 부산기장촬영소 영화진흥위원회 스튜디오 촬영소 로케이션 부산영상위원회 기장군 제작 촬영">
+                    <a href="./2026-10/special-1.html" class="archive-card" data-issue="2026-10" data-section="SPECIAL" data-date="2026-10-06" data-search="SPECIAL ① 새로운 영화 영상 제작 거점으로의 출발 부산기장촬영소를 가다 박경희 부산기장촬영소 영화진흥위원회 스튜디오 촬영소 로케이션 부산영상위원회 기장군 제작 촬영">
                         <div class="ed-media"><img src="./assets/images/2026-10/special-1/special1001_00.webp" alt="새로운 영화·영상 제작 거점으로의 출발" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">SPECIAL ① <span class="ed-date">2026.10.06</span></p>
@@ -142,7 +146,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/people-3.html" class="archive-card" data-section="INTERVIEW" data-date="2026-11-23" data-search="INTERVIEW ③ 인터뷰 배우 인터뷰 폭설 구교환 김윤석 홍의정 박수영 성찬얼 현택 쇼박스">
+                    <a href="./2026-10/people-3.html" class="archive-card" data-issue="2026-10" data-section="INTERVIEW" data-date="2026-11-23" data-search="INTERVIEW ③ 인터뷰 배우 인터뷰 폭설 구교환 김윤석 홍의정 박수영 성찬얼 현택 쇼박스">
                         <div class="ed-media"><img src="./assets/images/2026-10/people-3/people1003_00.webp" alt="폭설 구교환 인터뷰" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">INTERVIEW ③ <span class="ed-date">2026.11.23</span></p>
@@ -152,7 +156,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/people-2.html" class="archive-card" data-section="INTERVIEW" data-date="2026-10-19" data-search="INTERVIEW ② PEOPLE 인터뷰 엉뚱하지만 파괴적인 부활남 더 레드 정성호 무술감독 김혜선 부활남더레드 정성호 웹툰 액션 무술 스턴트 백종열 구교환 신승호 강기영">
+                    <a href="./2026-10/people-2.html" class="archive-card" data-issue="2026-10" data-section="INTERVIEW" data-date="2026-10-19" data-search="INTERVIEW ② PEOPLE 인터뷰 엉뚱하지만 파괴적인 부활남 더 레드 정성호 무술감독 김혜선 부활남더레드 정성호 웹툰 액션 무술 스턴트 백종열 구교환 신승호 강기영">
                         <div class="ed-media"><img src="./assets/images/2026-10/people-2/people1002_00.webp" alt="엉뚱하지만 파괴적인" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">INTERVIEW ② <span class="ed-date">2026.10.19</span></p>
@@ -162,7 +166,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/people-1.html" class="archive-card" data-section="INTERVIEW" data-date="2026-10-06" data-search="INTERVIEW ① PEOPLE 인터뷰 인간다움과 인간다운 죽음에 대하여 구제역에서 살아 돌아온 돼지 故 허범욱 감독 민용준 허범욱 구제역에서살아돌아온돼지 애니메이션 독립영화 갈라파고스 선량한인간들의도시 평범한식사 창백한얼굴들">
+                    <a href="./2026-10/people-1.html" class="archive-card" data-issue="2026-10" data-section="INTERVIEW" data-date="2026-10-06" data-search="INTERVIEW ① PEOPLE 인터뷰 인간다움과 인간다운 죽음에 대하여 구제역에서 살아 돌아온 돼지 故 허범욱 감독 민용준 허범욱 구제역에서살아돌아온돼지 애니메이션 독립영화 갈라파고스 선량한인간들의도시 평범한식사 창백한얼굴들">
                         <div class="ed-media"><img src="./assets/images/2026-10/people-1/people1001_00.webp" alt="인간다움과 인간다운 죽음에 대하여" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">INTERVIEW ① <span class="ed-date">2026.10.06</span></p>
@@ -172,7 +176,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-4.html" class="archive-card" data-corner="WEEKLY REVIEW" data-section="CRITIC" data-date="2024-10-31" data-search="CRITIC ④ WEEKLY REVIEW 위클리 리뷰 별점 단평 아마존 활명수 롱레그스 럭키 아파트 최소한의 선의 허바디 하와이 연가 열개의 우물 극장판 고래와 나 이은선 이지혜 정시우 김형석 정유미">
+                    <a href="./2026-10/reading-4.html" class="archive-card" data-issue="2026-10" data-corner="WEEKLY REVIEW" data-section="CRITIC" data-date="2024-10-31" data-search="CRITIC ④ WEEKLY REVIEW 위클리 리뷰 별점 단평 아마존 활명수 롱레그스 럭키 아파트 최소한의 선의 허바디 하와이 연가 열개의 우물 극장판 고래와 나 이은선 이지혜 정시우 김형석 정유미">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-4/reading1004_00.webp" alt="아마존 활명수 스틸" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ④ · <span class="ed-corner">WEEKLY REVIEW</span> <span class="ed-date">2024.10.31</span></p>
@@ -182,7 +186,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-3.html" class="archive-card" data-corner="WEEKLY REVIEW" data-section="CRITIC" data-date="2024-10-17" data-search="CRITIC ③ WEEKLY REVIEW 위클리 리뷰 별점 단평 보통의 가족 더러운 돈에 손대지 마라 구룡성채 빚가리 페이퍼맨 잠자리 구하기 닥터 코토 진료소 이은선 이지혜 정시우 김형석 정유미">
+                    <a href="./2026-10/reading-3.html" class="archive-card" data-issue="2026-10" data-corner="WEEKLY REVIEW" data-section="CRITIC" data-date="2024-10-17" data-search="CRITIC ③ WEEKLY REVIEW 위클리 리뷰 별점 단평 보통의 가족 더러운 돈에 손대지 마라 구룡성채 빚가리 페이퍼맨 잠자리 구하기 닥터 코토 진료소 이은선 이지혜 정시우 김형석 정유미">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-3/reading1003_00.webp" alt="보통의 가족 스틸" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ③ · <span class="ed-corner">WEEKLY REVIEW</span> <span class="ed-date">2024.10.17</span></p>
@@ -192,7 +196,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-2.html" class="archive-card" data-corner="YES or NO" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
+                    <a href="./2026-10/reading-2.html" class="archive-card" data-issue="2026-10" data-corner="YES or NO" data-section="CRITIC" data-date="2026-10-19" data-search="CRITIC ② YES or NO READING 비평 리뷰 대담 낙원 없이 살아가는 법 실낙원 김혜선 송석주 한상희 연상호 김현주 배현성 군체 부산행 얼굴 초저예산">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-2/reading1002_00.webp" alt="낙원 없이 살아가는 법" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ② · <span class="ed-corner">YES or NO</span> <span class="ed-date">2026.10.19</span></p>
@@ -202,7 +206,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/reading-1.html" class="archive-card" data-section="CRITIC" data-date="2026-10-06" data-search="CRITIC ① READING 비평 리뷰 미옥과 호석의 내일을 위한 시간 가능한 사랑 주성철 가능한사랑 이창동 설경구 전도연 조인성 조여정 넷플릭스 베니스국제영화제 토론토국제영화제">
+                    <a href="./2026-10/reading-1.html" class="archive-card" data-issue="2026-10" data-section="CRITIC" data-date="2026-10-06" data-search="CRITIC ① READING 비평 리뷰 미옥과 호석의 내일을 위한 시간 가능한 사랑 주성철 가능한사랑 이창동 설경구 전도연 조인성 조여정 넷플릭스 베니스국제영화제 토론토국제영화제">
                         <div class="ed-media"><img src="./assets/images/2026-10/reading-1/reading1001_00.webp" alt="미옥과 호석의 내일을 위한 시간" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">CRITIC ① <span class="ed-date">2026.10.06</span></p>
@@ -212,7 +216,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/global.html" class="archive-card" data-section="GLOBAL" data-date="2026-10-19" data-search="GLOBAL 도시 전체와 호흡하는 축제로 커뮤니티비프와 동네방네비프 이우빈 부산국제영화제 동네방네비프 커뮤니티비프 리퀘스트시네마 마스터톡 커비컬렉션 누구나영화만들기">
+                    <a href="./2026-10/global.html" class="archive-card" data-issue="2026-10" data-section="GLOBAL" data-date="2026-10-19" data-search="GLOBAL 도시 전체와 호흡하는 축제로 커뮤니티비프와 동네방네비프 이우빈 부산국제영화제 동네방네비프 커뮤니티비프 리퀘스트시네마 마스터톡 커비컬렉션 누구나영화만들기">
                         <div class="ed-media"><img src="./assets/images/2026-10/global/global1001_00.webp" alt="도시 전체와 호흡하는 축제로" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">GLOBAL <span class="ed-date">2026.10.19</span></p>
@@ -222,7 +226,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/global-eng.html" class="archive-card" data-section="GLOBAL(ENG)" data-date="2026-10-19" data-search="GLOBAL(ENG) A Festival in Step with an Entire City Community BIFF and BIFF Everywhere Lee Woo-bin BusanInternationalFilmFestival BIFFEverywhere CommunityBIFF RequestCinema MasterTalk">
+                    <a href="./2026-10/global-eng.html" class="archive-card" data-issue="2026-10" data-section="GLOBAL(ENG)" data-date="2026-10-19" data-search="GLOBAL(ENG) A Festival in Step with an Entire City Community BIFF and BIFF Everywhere Lee Woo-bin BusanInternationalFilmFestival BIFFEverywhere CommunityBIFF RequestCinema MasterTalk">
                         <div class="ed-media"><img src="./assets/images/2026-10/thumbs/2_202637181037010928.webp" alt="A Festival in Step with an Entire City" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">GLOBAL <span class="lang-tag">ENG</span> <span class="ed-date">2026.10.19</span></p>
@@ -232,7 +236,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/kofic-story.html" class="archive-card" data-section="KOFIC STORY" data-date="2026-10-19" data-search="KOFIC STORY 창작자 어떤 판 위에서 놀게 할 것인가 2026 KOFIC AI 쇼케이스 유승목 영화진흥위원회 KOFIC 한국영화아카데미 KAFA AI 첨단영화제작교육 영화인교육 영화교육">
+                    <a href="./2026-10/kofic-story.html" class="archive-card" data-issue="2026-10" data-section="KOFIC STORY" data-date="2026-10-19" data-search="KOFIC STORY 창작자 어떤 판 위에서 놀게 할 것인가 2026 KOFIC AI 쇼케이스 유승목 영화진흥위원회 KOFIC 한국영화아카데미 KAFA AI 첨단영화제작교육 영화인교육 영화교육">
                         <div class="ed-media"><img src="./assets/images/2026-10/kofic-story/kofic10_00.webp" alt="창작자, 어떤 판 위에서 놀게 할 것인가" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">KOFIC STORY <span class="ed-date">2026.10.19</span></p>
@@ -242,7 +246,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-5.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-11-03" data-search="BOX OFFICE 10월 5주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월5주차 영화순위 치이카와 하트오브비스트 암살자들">
+                    <a href="./2026-10/boxoffice-5.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-11-03" data-search="BOX OFFICE 10월 5주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월5주차 영화순위 치이카와 하트오브비스트 암살자들">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-5/boxoffice1005_00.webp" alt="10월 5주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.11.03</span></p>
@@ -252,7 +256,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-4.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-27" data-search="BOX OFFICE 10월 4주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월4주차 영화순위">
+                    <a href="./2026-10/boxoffice-4.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-27" data-search="BOX OFFICE 10월 4주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월4주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-4/boxoffice1004_00.webp" alt="10월 4주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.27</span></p>
@@ -262,7 +266,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-3.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-20" data-search="BOX OFFICE 10월 3주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월3주차 영화순위">
+                    <a href="./2026-10/boxoffice-3.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-20" data-search="BOX OFFICE 10월 3주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월3주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-3/boxoffice1003_00.webp" alt="10월 3주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.20</span></p>
@@ -272,7 +276,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-2.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-13" data-search="BOX OFFICE 10월 2주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월2주차 영화순위">
+                    <a href="./2026-10/boxoffice-2.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-13" data-search="BOX OFFICE 10월 2주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월2주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-2/boxoffice1002_00.webp" alt="10월 2주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.13</span></p>
@@ -282,7 +286,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/boxoffice-1.html" class="archive-card" data-section="BOX OFFICE" data-date="2026-10-07" data-search="BOX OFFICE 10월 1주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월1주차 영화순위">
+                    <a href="./2026-10/boxoffice-1.html" class="archive-card" data-issue="2026-10" data-section="BOX OFFICE" data-date="2026-10-07" data-search="BOX OFFICE 10월 1주차 위클리 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 10월1주차 영화순위">
                         <div class="ed-media"><img src="./assets/images/2026-10/boxoffice-1/boxoffice1001_00.webp" alt="10월 1주차 위클리 박스오피스" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">BOX OFFICE <span class="ed-date">2026.10.07</span></p>
@@ -292,7 +296,7 @@
                         </div>
                     </a>
 
-                    <a href="./2026-10/production.html" class="archive-card" data-section="PRODUCTION" data-date="2026-10-13" data-search="PRODUCTION 9월 개봉작 살펴보기 2026 9 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 9월개봉작 제작상황판">
+                    <a href="./2026-10/production.html" class="archive-card" data-issue="2026-10" data-section="PRODUCTION" data-date="2026-10-13" data-search="PRODUCTION 9월 개봉작 살펴보기 2026 9 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 9월개봉작 제작상황판">
                         <div class="ed-media"><img src="./assets/images/2026-10/production/production10_00.webp" alt="9월 개봉작 살펴보기" loading="lazy"></div>
                         <div class="archive-card-body">
                             <p class="ed-kicker">PRODUCTION <span class="ed-date">2026.10.13</span></p>
@@ -301,6 +305,7 @@
                             <div class="archive-card-foot"><span>글 · 영화진흥위원회</span><span>제작 현황</span></div>
                         </div>
                     </a>
+                    <!-- cards:end -->
                 </div>
 
                 <!-- Helpful Empty State -->
@@ -384,10 +389,11 @@
                 </form>
             </div>
             <div class="ed-drawer-body">
+                <!-- drawer:start -->
                 <div class="ed-drawer-group">
                     <h3>NEWS <a href="./list.html?section=NEWS">전체 →</a></h3>
                     <div class="ed-drawer-links">
-                        <a href="./2026-10/news-1.html"><strong>스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</strong><span>제16회 서울국제프라이드영화제(SIPFF) 2026</span></a>
+                        <a href="./2026-10/news-1.html"><strong>스크린 안팎 모두 뜨거웠던 서울국제프라이드영화제</strong><span>영화제 · 제16회 서울국제프라이드영화제(SIPFF) 2026</span></a>
                     </div>
                 </div>
                 <div class="ed-drawer-group">
@@ -410,24 +416,31 @@
                     <div class="ed-drawer-links">
                         <a href="./2026-10/reading-4.html"><strong>10월 마지막 주 개봉작, 평자들의 별점</strong><span>WEEKLY REVIEW · 〈아마존 활명수〉 외 7편</span></a>
                         <a href="./2026-10/reading-3.html"><strong>10월 셋째 주 개봉작, 평자들의 별점</strong><span>WEEKLY REVIEW · 〈보통의 가족〉 외 7편</span></a>
-                        <a href="./2026-10/reading-2.html"><strong>낙원 없이 살아가는 법</strong><span>〈실낙원〉 YES or NO 대담</span></a>
-                        <a href="./2026-10/reading-1.html"><strong>미옥과 호석의 내일을 위한 시간</strong><span>〈가능한 사랑〉 비평</span></a>
+                        <a href="./2026-10/reading-2.html"><strong>낙원 없이 살아가는 법</strong><span>YES or NO · 〈실낙원〉</span></a>
+                        <a href="./2026-10/reading-1.html"><strong>미옥과 호석의 내일을 위한 시간</strong><span>〈가능한 사랑〉</span></a>
                     </div>
                 </div>
                 <div class="ed-drawer-group">
-                    <h3>GLOBAL &amp; KOFIC STORY <a href="./list.html?section=GLOBAL">전체 →</a></h3>
+                    <h3>GLOBAL <a href="./list.html?section=GLOBAL">전체 →</a></h3>
                     <div class="ed-drawer-links">
                         <a href="./2026-10/global.html"><strong>도시 전체와 호흡하는 축제로</strong><span>커뮤니티비프와 동네방네비프</span></a>
-                        <a href="./2026-10/global-eng.html"><strong>A Festival in Step with an Entire City</strong><span>GLOBAL (English Edition)</span></a>
+                        <a href="./2026-10/global-eng.html"><strong>A Festival in Step with an Entire City</strong><span>Community BIFF and BIFF Everywhere</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>KOFIC STORY <a href="./list.html?section=KOFIC%20STORY">전체 →</a></h3>
+                    <div class="ed-drawer-links">
                         <a href="./2026-10/kofic-story.html"><strong>창작자, 어떤 판 위에서 놀게 할 것인가</strong><span>2026 KOFIC AI 쇼케이스</span></a>
                     </div>
                 </div>
                 <div class="ed-drawer-group">
-                    <h3>BOX OFFICE <a href="./list.html?section=BOX%20OFFICE">5편 모두 →</a></h3>
+                    <h3>BOX OFFICE <a href="./list.html?section=BOX%20OFFICE">전체 →</a></h3>
                     <div class="ed-drawer-links">
-                        <a href="./2026-10/boxoffice-5.html"><strong>10월 5주차 위클리 박스오피스</strong><span>2026.11.03</span></a>
-                        <a href="./2026-10/boxoffice-4.html"><strong>10월 4주차 위클리 박스오피스</strong><span>2026.10.27</span></a>
-                        <a href="./2026-10/boxoffice-3.html"><strong>10월 3주차 위클리 박스오피스</strong><span>2026.10.20</span></a>
+                        <a href="./2026-10/boxoffice-5.html"><strong>10월 5주차 위클리 박스오피스</strong><span>극장판 치이카와 1위 수성</span></a>
+                        <a href="./2026-10/boxoffice-4.html"><strong>10월 4주차 위클리 박스오피스</strong><span>주간 흥행 리포트</span></a>
+                        <a href="./2026-10/boxoffice-3.html"><strong>10월 3주차 위클리 박스오피스</strong><span>주간 흥행 리포트</span></a>
+                        <a href="./2026-10/boxoffice-2.html"><strong>10월 2주차 위클리 박스오피스</strong><span>주간 흥행 리포트</span></a>
+                        <a href="./2026-10/boxoffice-1.html"><strong>10월 1주차 위클리 박스오피스</strong><span>주간 흥행 리포트</span></a>
                     </div>
                 </div>
                 <div class="ed-drawer-group">
@@ -436,6 +449,7 @@
                         <a href="./2026-10/production.html"><strong>9월 개봉작 살펴보기</strong><span>2026. 9. 한국영화 제작상황판</span></a>
                     </div>
                 </div>
+                <!-- drawer:end -->
             </div>
         </div>
     </div>
@@ -467,8 +481,12 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const SECTION_ALIAS = { PEOPLE: "INTERVIEW", READING: "CRITIC" };
+            // Which issue: ?issue=2026-10, otherwise the current one (data from issue-data.js)
+            const KOFIC = window.KOFIC || { current: "", issues: [] };
+            const params = new URLSearchParams(window.location.search);
+            const ISSUE = KOFIC.issues.find((i) => i.id === params.get("issue")) || KOFIC.issues.find((i) => i.id === KOFIC.current) || KOFIC.issues[0] || { id: "", label: "", title: "" };
             const SECTION_DESC = {
-                ALL: "2026년 10월호 전체 기사 아카이브",
+                ALL: ISSUE.label + " 전체 기사 아카이브",
                 NEWS: "한국영화의 오늘을 매일 기록하는 소식",
                 SPECIAL: "한국영화의 현재와 미래를 짚는 심층 기획",
                 INTERVIEW: "한국영화 현장을 이끄는 창작자들의 목소리",
@@ -480,7 +498,6 @@
                 PRODUCTION: "한국영화 제작 및 개봉 현황 리포트"
             };
 
-            const params = new URLSearchParams(window.location.search);
             const rawSec = (params.get("section") || "ALL").trim();
             const aliasSec = SECTION_ALIAS[rawSec.toUpperCase()];
             let currentSec = aliasSec || rawSec || "ALL";
@@ -502,7 +519,33 @@
             const descEl = document.getElementById("archiveDesc");
             const countEl = document.getElementById("archiveCount");
             const gridEl = document.getElementById("archiveGrid");
-            const cards = Array.from(gridEl.querySelectorAll(".archive-card"));
+            // Only this issue's cards take part; the others stay in the page, hidden
+            const cards = Array.from(gridEl.querySelectorAll(".archive-card")).filter((c) => {
+                const mine = !c.dataset.issue || c.dataset.issue === ISSUE.id;
+                if (!mine) c.hidden = true;
+                return mine;
+            });
+            document.getElementById("archiveIssue").textContent = "ARCHIVE · 웹진 한국영화 " + ISSUE.label;
+            document.querySelectorAll(".mk-issue-label").forEach((el) => { el.textContent = ISSUE.label; });
+            // More than one issue: a control to move between them
+            const issueGroup = document.getElementById("issueGroup");
+            if (KOFIC.issues.length > 1) {
+                issueGroup.hidden = false;
+                KOFIC.issues.forEach((i) => {
+                    const a = document.createElement("a");
+                    a.className = "seg-btn" + (i.id === ISSUE.id ? " is-active" : "");
+                    if (i.id === ISSUE.id) a.setAttribute("aria-current", "true");
+                    a.href = "./list.html" + (i.id === KOFIC.current ? "" : "?issue=" + i.id);
+                    a.textContent = i.label;
+                    issueGroup.appendChild(a);
+                });
+            }
+            // Section links on this page keep the issue being looked at
+            if (ISSUE.id !== KOFIC.current) {
+                document.querySelectorAll('a[href*="list.html?section="]').forEach((a) => {
+                    a.href = a.getAttribute("href").replace("list.html?section=", "list.html?issue=" + ISSUE.id + "&section=");
+                });
+            }
             const tabs = Array.from(document.querySelectorAll(".archive-tab"));
             const langGroup = document.getElementById("globalLangGroup");
             const cornerGroup = document.getElementById("cornerGroup");
@@ -611,7 +654,7 @@
                 chipText.textContent = "검색어: " + currentQuery;
 
                 const SECTION_NAME = {
-                    "ALL": ["October 2026", "10월호 전체 기사"],
+                    "ALL": [ISSUE.title, ISSUE.label.replace(/^\d+년\s*/, "") + " 전체 기사"],
                     "NEWS": ["NEWS", "뉴스"],
                     "SPECIAL": ["SPECIAL", "스페셜"],
                     "INTERVIEW": ["INTERVIEW", "인터뷰"],
