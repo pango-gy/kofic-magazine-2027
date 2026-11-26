@@ -257,6 +257,15 @@ def common(text, path, issue):
         text = re.sub(r'(\n[ \t]*)(<script defer src="[^"]*assets/js/magazine-2027\.js)',
                       r'\1<script defer src="' + prefix + r'assets/js/issue-data.js"></script>\1\2', text, count=1)
     text = og_tags(text, path, issue)
+    # No sign-in on this site: tell password managers (1Password, LastPass,
+    # Bitwarden, Dashlane) to leave the newsletter, opinion and search fields alone
+    def quiet(m):
+        tag = m.group(0)
+        if "data-1p-ignore" in tag:
+            return tag
+        tag = re.sub(r'\s+autocomplete="[^"]*"', "", tag)
+        return tag[:-1].rstrip("/ ") + ' autocomplete="off" data-1p-ignore data-lpignore="true" data-bwignore data-form-type="other">'
+    text = re.sub(r"<(?:input|textarea)\b[^>]*>", quiet, text)
     # one cache-busting stamp for the shared files
     text = re.sub(r'((?:layout-2027|magazine-2027)\.(?:css|js)|issue-data\.js)(\?v=\w+)?"', r'\1?v=' + BUILD + '"', text)
     return text
