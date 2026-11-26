@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>함께 그리는 영화와 영상의 내일 | 웹진 한국영화</title>
+    <meta name="description" content="1895년 12월 28일, 오귀스트와 루이 뤼미에르 형제가 발명한 시네마토그라프의 첫 유료 상영이 프랑스 파리 그랑 카페의 지하 살롱에서 열렸다. 사람들이 시네마토그라프가 영사하는 빛을 향해 한 방">
+
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preload" as="image" href="../assets/images/2026-09/kofic-story/kofic09_00.webp" type="image/webp" fetchpriority="high">
+    <link href="../assets/css/magazine-2027.css?v=20261126105505" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261126105505" rel="stylesheet">
+    <style>
+
+  .n-common-text-1,
+  .n-common-title-2 ,
+  .common-desc {
+    font-family: 'SUITLatin', 'KakaoSmallSans', 'SUIT', sans-serif;
+	 }
+	.sub-visual-text-wrap .detail {
+	 align-items: flex-end;
+	 }
+	.sub-visual-text-wrap .badge {
+	 align-items: center;
+     display: flex;
+     width: 150px;
+     justify-content: center;
+     margin: auto;
+	 }
+	.name-badge.color-3{
+	 background: #f08300;
+	 }
+	.question {
+	 font-size: 24px;
+	 font-weight: 700;
+	 margin-top: 90px;
+	 word-break:keep-all;
+	}
+	@media screen and (min-width: 781px) and (max-width: 1919px) {
+    .question {
+	 font-size: 1.46vw;
+	 font-weight: 700;
+	 margin-top: 4.6875vw;
+	}
+	}
+	@media screen and (max-width: 780px) {
+    .question{
+	 font-size: 16px;
+	 font-weight: 700;
+	 margin-top: 65px;
+	}
+	.sub-visual-text-wrap .badge {
+	 width: 85px;
+    }
+	.sub-visual {
+	 height: 70vh;
+	}
+	.x-label06 {
+	    font-size: 9px;
+		}
+	.card-body08 {
+	padding-left: 0;
+     }
+	}
+
+
+  /* -------------------------------------
+     전체 컨테이너 (웹진 본문 폭 1020px)
+  -------------------------------------- */
+  .program-container {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;;
+    margin: 30px auto;
+    color: #333;
+  }
+  /* -------------------------------------
+     상/하단 개막·폐막 세션 배너
+  -------------------------------------- */
+  .plenary-banner {
+    background-color: #2b3d5b; /* 딥 네이비 */
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .plenary-category {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    opacity: 0.9;
+  }
+  .plenary-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+  }
+  .plenary-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #cbd5e1;
+    margin: 0;
+    letter-spacing: -0.2px;
+  }
+  /* 섹션 사이 화살표 기호 */
+  .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #94a3b8; /* 슬레이트 컬러 */
+    margin: 15px auto;
+  }
+  /* -------------------------------------
+     포커스 4단 그리드 테이블 레이아웃
+  -------------------------------------- */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #1e293b; /* 전체 외곽선 */
+    background-color: #ffffff;
+  }
+  /* 각 포커스 컬럼 */
+  .focus-col {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #1e293b; /* 컬럼 사이 세로선 */
+  }
+  .focus-col:last-child {
+    border-right: none;
+  }
+  /* -------------------------------------
+     포커스 컬럼 헤더 영역
+  -------------------------------------- */
+  .focus-header {
+    text-align: center;
+    padding: 20px 15px;
+    color: #ffffff;
+    border-bottom: 1px solid #1e293b;
+    height: 140px; /* 헤더 높이 통일 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* 각 테마별 헤더 배경색 */
+  .bg-focus1 { background-color: #2b4570; } /* 다크 블루 */
+  .bg-focus2 { background-color: #4a70b0; } /* 미디엄 블루 */
+  .bg-focus3 { background-color: #3b876e; } /* 틸 그린 */
+  .bg-focus4 { background-color: #b4682c; } /* 브라운 오렌지 */
+  .focus-num {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .focus-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    word-break: keep-all;
+  }
+  .focus-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.85;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+  }
+  /* -------------------------------------
+     포커스 본문 리스트 영역
+  -------------------------------------- */
+.focus-list {
+   list-style: none;
+    padding: 15px 7px 20px;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+  /* 배경색 미세 틴트 적용 */
+  .focus-col:nth-child(1) .focus-list { background-color: #f8fafc; }
+  .focus-col:nth-child(2) .focus-list { background-color: #f4f7fc; }
+  .focus-col:nth-child(3) .focus-list { background-color: #f2fbf7; }
+  .focus-col:nth-child(4) .focus-list { background-color: #fef8f3; }
+  .focus-list li {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+  /* 리스트 항목 제목 (번호 + 한글 텍스트) */
+  .item-title-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap:12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  /* 각 테마별 번호 색상 포인트 */
+  .num-color-1 { color: #2b4570; }
+  .num-color-2 { color: #4a70b0; }
+  .num-color-3 { color: #3b876e; }
+  .num-color-4 { color: #b4682c; }
+  .item-num {
+    font-weight: 900;
+    font-size: 20px;
+    width: 24px;
+    min-width: 24px;
+    flex: 0 0 24px;
+    padding-top: 1px;
+    font-variant-numeric: tabular-nums;
+  }
+  /* 리스트 영문 서브타이틀 */
+  .item-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: #64748b;
+    padding-left: 26px; /* 번호 너비만큼 들여쓰기 */
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+  }
+  /* -------------------------------------
+     [모바일 최적화] 수직 나열 반응형 구조
+  -------------------------------------- */
+  @media (max-width: 768px) {
+    /* 4단을 1단으로 스태킹 */
+    .focus-grid {
+      grid-template-columns: 1fr;
+    }
+    /* 세로선 제거, 가로선 추가 */
+    .focus-col {
+      border-right: none;
+      border-bottom: 1px solid #1e293b;
+    }
+    .focus-col:last-child {
+      border-bottom: none;
+    }
+    /* 모바일에서는 헤더 높이를 콘텐츠에 맞게 유동적으로 조절 */
+    .focus-header {
+      height: auto;
+      padding: 25px 15px;
+    }
+	.plenary-title {
+    font-size: 27px;
+	}
+	.plenary-category,
+	.item-title-wrap {
+    font-size: 18px;
+	}
+	.plenary-subtitle{
+    font-size: 16px;
+	}
+	.item-subtitle {
+    font-size: 14px;
+	}
+	   .focus-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .focus-list li {
+        margin: 0;
+        min-height: 86px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+  }
+
+
+  /* -------------------------------------
+     전체 컨테이너 (웹진 본문 폭 1020px)
+  -------------------------------------- */
+  .map-container {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+  }
+  /* -------------------------------------
+     상단 헤더 영역
+  -------------------------------------- */
+  .map-header-bar {
+    background: #1e293b; 
+    color: #ffffff;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .table-title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+  .table-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .total-badge {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+  }
+  /* -------------------------------------
+     세계 지도 캔버스 및 배경 워터마크
+  -------------------------------------- */
+  .map-canvas {
+    position: relative;
+    padding: 40px;
+    background: radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%);
+  }
+  .map-bg-image {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/1000px-World_map_blank_without_borders.svg.png');
+    background-size: 90% auto;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+    opacity: 0.12; 
+    pointer-events: none; 
+    z-index: 1;
+  }
+  /* -------------------------------------
+     [수정] 빈 공간 없는 독립적인 3단 기둥 레이아웃 
+  -------------------------------------- */
+  .map-layout-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    /* 서쪽, 중앙(유럽/아프리카), 동쪽을 3개의 독립적인 단으로 나눔 */
+    grid-template-columns: 1fr 2.3fr 1.1fr; 
+    gap: 20px;
+    /* 핵심: 각 열이 내용물 높이만큼만 커지도록 하여 빈 공간 제거 */
+    align-items: start; 
+  }
+  /* 각 기둥 내부의 세로 간격 */
+  .map-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  /* 중앙 단(유럽 하단)을 다시 아프리카와 중동 2단으로 나눔 */
+  .center-bottom-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr; /* 아프리카가 국가가 더 많으므로 비율을 넓힘 */
+    gap: 20px;
+    align-items: start;
+  }
+  /* -------------------------------------
+     글래스모피즘(유리) 질감의 대륙 블록
+  -------------------------------------- */
+  .region-block {
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .region-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .region-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+	 font-family:
+        'SUIT',
+        'Segoe UI Emoji',
+        'Apple Color Emoji',
+        'Noto Color Emoji',
+        sans-serif;
+  }
+  .region-count {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  /* -------------------------------------
+     국가명 태그 리스트 스타일
+  -------------------------------------- */
+  .country-list {
+    list-style: none;
+    padding: 16px 20px 20px 20px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+	    justify-content: center;
+  }
+  .country-list li {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border: 1px solid;
+    border-radius: 8px;
+    word-break: keep-all;
+    transition: transform 0.2s ease;
+  }
+  .country-list li:hover {
+    transform: translateY(-2px);
+  }
+  /* -------------------------------------
+     [수정] 대한민국 & 프랑스 강조 스타일
+  -------------------------------------- */
+  .country-list li.highlight-nation {
+    font-weight: 900 !important; /* 굵게 처리 */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+  /* -------------------------------------
+     대륙별 플랫 컬러 테마 적용 (헤더 & 태그)
+  -------------------------------------- */
+  /* 서쪽: 아메리카 (오렌지) */
+  .theme-americas { border-top: 5px solid #f97316; }
+  .theme-americas .region-header { background: rgba(255, 237, 213, 0.7); }
+  .theme-americas .region-title { color: #c2410c; }
+  .theme-americas .region-count { background-color: #ffedd5; color: #ea580c; }
+  .theme-americas .country-list li { background-color: #fff7ed; color: #9a3412; border-color: #fed7aa; }
+  /* 중앙: 유럽 (블루) */
+  .theme-europe { border-top: 5px solid #3b82f6; }
+  .theme-europe .region-header { background: rgba(219, 234, 254, 0.7); }
+  .theme-europe .region-title { color: #1d4ed8; }
+  .theme-europe .region-count { background-color: #eff6ff; color: #2563eb; }
+  .theme-europe .country-list li { background-color: #f0f9ff; color: #1e40af; border-color: #bfdbfe; }
+  /* 프랑스 강조색 */
+  .theme-europe .country-list li.highlight-nation { background-color: #bfdbfe; color: #1e3a8a; border-color: #3b82f6; }
+  /* 중앙 하단: 아프리카 (그린) */
+  .theme-africa { border-top: 5px solid #10b981; }
+  .theme-africa .region-header { background: rgba(220, 252, 231, 0.7); }
+  .theme-africa .region-title { color: #15803d; }
+  .theme-africa .region-count { background-color: #ecfdf5; color: #059669; }
+  .theme-africa .country-list li { background-color: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+  /* 중앙 하단 우측: 중동 (퍼플) */
+  .theme-middle-east { border-top: 5px solid #8b5cf6; }
+  .theme-middle-east .region-header { background: rgba(243, 232, 255, 0.7); }
+  .theme-middle-east .region-title { color: #6d28d9; }
+  .theme-middle-east .region-count { background-color: #f5f3ff; color: #7c3aed; }
+  .theme-middle-east .country-list li { background-color: #faf5ff; color: #6b21a8; border-color: #e9d5ff; }
+  /* 동쪽: 아시아 (레드) */
+  .theme-asia { border-top: 5px solid #ef4444; }
+  .theme-asia .region-header { background: rgba(254, 226, 226, 0.7); }
+  .theme-asia .region-title { color: #b91c1c; }
+  .theme-asia .region-count { background-color: #fef2f2; color: #dc2626; }
+  .theme-asia .country-list li { background-color: #fff1f2; color: #991b1b; border-color: #fecaca; }
+  /* 대한민국 강조색 */
+  .theme-asia .country-list li.highlight-nation { background-color: #fecaca; color: #7f1d1d; border-color: #ef4444; }
+  /* 동쪽 하단: 오세아니아 (틸) */
+  .theme-oceania { border-top: 5px solid #14b8a6; }
+  .theme-oceania .region-header { background: rgba(204, 251, 241, 0.7); }
+  .theme-oceania .region-title { color: #0f766e; }
+  .theme-oceania .region-count { background-color: #f0fdfa; color: #0d9488; }
+  .theme-oceania .country-list li { background-color: #f0fdfa; color: #115e59; border-color: #99f6e4; }
+  /* -------------------------------------
+     [모바일 최적화] 스크린 크기에 따른 재배치
+  -------------------------------------- */
+  @media (max-width: 900px) {
+    .map-canvas { padding: 25px; }
+    .map-layout-grid {
+      grid-template-columns: 1fr 1fr; /* 태블릿 2단 */
+    }
+    .col-center {
+      grid-column: span 2;
+      order: -1; /* 태블릿에선 유럽이 제일 위로 */
+    }
+  }
+  @media (max-width: 640px) {
+    .map-header-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 20px;
+    }
+    .map-canvas { padding: 15px; }
+    /* 모바일 환경 세로 스태킹 */
+    .map-layout-grid {
+      grid-template-columns: 1fr; 
+    }
+    .col-center {
+      grid-column: span 1;
+      order: 0;
+    }
+    .center-bottom-grid {
+      grid-template-columns: 1fr; /* 모바일에서 아프리카, 중동도 세로 나열 */
+    }
+    .map-bg-image {
+      opacity: 0.05; 
+    }
+	.table-title {
+	    font-size: 24px;
+	}
+	.total-badge {
+	    font-size: 16px;
+		}
+		.country-list li {
+    font-size: 14px;
+	}
+	.region-title {
+    font-size: 18px;
+	}
+  }
+
+    </style>
+    <script defer src="../assets/js/issue-data.js?v=20261126105505"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261126105505"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261126105505"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+    <header class="ed-header mk-header">
+        <div class="mk-bar">
+            <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 9월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <a href="../index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
+                <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
+            </a>
+            <div class="mk-actions">
+                <span class="mk-issue-label">2026년 9월호</span>
+                <button type="button" class="mk-icon-btn mk-search-btn" data-open-drawer="search" aria-label="기사 검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+            </div>
+            <div class="ed-progress-bar" aria-hidden="true"></div>
+        </div>
+        <nav class="mk-nav" aria-label="주요 섹션 메뉴">
+            <div class="mk-nav-track">
+                <a href="../list.html?issue=2026-09&amp;section=NEWS" class="mk-nav-link">NEWS</a>
+                <a href="../list.html?issue=2026-09&amp;section=SPECIAL" class="mk-nav-link">SPECIAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
+                <a href="../list.html?issue=2026-09&amp;section=CRITIC" class="mk-nav-link">CRITIC</a>
+                <a href="../list.html?issue=2026-09&amp;section=GLOBAL" class="mk-nav-link">GLOBAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY" class="mk-nav-link" aria-current="page">KOFIC STORY</a>
+                <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE" class="mk-nav-link">BOX OFFICE</a>
+                <a href="../list.html?issue=2026-09&amp;section=PRODUCTION" class="mk-nav-link">PRODUCTION</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <nav class="article-breadcrumb" aria-label="기사 위치">
+                    <a href="../index.html">HOME</a>
+                    <span class="sep">/</span>
+                    <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">KOFIC STORY</a>
+                </nav>
+
+                <h1 class="article-title">함께 그리는 영화와 영상의 내일</h1>
+                <p class="article-subtitle">정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</p>
+
+                <div class="article-meta-bar">
+                    <div class="article-byline-group">
+                        <div class="article-date-row">
+                            <span>2026-09-21</span>
+                            <span class="article-read-time" id="articleReadTime">읽는 중…</span>
+                        </div>
+                        <div class="article-credits"><span>글 _ 이준우(영화진흥위원회 국제사업팀) <br>
+								현지 협력 _ 한세정<br class="m-only">(영화진흥위원회 프랑스 코디네이터)</span></div>
+                    </div>
+
+                    <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
+                        </div>
+                        <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <figure class="article-cover">
+            <div class="article-cover-frame">
+                <img src="../assets/images/2026-09/kofic-story/kofic09_00.webp" alt="함께 그리는 영화와 영상의 내일" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>한국-프랑스 주재 최초의 글로벌 영화·영상 정상회의 ‘뤼미에르 서밋’</li>
+                    <li>10억 유로 규모 ‘뤼미에르 파트너십’ 출범, 15대 미래 원칙 ‘뤼미에르 선언’ 채택</li>
+                    <li>‘뤼미에르 얼라이언스’·주요 MOU…영화·영상 분야 다자간 연대·협력 기반 마련</li>
+                </ol>
+            </div>
+            
+        </figure>
+
+        <article class="article-main">
+
+				<p class="n-common-text-1 mt-60">
+					 1895년 12월 28일, 오귀스트와 루이 뤼미에르 형제가 발명한 시네마토그라프의 첫 유료 상영이 프랑스 파리 그랑 카페의 지하 살롱에서 열렸다. 사람들이 시네마토그라프가 영사하는 빛을 향해 한 방향을 바라봤던 그날에서 130년이 흐른 2026년, ‘빛’을 뜻하는 뤼미에르 형제의 이름을 딴 ‘뤼미에르 서밋(The Lumière Summit)’이 지난 9월 7일 프랑스 생폴드방스 마그재단 미술관에서 열렸다. 영화·영상 정책과 산업, 예술의 주요 인사들이 한자리에 모여 영화와 영상이 걸어온 길을 되짚고 현재와 미래를 함께 바라보는 자리였다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_01.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_01-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_01.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_01.webp" alt="kofic09_01" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_02.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_02-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_02.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_02.webp" alt="kofic09_02" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc">
+						뤼미에르 서밋이 열린 마그재단 미술관 입구 정원의 모습<br class="m-only">
+						(제공=이준우, Fondation Maeght, Successió Miró)
+					</p>
+				</div>
+				<p class="n-common-text-1 ">
+					 뤼미에르 서밋은 영화·영상을 주제로 열린 최초의 국제 정상회의로, 외교와 정책, 산업, 창작을 한자리에서 논하는 다층적인 행사로 기획되었다. 올해 4월 에마뉘엘 마크롱 프랑스 대통령이 방한한 정상회담에서 이재명 대통령에게 뤼미에르 서밋 공동의장을 제안했고, 양국 간 합의에 따라 지난 5월 79회 칸국제영화제(이하 칸영화제) 기간 중 공식 개최가 발표되었다. 이후 양국 부처와 기관 간의 협의를 거쳐 넉 달 동안 행사가 구체화되었다. 세계 영화·영상 시장에서 꾸준히 영향력을 확대해 온 한국과 영화의 탄생·발전을 함께하며 창작의 다양성과 관객의 문화 향유를 중시해 온 프랑스가 공동의장을 맡았다는 점에서도 상징성이 컸다.<br>
+					<br>
+					 마그재단 미술관은 하루 동안 행사만을 위한 공간이 되어 참가자들을 맞이했다. 프랑스 남부의 작은 도시 생폴드방스의 청명한 아침, 정원을 가로지르는 레드카펫 끝에 태극기와 프랑스의 삼색기, EU의 유럽기가 나란히 걸려 있었고, 본관 내부에는 50여 개국의 국기가 늘어서 있었다. 한국과 프랑스 양국 정상이 참가한 이날 행사에는 전 세계 50여 국에서 온 정부·기관 관계자와 산업 종사자, 감독·배우 등 200여 명이 참석했다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_03.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_03-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_03.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_03.webp" alt="kofic09_03" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_04.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_04-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_04.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_04.webp" alt="kofic09_04" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc">
+						뤼미에르 서밋에 전 세계 50여 개국이 참석했다. <br class="m-only">
+						사진은 마그재단 미술관에 놓인 각국의 국기들<br class="m-only">
+						(제공=이준우, Stephane Sby Balmy(CNC))
+					</p>
+				</div>
+				<p class="n-common-text-1">
+					 뤼미에르 서밋은 ‘영화·영상이 지닌 가치를 어떻게 창조하고 나누며 지켜낼 것인가’라는 질문을 중심으로 구성되었다. 이날의 논의는 영화만이 아니라 시리즈, AI, 게임 등 인접 분야까지 확장되었다. 한국, 프랑스 양국 정상이 연설에 참여한 개막 세션에서는 뤼미에르 서밋의 정신과 방향성을 공유하고 영화·영상의 가치를 되돌아보기 위한 메시지가 오갔다. 이어 ‘창작의 새로운 경계’, ‘창작의 재원과 가치 배분’, ‘관객과의 관계 재정립’, ‘산업이 지켜야 할 약속’이라는 네 개의 대주제 아래 여러 콘퍼런스와 워크숍이 마그재단 미술관의 회의 공간에서 동시에 진행되었다. 폐막 세션에서는 이미지 리터러시 교육을 포함한 미래 세대를 위한 영화·영상의 과제를 논의하며 행사를 마무리했다. 개·폐막 세션을 포함해 이날 진행된 프로그램은 모두 22개에 달했다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_05.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_05-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_05.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_05.webp" alt="kofic09_05" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_06.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_06-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_06.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_06.webp" alt="kofic09_06" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc pc-only">
+						뤼미에르 서밋 공식 포토콜(왼쪽)과 행사장 모습(제공=대한민국 청와대, William Lentz(CNC))
+					</p>
+					<p class="common-desc m-only">
+						뤼미에르 서밋 공식 포토콜(위쪽)과 행사장 모습<br class="m-only">
+						(제공=대한민국 청와대, William Lentz(CNC))
+					</p>
+				</div>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_07.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_07-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_07.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_07.webp" alt="kofic09_07" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_08.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_08-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_08.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_08.webp" alt="kofic09_08" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc pc-only">
+						공식 세션이 진행된 내부(왼쪽)와 야외 스케치(제공=Stephane Sby Balmy(CNC), Successió Miró, ADAGP Paris 2026(CNC))
+					</p>
+					<p class="common-desc m-only">
+						공식 세션이 진행된 내부(위쪽)와 야외 스케치(제공=Stephane Sby Balmy(CNC), Successió Miró, ADAGP Paris 2026(CNC))
+					</p>
+				</div>
+				<!--  표1 삽입-->
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="program-container">
+					<!-- 상단 개막 세션 -->
+					<div class="plenary-banner">
+						<div class="plenary-category">
+							OPENING PLENARY &nbsp;|&nbsp; 개막 세션
+						</div>
+						<h1 class="plenary-title">영화·영상의 가치를 되묻다</h1>
+						<p class="plenary-subtitle">
+							(Rethinking the Value of Moving Images)
+						</p>
+					</div>
+					<!-- 화살표 -->
+					<div class="triangle-down">
+					</div>
+					<!-- 4단 포커스 영역 -->
+					<div class="focus-grid">
+						<!-- FOCUS 1 -->
+						<div class="focus-col">
+							<div class="focus-header bg-focus1">
+								<div class="focus-num">
+									FOCUS 1
+								</div>
+								<h2 class="focus-title">창작의 새로운 경계</h2>
+								<div class="focus-subtitle">
+									(The New Frontiers of Creation)
+								</div>
+							</div>
+							<ul class="focus-list">
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-1">01</span>
+									<span>AI와 무빙 이미지: 규칙을 세우다</span>
+								</div>
+								<div class="item-subtitle">
+									(AI and Moving Images: Establishing Ground Rules)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-1">02</span>
+									<span>크리에이터 이코노미: 성숙해진 재능의 생태계</span>
+								</div>
+								<div class="item-subtitle">
+									(The Creator Economy: The Maturity of an Ecosystem of Talent)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-1">03</span>
+									<span>플레이어와 함께 만들다: 비디오게임을 둘러싼 커뮤니티</span>
+								</div>
+								<div class="item-subtitle">
+									(Creating with Their Players: Building a Community around Video Games)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-1">04</span>
+									<span>창작의 결정권은 누구에게 있는가</span>
+								</div>
+								<div class="item-subtitle">
+									(Who Has the Right to Make Creative Decisions?)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-1">05</span>
+									<span>저작권 침해: 시간과의 경주</span>
+								</div>
+								<div class="item-subtitle">
+									(Piracy: A Global Race against the Clock)
+								</div>
+								</li>
+							</ul>
+						</div>
+						<!-- FOCUS 2 -->
+						<div class="focus-col">
+							<div class="focus-header bg-focus2">
+								<div class="focus-num">
+									FOCUS 2
+								</div>
+								<h2 class="focus-title">창작 재원과 가치 배분</h2>
+								<div class="focus-subtitle">
+									(Financing Creative Ambition, Sharing Value)
+								</div>
+							</div>
+							<ul class="focus-list">
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-2">01</span>
+									<span>제작 재원의 새로운 방정식</span>
+								</div>
+								<div class="item-subtitle">
+									(The New Financial Equations of Production)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-2">02</span>
+									<span>공적 지원, 미래 가치를 만들다</span>
+								</div>
+								<div class="item-subtitle">
+									(Public Support, Creating Future Value)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-2">03</span>
+									<span>로컬에서 글로벌로: 공유 가치 창출의 새로운 관점</span>
+								</div>
+								<div class="item-subtitle">
+									(From Local to Global: New Outlooks for Creating Shared Value)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-2">04</span>
+									<span>방송사와 스트리밍 플랫폼: 파트너십의 시대</span>
+								</div>
+								<div class="item-subtitle">
+									(Broadcasters and Streaming Platforms: The Era of Partnerships)
+								</div>
+								</li>
+							</ul>
+						</div>
+						<!-- FOCUS 3 -->
+						<div class="focus-col">
+							<div class="focus-header bg-focus3">
+								<div class="focus-num">
+									FOCUS 3
+								</div>
+								<h2 class="focus-title">관객과의 관계 재정립</h2>
+								<div class="focus-subtitle">
+									(Rethinking the Relationship with Audiences)
+								</div>
+							</div>
+							<ul class="focus-list">
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-3">01</span>
+									<span>극장 독점 공개: 가장 중요한 첫 번째 창구</span>
+								</div>
+								<div class="item-subtitle">
+									(Theatrical Exclusivity: An Essential First Window)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-3">02</span>
+									<span>무엇을 볼지 누가 정하는가</span>
+								</div>
+								<div class="item-subtitle">
+									(Who Chooses What We Watch?)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-3">03</span>
+									<span>규모의 전환: 세계로 나아가는 독립영화</span>
+								</div>
+								<div class="item-subtitle">
+									(Changing Scale: Independent Cinema Conquering the World)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-3">04</span>
+									<span>배급과 개봉: 영화를 위한 새로운 합의</span>
+								</div>
+								<div class="item-subtitle">
+									(Distribution and Release: A New Deal in Support of Films)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-3">05</span>
+									<span>비판은 쉽고 대체는 불가능하다: 영화제의 역할을 다시 묻다</span>
+								</div>
+								<div class="item-subtitle">
+									(Easy to Criticize, Impossible to Replace: Rethinking the Role of Festivals)
+								</div>
+								</li>
+							</ul>
+						</div>
+						<!-- FOCUS 4 -->
+						<div class="focus-col">
+							<div class="focus-header bg-focus4">
+								<div class="focus-num">
+									FOCUS 4
+								</div>
+								<h2 class="focus-title">산업이 지켜야 할 약속</h2>
+								<div class="focus-subtitle">
+									(An Industry That Lives Up to Its Promises)
+								</div>
+							</div>
+							<ul class="focus-list">
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-4">01</span>
+									<span>세계 영화유산 구하기: 지금 행동해야 한다</span>
+								</div>
+								<div class="item-subtitle">
+									(Saving Global Cinematographic Heritage: Action Needed Urgently)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-4">02</span>
+									<span> 더 안전한 현장과 더 나은 이야기: 평등이 필요한 이유</span>
+								</div>
+								<div class="item-subtitle">
+									(Safer Film Shoots and Better Narratives: Why Equality Is Essential)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-4">03</span>
+									<span> 젊은 세대는 어디에 있는가: 차세대 의사결정자에게 산업을 열다</span>
+								</div>
+								<div class="item-subtitle">
+									(Where Are the Young People? Opening Up the Industry to a New Generation of Decision-Makers)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-4">04</span>
+									<span>창작의 자유: 보편적 권리, 불균등한 보호</span>
+								</div>
+								<div class="item-subtitle">
+									(Freedom of Creation: A Universal Right, Unequally Protected)
+								</div>
+								</li>
+								<li>
+								<div class="item-title-wrap">
+									<span class="item-num num-color-4">05</span>
+									<span>예술과 민주주의: 무엇이 우리를 잇는가</span>
+								</div>
+								<div class="item-subtitle">
+									(Art and Democracy: What Brings Us Together)
+								</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- 화살표 -->
+					<div class="triangle-down">
+					</div>
+					<!-- 하단 폐막 세션 -->
+					<div class="plenary-banner">
+						<div class="plenary-category">
+							CLOSING PLENARY &nbsp;|&nbsp; 폐막 세션
+						</div>
+						<h1 class="plenary-title">영화·영상 리터러시, 21세기의 기초 소양</h1>
+						<p class="plenary-subtitle">
+							(Moving Image Media Literacy, Fundamental Learning for the 21st Century)
+						</p>
+					</div>
+				</div>
+				<br class="pc-only"><br class="pc-only">
+				<p class="n-common-text-1 mt-60">
+					 뤼미에르 서밋의 문을 연 개막식에서는 한국과 프랑스 양국 정상이 나란히 연설에 나섰다. 이재명 대통령은 극장의 위기, 인공지능이 가져온 위협과 기회, 독립영화와 다양성, 로컬과 글로벌의 상생이라는 네 가지 의제를 제시하며, 끊임없는 혁신과 창의성이 위기를 기회로 만드는 힘이라고 강조했다. 에마뉘엘 마크롱 대통령은 영상 콘텐츠가 창작되고 소비되는 방식이 전례 없는 규모와 속도로 변하고 있다며, 이 변화를 두려워할 이유도 없지만 이에 휩쓸려서도 안 된다고 말했다. 또한, 어떤 나라도 이 미래를 홀로 개척할 수 없으며, 이번 뤼미에르 서밋이 각국 정부와 창작자, 제작자, 방송사, 플랫폼, 극장, 기술업계, 국제기구를 한자리에 모으는 다자간 협력의 이정표가 되기를 바란다고 덧붙였다. 이날 개막 연설에서 양국 정상은 전략적 이니셔티브인 '뤼미에르 파트너십(The Lumière Partnership)'의 출범을 함께 알렸다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_09.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_09-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_09.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_09.webp" alt="kofic09_09" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_10.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_10-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_10.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_10.webp" alt="kofic09_10" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc pc-only">
+						뤼미에르 서밋 개막식에서 연설을 하고 있는 이재명 대통령(왼쪽)과 마크롱 대통령(제공=대한민국 청와대, Présidence de la République)
+					</p>
+					<p class="common-desc m-only">
+						뤼미에르 서밋 개막식에서 연설을 하고 있는 이재명 대통령(위쪽)과 마크롱 대통령(제공=대한민국 청와대, Présidence de la République)
+					</p>
+				</div>
+				<p class="n-common-title-2">
+					 뤼미에르 파트너십(The Lumière Partnership)
+				</p>
+				<p class="n-common-text-1 ">
+					 한국과 프랑스는 이번 뤼미에르 서밋을 계기로 2027년부터 2031년까지 양국에서 5년간 영화·영상산업에 각각 5억 유로(한화 약 8천억 원)의 투자를 목표로 하는 ‘글로벌 영화·영상산업 투자협력 이니셔티브(이하 뤼미에르 파트너십)’의 출범을 공식 발표했다.<br>
+					<br>
+					 총 10억 유로(한화 약 1조 6천억 원) 규모로 추진되는 뤼미에르 파트너십은 양국이 자국 영화·영상산업에 대한 정책금융 투자를 통해 산업 생태계에 활력을 불어넣고, 다른 국가가 참여하는 공동투자와 제작·유통 모델로 협력의 범위를 넓혀가는 것을 목표로 한다. 양국은 향후 뤼미에르 파트너십의 구체적인 실행 방안을 논의하기 위한 운영위원회(Steering Committee)를 구성할 계획이다. 아울러 양국은 이번 파트너십이 뤼미에르 서밋에서 채택된 ‘뤼미에르 선언(The Lumière Declaration)’의 원칙에 따라 운용되어야 한다는 데도 뜻을 함께했다.
+				</p>
+				<p class="n-common-title-2">
+					 뤼미에르 선언(The Lumière Declaration)
+				</p>
+				<p class="n-common-text-1 ">
+					 뤼미에르 서밋에서는 대표 선언인 뤼미에르 선언을 필두로 AI, 지식재산권 침해 대응, 지속가능성, 성평등과 안전한 제작 환경, 영화·영상교육을 주제로 하는 세부 선언 다섯 가지가 함께 채택되었다. 대표 선언과 세부 선언 다섯 건은 한국과 프랑스가 공동으로 제안한 것이다. <br>
+					<br>
+					 뤼미에르 서밋 전체를 관통하는 뤼미에르 선언은 영화와 영상의 미래를 위한 15가지 원칙으로 구성되었다. 작품 중심의 창작과 인재를 위한 투자, 작품의 다양성과 관객 접근성, 극장 상영의 가치, 국제공동제작과 국가·지역 간 협력 등이 주요 내용이다. 또한 저작권 침해에 대한 국제적 대응과 함께 AI 기술의 활용을 인정하는 가운데 인간의 창작과 지식재산권의 가치를 지켜가기 위한 노력을 영화·영상산업의 기반으로 제시했다. <br>
+					<br>
+					 이 밖에 뤼미에르 선언은 창작의 자유, 성평등과 안전한 제작 환경, 영화·영상유산의 보존, 지속 가능한 제작과 유통 등을 주요 원칙으로 제시했으며, ‘영화·영상교육’을 21세기의 보편적 소양으로 발전시키기 위한 글로벌 단위의 협력 필요성을 담았다. 이로써 뤼미에르 선언은 각국의 정부와 기관, 기업, 창작자가 함께 참여하는 ‘무빙 이미지의 다자주의(A multilateralism of the moving image)’를 궁극적인 협력 방향으로 제시했다.
+				</p>
+				<p class="n-common-title-2">
+					 아이리스와 뤼미에르 얼라이언스(IRIS and The Lumière Alliance)
+				</p>
+				<p class="n-common-text-1">
+					 뤼미에르 서밋에서는 선언과 함께 이를 실행에 옮길 여러 이니셔티브가 출범하였다. 위기에 놓인 독립·예술영화관을 국제적으로 지원하는 ‘아이리스(The International Resilience Initiative for Independent Screens, IRIS)’는 프랑스, 모로코와 함께 한국이 창립 파트너로 참여해 2027년 1월부터 본격 가동될 예정이다. 영화·영상교육을 보편적 과제로 삼기 위한 글로벌 파트너십 역시 프랑스, 나이지리아와 한국이 공동으로 주도하며 매년 세 나라의 영상교육 프로그램 구축을 지원한다. 이 밖에 소실 위기의 영화·영상 유산을 보존하는 ‘알리프(ALIPH)’ 프로그램, 35세 이하 차세대 영화·영상 인재를 발굴하는 ‘시청각 넥스트 젠(Audiovisual Next Gen)’도 새로운 출발을 알렸다. 세계 각국의 영화·영상기관을 연결하는 글로벌 네트워크, ‘뤼미에르 얼라이언스(The Lumière Alliance)’도 이날 새롭게 구성됐다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_11.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_11-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_11.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_11.webp" alt="kofic09_11" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_12.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_12-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_12.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_12.webp" alt="kofic09_12" width="720" height="480" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc pc-only">
+						최휘영 문화체육관광부 장관과 카트린 페가르 프랑스 문화부 장관(왼쪽). 전 세계 여러 나라의 영화·영상기관을 연결하는 뤼미에르 얼라이언스<br class="pc-only">
+						(제공=Stephane Sby Balmy(CNC))
+					</p>
+					<p class="common-desc m-only">
+						최휘영 문화체육관광부 장관과 카트린 페가르 프랑스 문화부 장관(위쪽). 전 세계 여러 나라의 영화·영상기관을 연결하는 뤼미에르 얼라이언스<br class="pc-only">
+						(제공=Stephane Sby Balmy(CNC))
+					</p>
+				</div>
+				<p class="n-common-title-2">
+					 한국, 주요 파트너 국가들과 협약
+				</p>
+				<p class="n-common-text-1 mt-60">
+					 뤼미에르 서밋을 계기로 한국과 글로벌 영화·영상산업을 잇는 협력도 잇따랐다. 이날 한국은 한 건의 정부 간 협정과 세 건의 업무협약을 체결했다. 먼저 최휘영 문화체육관광부 장관과 알레산드로 줄리(Alessandro Giuli) 이탈리아 문화부 장관이 ‘한-이탈리아 영화 공동제작 협정’에 공식 서명했다. 이번 협정으로 양국 간 공동제작의 독자적인 기반이 마련되었으며, 공동제작물로 인정받은 영화는 양국에서 자국 영화로 인정되어 인센티브와 세액공제, 제작 인력과 장비 이동 간소화 등의 혜택을 받게 된다. 한상준 영화진흥위원회(이하 영진위) 위원장도 이날 함께 배석하여 이번 협정이 실제 현장으로 이어질 수 있도록 뒷받침하겠다는 뜻을 밝혔다.
+				</p>
+				<div class="common-image-col-2">
+					<div class="inner">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_13.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_13-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_13.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_13.webp" alt="kofic09_13" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_14.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_14-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_14.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_14.webp" alt="kofic09_14" width="720" height="406" class="js-image-full-layer" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc">
+						한국과 이탈리아의 독자적인 공동제작 기반을 마련한 <br class="m-only">
+						‘한-이탈리아 영화 공동제작 협정’(제공=이준우)
+					</p>
+				</div>
+				<p class="n-common-text-1">
+					 영진위와 미국영화협회(Motion Pictures Association, MPA)는 업무협약을 통해 신인 발굴 및 인재 양성, 전문 인력 교류, 정보 및 지식 교류, 상영 행사를 아우르는 포괄적 협력을 약속했다. MPA는 월트디즈니와 넷플릭스, 파라마운트 스카이댄스, 아마존 MGM 스튜디오, 소니 픽쳐스, 유니버설 픽쳐스, 워너브러더스 디스커버리 등을 대변하는 비영리 단체이다.<br>
+					<br>
+					 국내 대표 영화·영상 스튜디오로 자리매김한 SLL과 프랑스를 대표하는 미디어 그룹 미디어완(Mediawan)은 양 사가 보유한 IP 포맷을 활용하여 글로벌 시장을 겨냥하는 다양한 작품의 발굴과 제작을 위한 협력에 뜻을 모았다. 네이버와 프랑스 국립시청각연구소(Institut national de l'audiovisuel, INA)는 네이버의 기술 역량 및 플랫폼 활용 능력과 INA의 방대한 아카이빙·디지털화 역량을 접목하여 AI 기반의 아카이브 보존·복원을 위한 공동 연구와 신규 콘텐츠 발굴, 전문가 교류 등을 추진하기로 합의하였다. <br>
+					<br>
+					 마지막을 장식하는 폐막 연설에서 최휘영 문화체육관광부 장관은 이번 뤼미에르 서밋이 국경을 넘어 영화와 영상이라는 하나의 언어로 깊이 소통하고 지속 가능한 미래를 위한 연대의 다리를 놓은 역사적인 자리였다고 평가했다. 카트린 페가르(Catherine Pégard) 프랑스 문화부 장관은 “각계의 주체들을 한자리에 모으는 일은 결코 당연하지 않았다”며 뤼미에르 서밋의 성공적인 개최에 대한 감회를 밝혔다. 뤼미에르 서밋에서 채택된 여러 선언은 행사로 종결되지 않고 미래 파트너의 동참에 열려 있으며, 함께 출범한 여러 이니셔티브 역시 추가 참여를 전제로 운영될 예정이다.
+				</p>
+				<div class="common-image-slide-1">
+					<div class="slides-wrap">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_15.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_15-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_15.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_15.webp" alt="kofic09_15" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_16.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_16-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_16.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_16.webp" alt="kofic09_16" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_17.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_17-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_17.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_17.webp" alt="kofic09_17" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc">
+						최휘영 장관과 카트린 페가르 장관의 폐막 연설과 폐막 세션 현장(제공=Stephane Sby Balmy(CNC))
+					</p>
+				</div>
+				<p class="n-common-text-1">
+					 영화와 영상의 미래를 향한 새로운 빛을 표방했던 이번 뤼미에르 서밋은 50여 국 200여 명의 참가자들 사이에 작은 소통의 씨앗을 심어두었다. 가시적인 결과물로 남은 선언문은 다자간 협력의 대원칙과 방향을 제시했을 뿐이다. 정책과 산업을 움직이고 작품을 만들어내는 각국의 주체들이 앞으로 어떤 협력 모델을 만들어낼지, 영화와 영상의 지형도를 어떻게 바꿔 나갈지는 이 씨앗들이 어떻게 싹을 틔우는지에 달려 있다.
+				</p>
+				<div class="common-image-slide-1">
+					<div class="slides-wrap">
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_18.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_18-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_18.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_18.webp" alt="kofic09_18" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_19.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_19-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_19.webp 700w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_19.webp" alt="kofic09_19" width="700" height="1049" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_20.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_20-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_20.webp 700w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_20.webp" alt="kofic09_20" width="700" height="1049" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+						<div class="image">
+							<img src="../assets/images/2026-09/kofic-story/kofic09_21.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_21-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_21.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_21.webp" alt="kofic09_21" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+						</div>
+					</div>
+					<p class="common-desc">
+						뤼미에르 서밋이 진행된 마그재단 미술관의 전경, 행사 오찬, 포토월, 입구<br class="pc-only">
+						(제공=William Lentz(CNC), ADAGP Paris 2026(CNC), Stephane Sby Balmy(CNC))
+					</p>
+				</div>
+				<!--박스 1 -->
+				<div style="border-radius: 28px; margin-top: 5vw; border: 5px solid #dcdcdc; padding: 0vw 3vw 3vw; box-shadow: 11px 10px 0 #efefef;">
+					<p class="n-common-title-2">
+						<span style="color: #ef8500;">
+						전세계 영화·영상을 위한 네트워크, 뤼미에르 얼라이언스</span>
+					</p>
+					<p class="n-common-text-1">
+						 9월 7일 오후, 영진위가 주도적으로 참여한 워크숍 ‘공적 지원, 미래 가치를 만들다(Public Support, Long-Term Value)’가 마그재단 미술관 미로 정원(Labyrinthe Miró)에서 열렸다. 스페인의 화가이자 조각가인 호안 미로의 작품들이 곳곳에 배치되어 인상적인 곳이기도 하다. 휘장 아래 놓인 긴 테이블을 사이에 두고 마주 앉은 아시아와 유럽, 이베로아메리카(편집자 주- Iberoamérica, 이베리아 반도 국가인 스페인과 포르투갈의 영향으로 스페인어나 포르투갈어를 쓰게 된 아메리카 지역)의 영화·영상기관 대표들은 이날 처음으로 한자리에 모여 상설 협력체 뤼미에르 얼라이언스의 출범을 알렸다.<br>
+						<br>
+						 뤼미에르 얼라이언스는 뤼미에르 서밋에서 제시한 ‘무빙 이미지의 다자주의’를 구체적으로 실행하는 모델이며, 대륙을 막론하고 전 세계의 영화·영상기관을 연결하는 최초의 글로벌 단위 네트워크라고 할 수 있다. 영화·영상기관 간의 협력은 20여 년에 걸쳐 대륙 단위로 자리를 잡아왔다. 유럽에는 38개 기관이 참여하는 유럽영화기관장협회(European Film Agency Directors association, EFAD)가 활발하게 활동하고 있으며, 중남미에는 22개 기관 간의 이베로아메리카영화시청각협력회의(Conferencia de Autoridades Audiovisuales y Cinematográficas de Iberoamérica, CAACI)가, 아시아에는 9개 기관이 함께하는 아시아 영화 협력 네트워크(Asian Film Alliance Network, AFAN)가 기관별 경험을 공유하고 공동의 방향성을 조율하며 국가별 정책 모델을 나눠왔다. 뤼미에르 얼라이언스는 기존 네트워크를 대체하지 않고 서로 연결하여 새로운 다자간 네트워크를 형성하는 것을 원칙으로 삼는다. <br>
+						<br>
+						 뤼미에르 얼라이언스는 개방적이고 비공식적인 형태를 택했다. 회원 자격은 영화·영상의 지원과 보호, 진흥을 임무로 하는 국가기관과 공공기관에 열려 있고 회비는 없으며, 회원기관의 자발적 기여로 운영되는 느슨한 네트워크를 지향한다. 지금까지 53개 국가 및 지역에서 참여 의사를 밝혔으며 주요 활동은 네 가지 방향으로 제시되었다. 참여 기관 실무자 간의 소통 창구를 만드는 ‘교류(Exchange)’, 서로 다른 정책 모델과 성공 사례를 나누는 ‘공유(Share)’, 기관 간 공동의 시너지를 도모하는 ‘협력(Cooperate)’, 그리고 글로벌 논의의 장에서 각국 기관의 목소리를 키우기 위한 ‘신장(Advance)’이다.
+					</p>
+					<!-- 표 2 삽입-->
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="map-container">
+						<!-- 상단 타이틀 영역 -->
+						<div class="map-header-bar">
+							<div class="header-text-wrap">
+								<h2 class="table-title">뤼미에르 얼라이언스 주요 가입국가·지역</h2>
+							</div>
+							<div class="total-badge">
+								총 53개국
+							</div>
+						</div>
+						<!-- 지도 배경 캔버스 -->
+						<div class="map-canvas">
+							<!-- 은은하게 비치는 세계 지도 이미지 -->
+							<div class="map-bg-image">
+							</div>
+							<!-- 지리적 위치 3단 기둥 레이아웃 -->
+							<div class="map-layout-grid">
+								<!-- [1단 서쪽 열] 아메리카 -->
+								<div class="map-col col-west">
+									<div class="region-block theme-americas">
+										<div class="region-header">
+											<h3 class="region-title">???? 아메리카</h3>
+											<span class="region-count">6국</span>
+										</div>
+										<ul class="country-list">
+											<li>멕시코</li>
+											<li>도미니카공화국</li>
+											<li>에콰도르</li>
+											<li>캐나다</li>
+											<li>퀘벡</li>
+											<li>콜롬비아</li>
+										</ul>
+									</div>
+								</div>
+								<!-- [2단 중앙 열] 유럽, 아프리카, 중동 -->
+								<div class="map-col col-center">
+									<!-- 유럽 (상단) -->
+									<div class="region-block theme-europe">
+										<div class="region-header">
+											<h3 class="region-title">???? 유럽</h3>
+											<span class="region-count">29국</span>
+										</div>
+										<ul class="country-list">
+											<li>그리스</li>
+											<li>네덜란드</li>
+											<li>노르웨이</li>
+											<li>덴마크</li>
+											<li>독일</li>
+											<li>라트비아</li>
+											<li>룩셈부르크</li>
+											<li>리투아니아</li>
+											<li>몬테네그로</li>
+											<li>몰도바</li>
+											<li>몰타</li>
+											<li>북마케도니아</li>
+											<li>불가리아</li>
+											<li>스웨덴</li>
+											<li>스위스</li>
+											<li>스페인</li>
+											<li>슬로베니아</li>
+											<li>아일랜드</li>
+											<li>알바니아</li>
+											<li>에스토니아</li>
+											<li>영국</li>
+											<li>오스트리아</li>
+											<li>왈로니-브뤼셀 연방</li>
+											<li>우크라이나</li>
+											<li>체코</li>
+											<li>코소보</li>
+											<li>크로아티아</li>
+											<li>폴란드</li>
+											<!-- 프랑스 굵게 강조 -->
+											<li class="highlight-nation">프랑스</li>
+										</ul>
+									</div>
+									<!-- 아프리카, 중동 (하단 2분할) -->
+									<div class="center-bottom-grid">
+										<div class="region-block theme-africa">
+											<div class="region-header">
+												<h3 class="region-title">???? 아프리카</h3>
+												<span class="region-count">6국</span>
+											</div>
+											<ul class="country-list">
+												<li>나이지리아</li>
+												<li>마다가스카르</li>
+												<li>모로코</li>
+												<li>세네갈</li>
+												<li>케냐</li>
+												<li>코트디부아르</li>
+											</ul>
+										</div>
+										<div class="region-block theme-middle-east">
+											<div class="region-header">
+												<h3 class="region-title">???? 중동</h3>
+												<span class="region-count">2국</span>
+											</div>
+											<ul class="country-list">
+												<li>시리아</li>
+												<li>이라크</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- [3단 동쪽 열] 아시아, 오세아니아 -->
+								<div class="map-col col-east">
+									<!-- 아시아 (상단) -->
+									<div class="region-block theme-asia">
+										<div class="region-header">
+											<h3 class="region-title">???? 아시아</h3>
+											<span class="region-count">9국</span>
+										</div>
+										<ul class="country-list">
+											<li>대만</li>
+											<!-- 대한민국 굵게 강조 -->
+											<li class="highlight-nation">대한민국</li>
+											<li>말레이시아</li>
+											<li>베트남</li>
+											<li>싱가포르</li>
+											<li>인도네시아</li>
+											<li>일본</li>
+											<li>카자흐스탄</li>
+											<li>필리핀</li>
+										</ul>
+									</div>
+									<!-- 오세아니아 (하단) -->
+									<div class="region-block theme-oceania">
+										<div class="region-header">
+											<h3 class="region-title">???? 오세아니아</h3>
+											<span class="region-count">1국</span>
+										</div>
+										<ul class="country-list">
+											<li>뉴질랜드</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<p class="n-common-text-1">
+						 코로나19 팬데믹으로 영화 제작의 패러다임이 바뀐 이후 국제공동제작을 위한 네트워킹과 다양한 제작 파이낸싱 모델 구축에 대한 수요는 꾸준히 증가하고 있다. 2023년 출범한 AFAN은 이 흐름 속에서 아시아 내의 교류와 협력을 촉진하는 데 주요한 역할을 해왔다. 영진위는 AFAN의 출범 전후로 동남아시아를 비롯한 아시아의 영화·영상기관을 잇는 구심점 역할을 맡아왔다. <br>
+						<br>
+						 한상준 위원장은 연합체에 대한 위원회의 공식 참여 의사를 밝히며 워크숍의 서두를 열었다. 한상준 위원장은 AFAN이 참여국 간 각기 다른 역사와 영화적 전통을 존중하는 것에서 출발했음을 언급하며, 고유한 영화의 역사와 산업적 특색을 가진 국가들이 국가 간 차이를 인정하고 배우는 과정을 통해 상호 협력할 수 있음을 강조했다. 또한 산업의 변화와 동행하는 정책의 방점이 영화·영상의 다양성과 창작권의 보장이 작동하는 환경으로 향해야 한다는 의견을 밝혔다. 한상준 위원장은 이와 더불어 국경을 넘나드는 문제는 국경을 넘어선 협력으로 풀 수 있으며, 지역과 지역, 네트워크와 네트워크가 이어져야 할 시점이 도래했음을 시사했다. <br>
+						<br>
+						 이어진 개별 토론에서 참가자들은 젊은 세대가 더 다양한 작품을 접하도록 하기 위해 어떻게 지원할 것인가를 두고 의견이 오갔다. 한상준 위원장은 세 가지 조건을 들었다. 다양한 영화가 만들어져야 하고, 그 영화들이 관객과 만날 접점이 충분해야 하며, 새로운 세대에게 극장이 친숙한 문화 향유의 기회로 다가가야 한다는 점이다. 한상준 위원장은 특히 마지막 조건의 실현을 위해서는 영화·영상교육과 이미지 리터러시가 신장되어야 함을 언급하며, 청소년이 극장을 찾아 영화 전문가와 함께 작품을 보고 배우는 영진위의 ‘차세대 미래관객 육성 사업’을 사례로 소개하고, 향후 회원기관 간 교육 분야 협력의 필요성도 함께 언급하여 참가자들의 공감을 이끌어냈다. <br>
+						<br>
+						 뤼미에르 얼라이언스는 올가을 첫 온라인 회의를 열고, 2027년 5월 칸영화제에서 첫 정례 회동을, 같은 해 가을에 첫 연례 총회를 개최할 예정이다. 영진위는 뤼미에르 얼라이언스의 향후 활동에 지속적으로 참여하여 국내 영화계의 잠재적인 파트너십을 확대할 수 있는 다양한 공적 협력의 흐름을 만들어낼 계획이다. 정책 모델을 공유할 상대와 공동제작의 파트너가 반드시 일치하지는 않는 만큼, 협력의 목적에 따라 관계를 설계하는 일이 앞으로의 과제가 될 전망이다.
+					</p>
+					<div class="common-image-slide-1">
+						<div class="slides-wrap">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_22.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_22-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_22.webp 700w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_22.webp" alt="kofic09_22" width="700" height="1049" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_23.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_23-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_23.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_23.webp" alt="kofic09_23" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_24.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_24-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_24.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_24.webp" alt="kofic09_24" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_25.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_25-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_25.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_25.webp" alt="kofic09_25" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_26.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_26-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_26.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_26.webp" alt="kofic09_26" width="1000" height="667" class="js-image-full-layer" style=" margin: auto;" loading="lazy">
+							</div>
+						</div>
+						<p class="common-desc">
+							뤼미에르 얼라이언스에 참석한 한상준 영화진흥위원회 위원장, 가르탕 브뤼엘 CNC 회장과 영화·영상기관 대표들의 회의 모습<br class="pc-only">
+							(제공=Stephane Sby Balmy(CNC))
+						</p>
+					</div>
+				</div>
+				<!--박스 2 -->
+				<div style="border-radius: 28px; margin-top: 5vw; border: 5px solid #dcdcdc; padding: 0vw 3vw 3vw; box-shadow: 11px 10px 0 #efefef;">
+					<p class="n-common-title-2">
+						<span style="color: #ef8500;">
+						한국 대표단의 베스트 신(Scene)</span>
+					</p>
+					<p class="n-common-text-1">
+						 뤼미에르 서밋의 공동의장국인 한국에서는 이번 행사를 위해 각계각층의 키 플레이어가 참여했다. 공동의장국으로서 이번 행사를 이끈 문화체육관광부(장관 최휘영)를 필두로 한국의 영화·영상 정책과 지원을 책임지고 있는 영진위(위원장 한상준)와 한국콘텐츠진흥원(원장 김윤지)이 의장국의 대표부처 및 기관으로 참석했다. 한국 콘텐츠의 글로벌 진출을 위해 다양한 행보를 펼치고 있는 CJ에서는 이미경 부회장과 CJ ENM 윤상현 대표, TVING의 최주희 대표가 함께 참석했다. 한국의 콘텐츠 제작을 주도하고 있는 제작사 SLL의 박준서 대표와 명실상부 아시아를 대표하는 글로벌 영화제로 자리매김한 부산국제영화제 박광수 이사장도 참가 명단에 이름을 올렸다. 또한 영화·영상산업의 확장을 견인하는 AI 기술과 게임산업을 대표하여 네이버 최수연 대표와 넥슨코리아 강대현 공동대표도 이번 뤼미에르 서밋을 찾았다.
+					</p>
+					<div class="common-image-col-2">
+						<div class="inner">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_27.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_27-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_27.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_27.webp" alt="kofic09_27" width="720" height="405" class="js-image-full-layer" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_28.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_28-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_28.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_28.webp" alt="kofic09_28" width="720" height="405" class="js-image-full-layer" loading="lazy">
+							</div>
+						</div>
+						<br>
+						<div class="inner">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_29.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_29-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_29.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_29.webp" alt="kofic09_29" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_30.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_30-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_30.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_30.webp" alt="kofic09_30" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+						</div>
+						<p class="common-desc pc-only">
+							왼쪽 위부터 시계방향으로 영화진흥위원회-MPA MOU, SLL-미디어완 MOU, 세션에 참가한 넥슨코리아 강대현 공동대표(왼쪽에서 세 번째), <br class="pc-only">
+							네이버-INA MOU(제공=이준우, 문화체육관광부, Stephane Sby Balmy(CNC))
+						</p>
+						<p class="common-desc m-only">
+							위부터 아래방향으로 영화진흥위원회-MPA MOU, SLL-미디어완 MOU, 세션에 참가한 넥슨코리아 강대현 공동대표(왼쪽에서 세 번째), <br class="pc-only">
+							네이버-INA MOU(제공=이준우, 문화체육관광부, Stephane Sby Balmy(CNC))
+						</p>
+					</div>
+					<p class="n-common-text-1">
+						 마그재단 미술관을 찾은 한국의 기업과 기관들은 미술관 내부에 마련된 미팅 공간에서 다양한 국가의 참가자들과 양자 미팅을 진행하고, 스위스의 조각가 알베르토 자코메티의 조형물이 전시된 야외 중정에서 참가자들과 자유로운 네트워킹을 진행했다.<br>
+						<br>
+						 한편, SLL과 네이버는 이번 서밋을 통해 유럽과의 새로운 파트너십을 체결했다. 먼저 SLL은 프랑스의 미디어 그룹 미디어완과 손잡으며 한국 드라마의 유럽 현지화와 공동제작으로 향하는 새로운 통로를 열었고, 네이버는 INA와 함께 한 세기 가까이 축적된 프랑스의 방송·영상 아카이브에 한국의 인공지능 기술을 접목하기 위한 노력에 착수했다. <br>
+						<br>
+						 박광수 부산국제영화제 이사장은 서밋의 세션 ‘비판은 쉽고 대체는 불가능하다: 영화제의 역할을 다시 묻다’에 참여해 칸, 베를린, 토론토, 산세바스티안, 홍해, 안시 등 세계 주요 영화제 관계자들과 함께 영화제의 독립성을 지켜나가기 위한 공동의 노력과 영화제 간 연대를 도모했다. 프랑스의 대표적인 시리즈 페스티벌인 시리즈 마니아와는 공동 프로그램 운영을 긴밀하게 협의하기도 했다. <br>
+						<br>
+						 강대현 넥슨코리아 공동대표는 세션 ‘플레이어와 함께 만들다: 비디오게임을 둘러싼 커뮤니티’에 연사로 참여했다. 자체 퍼블리싱이 보편화되는 시대에 게임산업이 영화·방송과 연계될 수 있는 지점을 묻는 세션으로, 뤼미에르 서밋이 게임을 한 축으로 삼은 이유를 보여주는 프로그램이었다. <br>
+						<br>
+						 이날 영진위는 MPA와 업무협약을 체결하며 미국 영화계와의 새로운 접점을 마련했다. 그동안 한국과 미국 영화계의 만남이 주로 개별 기업 간의 거래나 작품 단위의 협업으로 이루어져 왔다면, 이번 협약은 공적 기관과 산업 단체가 인재 양성과 인적 교류를 함께 논의할 창구를 만들었다는 것에 의미가 있다. 단기적인 성과보다는 중장기적인 관점에서 미래 협력의 청사진을 기대하게 하는 시작점이었다. <br>
+						<br>
+						 최근 화제가 되고 있는 영화 &lt;가능한 사랑&gt;의 이창동 감독과 전도연 배우, 설경구 배우도 이번 뤼미에르 서밋을 방문했다. 올해 신작 &lt;도라&gt;로 칸영화제 감독주간에 초청되며 세 작품 연속 칸과의 인연을 이어가고 있는 정주리 감독과 &lt;도라&gt;의 주인공 김도연 배우도 함께 자리했다. 이들은 이재명 대통령의 주재로 마그재단 미술관 부티크 룸에서 열린 ‘넥스트 씬, K-콘텐츠의 내일을 말하다’에 참석했다. 김민영 넷플릭스 아시아·태평양 콘텐츠 총괄 부사장도 동석했으며, 한국의 감독과 배우들은 국제 무대에서 활동하는 창작자로서 현장의 목소리를 전했다.
+					</p>
+					<div class="common-image-col-2">
+						<div class="inner">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_31.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_31-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_31.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_31.webp" alt="kofic09_31" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_32.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_32-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_32.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_32.webp" alt="kofic09_32" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+						</div>
+						<p class="common-desc pc-only">
+							‘넥스트 씬, K-콘텐츠의 내일을 말하다’ 행사 현장. 오른쪽 사진 기준 왼쪽부터 사회를 맡은 방송인 안현모, 김민영 넷플릭스 아시아·태평양 콘텐츠 총괄 부사장, 정주리 감독, 이창동 감독, 이재명 대통령, 전도연 배우, 설경구 배우, 김도연 배우(제공=대한민국 청와대)
+						</p>
+						<p class="common-desc m-only">
+							‘넥스트 씬, K-콘텐츠의 내일을 말하다’ 행사 현장. 아래쪽 사진 기준 왼쪽부터 사회를 맡은 방송인 안현모, 김민영 넷플릭스 아시아·태평양 콘텐츠 총괄 부사장, 정주리 감독, 이창동 감독, 이재명 대통령, 전도연 배우, 설경구 배우, 김도연 배우(제공=대한민국 청와대)
+						</p>
+					</div>
+					<p class="n-common-text-1">
+						&lt;가능한 사랑&gt;은 뤼미에르 서밋 개최 이후인 9월 12일 83회 베니스국제영화제에서 은사자상(심사위원대상)과 국제영화비평가연맹상을 받았고, 9월 13일 51회 토론토국제영화제에서 에버트 감독상을 수상했다. 2027년 열릴 99회 아카데미 시상식 국제장편영화상 부문 한국 출품작으로 선정되기도 했다. &lt;도라&gt;는 프랑스와 룩셈부르크, 일본의 투자와 제작 지원이 더해진 국제공동제작 프로젝트이자, 2025년 신설된 영진위의 ‘중예산 한국영화 제작 지원 사업’ 선정작이다. 79회 칸영화제 감독주간에서 월드 프리미어를 가졌고, 오는 10월 31회 부산국제영화제 갈라 프레젠테이션으로 글로벌 관객을 만날 예정이다. 2027년 국내 개봉을 목표로 하고 있다. 두 작품의 감독과 배우들이 함께 한 이번 프로그램은 글로벌 무대에서 한국영화의 현재와 가능성을 모두 보여주는 하나의 장면(Scene)이기도 했다.
+					</p>
+					<p class="n-common-text-1">
+						 또한 한국 참가자들은 뤼미에르 서밋의 공식 세션 중 하나인 ‘국제-지역 간 공동 번영을 위한 원탁회의(New Perspective on Local and Global Co-Prosperity)’에도 참여했다. 국경과 플랫폼의 경계를 넘어 지역의 고유한 창작 생태계와 글로벌 시장이 상호 성장할 수 있는 협력 방안을 모색하는 자리였다. 역시 이재명 대통령의 주재로 CJ ENM과 네이버 등의 한국 기업과 넷플릭스, MPA, 미디어완 등 글로벌 영화·영상산업을 이끄는 기업과 단체가 연사로 참여하였으며, 공동제작과 투자, 인재 육성 등 지역 콘텐츠 생태계에 대한 재투자와 글로벌 문화 다양성 확대를 위한 구체적인 협력 방안을 논의했다.
+					</p>
+					<div class="common-image-col-2">
+						<div class="inner">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_33.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_33-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_33.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_33.webp" alt="kofic09_33" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_34.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_34-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_34.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_34.webp" alt="kofic09_34" width="720" height="480" class="js-image-full-layer" loading="lazy">
+							</div>
+						</div>
+						<p class="common-desc">
+							이재명 대통령이 참석한 원탁회의 현장<br class="m-only">
+							(제공=대한민국 청와대)
+						</p>
+					</div>
+					<!--<div class="common-image-col-2">
+						<div class="inner">
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_35.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_35-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_35.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_35.webp" alt="kofic09_35" width="720" height="405" class="js-image-full-layer" loading="lazy">
+							</div>
+							<div class="image">
+								<img src="../assets/images/2026-09/kofic-story/kofic09_36.webp" srcset="../assets/images/2026-09/kofic-story/kofic09_36-600w.webp 600w, ../assets/images/2026-09/kofic-story/kofic09_36.webp 720w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/kofic-story/kofic09_36.webp" alt="kofic09_36" width="720" height="405" class="js-image-full-layer" loading="lazy">
+							</div>
+						</div>
+						<p class="common-desc pc-only">
+							뤼미에르 서밋 전야 리셉션(왼쪽)과 오찬에서 전 세계 영화·영상산업 관계자들이 소통하고 있다<br class="pc-only">
+							(제공=이준우, William Lentz(CNC), ADAGP Paris 2026)
+						</p>
+						<p class="common-desc m-only">
+							뤼미에르 서밋 전야 리셉션(위쪽)과 오찬에서 전 세계 영화·영상산업 관계자들이 소통하고 있다<br class="pc-only">
+							(제공=이준우, William Lentz(CNC), ADAGP Paris 2026)
+						</p>
+					</div>-->
+					<br>
+				</div>
+				
+				<div class="common-tag-list">
+					<span>뤼미에르서밋</span>
+					<span>영화진흥위원회</span>
+					<span>한국</span>
+					<span>프랑스 </span>
+					<span>공동제작 </span>
+					<span>영화산업 </span>
+					<span>영상산업</span>
+					<span>한국영화</span>
+					<span>뤼미에르얼라이언스 </span>
+				</div>
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="../assets/images/common/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="../assets/images/common/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="../assets/images/common/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="../assets/images/common/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="../assets/images/common/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="../assets/images/common/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="../assets/images/common/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+        </article>
+
+        <section class="article-footer-band" aria-label="이전·다음 기사 및 관련기사">
+            <div class="ed-container">
+                <nav class="article-nav-bar" id="articleNavBar" aria-label="이전·다음 기사 이동"></nav>
+
+                <h2 class="related-heading">이번 호 함께 읽기</h2>
+                <div class="related-grid">
+                    <a href="./special-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-2/special0902_00.webp" alt="넥스트 디렉터스, 어떻게 지원할까?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ②</p>
+                            <h3 class="ed-card-title">넥스트 디렉터스, 어떻게 지원할까?</h3>
+                            <p class="ed-card-deck">해외 신인 감독 육성 정책 비교</p>
+                        </div>
+                    </a>
+                    <a href="./special-1.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-1/special0901_00.webp" alt="해외 선판매, 보다 진화하려면?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ①</p>
+                            <h3 class="ed-card-title">해외 선판매, 보다 진화하려면?</h3>
+                            <p class="ed-card-deck">달라진 한국영화의 수익 설계</p>
+                        </div>
+                    </a>
+                    <a href="./people-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/people-2/people0902_00.webp" alt="그날의 진실을 찾아 나서다" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">INTERVIEW ②</p>
+                            <h3 class="ed-card-title">그날의 진실을 찾아 나서다</h3>
+                            <p class="ed-card-deck">〈암살자(들)〉 허진호 감독</p>
+                        </div>
+                    </a>
+                    <a href="./people-1.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/people-1/people0901_00.webp" alt="지금이 더 어른이 필요한 시대" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">INTERVIEW ①</p>
+                            <h3 class="ed-card-title">지금이 더 어른이 필요한 시대</h3>
+                            <p class="ed-card-deck">〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ed-footer">
+        <div class="ed-container">
+            <div class="ed-footer-grid">
+                <div>
+                    <div class="ed-footer-logos">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
+                    </div>
+                    <p class="ed-footer-info">
+                        발행처 · 영화진흥위원회 (KOFIC)<br>
+                        (48058) 부산광역시 해운대구 수영강변대로 130(우동)<br>
+                        웹진 〈한국영화〉 2026년 9월호
+                    </p>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>SECTIONS</h3>
+                    <div class="ed-footer-links">
+                        <a href="../list.html?issue=2026-09&amp;section=NEWS">NEWS</a>
+                        <a href="../list.html?issue=2026-09&amp;section=SPECIAL">SPECIAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">INTERVIEW</a>
+                        <a href="../list.html?issue=2026-09&amp;section=CRITIC">CRITIC</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL">GLOBAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL(ENG)">GLOBAL (ENG)</a>
+                        <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">KOFIC STORY</a>
+                        <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">BOX OFFICE</a>
+                        <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">PRODUCTION</a>
+                    </div>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>READER DESK</h3>
+                    <div class="ed-footer-actions">
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalOpinion"><span>독자 의견 남기기</span><span aria-hidden="true">→</span></button>
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalNewsletter"><span>월간 뉴스레터 구독</span><span aria-hidden="true">→</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="ed-footer-bottom">
+                <span>COPYRIGHT © KOREAN FILM COUNCIL. ALL RIGHTS RESERVED.</span>
+                <span><a href="../index.html">메인으로 돌아가기 →</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full-Screen Issue Drawer -->
+    <div class="ed-drawer" id="issueDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="2026년 9월호 전체 목차 및 검색">
+        <div class="ed-drawer-panel">
+            <div class="ed-drawer-head">
+                <div class="ed-drawer-title">
+                    <span>ISSUE INDEX · VOL. 2026.09</span>
+                    2026년 9월호 전체 목차
+                </div>
+                <button type="button" class="ed-drawer-close" data-close-drawer aria-label="닫기">×</button>
+            </div>
+            <div class="ed-drawer-search">
+                <form data-search-form>
+                    <input type="search" placeholder="제목, 감독, 배우, 태그 검색..." aria-label="전체 기사 검색">
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+            <div class="ed-drawer-body">
+                <!-- drawer:start -->
+                <div class="ed-drawer-group">
+                    <h3>SPECIAL <a href="../list.html?issue=2026-09&amp;section=SPECIAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/special-2.html"><strong>넥스트 디렉터스, 어떻게 지원할까?</strong><span>해외 신인 감독 육성 정책 비교</span></a>
+                        <a href="../2026-09/special-1.html"><strong>해외 선판매, 보다 진화하려면?</strong><span>달라진 한국영화의 수익 설계</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>INTERVIEW <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/people-2.html"><strong>그날의 진실을 찾아 나서다</strong><span>〈암살자(들)〉 허진호 감독</span></a>
+                        <a href="../2026-09/people-1.html"><strong>지금이 더 어른이 필요한 시대</strong><span>〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>CRITIC <a href="../list.html?issue=2026-09&amp;section=CRITIC">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/reading-2.html"><strong>돈이 더 이상 쾌락을 주지 않는</strong><span>YES or NO · 〈타짜: 벨제붑의 노래〉</span></a>
+                        <a href="../2026-09/reading-1.html"><strong>외로움의 섬세한 시각화</strong><span>〈아가미〉</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>GLOBAL <a href="../list.html?issue=2026-09&amp;section=GLOBAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/global.html"><strong>그 영화가 더 좋다고?</strong><span>글로벌 평점 플랫폼으로 보는 한국영화</span></a>
+                        <a href="../2026-09/global-eng.html"><strong>You Think That Movie Is Better?</strong><span>Korean Films Through the Lens of Global Rating Platforms</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>KOFIC STORY <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/kofic-story.html"><strong>함께 그리는 영화와 영상의 내일</strong><span>정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>BOX OFFICE <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/boxoffice-4.html"><strong>9월 4주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-3.html"><strong>9월 3주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-2.html"><strong>9월 2주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-1.html"><strong>9월 1주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>PRODUCTION <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/production.html"><strong>8월 개봉작 살펴보기</strong><span>2026. 8. 한국영화 제작상황판</span></a>
+                    </div>
+                </div>
+                <!-- drawer:end -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="ed-lightbox" id="edLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
+        <button type="button" class="ed-lightbox-close" aria-label="확대 닫기">×</button>
+        <img src="" alt="">
+        <p class="ed-lightbox-caption"></p>
+    </div>
+
+    <!-- Modals -->
+    <div class="ed-modal" id="modalOpinion" aria-hidden="true" role="dialog" aria-modal="true" aria-label="독자 의견 보내기">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>독자 의견 남기기</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="opinion">
+                <input type="text" placeholder="성함 또는 닉네임" required>
+                <textarea placeholder="웹진 〈한국영화〉에 전하고 싶은 의견을 남겨 주세요." required></textarea>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">의견 보내기</button>
+            </form>
+        </div>
+    </div>
+    <div class="ed-modal" id="modalNewsletter" aria-hidden="true" role="dialog" aria-modal="true" aria-label="뉴스레터 구독 신청">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>월간 뉴스레터 구독</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="newsletter">
+                <input type="text" placeholder="이름" required>
+                <input type="email" placeholder="이메일 주소" required>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">무료 구독 신청</button>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" class="ed-top-btn" id="edTopBtn" aria-label="맨 위로 이동">↑</button>
+</body>
+</html>

@@ -48,6 +48,7 @@ window.KOFIC = {
    "id": "2026-10",
    "label": "2026년 10월호",
    "title": "October 2026",
+   "main": true,
    "articles": [
     {
      "file": "news-1.html",
@@ -205,6 +206,264 @@ window.KOFIC = {
      "title": "9월 개봉작 살펴보기",
      "sub": "2026. 9. 한국영화 제작상황판",
      "search": "PRODUCTION 9월 개봉작 살펴보기 2026 9 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 9월개봉작 제작상황판"
+    }
+   ]
+  },
+  {
+   "id": "2026-09",
+   "label": "2026년 9월호",
+   "title": "September 2026",
+   "main": true,
+   "articles": [
+    {
+     "file": "special-2.html",
+     "section": "SPECIAL",
+     "label": "SPECIAL ②",
+     "title": "넥스트 디렉터스, 어떻게 지원할까?",
+     "sub": "해외 신인 감독 육성 정책 비교",
+     "search": "SPECIAL ② 넥스트 디렉터스, 어떻게 지원할까? 해외 신인 감독 육성 정책 비교 박꽃 감독 신인감독 영화진흥위원회 KAFA 펀딩 제작 지원 정책 육성"
+    },
+    {
+     "file": "special-1.html",
+     "section": "SPECIAL",
+     "label": "SPECIAL ①",
+     "title": "해외 선판매, 보다 진화하려면?",
+     "sub": "달라진 한국영화의 수익 설계",
+     "search": "SPECIAL ① 해외 선판매, 보다 진화하려면? 달라진 한국영화의 수익 설계 라제기 해외선판매 선판매 손익분기점 호프 군체 어쩔수가없다 헤어질결심 투자배급"
+    },
+    {
+     "file": "people-2.html",
+     "section": "INTERVIEW",
+     "label": "INTERVIEW ②",
+     "title": "그날의 진실을 찾아 나서다",
+     "sub": "〈암살자(들)〉 허진호 감독",
+     "search": "INTERVIEW ② 그날의 진실을 찾아 나서다 〈암살자(들)〉 허진호 감독 이화정 허진호 암살자들 유해진 박해일 이민호 하이브미디어코프 서울의봄 내부자들 남산의부장들 메이드인코리아 현대사 시대극"
+    },
+    {
+     "file": "people-1.html",
+     "section": "INTERVIEW",
+     "label": "INTERVIEW ①",
+     "title": "지금이 더 어른이 필요한 시대",
+     "sub": "〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서",
+     "search": "INTERVIEW ① 지금이 더 어른이 필요한 시대 〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서 김혜선 최재원 앤솔로지스튜디오 인턴 워너브러더스 김도영 최민식 한소희 더홀 피막 드리샴 킬링이브 휴먼마트 오퍼링 웨딩시즌"
+    },
+    {
+     "file": "reading-2.html",
+     "section": "CRITIC",
+     "label": "CRITIC ② · YES or NO",
+     "title": "돈이 더 이상 쾌락을 주지 않는",
+     "sub": "〈타짜: 벨제붑의 노래〉",
+     "corner": "YES or NO",
+     "search": "CRITIC ② · YES or NO 돈이 더 이상 쾌락을 주지 않는 〈타짜: 벨제붑의 노래〉 김혜선 타짜 벨제붑의노래 최국희 변요한 노재원 미요시아야카 조우진 윤경호 스윙스 문지훈 허영만 원작 만화 박동수 박예지"
+    },
+    {
+     "file": "reading-1.html",
+     "section": "CRITIC",
+     "label": "CRITIC ①",
+     "title": "외로움의 섬세한 시각화",
+     "sub": "〈아가미〉",
+     "search": "CRITIC ① 외로움의 섬세한 시각화 〈아가미〉 김경수 아가미 안재훈 구병모 연필로명상하기 정해인 강하늘 이청아 유재명 애니메이션"
+    },
+    {
+     "file": "global.html",
+     "section": "GLOBAL",
+     "label": "GLOBAL",
+     "title": "그 영화가 더 좋다고?",
+     "sub": "글로벌 평점 플랫폼으로 보는 한국영화",
+     "search": "GLOBAL 그 영화가 더 좋다고? 글로벌 평점 플랫폼으로 보는 한국영화 성찬얼 평점 별점 레터박스드 왓챠피디아 왓챠 IMDb 로튼토마토 필름어피니티 센스크리틱 키노라이츠"
+    },
+    {
+     "file": "global-eng.html",
+     "section": "GLOBAL(ENG)",
+     "label": "GLOBAL · ENG",
+     "title": "You Think That Movie Is Better?",
+     "sub": "Korean Films Through the Lens of Global Rating Platforms",
+     "search": "GLOBAL · ENG You Think That Movie Is Better? Korean Films Through the Lens of Global Rating Platforms By Sung Chan-eol Ratings StarRatings Letterboxd WATCHAPEDIA WATCHA IMDb RottenTomatoes FilmAffinity SensCritique Kinolights"
+    },
+    {
+     "file": "kofic-story.html",
+     "section": "KOFIC STORY",
+     "label": "KOFIC STORY",
+     "title": "함께 그리는 영화와 영상의 내일",
+     "sub": "정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋",
+     "search": "KOFIC STORY 함께 그리는 영화와 영상의 내일 정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋 이준우 뤼미에르서밋 영화진흥위원회 한국 프랑스 공동제작 영화산업 영상산업 한국영화 뤼미에르얼라이언스"
+    },
+    {
+     "file": "boxoffice-4.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "9월 4주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 9월 4주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 9월4주차 영화순위"
+    },
+    {
+     "file": "boxoffice-3.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "9월 3주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 9월 3주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 9월3주차 영화순위"
+    },
+    {
+     "file": "boxoffice-2.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "9월 2주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 9월 2주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 9월2주차 영화순위"
+    },
+    {
+     "file": "boxoffice-1.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "9월 1주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 9월 1주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 9월1주차 영화순위"
+    },
+    {
+     "file": "production.html",
+     "section": "PRODUCTION",
+     "label": "PRODUCTION",
+     "title": "8월 개봉작 살펴보기",
+     "sub": "2026. 8. 한국영화 제작상황판",
+     "search": "PRODUCTION 8월 개봉작 살펴보기 2026. 8. 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 8월개봉작 제작상황판"
+    }
+   ]
+  },
+  {
+   "id": "2026-08",
+   "label": "2026년 8월호",
+   "title": "August 2026",
+   "main": true,
+   "articles": [
+    {
+     "file": "special-2.html",
+     "section": "SPECIAL",
+     "label": "SPECIAL ②",
+     "title": "더 천천히, 더 정교하게 가자",
+     "sub": "한국 독립예술영화 생애주기 확장을 위해",
+     "search": "SPECIAL ② 더 천천히, 더 정교하게 가자 한국 독립예술영화 생애주기 확장을 위해 김은형 독립영화 독립예술영화 슬로우시네마 미니시어터 영화관 상영관 멀티플렉스 공동체"
+    },
+    {
+     "file": "special-1.html",
+     "section": "SPECIAL",
+     "label": "SPECIAL ①",
+     "title": "세로 혁명, 더 뜨거워진다",
+     "sub": "숏드와 한국영화, 공존할까?",
+     "search": "SPECIAL ① 세로 혁명, 더 뜨거워진다 숏드와 한국영화, 공존할까? 김형석 숏폼 숏드 숏드라마 마이크로드라마 OTT AI 소셜미디어 스트리밍 레진스낵 킷츠 드라마박스 릴숏"
+    },
+    {
+     "file": "people-1.html",
+     "section": "INTERVIEW",
+     "label": "INTERVIEW",
+     "title": "“한계가 있어도 찍고 싶다”",
+     "sub": "〈선희이모〉 위은경·손광민 감독, 〈월남보살〉 김근호 감독",
+     "search": "INTERVIEW “한계가 있어도 찍고 싶다” 〈선희이모〉 위은경·손광민 감독, 〈월남보살〉 김근호 감독 김혜선 미쟝센단편영화제 선희이모 위은경 손광민 월남보살 김근호 신인감독 감독 연출 독립영화 단편영화"
+    },
+    {
+     "file": "reading-2.html",
+     "section": "CRITIC",
+     "label": "CRITIC ② · YES or NO",
+     "title": "서툰 사람들의 죽이는 이야기",
+     "sub": "〈경주기행〉",
+     "corner": "YES or NO",
+     "search": "CRITIC ② · YES or NO 서툰 사람들의 죽이는 이야기 〈경주기행〉 김혜선 경주기행 김미조 이정은 공효진 박소담 이연 변요한 로드무비 복수 가족 김세윤 차한비"
+    },
+    {
+     "file": "reading-1.html",
+     "section": "CRITIC",
+     "label": "CRITIC ①",
+     "title": "내일을 훔쳐보는 몽상가들",
+     "sub": "〈리틀 드리머즈〉",
+     "search": "CRITIC ① 내일을 훔쳐보는 몽상가들 〈리틀 드리머즈〉 이지혜 리틀드리머즈 프리뷰 리뷰 독립영화 이광호 유희제 김세원 김예은 지수연 방태원 이하랑 KAFA"
+    },
+    {
+     "file": "global-2.html",
+     "section": "GLOBAL",
+     "label": "GLOBAL ②",
+     "title": "시상식과 박스오피스를 동시에 노린다",
+     "sub": "네온의 K-무비 글로벌 전략",
+     "search": "GLOBAL ② 시상식과 박스오피스를 동시에 노린다 네온의 K-무비 글로벌 전략 하은선 네온 호프 어쩔수가없다 기생충 앨리 나홍진 봉준호 박찬욱 북미 배급 칸영화제 아카데미시상식"
+    },
+    {
+     "file": "global-eng-2.html",
+     "section": "GLOBAL(ENG)",
+     "label": "GLOBAL · ENG",
+     "title": "Aiming for Both Awards and Box Office Success",
+     "sub": "NEON’s Global Strategy for K-Movies",
+     "search": "GLOBAL · ENG Aiming for Both Awards and Box Office Success NEON’s Global Strategy for K-Movies By Ha Eun-seon NEON Hope NoOtherChoice Parasite Ally NaHongjin BongJoonHo ParkChanwook NorthAmerica Distribution CannesFilmFestival AcademyAwards"
+    },
+    {
+     "file": "global-1.html",
+     "section": "GLOBAL",
+     "label": "GLOBAL ①",
+     "title": "동남아권 영화의 정체성에 대한 탐구",
+     "sub": "2026 말레이시아국제영화제 탐방기",
+     "search": "GLOBAL ① 동남아권 영화의 정체성에 대한 탐구 2026 말레이시아국제영화제 탐방기 한선희 말레이시아 이창동 김동호 가능한사랑 아세안 동남아 국제공동제작 국제영화제"
+    },
+    {
+     "file": "global-eng-1.html",
+     "section": "GLOBAL(ENG)",
+     "label": "GLOBAL · ENG",
+     "title": "Exploring the Identity of Southeast Asian Cinema",
+     "sub": "A Visit to the 2026 Malaysia International Film Festival",
+     "search": "GLOBAL · ENG Exploring the Identity of Southeast Asian Cinema A Visit to the 2026 Malaysia International Film Festival By Ally Sunhee Han Malaysia LeeChangdong KimDongho PossibleLove ASEAN SoutheastAsia InternationalCoproduction InternationalFilmFestival"
+    },
+    {
+     "file": "kofic-story.html",
+     "section": "KOFIC STORY",
+     "label": "KOFIC STORY",
+     "title": "아시아의 약진과 자국영화의 부상",
+     "sub": "2025년 세계 영화산업 결산",
+     "search": "KOFIC STORY 아시아의 약진과 자국영화의 부상 2025년 세계 영화산업 결산 이다운 세계영화산업 영화산업 영화시장 Focus 할리우드 자국영화 박스오피스 PLF 유럽영화 아시아영화"
+    },
+    {
+     "file": "boxoffice-5.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "8월 4주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 8월 4주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 8월4주차 영화순위"
+    },
+    {
+     "file": "boxoffice-4.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "8월 3주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 8월 3주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 8월3주차 영화순위"
+    },
+    {
+     "file": "boxoffice-3.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "8월 2주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 8월 2주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 8월2주차 영화순위"
+    },
+    {
+     "file": "boxoffice-2.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "8월 1주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 8월 1주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 8월1주차 영화순위"
+    },
+    {
+     "file": "boxoffice-1.html",
+     "section": "BOX OFFICE",
+     "label": "BOX OFFICE",
+     "title": "7월 5주차 위클리 박스오피스",
+     "sub": "주간 박스오피스",
+     "search": "BOX OFFICE 7월 5주차 위클리 박스오피스 주간 박스오피스 김선아 박스오피스 위클리박스오피스 주간흥행 7월5주차 영화순위"
+    },
+    {
+     "file": "production.html",
+     "section": "PRODUCTION",
+     "label": "PRODUCTION",
+     "title": "7월 개봉작 살펴보기",
+     "sub": "2026. 7. 한국영화 제작상황판",
+     "search": "PRODUCTION 7월 개봉작 살펴보기 2026. 7. 한국영화 제작상황판 영화진흥위원회 한국영화 제작상황 7월개봉작 제작상황판"
     }
    ]
   }

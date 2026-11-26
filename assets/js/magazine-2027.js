@@ -10,7 +10,8 @@
        data/<issue>.json; a page inside /<issue>/ uses that issue, any other page
        the current one. */
     const KOFIC = window.KOFIC || { current: "", issues: [] };
-    const PAGE_ISSUE_ID = (window.location.pathname.match(/\/(\d{4}-\d{2})\//) || [])[1] || KOFIC.current;
+    const PAGE_ISSUE_ID = (window.location.pathname.match(/\/(\d{4}-\d{2})\//) || [])[1]
+        || new URLSearchParams(window.location.search).get("issue") || KOFIC.current;
     const PAGE_ISSUE = KOFIC.issues.find((i) => i.id === PAGE_ISSUE_ID) || KOFIC.issues[0] || { id: "", articles: [] };
     const ISSUE_ARTICLES = PAGE_ISSUE.articles.map((a) => ({
         file: a.file,
@@ -163,10 +164,36 @@
             drawerResults.appendChild(box);
         }
 
-        function openDrawer(asSearch) {
+        // Third use of the panel: the list of issues (header label, quick menu,
+        // and a button in the index), each linking to that issue's main page.
+        let drawerIssues = null;
+        function renderDrawerIssues() {
+            const panel = drawer.querySelector(".ed-drawer-panel");
+            drawerIssues = document.createElement("div");
+            drawerIssues.className = "ed-drawer-issues";
+            KOFIC.issues.forEach((issue) => {
+                const a = document.createElement("a");
+                a.className = "ed-drawer-issue" + (issue.id === PAGE_ISSUE.id ? " is-here" : "");
+                a.href = issue.id === KOFIC.current ? rootPrefix + "index.html"
+                    : issue.main ? rootPrefix + issue.id + "/index.html"
+                    : rootPrefix + "list.html?issue=" + issue.id;
+                const name = document.createElement("strong");
+                name.textContent = issue.label;
+                const info = document.createElement("span");
+                info.textContent = [issue.title, "기사 " + issue.articles.length + "편", issue.id === KOFIC.current ? "최신 호" : "", issue.id === PAGE_ISSUE.id ? "지금 보는 호" : ""].filter(Boolean).join(" · ");
+                a.append(name, info);
+                drawerIssues.appendChild(a);
+            });
+            panel.appendChild(drawerIssues);
+        }
+
+        function openDrawer(mode) {
             if (!drawer) return;
-            drawer.classList.toggle("is-search", !!asSearch);
-            if (drawerTitle) drawerTitle.innerHTML = asSearch ? "<span>SEARCH</span>기사 검색" : drawerTitleHtml;
+            const asSearch = mode === true || mode === "search";
+            const asIssues = mode === "issues";
+            drawer.classList.toggle("is-search", asSearch);
+            drawer.classList.toggle("is-issues", asIssues);
+            if (drawerTitle) drawerTitle.innerHTML = asSearch ? "<span>SEARCH</span>기사 검색" : asIssues ? "<span>ISSUES</span>발행 호 보기" : drawerTitleHtml;
             if (asSearch && !drawerResults && drawerInput) {
                 drawerResults = document.createElement("div");
                 drawerResults.className = "ed-drawer-results";
@@ -174,10 +201,38 @@
                 drawerInput.addEventListener("input", renderDrawerResults);
             }
             if (asSearch) renderDrawerResults();
+            if (asIssues && !drawerIssues) renderDrawerIssues();
             drawer.classList.add("is-open");
             drawer.setAttribute("aria-hidden", "false");
             document.body.style.overflow = "hidden";
             if (asSearch && drawerInput) setTimeout(() => drawerInput.focus(), 80);
+        }
+
+        // More than one issue: the header's issue label becomes the way to the
+        // others (added on pages whose header has none), and the index gets a button.
+        if (drawer && KOFIC.issues.length > 1) {
+            let label = document.querySelector(".mk-header .mk-issue-label");
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "mk-issue-label mk-issue-btn";
+            btn.dataset.openDrawer = "issues";
+            btn.setAttribute("aria-label", PAGE_ISSUE.label + ", 다른 호 보기");
+            btn.textContent = PAGE_ISSUE.label;
+            if (label) label.replaceWith(btn);
+            else {
+                const actions = document.querySelector(".mk-header .mk-actions");
+                if (actions) actions.prepend(btn);
+            }
+            const head = drawer.querySelector(".ed-drawer-head");
+            const close = drawer.querySelector(".ed-drawer-close");
+            if (head && close) {
+                const other = document.createElement("button");
+                other.type = "button";
+                other.className = "ed-drawer-other";
+                other.dataset.openDrawer = "issues";
+                other.textContent = "지난 호 보기 →";
+                head.insertBefore(other, close);
+            }
         }
 
         function closeDrawer() {
@@ -187,8 +242,23 @@
             document.body.style.overflow = "";
         }
 
-        document.querySelectorAll("[data-open-drawer]").forEach((btn) => {
-            btn.addEventListener("click", () => openDrawer(btn.dataset.openDrawer === "search"));
+        // A section with a single article in this issue (Production, Kofic Story…)
+        // has nothing to list: its header menu goes straight to the article.
+        // Done after load, once the scripts that read these links have run.
+        window.addEventListener("load", () => {
+            document.querySelectorAll(".mk-nav-link").forEach((a) => {
+                let sec = null;
+                try { sec = new URL(a.href).searchParams.get("section"); } catch (err) { return; }
+                if (!sec) return;
+                const arts = PAGE_ISSUE.articles.filter((x) => x.section.replace(/\(ENG\)$/, "") === sec);
+                if (arts.length === 1) a.href = rootPrefix + PAGE_ISSUE.id + "/" + arts[0].file;
+            });
+        });
+
+        // Delegated, so openers added later (quick menu, header label) work too
+        document.addEventListener("click", (e) => {
+            const btn = e.target.closest("[data-open-drawer]");
+            if (btn) openDrawer(btn.dataset.openDrawer);
         });
         document.querySelectorAll("[data-close-drawer]").forEach((btn) => {
             btn.addEventListener("click", closeDrawer);

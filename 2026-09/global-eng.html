@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>You Think That Movie Is Better? | 웹진 한국영화</title>
+    <meta name="description" content="* The data and figures in this article are current as of August 31, 2026.">
+
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preload" as="image" href="../assets/images/2026-09/global-eng/global0901_00.webp" type="image/webp" fetchpriority="high">
+    <link href="../assets/css/magazine-2027.css?v=20261126105505" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261126105505" rel="stylesheet">
+    <style>
+
+	
+	
+.sub-visual-text-wrap .title,
+.sub-visual-text-wrap .sub-title {
+    font-family: 'noto', 'Noto Sans KR', Arial, sans-serif !important;
+}
+/* 기사 본문 내용에만 Noto Sans 적용 */
+.sub-view-content .content-container-1,
+.sub-view-content .content-container-1 p,
+.sub-view-content .content-container-1 span,
+.sub-view-content .content-container-1 li,
+.sub-view-content .content-container-1 strong,
+.sub-view-content .content-container-1 em,
+.sub-view-content .content-container-1 a {
+    font-family: 'noto', 'Noto Sans KR', Arial, sans-serif !important;
+}
+
+/* 기사 본문에서 사용하는 폰트 변수만 변경 */
+.sub-view-content .content-container-1 {
+    --article-body-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
+    --article-summary-font: 'noto', 'Noto Sans KR', Arial, sans-serif;
+}
+	.sub-visual-text-wrap .detail {
+	 align-items: flex-end;
+	 }
+	.sub-visual-text-wrap .badge {
+	 align-items: center;
+     display: flex;
+     width: 200px;
+     justify-content: center;
+     margin: auto;
+	 }
+	
+
+	@media screen and (max-width: 780px) {
+    .sub-visual-text-wrap .badge {
+	 width: 110px;
+    }
+	
+	.sub-visual {
+	 height: 70vh;
+	}
+	}
+	
+	/* 3D 카드형 컨테이너 (웹진 본문 폭에 맞춘 1020px) */
+  .card-container {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+   /* max-width: 1020px;*/
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); 
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    color: #333;
+  }
+  
+  /* 상단 컬러 박스 헤더 영역 (다크 슬레이트 그레이 적용) */
+  .card-header-bar {
+    background: #475569; 
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 30px;
+    text-align: center;
+  }
+
+  .table-title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+
+  /* 내부 콘텐츠 영역 패딩 */
+  .card-body {
+    padding: 30px;
+  }
+
+  /* -------------------------------------
+     [모바일 최적화] 가로 스크롤 래퍼 
+  -------------------------------------- */
+  .chart-wrapper-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px; 
+  }
+
+  /* -------------------------------------
+     CSS Grid 기반 반응형 레이아웃
+  -------------------------------------- */
+  .ranking-grid {
+    display: grid;
+    /* PC: 3개의 열, 11개의 행(헤더 1 + 랭킹 10)을 생성하여 셀 높이 완벽 동기화 */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, auto);
+    grid-auto-flow: column; 
+    gap: 0 15px; 
+  }
+
+  /* 플랫폼 헤더 공통 */
+  .grid-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+
+  /* 각 헤더 하단 포인트 컬러 라인 */
+  .header-fa { border-bottom: 4px solid #3b82f6; }
+  .header-lb { border-bottom: 4px solid #22c55e; }
+  .header-imdb { border-bottom: 4px solid #eab308; }
+
+  /* 실제 이미지 로고 스타일 (80px 확대 유지) */
+  .grid-header img {
+    height: 80px; 
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* IMDb 로고 모서리 둥글게 */
+  .header-imdb img { 
+    border-radius: 8px; 
+  }
+
+  /* -------------------------------------
+     랭킹 아이템 스타일
+  -------------------------------------- */
+  .grid-item {
+    display: flex;
+    align-items: center; 
+    padding: 14px 12px;
+    color: #1e293b;
+  }
+
+  /* 각 테마별 지그재그(얼터네이팅) 배경색 적용 */
+  .fa-odd { background-color: #f1f5f9; }
+  .fa-even { background-color: #e2e8f0; }
+  
+  .lb-odd { background-color: #ecfdf5; }
+  .lb-even { background-color: #d1fae5; }
+  
+  .imdb-odd { background-color: #fffbeb; }
+  .imdb-even { background-color: #fef08a; }
+
+  /* 텍스트 폰트 설정 */
+  .rank-num { 
+    font-weight: 800; 
+    font-size: 18px;
+    min-width: 18px; 
+    text-align: right;
+  }
+  .movie-info { 
+    flex: 1; 
+    font-weight: 700; 
+    font-size: 18px;
+    margin-left: 6px;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .movie-score { 
+    font-weight: 500; 
+    color: #475569; 
+    white-space: nowrap; 
+    font-size: 16px;
+    margin-left: 2px;
+  }
+
+  /* 하단 주석 영역 (왼쪽 정렬) */
+  .table-footer {
+    margin-top: 25px;
+    font-size: 13.5px;
+    color: #475569;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-align: left;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+  .table-footer p { margin: 4px 0; }
+
+  /* -------------------------------------
+     [모바일 최적화] 스와이프 없는 수직 뷰(Stacking) 변환
+  -------------------------------------- */
+  @media (max-width: 768px) {
+    .rank-num { 
+    font-size: 16px;
+	}
+	 .movie-info ,
+	 .movie-info 
+	 { 
+    font-size: 14px;
+	}
+    body { padding: 0px; }
+    .card-body { padding: 25px 20px; } 
+    .card-header-bar { padding: 16px 20px; }
+    .table-title { font-size: 18px; line-height: 1.3; }
+    
+    .ranking-grid {
+      grid-template-columns: 1fr; /* 1단으로 변경 */
+      grid-template-rows: auto;
+      grid-auto-flow: row; /* 위에서 아래 순서로 나열 */
+      gap: 0;
+    }
+
+    /* 모바일에서 각 플랫폼이 나눠질 때의 여백 확보 */
+    .grid-header { margin-top: 40px; padding-bottom: 15px; }
+    .header-fa { margin-top: 0; } /* 첫 번째는 상단 여백 제외 */
+    
+    /* 모바일에서는 로고 크기를 살짝 조절 */
+    .grid-header img { height: 65px; }
+  }
+	
+	
+	
+    
+    </style>
+    <script defer src="../assets/js/issue-data.js?v=20261126105505"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261126105505"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261126105505"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+    <header class="ed-header mk-header">
+        <div class="mk-bar">
+            <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 9월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <a href="../index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
+                <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
+            </a>
+            <div class="mk-actions">
+                <span class="mk-issue-label">2026년 9월호</span>
+                <button type="button" class="mk-icon-btn mk-search-btn" data-open-drawer="search" aria-label="기사 검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+            </div>
+            <div class="ed-progress-bar" aria-hidden="true"></div>
+        </div>
+        <nav class="mk-nav" aria-label="주요 섹션 메뉴">
+            <div class="mk-nav-track">
+                <a href="../list.html?issue=2026-09&amp;section=NEWS" class="mk-nav-link">NEWS</a>
+                <a href="../list.html?issue=2026-09&amp;section=SPECIAL" class="mk-nav-link">SPECIAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
+                <a href="../list.html?issue=2026-09&amp;section=CRITIC" class="mk-nav-link">CRITIC</a>
+                <a href="../list.html?issue=2026-09&amp;section=GLOBAL" class="mk-nav-link" aria-current="page">GLOBAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY" class="mk-nav-link">KOFIC STORY</a>
+                <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE" class="mk-nav-link">BOX OFFICE</a>
+                <a href="../list.html?issue=2026-09&amp;section=PRODUCTION" class="mk-nav-link">PRODUCTION</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <nav class="article-breadcrumb" aria-label="기사 위치">
+                    <a href="../index.html">HOME</a>
+                    <span class="sep">/</span>
+                    <a href="../list.html?issue=2026-09&amp;section=GLOBAL(ENG)">GLOBAL(ENG)</a>
+                </nav>
+
+                <h1 class="article-title">You Think That Movie Is Better?</h1>
+                <p class="article-subtitle">Korean Films Through the Lens of Global Rating Platforms</p>
+
+                <div class="article-meta-bar">
+                    <div class="article-byline-group">
+                        <div class="article-date-row">
+                            <span>September 7, 2026</span>
+                            <span class="article-read-time" id="articleReadTime">읽는 중…</span>
+                        </div>
+                        <div class="article-credits"><span>By Sung Chan-eol <br class="m-only">(Deputy Editor-in-Chief, <br class="m-only">Cineplay)</span></div>
+                    </div>
+
+                    <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
+                        </div>
+                        <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <figure class="article-cover">
+            <div class="article-cover-frame">
+                <img src="../assets/images/2026-09/global-eng/global0901_00.webp" alt="You Think That Movie Is Better?" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>Global ratings diverge from box-office rankings, with overseas audiences favoring auteur-driven and socially critical films</li>
+                    <li>The battle to acquire Letterboxd highlights the value of ratings from moviegoers in their teens and twenties</li>
+                    <li>For global expansion, Korean cinema must harness overseas audience responses as a driver of future growth</li>
+                </ol>
+            </div>
+            <figcaption class="article-cover-caption">(Courtesy of the Letterboxd website and Showbox)</figcaption>
+        </figure>
+
+        <article class="article-main">
+
+
+               
+
+                 <p class="n-common-text-1 mt-60">
+                 <b>* The data and figures in this article are current as of August 31, 2026.</b>
+                </p>
+
+                <p class="n-common-text-1 mt-60">
+                 Korean cinema no longer belongs solely to Koreans. This is not merely nationalistic boasting; it is a fact reflected in recent developments across the film industry. The fact that the 2007 film <span style="font-style:italic;">D-War</span> entered Netflix’s most-watched film rankings simply by making its streaming debut on the platform in 2026, and that <span style="font-style:italic;">Hope</span> is set to open in North America on September 9 through distributor NEON, demonstrates that Korean films are attracting the attention of film professionals and audiences worldwide. As Korean cinema can no longer afford to target only the domestic market, channels are needed to gauge responses from audiences and critics in different countries and quickly identify such shifts. With the arrival of the global era, a variety of platforms now reflect reviews from audiences and critics around the world. What kind of “landscape” are Korean films creating across platforms familiar to Korean audiences and the distinctive platforms of individual countries?
+                </p>
+				
+				<p class="n-common-title-2">
+               Rating Systems vs. Like-or-Dislike Systems
+                </p>
+				<p class="n-common-text-1">
+                  When you think of film reviews, star ratings and one-line reviews generally come to mind. These have long been popular as an effective way to convey the characteristics and quality of a roughly two-hour film at a glance. However, these systems struggle to capture a film’s genre-specific qualities or its appeal to mainstream audiences. This has recently brought greater attention to like-or-dislike systems, which calculate scores based on binary “like” or “dislike” responses. Among platforms currently in operation, IMDb is the most prominent example of a numerical rating system, while Rotten Tomatoes—widely known for its “Tomatometer”—is a leading example of the latter. <br><br>
+
+Rating systems assign a score out of five stars or ten points, whereas like-or-dislike systems calculate a score based on two possible responses: whether viewers liked or disliked a work. The former can be seen as emphasizing an absolute numerical value—in other words, a work’s overall quality—while the latter focuses on its general favorability. Since like-or-dislike systems tend to produce more favorable scores than star ratings, they can help make films more approachable to audiences. Rotten Tomatoes, mentioned above, is operated by Versant Media, which also operates Fandango, a U.S. movie-ticketing and film-information service. South Korean multiplex chain CJ CGV has likewise adopted a like-or-dislike system called the “Golden Egg.” 
+
+                </p>
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global-eng/global0901_01.webp" srcset="../assets/images/2026-09/global-eng/global0901_01-600w.webp 600w, ../assets/images/2026-09/global-eng/global0901_01.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global-eng/global0901_01.webp" alt="global0901_01" width="1000" height="618" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">Korean films on IMDb, a leading global film-rating platform (Courtesy of the IMDb website)</p>
+                </div>
+				
+				<p class="n-common-text-1">
+                  Letterboxd, which has emerged as an alternative to conventional review systems and gained prominence since the 2010s, also uses a star-rating system, but assigning a rating is optional. Its distinguishing feature is that users can post reviews without giving a star rating. CinemaScore, which has recently attracted attention among those disillusioned with star ratings and other review systems, surveys actual moviegoers immediately after a film’s release and assigns a grade from A to F based on their responses. Although it does not provide a global picture of film reception because its surveys are conducted in North America, it has earned credibility by reflecting the views of actual moviegoers. <br><br>
+
+Outside North America, prominent regional film communities and rating platforms include Spain-based FilmAffinity and France’s Allociné in Europe. Cinephile-oriented communities such as MUBI and SensCritique have also emerged there. Rather than serving as broadly accessible review platforms, these services are better known as global streaming platforms or cinephile communities, introducing films through user-curated lists that can be shared with others.
+
+
+                </p>
+				
+				<div class="common-image-block" style="     text-align: center;">
+                    <div class="image"><img src="../assets/images/2026-09/global-eng/global0901_02.webp" srcset="../assets/images/2026-09/global-eng/global0901_02-600w.webp 600w, ../assets/images/2026-09/global-eng/global0901_02.webp 964w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global-eng/global0901_02.webp" alt="global0901_02" width="964" height="432" class="js-image-full-layer" loading="lazy"></div><br>
+					<div class="image"><img src="../assets/images/2026-09/global-eng/global0901_03.webp" srcset="../assets/images/2026-09/global-eng/global0901_03-600w.webp 600w, ../assets/images/2026-09/global-eng/global0901_03.webp 680w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global-eng/global0901_03.webp" alt="global0901_03" width="680" height="746" class="js-image-full-layer" loading="lazy"></div>	
+					<p class="common-desc" style="text-align: center;">Korean films ranked by rating on Letterboxd (top) and FilmAffinity (Courtesy of the Letterboxd and FilmAffinity websites)</p>
+                </div>
+				
+				
+				
+				
+				<p class="n-common-title-2">
+                Korean Films in the Spotlight on Global Rating Platforms
+                </p>
+				<p class="n-common-text-1">
+                What, then, does the landscape of Korean cinema look like across different countries? Although each platform uses a different method to rank films based on ratings and review scores, IMDb, Letterboxd, and FilmAffinity all allow users to view Korean films ranked by rating. Their rankings are as follows.
+                </p>
+				
+				<br><br>
+				<br>
+				
+				<div class="card-container">
+  <!-- 상단 컬러 박스 헤더 영역 -->
+  <div class="card-header-bar">
+    <h2 class="table-title">Top 10 Korean Films by Rating on Major International Film-Rating Websites</h2>
+  </div>
+
+  <div class="card-body">
+    <!-- 모바일 세로형 스태킹(Stacking) 최적화 그리드 -->
+    <div class="ranking-grid">
+      
+      <!-- ==============================
+           1. FilmAffinity 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-fa">
+        <!-- 실서버 업로드 시 교체: <img src="filmaffinity-logo-png_seeklogo-651518.png" alt="FilmAffinity"> -->
+        <img src="../assets/images/2026-09/global-eng/global0901_06.webp" alt="FilmAffinity" width="118" height="64" loading="lazy">
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">Parasite <span class="movie-score">(7.9 / 71K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">Oldboy <span class="movie-score">(7.8 / 75K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">Castaway on the Moon <span class="movie-score">(7.7 / 10K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">3-Iron <span class="movie-score">(7.7 / 34K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">The Handmaiden <span class="movie-score">(7.6 / 19K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">Spring, Summer, Fall, Winter and Spring <span class="movie-score">(7.6 / 22K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">Memories of Murder <span class="movie-score">(7.6 / 30K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">Hope(2013) <span class="movie-score">(7.5 / 0.8K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">A Moment to Remember <span class="movie-score">(7.4 / 1.7K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">Oasis <span class="movie-score">(7.4 / 1.7K)</span></div>
+      </div>
+
+      <!-- ==============================
+           2. Letterboxd 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-lb">
+        <!-- 실서버 업로드 시 교체: <img src="letterboxd-logo-v-pos-rgb-1000px_2.png" alt="Letterboxd"> -->
+        <img src="https://a.ltrbxd.com/logos/letterboxd-logo-v-pos-rgb.svg" alt="Letterboxd">
+      </div>
+       <div class="grid-item lb-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">Parasite <span class="movie-score">(4.5 / 5.8M)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">Memories of Murder <span class="movie-score">(4.4 / 1.1M)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">The Handmaiden <span class="movie-score">(4.4 / 858K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">Oldboy <span class="movie-score">(4.4 / 1.7M)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">Hope(2013) <span class="movie-score">(4.2 / 58K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">A Taxi Driver <span class="movie-score">(4.2 / 125K)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">Joint Security Area <span class="movie-score">(4.2 / 95K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">Poetry <span class="movie-score">(4.2 / 39K)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">Silenced <span class="movie-score">(4.2 / 93K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">Mother <span class="movie-score">(4.2 / 203K)</span></div>
+      </div>
+	  
+      <!-- ==============================
+           3. IMDb 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-imdb">
+        <!-- 실서버 업로드 시 교체: <img src="imdblogo.jpg" alt="IMDb"> -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="IMDb">
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">The Eighth Sense <span class="movie-score">(8.6 / 2.2K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">Parasite <span class="movie-score">(8.5 / 1.2M)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">Oldboy <span class="movie-score">(8.3 / 731K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">Hope(2013) <span class="movie-score">(8.2 / 12K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">The Handmaiden <span class="movie-score">(8.1 / 208K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">Memories of Murder <span class="movie-score">(8.1 / 274K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">Miracle in Cell No.7 <span class="movie-score">(8.1 / 26K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">A Moment to Remember <span class="movie-score">(8.1 / 28K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">Silenced <span class="movie-score">(8.0 / 28K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">Spring, Summer, Fall, Winter and Spring <span class="movie-score">(8.0 / 91K)</span></div>
+      </div>
+
+    </div>
+
+    <!-- 하단 주석 영역 -->
+    <div class="table-footer">
+      <p>* Format: Film title / Rating / Number of respondents</p>
+      <p>* Maximum rating: FilmAffinity—10; Letterboxd—5; IMDb—10</p>
+      <p>* IMDb rankings include only films with at least 1,000 respondents</p>
+      <p>* “K” denotes one thousand, and “M” denotes one million</p>
+    </div>
+  </div>
+
+</div>
+				
+				<br><br>
+
+
+				<p class="n-common-text-1">
+                Before examining the global landscape of Korean cinema in earnest, it is necessary to establish a clear set of criteria. Among “Korean-produced content,” this analysis considers only films produced in Korea. This is because, if the platforms’ rankings were applied without adjustment, K-pop content and series distributed through global platforms would have overwhelmingly higher average ratings. Numerous BTS documentaries rank highly on both IMDb and Letterboxd. Although these works have high ratings thanks to the devotion of their fandom, they were excluded because they are documentaries—or concert films—rather than narrative films. Series distributed by Netflix, Disney+, and other platforms also rank highly in both audience interest and ratings, but were excluded as well. By rating alone, some of these works rank even higher on Letterboxd than <span style="font-style:italic;">Parasite</span> (2019, Bong Joon Ho), which has received ratings from five million users. However, because their reach is strongly influenced by the distribution power of global streaming platforms, including them would not be appropriate for examining the landscape of Korean cinema. <br><br>
+
+Viewed according to these criteria, films by Bong Joon Ho, led by <span style="font-style:italic;">Parasite</span>, and those by Park Chan-wook, led by <span style="font-style:italic;">Oldboy</span> (2003), clearly enjoy both popularity and critical acclaim across all platforms. Films that have received international recognition naturally have greater visibility, attracting larger audiences and, consequently, more respondents. Independent and arthouse films that have attracted attention through screenings at international film festivals also receive considerable attention alongside commercial films. This tendency is particularly pronounced on IMDb, which has a relatively long history and a large global user base. Even independent films introduced through international film festivals, such as <span style="font-style:italic;">Self-Referential Traverse: Zeitgeist</span> and <span style="font-style:italic;">Engagement</span> (2015, Kim Gok and Kim Seon), <span style="font-style:italic;">Dear Dolphin</span> (2013, Kang Jin-a), and <span style="font-style:italic;">Jamsil</span> (2018, Lee Wan-min), have been rated by around 100 users, although this remains a very small sample. <br><br>
+
+The rankings also show that “social criticism,” a theme long associated with Korean cinema, remains highly relevant. When Korean films were gaining particular prominence overseas in the 2010s, the media and critics often observed that “many Korean films are critical of society and history.” Indeed, Hwang Dong-hyuk’s <span style="font-style:italic;">Silenced</span> (2011) ranks among the top 10 Korean films on both Letterboxd and IMDb. <span style="font-style:italic;">Hope</span> (2013, Lee Joon-ik), which was inspired by a true story, also received high ratings on both platforms, although its sample size is relatively small compared with those of other films. Films depicting tragic chapters in Korean history, such as <span style="font-style:italic;">Memories of Murder</span> (2003, Bong Joon Ho) and <span style="font-style:italic;">A Taxi Driver</span> (2017, Jang Hoon), likewise appear across the rankings. Similarly, <span style="font-style:italic;">A Moment to Remember</span> (2004, John H. Lee), which embodies another hallmark of Korean cinema—‘shinpa’, or highly sentimental melodrama—ranks highly on both IMDb and FilmAffinity. This suggests that global audiences may be more receptive to this element than Korean audiences. <br><br>
+
+By contrast, many well-known films that surpassed 10 million admissions in Korea were difficult to find near the top of global rating-platform rankings. For the most part, only films with a strong genre identity or a prominent director—such as <span style="font-style:italic;">Taegukgi: The Brotherhood of War</span> (2004, Kang Je-gyu), <span style="font-style:italic;">The Host</span> (2006, Bong Joon Ho), <span style="font-style:italic;">Train to Busan</span> (2016, Yeon Sang-ho), <span style="font-style:italic;">A Taxi Driver</span>, and <span style="font-style:italic;">Parasite</span>—achieved both high ratings and widespread recognition. Meanwhile, some of Korea’s biggest box-office hits, including <span style="font-style:italic;">The Admiral: Roaring Currents</span> (2014, Kim Han-min), <span style="font-style:italic;">The King’s Warden</span> (Jang Hang-jun), <span style="font-style:italic;">Extreme Job</span> (2019, Lee Byeong-heon), and the two-part <span style="font-style:italic;">Along with the Gods</span> series (2017–2018, Kim Yong-hwa), failed to rank highly in either ratings or recognition. Conversely, films such as <span style="font-style:italic;">Forgotten</span> (2017, Jang Hang-jun), <span style="font-style:italic;">Burning</span> (2018, Lee Chang-dong), and <span style="font-style:italic;">Broker</span> (2022, Hirokazu Kore-eda) enjoyed greater popularity or higher ratings abroad than their domestic box-office performance might suggest, apparently because their directors, actors, or distribution platforms helped them gain global recognition. These examples suggest that the gap between domestic box-office performance and global reception may stem not simply from differences in audience preferences, but also from disparities in recognition between Korea and overseas markets.
+
+
+                </p>
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global-eng/global0901_04e.webp" srcset="../assets/images/2026-09/global-eng/global0901_04e-600w.webp 600w, ../assets/images/2026-09/global-eng/global0901_04e.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global-eng/global0901_04e.webp" alt="global0901_04e" width="1000" height="1000" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">Clockwise from top left: Ratings for <span style="font-style:italic;">The King’s Warden, Salmokji</span>, <span style="font-style:italic;">No Other Choice</span>, <br class="pc-only">and <span style="font-style:italic;">Colony</span> on global film-rating platforms (Courtesy of Showbox and CJ ENM)</p>
+                </div>
+				
+
+				<p class="n-common-text-1">
+                These overall trends can be illustrated through <span style="font-style:italic;">Colony</span> (Yeon Sang-ho), which drew worldwide attention at this year’s Cannes Film Festival and opened in Korea in May. Since IMDb uses a 10-point scale, let us double the ratings on WATCHA PEDIA and Letterboxd, which use five-point scales, for ease of comparison. <span style="font-style:italic;">Colony</span> received similar ratings across the three platforms: 6.0 on WATCHA PEDIA, 6.6 on Letterboxd, and 6.5 on IMDb. Its Rotten Tomatoes Tomatometer score of 80% may appear somewhat higher, but its average rating of 6.8 is largely comparable. By contrast, for <span style="font-style:italic;">No Other Choice</span> (2025, Park Chan-wook), the score given by Korean viewers on WATCHA PEDIA is 7.0 when doubled, compared with 8.2 on Letterboxd and 7.5 on IMDb, indicating that it has been more favorably received by Letterboxd users. On Rotten Tomatoes, it has a Tomatometer score of 97% and an average rating of 8.3, suggesting that it appealed more strongly to critics and cinephiles than to general audiences. <br><br>
+
+On the French cinephile community SensCritique, works by Bong Joon Ho and Park Chan-wook occupy the highest positions, followed by films such as <span style="font-style:italic;">Hope</span> (2013) and <span style="font-style:italic;">The Chaser</span> (2008, Na Hong-jin). One particularly noteworthy entry is <span style="font-style:italic;">Swing Kids</span> (2018, Kang Hyoung-chul), which ranks 11th. Although it has only around 180 respondents, it received an average rating of 7.6, placing it alongside <span style="font-style:italic;">Oasis</span> (2002, Lee Chang-dong), <span style="font-style:italic;">I Saw the Devil</span> (2010, Kim Jee-woon), <span style="font-style:italic;">1987: When the Day Comes</span> (2017, Jang Joon-hwan), and <span style="font-style:italic;">A Taxi Driver</span>. While there are relatively few reviews, users generally praised the film for bringing the exuberance of a musical to the tense backdrop of war. Lists featuring Bae Yong-kyun’s <span style="font-style:italic;">Why Has Bodhi-Dharma Left for the East? </span> (1989) and <span style="font-style:italic;">Breathless</span> (2009, Yang Ik-june) could also be found. <span style="font-style:italic;">Why Has Bodhi-Dharma Left for the East? </span> received a rating of 7.7 from 84 respondents, while <span style="font-style:italic;">Breathless</span> received a rating of 7.4 from approximately 1,800 respondents. Befitting a cinephile-oriented community where users share a diverse range of films through curated lists, works from a wide range of periods and production scales—including <span style="font-style:italic;">Feathers in the Wind</span> (2005, Song Il-gon), <span style="font-style:italic;">A Dirty Carnival</span> (2006, Yoo Ha), <span style="font-style:italic;">The Day He Arrives</span> (2011, Hong Sang-soo), <span style="font-style:italic;">The Truth Beneath</span> (2016, Lee Kyoung-mi), and the short film <span style="font-style:italic;">Sprout</span> (2013, Yoon Ga-eun)—also received ratings in the 7-point range. 
+
+                </p>
+				
+				<p class="n-common-title-2">
+                Big Data in High Demand
+                </p>
+				<p class="n-common-text-1">
+                WATCHA PEDIA, which emphasizes its algorithm-based system, is Korea’s leading film-rating platform. Covering a broad range of cultural content—including films, television series, books, and webtoons—WATCHA PEDIA analyzes a user’s tastes after they have rated a certain number of titles, along with the preferences of other users who have rated each title, and provides a “predicted rating” for works they have not yet watched. Although these predictions can sometimes be considerably off the mark, the platform has attracted a substantial user base since its launch in 2011 by emphasizing personalized recommendations. Its community features, however, have not expanded significantly since the platform’s launch. Aside from the ability to comment on other users’ ratings and collections—lists of works curated by individual users—it offers few other community features. <br><br>
+
+Kinolights, both a metasearch engine for streaming platforms and a rating platform, attempted to foster an active community before ultimately discontinuing the effort. Launched in 2018 as a platform for searching streaming services and reviewing individual titles, Kinolights sought to differentiate itself from the already-established WATCHA PEDIA by using a like-or-dislike rating system called the “traffic light” rather than star ratings. It subsequently added community features in 2022 and introduced a points system called “Popcorn” in 2023 in an effort to encourage participation, but announced the closure of its community service in 2025. Ultimately, Kinolights failed to achieve significant success in areas such as user acquisition. Seeking to strengthen its position as a rating platform, it plans to chart a new course by acquiring WATCHA, the company that operates WATCHA PEDIA, in 2026. Given that WATCHA is experiencing capital impairment, the acquisition is likely aimed primarily at integrating WATCHA PEDIA’s vast trove of film-rating data.
+
+                </p>
+				
+				
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global-eng/global0901_05.webp" srcset="../assets/images/2026-09/global-eng/global0901_05-600w.webp 600w, ../assets/images/2026-09/global-eng/global0901_05.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global-eng/global0901_05.webp" alt="global0901_05" width="1000" height="664" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">Kinolights is expected to utilize user data from WATCHA PEDIA, Korea’s leading star-rating platform, <br class="pc-only">as it pursues its acquisition of WATCHA (Courtesy of the WATCHA PEDIA website)</p>
+                </div>
+				
+				
+
+				<p class="n-common-text-1">
+                 Interest in this big data is not limited to Korea. Letterboxd, which currently has 30 million users worldwide, has been receiving acquisition offers from major Hollywood-based entertainment companies since July. According to reports, Sony Pictures, Paramount Pictures, and Netflix are among the companies competing to acquire Letterboxd. The company is valued at USD 250 million (KRW 342 billion).<sup><b>1)</b></sup> Although Letterboxd has not disclosed the cumulative volume of user activity on its platform, users reportedly submitted 600 million ratings and nearly 800 million logs in 2025 alone. <br><br>
+
+Letterboxd has attracted such intense attention from the global film industry because film-industry professionals have revealed that they use the platform through public or anonymous accounts, and because its recent surge in users has included a marked increase in Gen Z users in their teens and twenties. Letterboxd stated that, as of 2024, users aged 18–24 formed its largest age group, followed by those aged 25–35.<sup><b>2)</b></sup> In other words, Letterboxd is no longer merely a rating platform used by critics and a relatively limited group of cinephiles. It has established itself as a platform that clearly reveals the tastes and trends of a large audience—particularly young people who will shape the future of film and the theatrical exhibition industry.
+<br><br>
+The same is true of Korea’s WATCHA PEDIA. According to a 2021 interview, WATCHA PEDIA stated that its primary user group was those aged 15–25.<sup><b>3)</b></sup> Although five years have passed since then, users now in their twenties are likely still the most active group on the platform. As of 2024, approximately 730 million ratings had been recorded, representing a 14% increase from the previous year. In addition, the accuracy of its predicted ratings, as measured by RMSE (Root Mean Square Error), improved by approximately 1.14% from 2023 to 2024.<sup><b>4)</b></sup> At a time when algorithms are particularly important, WATCHA PEDIA’s key strength therefore remains effective. <br><br>
+
+Although Letterboxd and WATCHA PEDIA are similar, they differ in one crucial respect: how users log films. On WATCHA PEDIA, users must assign a star rating to record their impressions of a film. This can be regarded as a way of verifying that they have “watched” it. However, some users who merely wished to log films have consistently assigned them a particular rating regardless of their actual opinion, thereby distorting the overall data. Letterboxd, by contrast, allows users to log films without rating them. Although this makes a film’s overall reception less immediately apparent, it offers the advantage of allowing users to explore a wider range of opinions. <br><br>
+ 
+Ultimately, WATCHA PEDIA and Letterboxd have not only accumulated film-rating data from the general public but also created spaces where younger audiences can engage more deeply with film culture. In a world where Letterboxd hashtag campaigns and incisive one-line reviews by ordinary WATCHA PEDIA users can become memes, the two platforms have acquired influence that extends far beyond simply providing a place to rate and review films. To build momentum for the future, Korean cinema must likewise monitor film-rating platforms in Korea and abroad, embracing both the audiences who respond immediately in theaters and the energy of younger viewers who amplify those responses online.
+
+                </p>
+				<br><br>
+                <hr width="50" color="747474" align="left">
+              <p class="common-text-1 pc-only" style="    color: #8d8d8d;
+    font-size: 1.00vw;
+    font-weight: 500;
+    font-family: GmarketSans, sans-serif;
+    font-style: italic;
+    line-height: 1.43;">
+					<sup><b>1)</b></sup> Todd Spangler, “Netflix Among Parties in Early Talks to Buy Letterboxd: Report,” <span style="font-style:italic;">Variety </span>, June 10, 2026<br>
+					<sup><b>2)</b></sup> Mark Salisbury, “‘We’ve Elbowed Our Way into the Industry’: Charting the Rise of Cinephile Social Platform Letterboxd,” <span style="font-style:italic;">Screen Daily </span>, May 28, 2024<br>
+					<sup><b>3)</b></sup> Jung Min-kyung, “[Media MZ] WATCHA’s Competitor Is Not Netflix but ‘○○○○,’” <span style="font-style:italic;">Media Today </span>, May 8, 2021<br>
+					<sup><b>4)</b></sup> Lee Jung-hyun, “WATCHA PEDIA Tops Four Million Monthly Users as Rating Accuracy Improves,” <span style="font-style:italic;">Yonhap News </span>, February 6, 2025
+				</p>
+			<p class="common-text-1 m-only" style="    color: #8d8d8d;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: GmarketSans, sans-serif;
+    font-style: italic;
+    line-height: 1.43; margin-top: 10px;">
+					<sup><b>1)</b></sup> Todd Spangler, “Netflix Among Parties in Early Talks to Buy Letterboxd: Report,” <span style="font-style:italic;">Variety </span>, June 10, 2026<br>
+					<sup><b>2)</b></sup> Mark Salisbury, “‘We’ve Elbowed Our Way into the Industry’: Charting the Rise of Cinephile Social Platform Letterboxd,” <span style="font-style:italic;">Screen Daily </span>, May 28, 2024<br>
+					<sup><b>3)</b></sup> Jung Min-kyung, “[Media MZ] WATCHA’s Competitor Is Not Netflix but ‘○○○○,’” <span style="font-style:italic;">Media Today </span>, May 8, 2021<br>
+					<sup><b>4)</b></sup> Lee Jung-hyun, “WATCHA PEDIA Tops Four Million Monthly Users as Rating Accuracy Improves,” <span style="font-style:italic;">Yonhap News </span>, February 6, 2025
+				</p>
+				
+				<!--
+				<p class="n-common-text-1 pc-only" style="font-size: 1.3vw;
+    border: 2px solid;
+    padding: 10px;
+    width: 75%;
+    margin: 50px auto;
+    text-align: center;">
+                For English versions (Mar 2025 – Jun 2026), <br class="pc-only">please click “View English Translation” inside each article in the Korean section.
+                </p>
+				
+				<p class="n-common-text-1 m-only" style="font-size: 14px;
+    border: 1px solid;
+    padding: 10px;
+    margin: 50px auto;
+    text-align: center;">
+                For English versions (Mar 2025 – Jun 2026), please click “View English Translation” inside each article in the Korean section.
+                </p>
+				-->
+				
+				
+				
+				
+			
+				
+ 
+
+                <div class="common-tag-list">
+                    <span>Ratings</span>
+                    <span>StarRatings</span>
+                    <span>Letterboxd</span>
+                    <span>WATCHAPEDIA</span>
+                    <span>WATCHA</span>
+                    <span>IMDb</span>
+                    <span>RottenTomatoes</span>
+                    <span>FilmAffinity</span>	
+					<span>SensCritique</span>
+					<span>Kinolights</span>
+                </div>
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="../assets/images/common/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="../assets/images/common/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="../assets/images/common/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="../assets/images/common/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="../assets/images/common/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="../assets/images/common/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="../assets/images/common/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+        </article>
+
+        <section class="article-footer-band" aria-label="이전·다음 기사 및 관련기사">
+            <div class="ed-container">
+                <nav class="article-nav-bar" id="articleNavBar" aria-label="이전·다음 기사 이동"></nav>
+
+                <h2 class="related-heading">Related Articles</h2>
+                <div class="related-grid">
+                    <a href="./kofic-story.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/kofic-story/kofic09_00.webp" alt="함께 그리는 영화와 영상의 내일" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">KOFIC STORY</p>
+                            <h3 class="ed-card-title">함께 그리는 영화와 영상의 내일</h3>
+                            <p class="ed-card-deck">정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</p>
+                        </div>
+                    </a>
+                    <a href="./special-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-2/special0902_00.webp" alt="넥스트 디렉터스, 어떻게 지원할까?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ②</p>
+                            <h3 class="ed-card-title">넥스트 디렉터스, 어떻게 지원할까?</h3>
+                            <p class="ed-card-deck">해외 신인 감독 육성 정책 비교</p>
+                        </div>
+                    </a>
+                    <a href="./special-1.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-1/special0901_00.webp" alt="해외 선판매, 보다 진화하려면?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ①</p>
+                            <h3 class="ed-card-title">해외 선판매, 보다 진화하려면?</h3>
+                            <p class="ed-card-deck">달라진 한국영화의 수익 설계</p>
+                        </div>
+                    </a>
+                    <a href="./people-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/people-2/people0902_00.webp" alt="그날의 진실을 찾아 나서다" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">INTERVIEW ②</p>
+                            <h3 class="ed-card-title">그날의 진실을 찾아 나서다</h3>
+                            <p class="ed-card-deck">〈암살자(들)〉 허진호 감독</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ed-footer">
+        <div class="ed-container">
+            <div class="ed-footer-grid">
+                <div>
+                    <div class="ed-footer-logos">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
+                    </div>
+                    <p class="ed-footer-info">
+                        발행처 · 영화진흥위원회 (KOFIC)<br>
+                        (48058) 부산광역시 해운대구 수영강변대로 130(우동)<br>
+                        웹진 〈한국영화〉 2026년 9월호
+                    </p>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>SECTIONS</h3>
+                    <div class="ed-footer-links">
+                        <a href="../list.html?issue=2026-09&amp;section=NEWS">NEWS</a>
+                        <a href="../list.html?issue=2026-09&amp;section=SPECIAL">SPECIAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">INTERVIEW</a>
+                        <a href="../list.html?issue=2026-09&amp;section=CRITIC">CRITIC</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL">GLOBAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL(ENG)">GLOBAL (ENG)</a>
+                        <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">KOFIC STORY</a>
+                        <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">BOX OFFICE</a>
+                        <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">PRODUCTION</a>
+                    </div>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>READER DESK</h3>
+                    <div class="ed-footer-actions">
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalOpinion"><span>독자 의견 남기기</span><span aria-hidden="true">→</span></button>
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalNewsletter"><span>월간 뉴스레터 구독</span><span aria-hidden="true">→</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="ed-footer-bottom">
+                <span>COPYRIGHT © KOREAN FILM COUNCIL. ALL RIGHTS RESERVED.</span>
+                <span><a href="../index.html">메인으로 돌아가기 →</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full-Screen Issue Drawer -->
+    <div class="ed-drawer" id="issueDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="2026년 9월호 전체 목차 및 검색">
+        <div class="ed-drawer-panel">
+            <div class="ed-drawer-head">
+                <div class="ed-drawer-title">
+                    <span>ISSUE INDEX · VOL. 2026.09</span>
+                    2026년 9월호 전체 목차
+                </div>
+                <button type="button" class="ed-drawer-close" data-close-drawer aria-label="닫기">×</button>
+            </div>
+            <div class="ed-drawer-search">
+                <form data-search-form>
+                    <input type="search" placeholder="제목, 감독, 배우, 태그 검색..." aria-label="전체 기사 검색">
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+            <div class="ed-drawer-body">
+                <!-- drawer:start -->
+                <div class="ed-drawer-group">
+                    <h3>SPECIAL <a href="../list.html?issue=2026-09&amp;section=SPECIAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/special-2.html"><strong>넥스트 디렉터스, 어떻게 지원할까?</strong><span>해외 신인 감독 육성 정책 비교</span></a>
+                        <a href="../2026-09/special-1.html"><strong>해외 선판매, 보다 진화하려면?</strong><span>달라진 한국영화의 수익 설계</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>INTERVIEW <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/people-2.html"><strong>그날의 진실을 찾아 나서다</strong><span>〈암살자(들)〉 허진호 감독</span></a>
+                        <a href="../2026-09/people-1.html"><strong>지금이 더 어른이 필요한 시대</strong><span>〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>CRITIC <a href="../list.html?issue=2026-09&amp;section=CRITIC">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/reading-2.html"><strong>돈이 더 이상 쾌락을 주지 않는</strong><span>YES or NO · 〈타짜: 벨제붑의 노래〉</span></a>
+                        <a href="../2026-09/reading-1.html"><strong>외로움의 섬세한 시각화</strong><span>〈아가미〉</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>GLOBAL <a href="../list.html?issue=2026-09&amp;section=GLOBAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/global.html"><strong>그 영화가 더 좋다고?</strong><span>글로벌 평점 플랫폼으로 보는 한국영화</span></a>
+                        <a href="../2026-09/global-eng.html"><strong>You Think That Movie Is Better?</strong><span>Korean Films Through the Lens of Global Rating Platforms</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>KOFIC STORY <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/kofic-story.html"><strong>함께 그리는 영화와 영상의 내일</strong><span>정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>BOX OFFICE <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/boxoffice-4.html"><strong>9월 4주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-3.html"><strong>9월 3주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-2.html"><strong>9월 2주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-1.html"><strong>9월 1주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>PRODUCTION <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/production.html"><strong>8월 개봉작 살펴보기</strong><span>2026. 8. 한국영화 제작상황판</span></a>
+                    </div>
+                </div>
+                <!-- drawer:end -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="ed-lightbox" id="edLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
+        <button type="button" class="ed-lightbox-close" aria-label="확대 닫기">×</button>
+        <img src="" alt="">
+        <p class="ed-lightbox-caption"></p>
+    </div>
+
+    <!-- Modals -->
+    <div class="ed-modal" id="modalOpinion" aria-hidden="true" role="dialog" aria-modal="true" aria-label="독자 의견 보내기">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>독자 의견 남기기</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="opinion">
+                <input type="text" placeholder="성함 또는 닉네임" required>
+                <textarea placeholder="웹진 〈한국영화〉에 전하고 싶은 의견을 남겨 주세요." required></textarea>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">의견 보내기</button>
+            </form>
+        </div>
+    </div>
+    <div class="ed-modal" id="modalNewsletter" aria-hidden="true" role="dialog" aria-modal="true" aria-label="뉴스레터 구독 신청">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>월간 뉴스레터 구독</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="newsletter">
+                <input type="text" placeholder="이름" required>
+                <input type="email" placeholder="이메일 주소" required>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">무료 구독 신청</button>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" class="ed-top-btn" id="edTopBtn" aria-label="맨 위로 이동">↑</button>
+</body>
+</html>

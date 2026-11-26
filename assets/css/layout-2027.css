@@ -4428,3 +4428,71 @@ main [id] { scroll-margin-top: 0; }
    takes the same width (same formula as the photo, ratio set by the script), so
    it starts at the photo's left edge instead of out at the column edge */
 .article-main .common-desc[style*="--img-ar"] { max-inline-size: min(100%, calc(min(620px, 78vh) * var(--img-ar, 100))); margin-inline: auto; }
+
+/* Main page pair row in an issue without News: a still from the debated film
+   takes the other column, as tall as the debate beside it */
+.mk-pair .mk-debate-still { display: block; align-self: stretch; overflow: hidden; }
+.mk-pair .mk-debate-still img { display: block; inline-size: 100%; block-size: 100%; min-block-size: 420px; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.mk-pair .mk-debate-still:hover img { transform: scale(1.03); }
+@media (max-width: 1100px) {
+    .mk-pair .mk-debate-still img { block-size: auto; min-block-size: 0; aspect-ratio: 3 / 2; }
+}
+
+/* List page of a past issue: link to that issue's own main page, beside the count */
+.archive-kicker .archive-issue-home { margin-inline: auto 20px; }
+
+
+/* Other issues: the header's issue label opens the panel as a list of issues */
+.mk-issue-btn { padding: 0; background: none; border: 0; cursor: pointer; }
+.mk-issue-btn::after { content: ""; display: inline-block; inline-size: 7px; block-size: 7px; margin: 0 0 3px 8px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.mk-issue-btn:hover { color: var(--navy); }
+.ed-drawer-other { margin-inline-start: auto; padding: 0; background: none; border: 0; font-size: 15px; font-weight: 700; color: var(--ink); white-space: nowrap; cursor: pointer; }
+.ed-drawer-other:hover { color: var(--navy); }
+.ed-drawer.is-search .ed-drawer-other, .ed-drawer.is-issues .ed-drawer-other { display: none; }
+.ed-drawer.is-issues .ed-drawer-body, .ed-drawer.is-issues .ed-drawer-search, .ed-drawer.is-issues .ed-drawer-results { display: none; }
+.ed-drawer:not(.is-issues) .ed-drawer-issues { display: none; }
+.ed-drawer-issues { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 12px clamp(20px, 4vw, 36px) 48px; }
+.ed-drawer-issue { display: block; padding-block: 22px; border-block-end: 1px solid var(--mk-line); }
+.ed-drawer-issue strong { display: block; font-size: 30px; font-weight: 800; line-height: 1.2; letter-spacing: -0.045em; color: var(--ink); }
+.ed-drawer-issue span { display: block; margin-block-start: 6px; font-size: 15px; color: var(--ink-muted); }
+.ed-drawer-issue:hover strong { color: var(--navy); }
+
+/* Hover zoom: keep each zooming image on its own layer the whole time. Without
+   this the browser re-draws the image on the pixel grid when the transition
+   ends, and it visibly jumps sideways by a fraction of a pixel. */
+.mk-cover-card > img,
+.mk-interview-photo img,
+.mk-story-media img,
+.mk-quote-photo img,
+.mk-prod-poster,
+.mk-deep-photo img,
+.mk-plist-poster img,
+.mk-wr-photo img,
+.mk-wr-thumb img,
+.mk-debate-still img,
+.mk-news-photo img,
+.archive-card .ed-media img,
+.related-card .ed-media img { will-change: transform; backface-visibility: hidden; }
+
+
+/* List page: the issue is picked from a dropdown (plain text and a caret, in
+   line with the other controls of the row) */
+.seg-select {
+    appearance: none; -webkit-appearance: none;
+    margin: 0; padding: 0 22px 0 0; border: 0; border-radius: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%2317141f' stroke-width='2'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E") no-repeat right 2px center / 11px 7px;
+    font: inherit; font-size: 16px; font-weight: 800; line-height: 1.4; letter-spacing: -0.02em; color: var(--ink); cursor: pointer;
+}
+.seg-select:hover { color: var(--navy); }
+.seg-select { field-sizing: content; }
+
+
+/* Main page, PC: the quick menu is folded to its title while the cover is on
+   screen (set by the script), and can be opened by clicking the title */
+@media (min-width: 1101px) {
+    .mk-quick.is-folded .mk-quick-toggle { color: #fff; cursor: pointer; }
+    .mk-quick.is-folded .mk-quick-toggle::after { content: " +"; }
+    .mk-quick.is-folded.is-open .mk-quick-toggle::after { content: " –"; }
+    .mk-quick.is-folded:not(.is-open) { gap: 0; }
+    .mk-quick.is-folded:not(.is-open) .mk-quick-list { display: none; }
+}

@@ -222,6 +222,12 @@
             b.type = "button";
             b.addEventListener("click", () => opener.click());
         });
+        // Other issues, once there is more than one (the panel is built by magazine-2027.js)
+        if (window.KOFIC && window.KOFIC.issues.length > 1) {
+            const iss = add(document.createElement("button"), "지난 호 보기");
+            iss.type = "button";
+            iss.dataset.openDrawer = "issues";
+        }
         const top = add(document.createElement("button"), "맨 위로 ↑");
         top.type = "button";
         top.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -245,6 +251,25 @@
         });
         box.append(toggle, list);
         document.body.appendChild(box);
+        // Main page (PC): folded to its title while the cover is on screen, so it
+        // does not sit on the cover tiles; opens once the cover has scrolled past.
+        // (Clicking the title opens it early. CSS only folds it on wide screens.)
+        const cover = document.querySelector(".mk-cover");
+        if (cover) {
+            const sync = () => {
+                // Folded only while the open menu would sit on the cover: as soon
+                // as the cover's foot has risen above where the menu opens (the
+                // next section is coming in), it opens.
+                const folded = cover.getBoundingClientRect().bottom > window.innerHeight - 290;
+                if (folded !== box.classList.contains("is-folded")) {
+                    box.classList.toggle("is-folded", folded);
+                    box.classList.remove("is-open");
+                    toggle.setAttribute("aria-expanded", "false");
+                }
+            };
+            sync();
+            window.addEventListener("scroll", sync, { passive: true });
+        }
     }
     function initReadRail() {
         const main = document.querySelector(".article-main:not(.mk-prod-table)");

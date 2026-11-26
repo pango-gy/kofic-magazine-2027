@@ -68,7 +68,7 @@ ISSUES = [json.loads(read(f"data/{i}.json")) for i in SITE["issues"]]
 BY_ID = {i["id"]: i for i in ISSUES}
 CURRENT = BY_ID[SITE["current"]]
 SECTIONS = [s["id"] for s in SITE["sections"]]
-BUILD = time.strftime("%Y%m%d%H%M")
+BUILD = time.strftime("%Y%m%d%H%M%S")
 
 
 def base_section(sec):
@@ -94,6 +94,7 @@ def write_issue_data():
         "issues": [
             {
                 "id": i["id"], "label": i["label"], "title": i.get("title", i["label"]),
+                "main": os.path.exists(os.path.join(ROOT, i["id"], "index.html")),
                 "articles": [
                     {k: a[k] for k in ("file", "section", "label", "title", "shortTitle", "sub", "corner", "search") if a.get(k)}
                     for a in i["articles"]
@@ -197,6 +198,8 @@ def common(text, path, issue):
                   r"\g<1>" + issue["id"].replace("-", ".") + r"\g<2>" + issue["label"] + " 전체 목차", text)
     text = re.sub(r'aria-label="[^"]*전체 목차 및 검색"', f'aria-label="{issue["label"]} 전체 목차 및 검색"', text)
     text = re.sub(r'aria-label="메뉴와 [^"]*목차 열기"', f'aria-label="메뉴와 {month} 목차 열기"', text)
+    text = re.sub(r"(웹진 〈한국영화〉 )\d+년 \d+월호", r"\g<1>" + issue["label"], text)
+    text = re.sub(r"\d+년 \d+월호( · 총 \d+편 수록)", issue["label"] + r"\1", text)
     # article counts
     n = len(issue["articles"])
     text = re.sub(r'(href="[^"]*list\.html[^"]*">)전체 \d+편 보기', r"\g<1>" + f"전체 {n}편 보기", text)

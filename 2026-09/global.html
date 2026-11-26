@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../assets/images/common/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>그 영화가 더 좋다고? | 웹진 한국영화</title>
+    <meta name="description" content="* 본문의 데이터와 수치는 2026년 8월 31일 기준으로 한다.">
+
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preload" as="image" href="../assets/images/2026-09/global/global0901_00.webp" type="image/webp" fetchpriority="high">
+    <link href="../assets/css/magazine-2027.css?v=20261126105505" rel="stylesheet">
+    <link href="../assets/css/layout-2027.css?v=20261126105505" rel="stylesheet">
+    <style>
+
+	
+ /* 3D 카드형 컨테이너 (웹진 본문 폭에 맞춘 1020px) */
+  .card-container {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+   /* max-width: 1020px;*/
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06); 
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    color: #333;
+  }
+  
+  /* 상단 컬러 박스 헤더 영역 (다크 슬레이트 그레이 적용) */
+  .card-header-bar {
+    background: #475569; 
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 30px;
+    text-align: center;
+  }
+
+  .table-title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+
+  /* 내부 콘텐츠 영역 패딩 */
+  .card-body {
+    padding: 30px;
+  }
+
+  /* -------------------------------------
+     [모바일 최적화] 가로 스크롤 래퍼 
+  -------------------------------------- */
+  .chart-wrapper-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px; 
+  }
+
+  /* -------------------------------------
+     CSS Grid 기반 반응형 레이아웃
+  -------------------------------------- */
+  .ranking-grid {
+    display: grid;
+    /* PC: 3개의 열, 11개의 행(헤더 1 + 랭킹 10)을 생성하여 셀 높이 완벽 동기화 */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, auto);
+    grid-auto-flow: column; 
+    gap: 0 15px; 
+  }
+
+  /* 플랫폼 헤더 공통 */
+  .grid-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+
+  /* 각 헤더 하단 포인트 컬러 라인 */
+  .header-fa { border-bottom: 4px solid #3b82f6; }
+  .header-lb { border-bottom: 4px solid #22c55e; }
+  .header-imdb { border-bottom: 4px solid #eab308; }
+
+  /* 실제 이미지 로고 스타일 (80px 확대 유지) */
+  .grid-header img {
+    height: 80px; 
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* IMDb 로고 모서리 둥글게 */
+  .header-imdb img { 
+    border-radius: 8px; 
+  }
+
+  /* -------------------------------------
+     랭킹 아이템 스타일
+  -------------------------------------- */
+  .grid-item {
+    display: flex;
+    align-items: center; 
+    padding: 14px 12px;
+    color: #1e293b;
+  }
+
+  /* 각 테마별 지그재그(얼터네이팅) 배경색 적용 */
+  .fa-odd { background-color: #f1f5f9; }
+  .fa-even { background-color: #e2e8f0; }
+  
+  .lb-odd { background-color: #ecfdf5; }
+  .lb-even { background-color: #d1fae5; }
+  
+  .imdb-odd { background-color: #fffbeb; }
+  .imdb-even { background-color: #fef08a; }
+
+  /* 텍스트 폰트 설정 */
+  .rank-num { 
+    font-weight: 800; 
+    font-size: 18px;
+    min-width: 18px; 
+    text-align: right;
+  }
+  .movie-info { 
+    flex: 1; 
+    font-weight: 700; 
+    font-size: 18px;
+    margin-left: 6px;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+  .movie-score { 
+    font-weight: 500; 
+    color: #475569; 
+    white-space: nowrap; 
+    font-size: 16px;
+    margin-left: 2px;
+  }
+
+  /* 하단 주석 영역 (왼쪽 정렬) */
+  .table-footer {
+    margin-top: 25px;
+    font-size: 13.5px;
+    color: #475569;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    text-align: left;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+  .table-footer p { margin: 4px 0; }
+
+  /* -------------------------------------
+     [모바일 최적화] 스와이프 없는 수직 뷰(Stacking) 변환
+  -------------------------------------- */
+  @media (max-width: 768px) {
+    .rank-num { 
+    font-size: 16px;
+	}
+	 .movie-info ,
+	 .movie-info 
+	 { 
+    font-size: 14px;
+	}
+    body { padding: 0px; }
+    .card-body { padding: 25px 20px; } 
+    .card-header-bar { padding: 16px 20px; }
+    .table-title { font-size: 18px; line-height: 1.3; }
+    
+    .ranking-grid {
+      grid-template-columns: 1fr; /* 1단으로 변경 */
+      grid-template-rows: auto;
+      grid-auto-flow: row; /* 위에서 아래 순서로 나열 */
+      gap: 0;
+    }
+
+    /* 모바일에서 각 플랫폼이 나눠질 때의 여백 확보 */
+    .grid-header { margin-top: 40px; padding-bottom: 15px; }
+    .header-fa { margin-top: 0; } /* 첫 번째는 상단 여백 제외 */
+    
+    /* 모바일에서는 로고 크기를 살짝 조절 */
+    .grid-header img { height: 65px; }
+  }
+	
+	@media screen and (max-width: 780px) {
+    
+	
+	.sub-visual {
+	 height: 70vh;
+	}
+	}
+    
+    </style>
+    <script defer src="../assets/js/issue-data.js?v=20261126105505"></script>
+    <script defer src="../assets/js/magazine-2027.js?v=20261126105505"></script>
+    <script defer src="../assets/js/layout-2027.js?v=20261126105505"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+    <header class="ed-header mk-header">
+        <div class="mk-bar">
+            <button type="button" class="mk-icon-btn mk-menu-btn" data-open-drawer="index" aria-label="메뉴와 9월호 목차 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            <a href="../index.html" class="mk-brand" aria-label="웹진 한국영화 홈">
+                <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" class="mk-brand-logo" width="1350" height="284">
+            </a>
+            <div class="mk-actions">
+                <span class="mk-issue-label">2026년 9월호</span>
+                <button type="button" class="mk-icon-btn mk-search-btn" data-open-drawer="search" aria-label="기사 검색 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+            </div>
+            <div class="ed-progress-bar" aria-hidden="true"></div>
+        </div>
+        <nav class="mk-nav" aria-label="주요 섹션 메뉴">
+            <div class="mk-nav-track">
+                <a href="../list.html?issue=2026-09&amp;section=NEWS" class="mk-nav-link">NEWS</a>
+                <a href="../list.html?issue=2026-09&amp;section=SPECIAL" class="mk-nav-link">SPECIAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=INTERVIEW" class="mk-nav-link">INTERVIEW</a>
+                <a href="../list.html?issue=2026-09&amp;section=CRITIC" class="mk-nav-link">CRITIC</a>
+                <a href="../list.html?issue=2026-09&amp;section=GLOBAL" class="mk-nav-link" aria-current="page">GLOBAL</a>
+                <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY" class="mk-nav-link">KOFIC STORY</a>
+                <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE" class="mk-nav-link">BOX OFFICE</a>
+                <a href="../list.html?issue=2026-09&amp;section=PRODUCTION" class="mk-nav-link">PRODUCTION</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <nav class="article-breadcrumb" aria-label="기사 위치">
+                    <a href="../index.html">HOME</a>
+                    <span class="sep">/</span>
+                    <a href="../list.html?issue=2026-09&amp;section=GLOBAL">GLOBAL</a>
+                </nav>
+
+                <h1 class="article-title">그 영화가 더 좋다고?</h1>
+                <p class="article-subtitle">글로벌 평점 플랫폼으로 보는 한국영화</p>
+
+                <div class="article-meta-bar">
+                    <div class="article-byline-group">
+                        <div class="article-date-row">
+                            <span>2026-09-07</span>
+                            <span class="article-read-time" id="articleReadTime">읽는 중…</span>
+                        </div>
+                        <div class="article-credits"><span>글 _ 성찬얼(씨네플레이 부편집장)</span></div>
+                    </div>
+
+                    <div class="reader-toolbar" aria-label="독자 읽기 환경 설정">
+                        <div class="reader-pill-group reader-size" role="group" aria-label="글자 크기">
+                            <span class="reader-size-label" aria-hidden="true">글자 크기</span>
+                            <button type="button" class="reader-btn" data-set-scale="sm" aria-pressed="false" aria-label="글자 작게">가</button>
+                            <button type="button" class="reader-btn is-active" data-set-scale="md" aria-pressed="true" aria-label="글자 보통">가</button>
+                            <button type="button" class="reader-btn" data-set-scale="lg" aria-pressed="false" aria-label="글자 크게">가</button>
+                        </div>
+                        <button type="button" class="reader-share-btn" data-copy-link>링크 복사</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <figure class="article-cover">
+            <div class="article-cover-frame">
+                <img src="../assets/images/2026-09/global/global0901_00.webp" alt="그 영화가 더 좋다고?" fetchpriority="high">
+                <!-- Key points, set over the foot of the cover photo -->
+                <ol class="article-keypoints" aria-label="기사 핵심 요약">
+                    <li>흥행 순위와 다른 글로벌 평점…해외선 작가주의·사회 비판 영화 집중</li>
+                    <li>레터박스드 인수전이 입증한 1020 세대 평가 가치</li>
+                    <li>글로벌 확장 노리는 한국영화, 해외 관객 반응을 미래 동력 삼아야</li>
+                </ol>
+            </div>
+            <figcaption class="article-cover-caption">(제공=레터박스드 홈페이지, 쇼박스)</figcaption>
+        </figure>
+
+        <article class="article-main">
+
+
+               <p class="n-common-text-1 mt-60">
+                 <b>* 본문의 데이터와 수치는 2026년 8월 31일 기준으로 한다.</b>
+                </p>
+
+                <p class="n-common-text-1 mt-60">
+                 한국영화는 이제 한국만의 것이 아니다. 자국민으로서 ‘꺼드럭’거리는 것이 아니다. 근래 영화계 동향에서 드러난 부분이다. 2007년 영화 &lt;디워&gt;가 2026년 넷플릭스에서 최초 온라인동영상서비스(OTT) 공개된 것만으로 넷플릭스 인기 영화 순위에 이름을 올리고, 영화 &lt;호프&gt;가 9월 9일 배급사 네온(NEON)을 통해 북미에 개봉하는 상황은 한국영화가 전 세계 영화인과 대중의 이목을 모으고 있다는 증거이다. 이처럼 한국영화가 더 이상 한국 시장만을 타깃으로 해선 안 되는 상황, 그리고 그런 변화를 빠르게 캐치하기 위해선 각국의 관객·평단의 반응을 읽을 수 있는 통로가 필요하다. 글로벌 시대가 온 만큼, 전 세계 관객·평단의 평가를 반영하는 플랫폼도 다양하게 서비스되고 있다. 국내 관객들에게도 익숙한 플랫폼부터 개성을 가진 각국의 플랫폼 안에서 한국영화는 어떤 식으로 ‘지형도’를 형성하고 있을까.
+                </p>
+				
+				<p class="n-common-title-2">
+                별점 방식과 호불호 방식의 차이 
+                </p>
+				<p class="n-common-text-1">
+                  일반적으로 영화 평가라고 하면 별점, 한 줄 평 시스템을 떠올리게 된다. 영화 별점과 한 줄 평은 2시간 내외의 영화를 짧은 시간 내에 효과적으로 작품의 특징 및 완성도를 전할 수 있는 방식으로 애용됐다. 그러나 해당 시스템은 영화의 장르적 특징이나 대중적인 취향 내에서의 역할까지 담아내기 어려웠고, 그래서 ‘호’와 ‘불호’, 이분법적 평가를 평균치로 내는 호불호 시스템이 근래에 조명받고 있다. 현재 서비스 중인 플랫폼 중 별점 평가 시스템은 IMDb가 가장 대표적이며 후자인 호불호 시스템은 이른바 ‘썩토지수’로 유명해진 로튼 토마토(Rotten Tomatoes)가 있다.<br><br>
+
+별점 시스템은 별 5개, 혹은 10점을 만점으로 점수를 주는 방식이고 호불호 시스템은 작품이 좋은지, 나쁜지 두 가지 선택지로 답변의 평균치를 내는 방식이다. 전자가 절대적인 수치, 즉 완성도를 중시하는 시스템이라면 후자는 전반적인 호감도를 중시하는 방식이라고 볼 수 있다. 별점보다 상대적으로 포용력이 있는 수치가 나오기 때문에 영화의 문턱을 좀 더 낮추는 방식으로 활용한다. 앞서 말한 ‘로튼 토마토’는 미국영화 티켓 판매 및 영화 정보를 제공하는 판당고(Fandango)를 운영 중인 버선트 미디어(Versant media)에서 서비스 중이며 국내 멀티플렉스 영화관 체인 CJ CGV도 ‘골든 에그’라는 호불호 시스템을 기용했다.
+                </p>
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global/global0901_01.webp" srcset="../assets/images/2026-09/global/global0901_01-600w.webp 600w, ../assets/images/2026-09/global/global0901_01.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global/global0901_01.webp" alt="global0901_01" width="1000" height="618" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">대표적인 글로벌 영화 별점 플랫폼 IMDb의 한국영화들<br class="m-only">(제공=IMDb 홈페이지)</p>
+                </div>
+				
+				<p class="n-common-text-1">
+                  이외에도 일반적인 평가 시스템을 벗어난 플랫폼이자 2010년대 이후 각광받고 있는 레터박스드(Letterboxd)는 별점 시스템을 기본으로 하고 있으나 필수가 아니다. 별점을 주지 않고도 리뷰를 남길 수 있다는 점이 특징이다. 또 최근 별점이나 평가 시스템에 환멸을 느낀 이들이 주목하고 있는 시네마스코어(Cinema Score)는 영화 개봉 직후 실제 관객에게 설문조사지를 주고 답변을 받아 A~F 중 하나로 등급을 매기는 방식이다. 북미 지역이 대상이므로 세계 전역 영화 평가는 알 수 없으나 실관객 평가라는 점에서는 신뢰를 얻고 있다.<br><br>
+
+또 북미 지역 외에 각 지역을 대표하는 영화 커뮤니티, 평점 플랫폼은 유럽의 경우 스페인을 기반으로 한 필름어피니티(FilmAffinity), 프랑스의 알로씨네(Allocine) 등이 거점이다. 여기에 MUBI, 센스크리틱(SensCritique, 상스크리티크) 같은 시네필 중심 커뮤니티가 형성돼 있다. 이 커뮤니티들은 접근성이 좋은 평가 플랫폼보다는 글로벌 OTT 플랫폼, 시네필 커뮤니티로 위상이 있는 편이며 ‘리스트’를 구성해 공유하는 방식으로 영화를 소개한다.
+                </p>
+				
+				<div class="common-image-block" style="     text-align: center;">
+                    <div class="image"><img src="../assets/images/2026-09/global/global0901_02.webp" srcset="../assets/images/2026-09/global/global0901_02-600w.webp 600w, ../assets/images/2026-09/global/global0901_02.webp 964w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global/global0901_02.webp" alt="global0901_02" width="964" height="432" class="js-image-full-layer" loading="lazy"></div><br>
+					<div class="image"><img src="../assets/images/2026-09/global/global0901_03.webp" srcset="../assets/images/2026-09/global/global0901_03-600w.webp 600w, ../assets/images/2026-09/global/global0901_03.webp 680w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global/global0901_03.webp" alt="global0901_03" width="680" height="746" class="js-image-full-layer" loading="lazy"></div>	
+					<p class="common-desc" style="text-align: center;">레터박스드(위)와 필름어피니티 내 한국영화의 평점 순위<br class="m-only">(제공=레터박스드, 필름어피니티 홈페이지)</p>
+                </div>
+				
+				
+				
+				
+				<p class="n-common-title-2">
+                 글로벌 평점 플랫폼에서 주목한 한국영화
+                </p>
+				<p class="n-common-text-1">
+                그럼 한국영화는 각국에서 어떤 지형도를 그리고 있을까. 플랫폼마다 평점, 평가지수에 따른 순위를 제공하는 방법이 다르나 한국영화 기준으로 평점 순위를 볼 수 있게 지원하는 IMDb와 레터박스드, 필름어피니티를 기준으로 보면 순위는 아래와 같다.
+                </p>
+				
+				<br><br>
+				<br>
+				
+				<div class="card-container">
+  <!-- 상단 컬러 박스 헤더 영역 -->
+  <div class="card-header-bar">
+    <h2 class="table-title">해외 주요 영화 평점 사이트 내 한국영화 평점 순위 Top 10</h2>
+  </div>
+
+  <div class="card-body">
+    <!-- 모바일 세로형 스태킹(Stacking) 최적화 그리드 -->
+    <div class="ranking-grid">
+      
+      <!-- ==============================
+           1. FilmAffinity 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-fa">
+        <!-- 실서버 업로드 시 교체: <img src="filmaffinity-logo-png_seeklogo-651518.png" alt="FilmAffinity"> -->
+        <img src="../assets/images/2026-09/global/global0901_06.webp" alt="FilmAffinity" width="118" height="64" loading="lazy">
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">기생충 <span class="movie-score">(7.9 / 71K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">올드보이 <span class="movie-score">(7.8 / 75K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">김씨표류기 <span class="movie-score">(7.7 / 10K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">빈집 <span class="movie-score">(7.7 / 34K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">아가씨 <span class="movie-score">(7.6 / 19K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">봄 여름 가을 겨울 그리고 봄 <span class="movie-score">(7.6 / 22K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">살인의 추억 <span class="movie-score">(7.6 / 30K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">소원 <span class="movie-score">(7.5 / 0.8K)</span></div>
+      </div>
+      <div class="grid-item fa-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">내 머리 속의 지우개 <span class="movie-score">(7.4 / 1.7K)</span></div>
+      </div>
+      <div class="grid-item fa-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">오아시스 <span class="movie-score">(7.4 / 1.7K)</span></div>
+      </div>
+
+      <!-- ==============================
+           2. Letterboxd 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-lb">
+        <!-- 실서버 업로드 시 교체: <img src="letterboxd-logo-v-pos-rgb-1000px_2.png" alt="Letterboxd"> -->
+        <img src="https://a.ltrbxd.com/logos/letterboxd-logo-v-pos-rgb.svg" alt="Letterboxd">
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">기생충 <span class="movie-score">(4.5 / 5.8M)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">살인의 추억 <span class="movie-score">(4.4 / 1.1M)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">아가씨 <span class="movie-score">(4.4 / 858K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">올드보이 <span class="movie-score">(4.4 / 1.7M)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">소원 <span class="movie-score">(4.2 / 58K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">택시운전사 <span class="movie-score">(4.2 / 125K)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">공동경비구역 JSA <span class="movie-score">(4.2 / 95K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">시 <span class="movie-score">(4.2 / 39K)</span></div>
+      </div>
+      <div class="grid-item lb-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">도가니 <span class="movie-score">(4.2 / 93K)</span></div>
+      </div>
+      <div class="grid-item lb-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">마더 <span class="movie-score">(4.2 / 203K)</span></div>
+      </div>
+
+      <!-- ==============================
+           3. IMDb 컬럼 그룹
+      =============================== -->
+      <div class="grid-header header-imdb">
+        <!-- 실서버 업로드 시 교체: <img src="imdblogo.jpg" alt="IMDb"> -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg" alt="IMDb">
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">1.</span>
+        <div class="movie-info">여덟 번째 감각 <span class="movie-score">(8.6 / 2.2K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">2.</span>
+        <div class="movie-info">기생충 <span class="movie-score">(8.5 / 1.2M)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">3.</span>
+        <div class="movie-info">올드보이 <span class="movie-score">(8.3 / 731K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">4.</span>
+        <div class="movie-info">소원 <span class="movie-score">(8.2 / 12K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">5.</span>
+        <div class="movie-info">아가씨 <span class="movie-score">(8.1 / 208K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">6.</span>
+        <div class="movie-info">살인의 추억 <span class="movie-score">(8.1 / 274K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">7.</span>
+        <div class="movie-info">7번방의 선물 <span class="movie-score">(8.1 / 26K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">8.</span>
+        <div class="movie-info">내 머리 속의 지우개 <span class="movie-score">(8.1 / 28K)</span></div>
+      </div>
+      <div class="grid-item imdb-odd">
+        <span class="rank-num">9.</span>
+        <div class="movie-info">도가니 <span class="movie-score">(8.0 / 28K)</span></div>
+      </div>
+      <div class="grid-item imdb-even">
+        <span class="rank-num">10.</span>
+        <div class="movie-info">봄 여름 가을 겨울 그리고 봄 <span class="movie-score">(8.0 / 91K)</span></div>
+      </div>
+
+    </div>
+
+    <!-- 하단 주석 영역 -->
+    <div class="table-footer">
+      <p>* 형식: 작품명 / 평점 / 응답자</p>
+      <p>* 평점 만점: 필름어피니티 10점, 레터박스드 5점, IMDb 10점</p>
+      <p>* IMDb의 경우 응답자 1천 명 이상 기준</p>
+      <p>* K는 1천, M은 1백만을 뜻함</p>
+    </div>
+  </div>
+
+</div>
+				
+				<br><br>
+
+
+				<p class="n-common-text-1">
+                 먼저 본격적으로 한국영화 지형도를 논하기 앞서 정확한 기준을 세우자면, ‘한국 제작 콘텐츠’ 중 순수하게 ‘한국에서 제작한 영화’를 기준으로 잡았다. 실제 평가 플랫폼의 순위를 고스란히 적용한다면 K팝과 글로벌 플랫폼으로 배급한 시리즈가 압도적으로 평균 별점이 높기 때문이다. IMDb, 레터박스드 모두 BTS의 다큐멘터리가 순위권에 다수 포진하고 있다. 팬덤의 사랑을 받는 작품들이기에 평점이 높으나, 영화가 아닌 다큐멘터리(공연 실황)이므로 제외했다. 또한 넷플릭스나 디즈니+ 등이 배급한 시리즈 역시 굉장한 관심도와 높은 평점으로 순위에 들었으나 배제했다. 평점만 본다면 레터박스드에서 500만 명이 별점을 남긴 &lt;기생충&gt;(2019, 봉준호)보다도 높은 작품이 있지만, 글로벌 OTT의 배급력을 기반으로 한 영향력을 반영하는 것은 한국영화의 지형도를 살펴보기에 적절치 않아 제외했다.<br><br>
+
+이 기준에서 순위를 다시 본다면, &lt;기생충&gt;을 중심으로 한 봉준호 감독, &lt;올드보이&gt;(2003)를 중심으로 한 박찬욱 감독의 작품이 확실히 어느 플랫폼에서건 인기와 호평 모두 가져간다. 글로벌 단위에서 호명된 작품들이 인지도가 있으니 본 사람이 많고, 그만한 많은 응답자가 확보된다. 또한 글로벌 영화제 초청 등으로 화제를 모은 독립예술영화가 상업영화만큼 많이 주목받고 있다. 특히 상대적으로 역사가 길고 글로벌 사용자가 많은 IMDb에서 그 경향이 짙게 보이는데, &lt;자가당착: 시대정신과 현실참여&gt;(2015, 김곡·김선), &lt;환상속의 그대&gt;(2013, 강진아), &lt;누에치던 방&gt;(2018, 이완민) 등 국제영화제를 통해서 소개된 독립영화에도 매우 적은 수지만 100명 내외의 관객이 별점을 매겼다.<br><br>
+
+특히 과거 한국영화를 상징하는 ‘사회 비판’ 키워드가 해당 순위에 유효하다는 것을 알 수 있다. 한국영화가 해외에서 특히 대두되던 2010년대에 “한국영화는 사회, 역사에 비판적인 작품이 많다”는 언론이나 평단의 분석이 많았는데, 실제로 황동혁 감독의 &lt;도가니&gt;(2011)가 레터박스드와 IMDb 모두 한국영화 기준 BEST 10 안에 들었다. 타 작품 대비 상대적으로 표본 수가 적은 편이나 실제 사건을 모티프로 한 &lt;소원&gt;(2013, 이준익) 역시 레터박스드와 IMDb에서 모두 높은 점수를 받았다. &lt;살인의 추억&gt;(2003, 봉준호)이나 &lt;택시운전사&gt;(2017, 장훈) 같은 역사의 비극적인 단면을 담은 영화들도 공통적으로 순위에 올랐다. 비슷하게 한국영화를 상징하는 키워드 ‘신파’ 역시 &lt;내 머리 속의 지우개&gt;(2004, 이재한)가 IMDb, 필름어피니티 양쪽에서 순위권에 들어 글로벌 관객들은 국내 관객보다 해당 요소를 관대하게 받아들이는 것을 볼 수 있다.<br><br>
+
+반면 국내에서 천만 관객을 돌파한 유명 영화들은 글로벌 평점 플랫폼에선 이름을 보기 어려웠다. &lt;태극기 휘날리며&gt;(2004, 강제규), &lt;괴물&gt;(2006, 봉준호), &lt;부산행&gt;(2016, 연상호), &lt;택시운전사&gt;와 &lt;기생충&gt; 등 대체로 장르적인 색채가 강한 작품이나 감독의 이름값이 있는 영화만이 좋은 평가와 높은 인지도를 가졌으며, &lt;명량&gt;(2014, 김한민), &lt;왕과 사는 남자&gt;(장항준), &lt;극한직업&gt;(2019, 이병헌), &lt;신과함께&gt; 2부작(2017~2018, 김용화) 등 국내에서 가장 높은 흥행 성적을 기록한 영화는 평점이나 인지도 모두 상위권에 들지 못했다. 반면 정반대로 &lt;기억의 밤&gt;(2017, 장항준), &lt;버닝&gt;(2018, 이창동), &lt;브로커&gt;(2022, 고레에다 히로카즈) 등은 국내 흥행 성적 대비 인기나 평점이 좋았는데 감독이나 배우, 플랫폼의 힘을 통해 글로벌 단위의 인지도를 확보한 영향으로 보인다. 이런 사례를 보아 국내 흥행과 글로벌 반응의 간극은 단순히 관객의 취향 차이라기보다는 국내와 국외의 인지도 차이에서 발생하는 요소로도 볼 수 있다.
+                </p>
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global/global0901_04.webp" srcset="../assets/images/2026-09/global/global0901_04-600w.webp 600w, ../assets/images/2026-09/global/global0901_04.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global/global0901_04.webp" alt="global0901_04" width="1000" height="1000" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">왼쪽 위부터 시계방향으로 &lt;왕과 사는 남자&gt; &lt;살목지&gt;<br class="m-only"> &lt;어쩔수가없다&gt; &lt;군체&gt;의 글로벌 평점 플랫폼 평점<br>(제공=쇼박스, CJ ENM)</p>
+                </div>
+				
+
+				<p class="n-common-text-1">
+                이런 전반적인 경향을 올해 칸국제영화제로 전 세계에 이목을 끌고 국내에 5월 개봉한 &lt;군체&gt;(연상호)를 사례로 살펴볼 수 있다. IMDb가 10점 만점을 기준으로 하기에, 편의를 위해 5점 만점인 왓챠피디아와 레터박스드의 평점을 2배로 곱해 보자. 세 플랫폼에서 &lt;군체&gt;가 받은 평점은 각각 6.0(왓챠피디아), 6.6(레터박스드), 6.5(IMDb)로 엇비슷하다. 로튼 토마토 역시 토마토 지수는 80%로 다소 우위로 보이나, 토마토 지수의 평점을 확인하면 6.8로 거의 대동소이하다. 반면 &lt;어쩔수가없다&gt;(2025, 박찬욱)를 보면 마찬가지로 2배로 곱했을 때 왓챠피디아 내 국내 관객 점수는 7점인데 반해 레터박스드에선 8.2점, IMDb에선 7.5점으로 레터박스드의 사용자들에게 좀 더 호평받고 있음을 알 수 있다. 로튼 토마토로는 토마토 지수가 97%, 평점이 8.3으로 상대적으로 대중보다는 평단이나 시네필 관객에게 호감을 샀다고 볼 수 있다.<br><br>
+
+프랑스의 시네필 커뮤니티 센스크리틱의 경우도 봉준호 감독, 박찬욱 감독의 작품이 최고 상위권을 차지하고 &lt;소원&gt;, &lt;추격자&gt;(2008, 나홍진) 등이 나열되는 가운데 독특하게도 11위에 &lt;스윙키즈&gt;(2018, 강형철)가 이름을 올린 것이 주목할 만하다. 물론 응답자가 180여 명밖에 되지 않는 적은 수이지만 &lt;오아시스&gt;(2002, 이창동), &lt;악마를 보았다&gt;(2010, 김지운), &lt;1987&gt;(2017, 장준환), &lt;택시운전사&gt;와 함께 평균 7.6점을 받았다. 리뷰 수가 많지 않으나 대체로 전쟁이란 긴장감 넘치는 배경에서 뮤지컬의 흥을 가져온 것을 장점으로 보았다. 한편 배용균 감독의 &lt;달마가 동쪽으로 간 까닭은?&gt;(1989)이 포함된 리스트, &lt;똥파리&gt;(2009, 양익준) 등이 기재된 리스트도 발견할 수 있었다. &lt;달마가 동쪽으로 간 까닭은?&gt;은 84명의 응답자에 7.7점, &lt;똥파리&gt;는 1천800여 명의 응답자에 7.4점으로 기록됐다. 이외에도 시네필 중심 커뮤니티이자 리스트로 다양한 작품을 공유하는 공간답게 &lt;깃&gt;(2005, 송일곤), &lt;비열한 거리&gt;(2006, 유하), &lt;북촌방향&gt;(2011, 홍상수), &lt;비밀은 없다&gt;(2016, 이경미), 단편 &lt;콩나물&gt;(2013, 윤가은) 등 시대나 작품 규모에 상관없이 다양한 작품이 7점대에 포진했다.
+                </p>
+				
+				<p class="n-common-title-2">
+                빅데이터를 향한 러브콜 
+                </p>
+				<p class="n-common-text-1">
+                국내의 평점 플랫폼은 알고리즘 시스템을 내세운 왓챠피디아(WATCHA PEDIA)가 대표적이다. 영화부터 드라마, 책, 웹툰 등 문화 전반에 평점 시스템을 도입한 왓챠피디아는 사용자가 일정 편수의 별점을 더하면 해당 사용자와 작품별 평점을 준 사용자들의 취향 등을 분석해 관람하지 않은 작품의 ‘예상 별점’을 제시한다. 예상 별점이 크게 엇나가는 사례도 있으나 사용자 맞춤형 큐레이션을 내세워 2011년 론칭 후 상당히 많은 사용자를 모았다. 다만 커뮤니티 기능은 론칭 이후로도 크게 확장하지 않았다. 타 사용자의 별점과 컬렉션(사용자가 직접 작품을 골라 선정하는 리스트)에 댓글 기능이 있는 것을 제외하고 별다른 커뮤니티 기능은 존재하지 않는다.<br><br>
+
+국내의 또 다른 평점 플랫폼 키노라이츠(Kinolights)는 커뮤니티 기능 활성화를 시도하다가 중단했다. OTT 플랫폼 서비스 검색 및 작품별 평가 플랫폼을 표방해 2018년 론칭한 키노라이츠는 선발주자 왓챠피디아와의 차별화를 위해 별점이 아닌 ‘신호등’이란 호불호 평가를 시스템으로 사용했다. 이후 2022년 커뮤니티 기능을 추가하고 2023년 ‘팝콘’이란 포인트 제도로 활성화를 노렸지만, 2025년 커뮤니티 서비스 종료를 선언했다. 결과적으로 키노라이츠는 사용자 확보 등에서 큰 성적을 얻지 못했고, 평가 플랫폼으로서 위치를 공고히 하기 위해 2026년 왓챠피디아를 서비스하는 기업 왓챠를 인수하는 것으로 새로운 활로를 틀 예정이다. 키노라이츠가 자본 잠식 상황인 왓챠를 인수하는 것에 있어선 수많은 영화 평가 데이터의 통합이 주 목적일 가능성이 높다.
+                </p>
+				
+				
+				
+				
+				<div class="common-image-slide-1">
+                    <div class="slides-wrap">
+                        <div class="image"><img src="../assets/images/2026-09/global/global0901_05.webp" srcset="../assets/images/2026-09/global/global0901_05-600w.webp 600w, ../assets/images/2026-09/global/global0901_05.webp 1000w" sizes="(max-width: 780px) 100vw, 800px" data-full-src="../assets/images/2026-09/global/global0901_05.webp" alt="global0901_05" width="1000" height="664" class="js-image-full-layer" style=" margin: auto;" loading="lazy"></div>
+                    </div>
+                    <p class="common-desc" style="text-align: center;">키노라이츠는 왓챠 인수 추진으로, 왓챠가 운영하는 국내 대표적인 별점 플랫폼 왓챠피디아의 사용자 데이터를 활용할 것으로 보인다<br class="pc-only">(제공=왓챠피디아 홈페이지)</p>
+                </div>
+				
+				
+
+				<p class="n-common-text-1">
+                 이 빅데이터에 대한 관심은 국내에만 한정되지 않는다. 현재 총 사용자 수 3천만 명에 달하는 레터박스드는 지난 7월부터 할리우드에 근거를 둔 글로벌 영화사들의 러브콜을 받고 있다. 보도에 따르면 소니 픽쳐스, 파라마운트 픽처스, 넷플릭스 등이 레터박스드를 인수하기 위해 각축전을 벌이고 있다. 레터박스의 기업 가치는 2억 5천만 달러(한화 3천420억 원)로 평가받고 있다.<sup><b>1)</b></sup> 현재 레터박스드는 사용자들의 누적 평가 총량을 공개하지 않았으나 2025년 연간 활동량만 별점 6억 개, 기록 8억 개에 육박한다고 한다.<br><br>
+
+
+특히 레터박스드가 이토록 글로벌 영화산업의 시선을 한 몸에 받는 건 영화계 인사들이 공개 계정이나 비밀 계정으로 사용 중이라고 밝힌 것과 최근 급격한 사용자 증가에서 10~20대 젠지(Gen Z) 세대가 확실히 늘어났기 때문이다. 레터박스드 측은 2024년 기준 사용자 가운데 18~24세가 가장 많으며 25~35세가 그다음으로 많다고 밝혔다.<sup><b>2)</b></sup> 즉 레터박스드는 단순히 평단이나 다소 협소한 시네필 관객층만이 사용하는 평점 플랫폼이 아니라 다수, 그것도 앞으로의 영화와 극장산업을 책임지는 젊은 층의 취향과 경향을 또렷하게 드러내는 플랫폼으로 자리매김했다고 볼 수 있다.<br><br>
+
+
+이는 국내 왓챠피디아 또한 마찬가지다. 2021년 인터뷰에 따르면 왓챠피디아는 15~25세가 사용자의 주 연령층<sup><b>3)</b></sup>이라고 밝혔다. 당시로부터 5년이 지났음에도 현재 20대가 가장 활발하게 활동하고 있을 가능성이 있다. 마찬가지로 2024년 기준 7억 3천여 건의 평가가 기록됐으며 전년 대비 14% 증가했다. 여기에 예상 별점의 정확도를 알아보는 RMSE(Root Mean Square Error) 또한 2023년 대비 2024년에 1.14%가량 정확<sup><b>4)</b></sup>해졌으니 알고리즘이 특히 중요한 현시점에 왓챠피디아의 무기는 여전히 기능하고 있다.<br><br>
+
+
+다만 레터박스드와 왓챠피디아는 비슷하면서도 가장 중요한 부분에서 차이를 보이는데, 기록의 방식이다. 왓챠피디아는 영화에 대한 감상을 기록하기 위해선 반드시 별점을 넣어야 한다. 영화를 ‘봤다’고 인증하는 절차라고 볼 수 있다. 기록만 희망하는 일부 사용자가 별점을 실제 평가와 별개로 특정 점수로 고정하는 등 전체 데이터를 오염시킨 경우가 있기 때문이다. 레터박스드는 반대로 별도의 평가 없이 영화를 기록할 수 있어서 단번에 작품의 평가가 드러나지 않는 반면 다양한 의견을 살펴보기에 적합하다는 이점이 있다.<br><br>
+
+ 
+결과적으로 왓챠피디아와 레터박스드는 일반 대중의 영화 평가 데이터를 확보한 것은 물론이고, 젊은 관객층이 영화라는 문화를 조금이라도 더 향유할 수 있게끔 터를 마련해 준 셈이다. 레터박스드의 해시태그 운동이나 왓챠피디아 일반 유저의 촌철살인 한 줄 평이 밈이 되는 세상에서 두 플랫폼은 단순히 영화 평가를 돌아보는 서비스 이상의 힘을 가졌다. 한국영화 역시 앞으로의 동력을 위해선 국내외 영화 평가 플랫폼을 살펴보며 극장에서 즉각적인 반응을 보여주는 관객층과 온라인으로 뻗어 나가는 젊은 관객의 동력 모두를 아우를 필요가 있다.
+                </p>
+				<br><br>
+                <hr width="50" color="747474" align="left">
+              <p class="common-text-1 pc-only" style="    color: #8d8d8d;
+    font-size: 1.00vw;
+    font-weight: 500;
+    font-family: GmarketSans, sans-serif;
+    font-style: italic;
+    line-height: 1.43;">
+					<sup><b>1)</b></sup> Todd Spangler, ‘Netflix Among Parties in Early Talks to Buy Letterboxd: Report’, Variety, 2026. 6. 10.<br>
+					<sup><b>2)</b></sup> Mark Salisbury, ‘“We’ve elbowed our way into the industry”: charting the rise of cinephile social platform Letterboxd’, Screen Daily, 2024. 5. 28.<br>
+					<sup><b>3)</b></sup> 정민경, ‘[미디어 MZ] 왓챠 경쟁자는 넷플릭스가 아닌 ‘○○○○’이다’, 미디어오늘, 2021. 5. 8.<br>
+					<sup><b>4)</b></sup> 이정현, ‘왓챠피디아 MAU 400만 돌파 ’눈길‘…예상 별점 정확도↑’, 연합뉴스, 2025. 2. 6.
+				</p>
+			<p class="common-text-1 m-only" style="    color: #8d8d8d;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: GmarketSans, sans-serif;
+    font-style: italic;
+    line-height: 1.43; margin-top: 10px;">
+					<sup><b>1)</b></sup> Todd Spangler, ‘Netflix Among Parties in Early Talks to Buy Letterboxd: Report’, Variety, 2026. 6. 10.<br>
+					<sup><b>2)</b></sup> Mark Salisbury, ‘“We’ve elbowed our way into the industry”: charting the rise of cinephile social platform Letterboxd’, Screen Daily, 2024. 5. 28.<br>
+					<sup><b>3)</b></sup> 정민경, ‘[미디어 MZ] 왓챠 경쟁자는 넷플릭스가 아닌 ‘○○○○’이다’, 미디어오늘, 2021. 5. 8.<br>
+					<sup><b>4)</b></sup> 이정현, ‘왓챠피디아 MAU 400만 돌파 ’눈길‘…예상 별점 정확도↑’, 연합뉴스, 2025. 2. 6.
+				</p>
+				
+ 
+
+                <div class="common-tag-list">
+                    <span>평점</span>
+                    <span>별점</span>
+                    <span>레터박스드</span>
+                    <span>왓챠피디아</span>
+                    <span>왓챠</span>
+                    <span>IMDb</span>
+                    <span>로튼토마토</span>
+                    <span>필름어피니티</span>	
+					<span>센스크리틱</span>	
+					<span>키노라이츠</span>	
+                </div>
+
+                    <div class="sub-sns">
+                        <div class="emotion">
+                            <button type="button" class="view-mobile"><img src="../assets/images/common/img-common-emotion-1.webp" alt="" width="40" height="36" loading="lazy">추천해요 <b class="tcnt1">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-2.webp" alt="" width="40" height="36" loading="lazy">공감해요 <b class="tcnt2">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-3.webp" alt="" width="40" height="36" loading="lazy">새로워요 <b class="tcnt3">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-4.webp" alt="" width="40" height="36" loading="lazy">감동이에요 <b class="tcnt4">0</b></button>
+                            <button type="button"><img src="../assets/images/common/img-common-emotion-5.webp" alt="" width="40" height="36" loading="lazy">흥미로워요 <b class="tcnt5">0</b></button>
+                        </div>
+                        <button type="button" class="btn-share" aria-label="공유하기"><img src="../assets/images/common/img-share.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <button type="button" class="btn-copy" aria-label="URL 복사"><img src="../assets/images/common/img-url-copy.webp" alt="" width="59" height="59" loading="lazy"></button>
+                        <div id="bottomSharePopup" class="share-popup">
+                            <button type="button" class="js-share-sns" data-platform="kakaotalk"><img src="../assets/images/common/icon-kakaotalk-32.webp" alt="카카오톡 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="naver"><img src="../assets/images/common/icon-naver-32.webp" alt="네이버 블로그 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="facebook"><img src="../assets/images/common/icon-facebook-32.webp" alt="페이스북 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                                <button type="button" class="js-share-sns" data-platform="twitter"><img src="../assets/images/common/icon-x-32.webp" alt="X 공유" width="32" height="32" fetchpriority="low" loading="lazy"></button>
+                        </div>
+        </article>
+
+        <section class="article-footer-band" aria-label="이전·다음 기사 및 관련기사">
+            <div class="ed-container">
+                <nav class="article-nav-bar" id="articleNavBar" aria-label="이전·다음 기사 이동"></nav>
+
+                <h2 class="related-heading">이번 호 함께 읽기</h2>
+                <div class="related-grid">
+                    <a href="./kofic-story.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/kofic-story/kofic09_00.webp" alt="함께 그리는 영화와 영상의 내일" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">KOFIC STORY</p>
+                            <h3 class="ed-card-title">함께 그리는 영화와 영상의 내일</h3>
+                            <p class="ed-card-deck">정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</p>
+                        </div>
+                    </a>
+                    <a href="./special-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-2/special0902_00.webp" alt="넥스트 디렉터스, 어떻게 지원할까?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ②</p>
+                            <h3 class="ed-card-title">넥스트 디렉터스, 어떻게 지원할까?</h3>
+                            <p class="ed-card-deck">해외 신인 감독 육성 정책 비교</p>
+                        </div>
+                    </a>
+                    <a href="./special-1.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/special-1/special0901_00.webp" alt="해외 선판매, 보다 진화하려면?" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">SPECIAL ①</p>
+                            <h3 class="ed-card-title">해외 선판매, 보다 진화하려면?</h3>
+                            <p class="ed-card-deck">달라진 한국영화의 수익 설계</p>
+                        </div>
+                    </a>
+                    <a href="./people-2.html" class="related-card">
+                        <div class="ed-media"><img src="../assets/images/2026-09/people-2/people0902_00.webp" alt="그날의 진실을 찾아 나서다" loading="lazy"></div>
+                        <div class="related-card-body">
+                            <p class="ed-kicker">INTERVIEW ②</p>
+                            <h3 class="ed-card-title">그날의 진실을 찾아 나서다</h3>
+                            <p class="ed-card-deck">〈암살자(들)〉 허진호 감독</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="ed-footer">
+        <div class="ed-container">
+            <div class="ed-footer-grid">
+                <div>
+                    <div class="ed-footer-logos">
+                        <img src="../assets/images/common/logo-c.svg" alt="웹진 한국영화" width="1350" height="284" loading="lazy">
+                        <img src="../assets/images/common/header-kofic.webp" alt="KOFIC 영화진흥위원회" width="126" height="44" loading="lazy">
+                    </div>
+                    <p class="ed-footer-info">
+                        발행처 · 영화진흥위원회 (KOFIC)<br>
+                        (48058) 부산광역시 해운대구 수영강변대로 130(우동)<br>
+                        웹진 〈한국영화〉 2026년 9월호
+                    </p>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>SECTIONS</h3>
+                    <div class="ed-footer-links">
+                        <a href="../list.html?issue=2026-09&amp;section=NEWS">NEWS</a>
+                        <a href="../list.html?issue=2026-09&amp;section=SPECIAL">SPECIAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">INTERVIEW</a>
+                        <a href="../list.html?issue=2026-09&amp;section=CRITIC">CRITIC</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL">GLOBAL</a>
+                        <a href="../list.html?issue=2026-09&amp;section=GLOBAL(ENG)">GLOBAL (ENG)</a>
+                        <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">KOFIC STORY</a>
+                        <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">BOX OFFICE</a>
+                        <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">PRODUCTION</a>
+                    </div>
+                </div>
+                <div class="ed-footer-col">
+                    <h3>READER DESK</h3>
+                    <div class="ed-footer-actions">
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalOpinion"><span>독자 의견 남기기</span><span aria-hidden="true">→</span></button>
+                        <button type="button" class="ed-footer-btn" data-open-modal="modalNewsletter"><span>월간 뉴스레터 구독</span><span aria-hidden="true">→</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="ed-footer-bottom">
+                <span>COPYRIGHT © KOREAN FILM COUNCIL. ALL RIGHTS RESERVED.</span>
+                <span><a href="../index.html">메인으로 돌아가기 →</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full-Screen Issue Drawer -->
+    <div class="ed-drawer" id="issueDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="2026년 9월호 전체 목차 및 검색">
+        <div class="ed-drawer-panel">
+            <div class="ed-drawer-head">
+                <div class="ed-drawer-title">
+                    <span>ISSUE INDEX · VOL. 2026.09</span>
+                    2026년 9월호 전체 목차
+                </div>
+                <button type="button" class="ed-drawer-close" data-close-drawer aria-label="닫기">×</button>
+            </div>
+            <div class="ed-drawer-search">
+                <form data-search-form>
+                    <input type="search" placeholder="제목, 감독, 배우, 태그 검색..." aria-label="전체 기사 검색">
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+            <div class="ed-drawer-body">
+                <!-- drawer:start -->
+                <div class="ed-drawer-group">
+                    <h3>SPECIAL <a href="../list.html?issue=2026-09&amp;section=SPECIAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/special-2.html"><strong>넥스트 디렉터스, 어떻게 지원할까?</strong><span>해외 신인 감독 육성 정책 비교</span></a>
+                        <a href="../2026-09/special-1.html"><strong>해외 선판매, 보다 진화하려면?</strong><span>달라진 한국영화의 수익 설계</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>INTERVIEW <a href="../list.html?issue=2026-09&amp;section=INTERVIEW">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/people-2.html"><strong>그날의 진실을 찾아 나서다</strong><span>〈암살자(들)〉 허진호 감독</span></a>
+                        <a href="../2026-09/people-1.html"><strong>지금이 더 어른이 필요한 시대</strong><span>〈인턴〉 제작사 앤솔로지스튜디오 최재원 총괄 프로듀서</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>CRITIC <a href="../list.html?issue=2026-09&amp;section=CRITIC">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/reading-2.html"><strong>돈이 더 이상 쾌락을 주지 않는</strong><span>YES or NO · 〈타짜: 벨제붑의 노래〉</span></a>
+                        <a href="../2026-09/reading-1.html"><strong>외로움의 섬세한 시각화</strong><span>〈아가미〉</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>GLOBAL <a href="../list.html?issue=2026-09&amp;section=GLOBAL">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/global.html"><strong>그 영화가 더 좋다고?</strong><span>글로벌 평점 플랫폼으로 보는 한국영화</span></a>
+                        <a href="../2026-09/global-eng.html"><strong>You Think That Movie Is Better?</strong><span>Korean Films Through the Lens of Global Rating Platforms</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>KOFIC STORY <a href="../list.html?issue=2026-09&amp;section=KOFIC%20STORY">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/kofic-story.html"><strong>함께 그리는 영화와 영상의 내일</strong><span>정책과 산업, 예술의 글로벌 테이블, 뤼미에르 서밋</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>BOX OFFICE <a href="../list.html?issue=2026-09&amp;section=BOX%20OFFICE">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/boxoffice-4.html"><strong>9월 4주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-3.html"><strong>9월 3주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-2.html"><strong>9월 2주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                        <a href="../2026-09/boxoffice-1.html"><strong>9월 1주차 위클리 박스오피스</strong><span>주간 박스오피스</span></a>
+                    </div>
+                </div>
+                <div class="ed-drawer-group">
+                    <h3>PRODUCTION <a href="../list.html?issue=2026-09&amp;section=PRODUCTION">전체 →</a></h3>
+                    <div class="ed-drawer-links">
+                        <a href="../2026-09/production.html"><strong>8월 개봉작 살펴보기</strong><span>2026. 8. 한국영화 제작상황판</span></a>
+                    </div>
+                </div>
+                <!-- drawer:end -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="ed-lightbox" id="edLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="이미지 확대 보기">
+        <button type="button" class="ed-lightbox-close" aria-label="확대 닫기">×</button>
+        <img src="" alt="">
+        <p class="ed-lightbox-caption"></p>
+    </div>
+
+    <!-- Modals -->
+    <div class="ed-modal" id="modalOpinion" aria-hidden="true" role="dialog" aria-modal="true" aria-label="독자 의견 보내기">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>독자 의견 남기기</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="opinion">
+                <input type="text" placeholder="성함 또는 닉네임" required>
+                <textarea placeholder="웹진 〈한국영화〉에 전하고 싶은 의견을 남겨 주세요." required></textarea>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">의견 보내기</button>
+            </form>
+        </div>
+    </div>
+    <div class="ed-modal" id="modalNewsletter" aria-hidden="true" role="dialog" aria-modal="true" aria-label="뉴스레터 구독 신청">
+        <div class="ed-modal-card">
+            <div class="ed-modal-head"><h3>월간 뉴스레터 구독</h3><button type="button" class="ed-drawer-close" data-close-modal aria-label="닫기">×</button></div>
+            <form class="ed-modal-form" data-modal-form="newsletter">
+                <input type="text" placeholder="이름" required>
+                <input type="email" placeholder="이메일 주소" required>
+                <button type="submit" class="ed-btn-accent" style="justify-content:center;">무료 구독 신청</button>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" class="ed-top-btn" id="edTopBtn" aria-label="맨 위로 이동">↑</button>
+</body>
+</html>
