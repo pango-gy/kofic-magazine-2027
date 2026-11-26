@@ -104,19 +104,19 @@ window.KOFIC = {
      "file": "reading-4.html",
      "section": "CRITIC",
      "label": "CRITIC ④ · WEEKLY REVIEW",
-     "title": "10월 마지막 주 개봉작, 평자들의 별점",
-     "sub": "〈아마존 활명수〉 외 7편",
+     "title": "10월 마지막 주 한국영화 개봉작 별점",
+     "sub": "〈아마존 활명수〉 외 5편",
      "corner": "WEEKLY REVIEW",
-     "search": "CRITIC ④ WEEKLY REVIEW 위클리 리뷰 별점 단평 아마존 활명수 롱레그스 럭키 아파트 최소한의 선의 허바디 하와이 연가 열개의 우물 극장판 고래와 나 이은선 이지혜 정시우 김형석 정유미"
+     "search": "CRITIC ④ WEEKLY REVIEW 위클리 리뷰 한국영화 별점 단평 아마존 활명수 럭키 아파트 최소한의 선의 하와이 연가 열개의 우물 극장판 고래와 나 이은선 이지혜 정시우 김형석 정유미"
     },
     {
      "file": "reading-3.html",
      "section": "CRITIC",
      "label": "CRITIC ③ · WEEKLY REVIEW",
-     "title": "10월 셋째 주 개봉작, 평자들의 별점",
-     "sub": "〈보통의 가족〉 외 7편",
+     "title": "10월 셋째 주 한국영화 개봉작 별점",
+     "sub": "〈보통의 가족〉 외 5편",
      "corner": "WEEKLY REVIEW",
-     "search": "CRITIC ③ WEEKLY REVIEW 위클리 리뷰 별점 단평 보통의 가족 더러운 돈에 손대지 마라 구룡성채 빚가리 페이퍼맨 잠자리 구하기 닥터 코토 진료소 이은선 이지혜 정시우 김형석 정유미"
+     "search": "CRITIC ③ WEEKLY REVIEW 위클리 리뷰 한국영화 별점 단평 보통의 가족 더러운 돈에 손대지 마라 빚가리 페이퍼맨 잠자리 구하기 이은선 이지혜 정시우 김형석 정유미"
     },
     {
      "file": "reading-2.html",

@@ -4514,3 +4514,49 @@ main [id] { scroll-margin-top: 0; }
 .mk-prod-grid .mk-prod-info > a:not(.mk-prod-title) { margin-block-start: 0; }
 .mk-plist > li { display: contents; }
 .mk-plist .mk-plist-item { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 4px; align-content: start; }
+
+/* Stars out of five, and no numbers (client, 2026-11): a big "3.5" read as a
+   low mark, so the score is shown by the stars alone. Same drawing as before
+   (mask cut-outs, a half is exactly half), five cells now. */
+.mk-wr-stars,
+.mk-wr-top .mk-wr-stars,
+.mk-wr-grid .mk-wr-item .mk-wr-stars,
+.article-main .wr-stars {
+    --sz: 22px;
+    --gap: 5px;
+    --whole: round(down, var(--score), 1);
+    position: relative;
+    display: inline-block;
+    flex: none;
+    inline-size: calc(5 * var(--sz) + 4 * var(--gap));
+    block-size: var(--sz);
+    font-size: 0;
+    background: #e6e5e2;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.2 6.6 7.2 1-5.2 5.1 1.2 7.2L12 18.1l-6.4 3.4 1.2-7.2L1.6 9.2l7.2-1z'/%3E%3C/svg%3E") 0 0 / var(--sz) var(--sz) space no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.2 6.6 7.2 1-5.2 5.1 1.2 7.2L12 18.1l-6.4 3.4 1.2-7.2L1.6 9.2l7.2-1z'/%3E%3C/svg%3E") 0 0 / var(--sz) var(--sz) space no-repeat;
+}
+.article-main .wr-stars::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    inline-size: calc(var(--whole) * (var(--sz) + var(--gap)) + (var(--score) - var(--whole)) * var(--sz));
+    background: var(--ink);
+}
+/* main page: big white stars on the lead photo, stars in place of the numbers on the rows */
+.mk-wr-top .mk-wr-over { inset: auto auto 28px 30px; }
+.mk-wr-top .mk-wr-over .mk-wr-stars { --sz: 52px; --gap: 9px; margin: 0; }
+.mk-wr-grid .mk-wr-item .mk-wr-stars { display: inline-block; --sz: 22px; --gap: 4px; }
+/* review page: the average and each reviewer's score, as stars */
+.article-main .wr-avg { align-items: center; gap: 14px; }
+.article-main .wr-avg .wr-stars { --sz: 34px; --gap: 6px; }
+.article-main .wr-score .wr-stars { --sz: 22px; --gap: 4px; }
+@media (max-width: 1100px) {
+    .mk-wr-top .mk-wr-over .mk-wr-stars { --sz: 40px; --gap: 7px; }
+}
+@media (max-width: 760px) {
+    .mk-wr-top .mk-wr-over { inset: auto auto 16px 18px; }
+    .mk-wr-top .mk-wr-over .mk-wr-stars { --sz: 32px; --gap: 5px; }
+    .mk-wr-grid .mk-wr-item .mk-wr-stars { --sz: 16px; --gap: 3px; }
+    .article-main .wr-avg .wr-stars { --sz: 28px; --gap: 5px; }
+    .article-main .wr-score .wr-stars { --sz: 18px; --gap: 3px; }
+}
