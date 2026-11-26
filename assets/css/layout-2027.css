@@ -4504,3 +4504,13 @@ main [id] { scroll-margin-top: 0; }
     .article-main .common-image-block-2 > .inner,
     .article-main .common-image-col-2 > .inner { grid-template-columns: var(--cols, repeat(2, minmax(0, 1fr))); }
 }
+
+/* Poster lists: the lines under the posters share their rows across the whole
+   row of films (subgrid), so when one film's date·genre line wraps to two
+   lines every title in that row still starts at the same height. */
+.mk-prod-grid li { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 4; row-gap: 4px; align-content: start; }
+.mk-prod-grid .mk-prod-info { display: contents; }
+.mk-prod-grid .mk-prod-poster-link { margin-block-end: 8px; }
+.mk-prod-grid .mk-prod-info > a:not(.mk-prod-title) { margin-block-start: 0; }
+.mk-plist > li { display: contents; }
+.mk-plist .mk-plist-item { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 4px; align-content: start; }
