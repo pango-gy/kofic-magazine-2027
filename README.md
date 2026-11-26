@@ -38,3 +38,13 @@ python3 scripts/build_site.py
 4. 생성 스크립트를 실행한다.
 
 지난 호는 `<호>/index.html`과 `list.html?issue=<호>`로 계속 볼 수 있고, 호가 둘 이상이면 목록 페이지에 호 선택이 나타난다.
+
+### 공유 미리보기 (카카오톡·슬랙 등)
+
+모든 페이지에 `og:`/`twitter:` 태그가 들어간다(`<!-- og:start -->` ~ `<!-- og:end -->`, 자동 생성). 이미지는 1200×630 JPG로 `assets/images/og/`에 둔다.
+
+```bash
+python3 scripts/build_og.py
+```
+
+기사나 호를 추가한 뒤 위 명령으로 빠진 이미지를 만들고, 이어서 `build_site.py`를 실행한다. 호 카드는 Chrome으로 그리므로 Chrome과 Pillow가 필요하다. 사이트 주소는 `data/site.json`의 `url`이다.

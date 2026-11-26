@@ -455,6 +455,17 @@
                 if (cap && box && !box.previousElementSibling && !box.nextElementSibling) cap.style.setProperty("--img-ar", (w / h).toFixed(4));
             });
 
+            // 7-0b. Two photos side by side: give each a share of the row in
+            // proportion to its shape, so both come out the same height
+            // (equal columns left a wide and a tall photo at different heights).
+            articleMain.querySelectorAll(".common-image-block-2 > .inner, .common-image-col-2 > .inner").forEach((row) => {
+                const imgs = Array.from(row.querySelectorAll(":scope > .image > img"));
+                if (imgs.length !== 2) return;
+                const ratios = imgs.map((img) => Number(img.getAttribute("width")) / Number(img.getAttribute("height")));
+                if (!ratios.every((r) => r > 0 && isFinite(r))) return;
+                row.style.setProperty("--cols", ratios.map((r) => `minmax(0, ${r.toFixed(4)}fr)`).join(" "));
+            });
+
             // 7-1. Production film cards: the spec text is "label: value<br>..."
             // with many empty fields (크랭크인/크랭크업). Rebuild it as one
             // label/value row per line and drop the empty ones.

@@ -4496,3 +4496,11 @@ main [id] { scroll-margin-top: 0; }
     .mk-quick.is-folded:not(.is-open) { gap: 0; }
     .mk-quick.is-folded:not(.is-open) .mk-quick-list { display: none; }
 }
+
+
+/* Two photos in a row end at the same height: the script sets --cols from the
+   photos' shapes (phones stack them, so this is for wider screens only) */
+@media (min-width: 681px) {
+    .article-main .common-image-block-2 > .inner,
+    .article-main .common-image-col-2 > .inner { grid-template-columns: var(--cols, repeat(2, minmax(0, 1fr))); }
+}

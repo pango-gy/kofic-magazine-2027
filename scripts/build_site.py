@@ -182,6 +182,48 @@ def add_drawer_markers(text):
     return text[: i + len(key)] + "\n                <!-- drawer:start -->\n                <!-- drawer:end -->\n            " + text[j:]
 
 
+# --------------------------------------------------------------------------- share preview
+def og_tags(text, path, issue):
+    """Open Graph / Twitter tags, so a shared link shows a picture, title and summary.
+    Pictures come from scripts/build_og.py (assets/images/og/…); absolute URLs are
+    required by the services that read these tags."""
+    base = SITE.get("url", "").rstrip("/")
+    if not base:
+        return text
+    name = os.path.basename(path)
+    art = next((a for a in issue["articles"] if a["file"] == name), None) if path.count("/") == 1 else None
+    title = re.search(r"<title>(.*?)</title>", text, re.S)
+    desc = re.search(r'<meta name="description" content="([^"]*)"', text)
+    title = html.unescape(title.group(1)).strip() if title else SITE["site"]
+    desc = html.unescape(desc.group(1)).strip() if desc else ""
+    image = f'{issue["id"]}.jpg'
+    kind, locale = "website", "ko_KR"
+    if art:
+        kind = "article"
+        image = f'{issue["id"]}/{name[:-5]}.jpg'
+        title = art["title"] + " | " + SITE["site"]
+        desc = art.get("deck") or art.get("sub") or desc
+        if art.get("lang") == "ENG":
+            locale = "en_US"
+    elif "/production/" in "/" + path:
+        image = f'{issue["id"]}/production.jpg'
+    if not os.path.exists(os.path.join(ROOT, "assets", "images", "og", image)):
+        image = f'{issue["id"]}.jpg'
+    url = base + "/" + path
+    tags = [
+        ("property", "og:type", kind), ("property", "og:site_name", SITE["site"]), ("property", "og:locale", locale),
+        ("property", "og:title", title), ("property", "og:description", desc), ("property", "og:url", url),
+        ("property", "og:image", f"{base}/assets/images/og/{image}"),
+        ("property", "og:image:width", "1200"), ("property", "og:image:height", "630"),
+        ("name", "twitter:card", "summary_large_image"), ("name", "twitter:title", title),
+        ("name", "twitter:description", desc), ("name", "twitter:image", f"{base}/assets/images/og/{image}"),
+    ]
+    block = "\n".join(f'    <meta {k}="{n}" content="{attr(v)}">' for k, n, v in tags if v)
+    if "<!-- og:start -->" in text:
+        return between(text, "og", block, "    ")
+    return re.sub(r'(<meta name="description" content="[^"]*"\s*/?>\n)', lambda m: m.group(1) + "    <!-- og:start -->\n" + block + "\n    <!-- og:end -->\n", text, count=1)
+
+
 # --------------------------------------------------------------------------- shared touches
 def common(text, path, issue):
     """Things every page gets: drawer, header label, counts, script tag, versions."""
@@ -214,6 +256,7 @@ def common(text, path, issue):
     if "issue-data.js" not in text:
         text = re.sub(r'(\n[ \t]*)(<script defer src="[^"]*assets/js/magazine-2027\.js)',
                       r'\1<script defer src="' + prefix + r'assets/js/issue-data.js"></script>\1\2', text, count=1)
+    text = og_tags(text, path, issue)
     # one cache-busting stamp for the shared files
     text = re.sub(r'((?:layout-2027|magazine-2027)\.(?:css|js)|issue-data\.js)(\?v=\w+)?"', r'\1?v=' + BUILD + '"', text)
     return text
@@ -275,7 +318,9 @@ def main():
     # root: the current issue's main page, and the list of every issue
     cur_main = f'{CURRENT["id"]}/index.html'
     if os.path.exists(os.path.join(ROOT, cur_main)):
-        if write("index.html", to_root(read(cur_main), CURRENT["id"])):
+        root = to_root(read(cur_main), CURRENT["id"])
+        root = re.sub(r'(<meta property="og:url" content=")[^"]*', r"\g<1>" + SITE.get("url", "").rstrip("/") + "/", root)
+        if write("index.html", root):
             changed.append("index.html")
     if write("list.html", common(build_list(read("list.html")), "list.html", CURRENT)):
         changed.append("list.html")
