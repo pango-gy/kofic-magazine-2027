@@ -3588,6 +3588,12 @@ body *:not(.mk-cover):not(.mk-cover *) { border-radius: 0 !important; }
 body, body * { word-break: keep-all; }
 body { overflow-wrap: break-word; }
 
+/* Phones: the boxes are too narrow for whole Korean words, so lines may break
+   inside a word rather than run off or get cut at the edge. */
+@media (max-width: 680px) {
+    body, body * { word-break: normal !important; overflow-wrap: anywhere; }
+}
+
 /* Phone / tablet header: the section menu is a plain line of words under the
    logo row — no grey box, no padding box. It runs to the right edge and fades
    there, so it reads as "more this way". One rule under the whole header. */
@@ -4495,6 +4501,16 @@ main [id] { scroll-margin-top: 0; }
     .mk-quick.is-folded.is-open .mk-quick-toggle::after { content: " –"; }
     .mk-quick.is-folded:not(.is-open) { gap: 0; }
     .mk-quick.is-folded:not(.is-open) .mk-quick-list { display: none; }
+}
+
+/* Laptop screens (MacBook and the like): no room beside the content, so the
+   quick menu always stays folded to its title until it is clicked */
+@media (min-width: 1101px) and (max-width: 1800px) {
+    .mk-quick .mk-quick-toggle { color: #fff; cursor: pointer; }
+    .mk-quick .mk-quick-toggle::after { content: " +"; }
+    .mk-quick.is-open .mk-quick-toggle::after { content: " –"; }
+    .mk-quick:not(.is-open) { gap: 0; }
+    .mk-quick:not(.is-open) .mk-quick-list { display: none; }
 }
 
 
