@@ -297,7 +297,7 @@
             return b;
         });
         const sync = () => {
-            const cur = document.documentElement.getAttribute("data-font-scale") || "md";
+            const cur = document.documentElement.getAttribute("data-font-scale") || "sm";
             mine.forEach((b) => {
                 const on = b.dataset.scale === cur;
                 b.classList.toggle("is-active", on);

@@ -513,9 +513,9 @@
             // 7b. Font Scale Switcher (sm / md / lg)
             const scaleBtns = document.querySelectorAll("[data-set-scale]");
             function applyScale(scale) {
-                const valid = ["sm", "md", "lg"].includes(scale) ? scale : "md";
+                const valid = ["sm", "md", "lg"].includes(scale) ? scale : "sm";
                 document.documentElement.setAttribute("data-font-scale", valid);
-                try { localStorage.setItem("kofic_font_scale_v2", valid); } catch (e) {}
+                try { localStorage.setItem("kofic_font_scale_v3", valid); } catch (e) {}
                 scaleBtns.forEach((b) => {
                     const active = b.dataset.setScale === valid;
                     b.classList.toggle("is-active", active);
@@ -523,7 +523,9 @@
                 });
             }
             scaleBtns.forEach((b) => b.addEventListener("click", () => applyScale(b.dataset.setScale)));
-            applyScale(localStorage.getItem("kofic_font_scale_v2") || "md");
+            // Default is the smallest step; a new storage key so earlier saved choices (which
+            // were written automatically on every visit) do not keep readers on the middle one
+            applyScale(localStorage.getItem("kofic_font_scale_v3") || "sm");
 
             // 7c. Estimated Reading Time
             const readTimeEl = document.getElementById("articleReadTime");

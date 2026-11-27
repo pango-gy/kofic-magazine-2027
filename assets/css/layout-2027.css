@@ -3597,8 +3597,6 @@ body { overflow-wrap: break-word; }
     body, body * { text-wrap: wrap !important; }
     /* Headings still break between words — a title split mid-word reads badly */
     h1, h2, h3, h4 { word-break: keep-all !important; }
-    /* Article body text: flush on both sides */
-    .article-main p { text-align: justify; }
 }
 
 /* Phone / tablet header: the section menu is a plain line of words under the
@@ -4080,7 +4078,7 @@ body { overflow-wrap: break-word; }
 /* Text size steps moved up one notch: what used to be "large" is now the
    default (middle 가). Small = the old default, large = one step beyond.
    (The saved choice uses a new storage key, so everyone starts on the middle.) */
-:root { --read-scale: 1.18; }
+:root { --read-scale: 1; }   /* default: the small step (set by the script) */
 html[data-font-scale="sm"] { --read-scale: 1; }
 html[data-font-scale="md"] { --read-scale: 1.18; }
 html[data-font-scale="lg"] { --read-scale: 1.36; }
