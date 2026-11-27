@@ -3591,7 +3591,14 @@ body { overflow-wrap: break-word; }
 /* Phones: the boxes are too narrow for whole Korean words, so lines may break
    inside a word rather than run off or get cut at the edge. */
 @media (max-width: 680px) {
-    body, body * { word-break: normal !important; overflow-wrap: anywhere; }
+    body, body * { word-break: normal !important; overflow-wrap: break-word; }
+    /* Lines run to the edge: "pretty"/"balance" wrapping shortens lines on
+       purpose (iOS Safari leaves big gaps on the right), so it is off here */
+    body, body * { text-wrap: wrap !important; }
+    /* Headings still break between words — a title split mid-word reads badly */
+    h1, h2, h3, h4 { word-break: keep-all !important; }
+    /* Article body text: flush on both sides */
+    .article-main p { text-align: justify; }
 }
 
 /* Phone / tablet header: the section menu is a plain line of words under the
